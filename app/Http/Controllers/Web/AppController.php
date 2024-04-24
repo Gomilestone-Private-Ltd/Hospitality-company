@@ -13,6 +13,6 @@ class AppController extends Controller
      * @return
      */
     public function index(){
-        return view('welcome');
+        return view('web.home');
     }
 }
