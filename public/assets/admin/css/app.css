@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url(/assets/admin/Fonts/Montserrat-Bold.woff) format('woff'),
+    url(/assets/admin/Fonts/Montserrat-Bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url(/assets/admin/Fonts/Montserrat-Medium.woff) format('woff'),
+    url(/assets/admin/Fonts/Montserrat-Medium.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url(/assets/admin/Fonts/Montserrat-Regular.woff) format('woff'),
+    url(/assets/admin/Fonts/Montserrat-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url(/assets/admin/Fonts/Montserrat-SemiBold.woff) format('woff'),
+    url(/assets/admin/Fonts/Montserrat-SemiBold.woff2) format('woff2');
+}
+
+
+.login-left-img {
+  width: 100%;
+  height: 100vh;
+}
+
+.card-body-box {
+  position: relative;
+  width: 100%;
+}
+
+.admin-login {
+  position: absolute;
+  top: 15%;
+  left: 36%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 570px;
+  padding: 50px 80px;
+}
+
+.logo-img {
+  text-align: center;
+}
+
+.logo-img img {
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+.login-left-box {
+  width: 100%;
+  height: 100vh;
+}
+
+.login-right-box {
+  background-color: rgb(225 228 232);
+  width: 100%;
+  height: 100vh;
+}
+
+.admin-heading {
+  font-family: 'Montserrat-SemiBold';
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.form-label-box {
+  font-family: 'Montserrat-Medium';
+  font-size: 16px;
+}
+
+.form-control-user {
+  font-family: 'Montserrat-Medium';
+  font-size: 14px !important;
+  border-radius: 7px !important;
+  height: 40px !important;
+}
+
+.login-btn {
+  background-color: #152257;
+  width: 100%;
+  padding: 8px 20px;
+  font-family: 'Montserrat-Medium';
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  font-family: 'Montserrat-Regular';
+  margin: 0px;
+}
+
+
+@media screen and (max-width:1400px) and (min-width:1250px) {
+  .admin-login {
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 500px;
+    padding: 40px 44px;
+  }
+}
+
+@media (max-width:767px) {
+  .admin-login {
+    position: absolute;
+    top: 15%;
+    left: 19%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 407px;
+    padding: 50px 34px;
+  }
+}
+@media (max-width:550px) {
+  .admin-login {
+    position: absolute;
+    top: 15%;
+    left: 14%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: auto;
+    padding: 50px 34px;
+  }
+}
