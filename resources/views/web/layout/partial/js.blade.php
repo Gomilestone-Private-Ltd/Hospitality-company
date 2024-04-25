@@ -48,6 +48,8 @@
     //Hide subcategory list and show category list
     function hideShowProductCategoryList(){
         $(".backProductByMaterial").click(function () {
+            //do Blank the div
+            $('#productByMaterial_menu').html('');
             $("#productByMaterial_menu").hide();
         });
         

@@ -11,8 +11,7 @@ function getSubCategoryMenu(categoryId){
                 success:function(response){
                     
                     if(response.status == 200){
-                       $('#productByMaterial_menu').html();
-                       $('#productByMaterial_menu').html(response.data);
+                      $('#productByMaterial_menu').html(response.data);
                     }else{
                         toastr.error(response.error);
                     }
