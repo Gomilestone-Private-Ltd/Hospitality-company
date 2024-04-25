@@ -15,8 +15,10 @@
         
         <div class="main-section-box col-12 col-md-12" style="margin-right: 4px; padding-right: 0px; padding-left: 0px;">
             <div class="heading-box">
-                <div class="backBtn">
-                    <h3 class="heading">Update Profile</h3>
+            <div class="backBtn">
+                    <a class="backBtn-icon" href="{{route('dashboard')}}"> 
+                        <img src="{{ url('/assets/admin/img/left.png') }}" alt=""></a>
+                        <h1 class="heading">Update Profile</h1>
                 </div>
 
             </div>

@@ -35,9 +35,9 @@
                         <img src="{{ asset($setting->logo ??'/assets/admin/logo.png') }}" alt="img">
                     </div>
                     
-                    <div class="">
+                    <!-- <div class="">
                         <h1 class="admin-heading"> Admin Login </h1>
-                    </div>
+                    </div> -->
                     
                     <form action="{{route('admin.login')}}" method="POST" enctype="multipart/form-data">
                         @csrf
