@@ -28,7 +28,7 @@ use App\Http\Controllers\Web\AppController;
  *********************************Web Application Route*********************************/
 
 Route::get('/',[AppController::class,'index'])->name('/');
-
+Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->name('get.subcategory.list');
 
 /**
  * 
@@ -81,7 +81,7 @@ Route::group(['middleware'=>'admin'],function(){
     Route::post('/update-sub-category/{slug}',[SubCategoryController::class,'update'])->name('update.sub.category');
     Route::post('/subcategory-status',[SubCategoryController::class,'status'])->name('subcategory.status');
     
-    Route::post('/get-subcategory',[SubCategoryController::class,'getSubCategory'])->name('get-subcategory');
+    Route::post('/get-subcategory',[SubCategoryController::class,'getSubCategory'])->name('get.subcategory');
 
     /******************************************Super sub-category Routes************************************/
     Route::get('/supersubcategory',[SuperSubCategoryController::class,'index'])->name('supersubcategory');

@@ -23,14 +23,20 @@
                 $(".productMenu").show();
             });
         });
+
+
+        
+
         $(document).ready(function () {
-            $("#productMaterail").click(function () {
+            $(".productMaterail").click(function () {
+                
                 $(".productMenu").hide();
             });
-            $("#productMaterail").click(function () {
+            $(".productMaterail").click(function () {
                 $(".productByMaterial_menu").show();
             });
         });
+        
         $(document).ready(function () {
             $("#backProduct").click(function () {
                 $(".productMenu").hide();
@@ -39,30 +45,36 @@
                 $(".productHide").show();
             });
         });
-        $(document).ready(function () {
-            $("#backProductByMaterial").click(function () {
-                $(".productByMaterial_menu").hide();
+
+
+        //Hide subcategory list and show category list
+        function hideShowProductCategoryList(){
+            $(".backProductByMaterial").click(function () {
+                $("#productByMaterial_menu").hide();
             });
-            $("#backProductByMaterial").click(function () {
-                $(".productMenu").show();
+            
+            $(".backProductByMaterial").click(function () {
+                $("#productMenu").show();
             });
-        });
-        $(document).ready(function () {
-            $("#productCollection").click(function () {
-                $(".productMenu").hide();
-            });
-            $("#productCollection").click(function () {
-                $(".productByCollection_menu").show();
-            });
-        });
-        $(document).ready(function () {
-            $("#backProductByCollection").click(function () {
-                $(".productByCollection_menu").hide();
-            });
-            $("#backProductByCollection").click(function () {
-                $(".productMenu").show();
-            });
-        });
+        };
+
+
+        // $(document).ready(function () {
+        //     $("#productCollection").click(function () {
+        //         $(".productMenu").hide();
+        //     });
+        //     $("#productCollection").click(function () {
+        //         $(".productByCollection_menu").show();
+        //     });
+        // });
+        // $(document).ready(function () {
+        //     $("#backProductByCollection").click(function () {
+        //         $(".productByCollection_menu").hide();
+        //     });
+        //     $("#backProductByCollection").click(function () {
+        //         $(".productMenu").show();
+        //     });
+        // });
 
         $(document).ready(function () {
             $(".slider").slick({

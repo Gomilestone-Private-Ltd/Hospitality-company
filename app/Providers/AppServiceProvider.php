@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Setting;
+use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,8 +21,9 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    {
+    {  
         $setting = Setting::select('logo','favicon','app_name')->whereId(1)->first();
-        View::share('setting', $setting);
+        $categories = Category::select('id','name','image','slug')->with(['getSubCategory'])->where('status',1)->get();
+        View::share(['setting'=>$setting,'categories'=>$categories]);
     }
 }

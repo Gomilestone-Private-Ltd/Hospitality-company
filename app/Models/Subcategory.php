@@ -52,4 +52,14 @@ class Subcategory extends Model
       return Carbon::parse($value)->format('d M Y');
     }
 
+    /**
+     * @method Get Created At
+     * @param
+     * @return 
+     */
+    public function getSuperSubCategory(){
+      
+        return $this->hasMany(Supersubcategory::class,'subcategory_id','id')->where('status',1);
+    }
+  
 }

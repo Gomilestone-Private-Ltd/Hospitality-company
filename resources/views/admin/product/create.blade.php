@@ -197,6 +197,7 @@ $(document).ready(function() {
                     processData: false,
                     data:formData,
                     success:function(response){
+                        
                         if(response.status == 200){
                             $('#addVarientType').modal('hide');
                             toastr.success(response.success);
@@ -209,7 +210,9 @@ $(document).ready(function() {
                         }
                     },
                     error:function(xhr, textStatus, errorThrown){
+                        
                         $.each(xhr.responseJSON.errors,function(key,val){
+                            
                             $('.'+key).append('<p class="text-danger">'+val+'</p>');
                             
                         });
