@@ -45,7 +45,6 @@ class AppController extends Controller
     public function getSubCategory(Request $request)
     { 
         try{
-
             $subCategoryList = $this->subcategory->with(['getSuperSubCategory'])
                                                 ->where([
                                                         'category_id' => $request->categoryId,
@@ -53,12 +52,12 @@ class AppController extends Controller
                                                         ])->get();
             $view = view('web.menu.mobile_subcategory')->with([
                                                                'subCategoryList' => $subCategoryList,
-                                                               'categoryName'    => $this->category->select('name')->whereId($request->categoryId)->first()])
+                                                               'categoryName'    => $this->category->select('name')->whereId($request->categoryId)->first()
+                                                              ])
                                                       ->render();
             return ['data'=>$view,'status'=>200];
 
         }catch(\Exception $e){
-           // CreateAppLog::getErrorLog("Get sub category list requested on web ");
             return response()->json([
                                      'status' => 300,
                                      'error'  => $e->getMessage()

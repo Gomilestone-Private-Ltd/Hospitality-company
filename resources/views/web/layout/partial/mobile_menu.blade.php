@@ -38,30 +38,6 @@
     <span class="responsive-icon" onclick="openNav()">&#9776;</span>
 </div>
 
-<script>
-    function getSubCategoryMenu(categoryId){
-        if(categoryId){
-          $.ajax({
-                    url: base_url+'/get-subcategory-list',
-                    method:"post",
-                    dataType:"json",
-                    data:{
-                        '_token' : csrf_token,
-                        'categoryId' : categoryId,
-                    },
-                    success:function(response){
-                        
-                        if(response.status == 200){
-                           $('#productByMaterial_menu').html(response.data);
-                        }else{
-                            alert(response.error);
-                        }
-                    },
-                    error:function(xhr, textStatus, errorThrown){
-                        alert(xhr.responseText);
-                        //toastr.error(xhr.responseText);
-                    }
-          });
-        }
-    }
-</script>
+@section('js')
+<script src="{{asset('assets/web/js/mobileViewCategory.js')}}"></script>
+@endsection
