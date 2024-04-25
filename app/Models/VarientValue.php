@@ -12,6 +12,7 @@ class VarientValue extends Model
 
     protected $fillable = [
                            'slug',
+                           'varient_type_id',
                            'varient_value_label',
                            'varient_value',
                            'status',

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('varient_values', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->nullable()->index();
+            $table->string('varient_type_id')->nullable()->index();
             $table->string('varient_value_label')->nullable()->index();
             $table->string('varient_value')->nullable()->index();
             $table->boolean('status')->default(1)->comment('1 for Active and 0 for Blocked')->index();

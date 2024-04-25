@@ -13,6 +13,9 @@ class Product extends Model
     
     protected $fillable= [
                           'slug',
+                          'category_id',
+                          'subcategory_id',
+                          'supsubcategory_id',
                           'name',
                           'title',
                           'sku',
@@ -22,12 +25,14 @@ class Product extends Model
                           'material',
                           'mrp',
                           'discount_price',
+                          'varient_type',
+                          'varient_value',
                           'make_in',
                           'added_by',    
                           'updated_by',
                           'deleted_by'
                         ];
-
+                        
     /**
      * @method Get aded by details
      * @param
