@@ -2,12 +2,19 @@ function deleteCategory(slug,path){
     swal({
             title: 'Are you sure want to Delete ?',
             text: '',
-            type: 'warning',
+            type: 'question',
+            width: 330,
             showCancelButton: true,
-            confirmButtonColor: '#DD6B55',
+            confirmButtonColor: '#E9300B',
             confirmButtonText: 'Yes!',
+           // background: "#fff url(https://sweetalert2.github.io/images/trees.png)",
             cancelButtonText: 'No.',
-            closeOnCancel: false
+            cancelButtonColor: '#6e7881',
+            closeOnCancel: false,
+
+            //timer: 2000,
+            //timerProgressBar: true,
+            
             }).then((e) => {
                 if (e.value === true) {
                     $.ajax({
