@@ -18,7 +18,7 @@
                             <thead class="table-thead">
                                 <tr>
                                     <th class="sn-number">S.No</th>
-                                    <th>Category</th>
+                                    <th>Name</th>
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th>Created By</th>
