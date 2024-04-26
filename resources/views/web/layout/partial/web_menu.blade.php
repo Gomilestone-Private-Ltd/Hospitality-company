@@ -71,7 +71,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="">OUR STORY</a>
+                        <a href="/philosophy">PHILOSOPHY</a>
                     </li>
                     <li>
                         <a href="">CONTACT</a>
