@@ -12,27 +12,23 @@
                 <div class="modal-body">
 
                     <div class="col-md-12 col-sm-6 col-12">
-                        <div class="form-group varient_type_name">
-                            <label class="form-label-box">Varient Type Name</label>
-                            <input type="text" placeholder="Varient Type Name" class="form-control form-control-user" name="varient_type_name">
-                            @if($errors->has('varient_type_name'))
-                                <p class="text-danger varient_type_name">{{$errors->first('varient_type_name')}}</p>
-                            @endif
+                        <div class="form-group ">
+                            <label class="form-label-box">Varient Name</label>
+                            <input type="text" placeholder="Varient Name" class="form-control form-control-user" name="varient_type_name">
+                            <p class="text-danger varient_type_name"></p>
+                            
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-6 col-12">
-                        <div class="form-group varient_type">
+                        <div class="form-group ">
                             <label class="form-label-box">Varient Type</label>
                             <br>
                             <input type="radio" name="varient_type" value="text" >
                             <label for="html">Text</label>
                             <input type="radio" name="varient_type" value="color">
                             <label for="html">Color</label><br>
-
-                            @if($errors->has('varient_type'))
-                                <p class="text-danger varient_type">{{$errors->first('varient_type')}}</p>
-                            @endif
+                           <p class="text-danger varient_type"></p>
                         </div>
                     </div>
                 </div>

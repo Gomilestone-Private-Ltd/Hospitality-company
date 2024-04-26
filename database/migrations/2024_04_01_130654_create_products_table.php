@@ -14,12 +14,18 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->nullable()->index();
+            $table->bigInteger('category_id')->nullable()->index();
+            $table->bigInteger('subcategory_id')->nullable()->index();
+            $table->bigInteger('supsubcategory_id')->nullable()->index();
             $table->string('name')->nullable()->index();
             $table->string('title')->nullable()->index();
             $table->longText('description')->nullable();
-            $table->string('dimention')->nullable()->index();
+            $table->longText('dimention')->nullable()->index();
             $table->string('material')->nullable()->index();
             $table->string('make_in')->nullable()->index();
+            $table->longText('varient_type')->nullable();
+            $table->json('varient_value')->nullable();
+            $table->json('varient_detail')->nullable();
             $table->bigInteger('price')->nullable()->index();
             $table->bigInteger('added_by')->nullable()->index();
             $table->bigInteger('updated_by')->nullable()->index();

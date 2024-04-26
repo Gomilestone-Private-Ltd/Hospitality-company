@@ -11,7 +11,7 @@
 <link href="{{ url('/assets/admin/css/dashbord.css') }}" rel="stylesheet">
 <link href="{{ url('/assets/admin/css/responsive.css') }}" rel="stylesheet">
 <link href="{{ url('/assets/admin/js/sb-admin-2.js') }}" rel="stylesheet">
-
+<link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
 <script>
     var base_url = "{{url('/')}}";
     var csrf_token ="{{csrf_token()}}";

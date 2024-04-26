@@ -114,8 +114,38 @@ class ProductController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $categories = $this->category->where('status',1)->get();
-        return view($this->view.'.create')->with(['categories'=>$categories]);
+        try{
+            $varientDetail = [];
+            foreach($request->varient_name as $key=>$varient){
+                $varientDetail[] =[
+                                'varient_type'      => $request->varient_name[$key] ??"",
+                                'varient_value'     => $request->varient_price[$key] ??"",
+                ];
+            }
+            array_push($varientDetail,$request->varientType);
+            array_push($varientDetail,$request->varientValue);
+           
+
+
+            $data = [
+                     'slug'              => Slug::smallSlug() ??'',
+                     'category_id'       => $request->category ??"",
+                     'subcategory_id'    => $request->subcategory ??"",
+                     'supsubcategory_id' => $request->supersubcategory ??"",
+                     'name'              => $request->name ??"",
+                     'title'             => $request->a_p ??"",
+                     //'image'             => $request->file ??"",
+                     'varient_type'      => $request->varientType ??"",
+                     'varient_value'     => json_encode($request->varientValue) ??"",
+                     'varient_detail'    => json_encode($varientDetail) ??"",
+                     'added_by'          => Masked::getUserId() ??'',
+                    ];
+            Product::create($data);
+             dd($data);
+            return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
+        }catch(\Exception $e){
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        } 
     }
 
 }

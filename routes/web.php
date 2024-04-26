@@ -29,6 +29,7 @@ use App\Http\Controllers\Web\AppController;
 
 Route::get('/',[AppController::class,'index'])->name('/');
 Route::get('/philosophy',[AppController::class,'philosophy']);
+Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->name('get.subcategory.list');
 
 
 /**
@@ -61,6 +62,9 @@ Route::group(['middleware'=>'admin'],function(){
     /******************************************Varient Type Routes*********************************** */
     Route::get('/add-varient-type',[VarientController::class,'create'])->name('add.varient.type');
     Route::post('/add-varient-type',[VarientController::class,'create'])->name('add.varient.type');
+    
+    Route::post('/add-varient-value',[VarientController::class,'addVarientValue'])->name('add.varient.value');
+    Route::post('/get-varient-value',[VarientController::class,'getVarientValue'])->name('get.varient.value');
 
     /******************************************Category Routes*********************************** */
     Route::get('/category',[CategoryController::class,'index'])->name('category');
@@ -82,7 +86,7 @@ Route::group(['middleware'=>'admin'],function(){
     Route::post('/update-sub-category/{slug}',[SubCategoryController::class,'update'])->name('update.sub.category');
     Route::post('/subcategory-status',[SubCategoryController::class,'status'])->name('subcategory.status');
     
-    Route::post('/get-subcategory',[SubCategoryController::class,'getSubCategory'])->name('get-subcategory');
+    Route::post('/get-subcategory',[SubCategoryController::class,'getSubCategory'])->name('get.subcategory');
 
     /******************************************Super sub-category Routes************************************/
     Route::get('/supersubcategory',[SuperSubCategoryController::class,'index'])->name('supersubcategory');

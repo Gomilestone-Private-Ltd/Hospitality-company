@@ -38,6 +38,20 @@
                         </div>
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="form-group">
+                                <label class="form-label-box" for="sel1">Category</label>
+                                <select class="form-control form-control-user" id="category" name="category_type">
+                                    <option value="">Select Category Type</option>
+                                    <option value="material">Product By Material</option>
+                                    <option value="collection">Product By collection</option>
+                                    <option value="use">Product By use</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                @if($errors->has('category_type'))
+                                    <p class="text-danger">{{$errors->first('category_type')}}</p>
+                                @endif
+                            </div>
+
+                            <!-- <div class="form-group">
                                 <input type="radio" name="category_type" value="material">
                                 <label for="html">Product By Material</label><br>
                                 <input type="radio"  name="category_type" value="collection">
@@ -49,7 +63,7 @@
                                 @if($errors->has('category_type'))
                                     <p class="text-danger">{{$errors->first('category_type')}}</p>
                                 @endif
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="col-md-12 text-right">

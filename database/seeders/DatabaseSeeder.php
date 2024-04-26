@@ -43,6 +43,9 @@ class DatabaseSeeder extends Seeder
 
         //Seed Setting First
         $this->call(Setting::class);
+        
+        //Seed category seeder
+        $this->call(CategorySeeder::class);
 
         //Create superadmin
         $data = [

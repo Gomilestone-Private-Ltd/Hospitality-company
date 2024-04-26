@@ -2,6 +2,8 @@
 @section('title',"Product")
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
 <style>
     .select2-container--default .select2-selection--single {
     background-color: #fff;
@@ -87,7 +89,7 @@
                             <div class="form-group">
                                 <label class="form-label-box">Avg Purchase Price</label>
                                 <input id="PurchasePrice" type="text" placeholder="Purchase Price"
-                                    class="form-control form-control-user " name="Avg_purchasePrice">
+                                    class="form-control form-control-user " name="a_p">
                             </div>
                         </div>
                         
@@ -101,19 +103,21 @@
                         </div>
 
                         <div class="col-md-4 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label class="form-label-box">Varient Type </label> <i class="fa fa-plus addVarientType" style=" margin-left:10px; font-size:28px;color:green"></i>
+                            <div class="form-group varientTypeClass">
+                                <label class="form-label-box">Varient Type </label> <i class="fa fa-plus addVarientType" style=" margin-left:10px; font-size:20px;color:green"></i>
                                 <select class="form-control form-control-user select2-search varientType" id="varientType" name="varientType">
-                                    @foreach ($getVarientType as $getVarient)
-                                        <option value="{{ $getVarient->id ??''}}">{{ $getVarient->varient_type_name ??'' }}</option>
+                                    @foreach ($getVarientType as $key=>$getVarient)
+                                        <option value="{{ $getVarient->id ??''}}" getVarientType="{{$getVarient->varient_type ??''}}" @if($key==0)selected @endif>{{ $getVarient->varient_type_name ??'' }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Varient Value</label> <i class="fa fa-plus addVarientValue"  style="margin-left:10px; font-size:28px;color:green"></i>
-                                <input type="text" placeholder="HSN Code" class="form-control form-control-user" name="HSN_Code">
+                                <label class="form-label-box">Varient Value</label> <i class="fa fa-plus addVarientValue"  style="margin-left:10px; font-size:20px;color:green"></i>
+                                <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;"  name="varientValue[]">
+                                        
+                                </select>
                             </div>
                         </div>
                         
@@ -122,12 +126,14 @@
                             <table id="example" class="display table table table-bordered data-table" style="width:100%">
                                 <thead class="table-thead">
                                     <tr>
-                                        <th>S.No</th>
-                                        <th>Name</th>
+                                        <th>Label</th>
+                                        <!-- <th>Label</th> -->
+                                        <th>Price</th>
+                                        <!-- <th>MRP</th>
+                                        <th>Get Log</th>
                                         <th>Image</th>
-                                        <th>Status</th>
-                                        <th>Created By</th>
-                                        <th>Action</th>
+                                        <th>Stock</th>
+                                        <th>Action</th> -->
                                     </tr>
                                 </thead>
                                 <tbody class="tableBody">
@@ -153,70 +159,15 @@
 
 @endsection
 @section('js')
-
+ 
 <script>
-$(document).ready(function() {
-    $('.category').select2();
-    $('.subcategory').select2();
-    $('.supersubcategory').select2();
-});
+// $(document).ready(function() {
+//     $('.category').select2();
+//     $('.subcategory').select2();
+//     $('.supersubcategory').select2();
+// });
 </script>
+<script src="{{asset('assets/admin/js/admin/product_varient_type.js')}}"></script>
+<script src="{{asset('assets/admin/js/admin/product_varient_value.js')}}"></script>
 
-<script>
-    $(document).ready(function(){
-        $('.fplusClass').on('click',function(){
-            $html = '<tr><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td></tr>';
-            $('#exampleModa11l').append($html);
-        });
-    });
-    $(document).ready(function(){
-        $('.addVarientType').on('click',function(){
-            $('#addVarientType').modal('show');
-        });
-    });
-
-    $(document).ready(function(){
-        $('.addVarientValue').on('click',function(){
-            $('#addVarientValue').modal('show');
-        });
-    });
-
-    $(document).ready(function(){
-        $('.create_varient_type').on('click',function(e){
-            e.preventDefault();
-            var formData = new FormData($('#add_varient_type')[0]);
-            toastr.options = {
-                                "closeButton": true,
-                                "progressBar": true,
-                                "extendedTimeOut": 800
-                             };
-            $.ajax({
-                    url:base_url+'/add-varient-type',
-                    method:'post',
-                    contentType: false,
-                    processData: false,
-                    data:formData,
-                    success:function(response){
-                        if(response.status == 200){
-                            $('#addVarientType').modal('hide');
-                            toastr.success(response.success);
-                            $('.varientType').empty();
-                            $.each(response.getVarientType,function(key,value){
-                                $('.varientType').append('<option value="'+value.id+'">'+value.varient_type_name+'</option>');
-                            });
-                        }else{
-                            toastr.error(response);
-                        }
-                    },
-                    error:function(xhr, textStatus, errorThrown){
-                        $.each(xhr.responseJSON.errors,function(key,val){
-                            $('.'+key).append('<p class="text-danger">'+val+'</p>');
-                            
-                        });
-                    },
-            });
-
-        });
-    });
-</script>
 @endsection

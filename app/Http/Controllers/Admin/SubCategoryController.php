@@ -8,6 +8,7 @@ use App\Helper\Masked;
 use App\Helper\Picture;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Supersubcategory;
 use App\Helper\CreateAppLog;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Subcategory\EditRequest;
@@ -24,16 +25,20 @@ class SubCategoryController extends Controller
 
     #Bind Model Subcategory
     protected $subcategory;
+
+    #Bind Model Supersubcategory
+    protected $supersubcategory;
     
     /**
      * @method Define default constructor for controller
      * @param
      * @return
      */
-    public function __construct(Category $category, Subcategory $subcategory)
+    public function __construct(Category $category, Subcategory $subcategory, Supersubcategory $supersubcategory)
     {
         $this->category    = $category;
         $this->subcategory = $subcategory;
+        $this->supersubcategory = $supersubcategory;
     }
 
     /**
@@ -168,12 +173,23 @@ class SubCategoryController extends Controller
     public function delete(Request $request)
     {
         try{
-            $this->subcategory->whereSlug($request->slug)->delete();
-            CreateAppLog::getErrorLog("sub category Deleted successfully by ".Masked::getUserName());
-            return response()->json([
-                                     'status'   => 200,
-                                     'success'  => "Deleted Successfully !!"
-                                    ]);
+            $getSubCategory = $this->subcategory->whereSlug($request->slug)->first();
+            
+
+            $getsuperSubCategory = $this->supersubcategory->where('subcategory_id',$getSubCategory->id)->get();
+            if(count($getsuperSubCategory)){
+                return response()->json([
+                                            'status'   => 300,
+                                            'error'  => "System using this sub-Category !!"
+                                        ]);
+            }else{
+                $getSubCategory->delete();
+                CreateAppLog::getErrorLog("sub category Deleted successfully by ".Masked::getUserName());
+                return response()->json([
+                                        'status'   => 200,
+                                        'success'  => "Deleted Successfully !!"
+                                        ]);
+            }
 
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("Delete sub category requested by ".Masked::getUserName());

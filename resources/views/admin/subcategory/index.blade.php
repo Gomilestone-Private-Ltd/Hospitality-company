@@ -18,8 +18,8 @@
                             <thead class="table-thead">
                                 <tr>
                                     <th class="sn-number">S.No</th>
-                                    <th>Category</th>
-                                    <th>SubCategory</th>
+                                    <!-- <th>Category</th> -->
+                                    <th>Name</th>
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th>Created By</th>
@@ -55,11 +55,11 @@
                                                         return row.id;
                                                     }
                                                 },
-                                                {   data: 'category_id',  name: 'category_id',
-                                                    render:function(data,type,row,meta){
-                                                        return row.get_category.name;
-                                                    }
-                                                },
+                                                // {   data: 'category_id',  name: 'category_id',
+                                                //     render:function(data,type,row,meta){
+                                                //         return row.get_category.name;
+                                                //     }
+                                                // },
                                                 {   data: 'name',      name: 'name'},
                                                 {   data: 'image',     name: 'image',
                                                         render:function(data,type,row,meta){

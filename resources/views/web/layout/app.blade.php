@@ -32,6 +32,11 @@
     <!-- Include Css -->
     @include('web.layout.partial.css')
     @yield('css')
+
+    <script>
+        var base_url = "{{url('/')}}";
+        var csrf_token ="{{csrf_token()}}";
+    </script>
 </head>
 
 <body>

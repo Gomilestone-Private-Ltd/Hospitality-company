@@ -41,5 +41,15 @@ class Category extends Model
       //return Carbon::parse($value)->format('d-m-Y');
       return Carbon::parse($value)->format('d M Y');
     }
+    
+    /**
+     * @method Get Category list
+     * @param
+     * @return 
+     */
+    public function getSubCategory(){
+        return $this->hasMany(Subcategory::class)->with('getSuperSubCategory')->where('status',1);
+    }
+    
 
 }
