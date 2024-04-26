@@ -1,16 +1,26 @@
 @font-face {
     font-family: 'Futura Lt BT';
-    src: url('./assets/font/FuturaBT-Light.woff2') format('woff2'),
-        url('./assets/font/FuturaBT-Light.woff') format('woff');
-    font-weight: 300;
+    src: url('./font/FuturaBT-Light.woff2') format('woff2'),
+        url('./font/FuturaBT-Light.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
+    font-family: 'Futura Regular';
+    src: url('./font/Futura+Regular.woff') format('woff'),
+        url('./font/Futura+Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
     font-family: 'Futura Md BT';
-    src: url('./assets/font/FuturaBT-Medium.woff2') format('woff2'),
-        url('./assets/font/FuturaBT-Medium.woff') format('woff');
+    src: url('./font/FuturaBT-Medium.woff2') format('woff2'),
+        url('./font/FuturaBT-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -18,8 +28,8 @@
 
 @font-face {
     font-family: 'Futura BdCn BT';
-    src: url('./assets/font/FuturaBT-BoldCondensed.woff2') format('woff2'),
-        url('./assets/font/FuturaBT-BoldCondensed.woff') format('woff');
+    src: url('./font/FuturaBT-BoldCondensed.woff2') format('woff2'),
+        url('./font/FuturaBT-BoldCondensed.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -37,13 +47,22 @@ body {
     scroll-behavior: smooth;
 }
 
-.main-header {
-    background: #f0efeb;
+header {
+    position: relative;
+    z-index: 999;
     padding: 5px 30px;
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.Headerscroll {
+    background: #ffffff !important;
+    box-shadow: 0px 0px 7px 0px #e1e1e1;
 }
 
 .header-left img {
@@ -81,7 +100,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: end;
-    margin-top: 11px;
+    margin-top: 19px;
     position: relative;
 }
 
@@ -106,6 +125,12 @@ body {
     width: 22px;
 }
 
+input[type=file]:focus,
+input[type=checkbox]:focus,
+input[type=radio]:focus {
+    outline: 0 !important;
+}
+
 .header-menu-icon {
     width: 24px;
     margin-right: 11px;
@@ -116,7 +141,7 @@ body {
     left: 0;
     width: 100% !important;
     height: 0;
-    top: 17px;
+    top: 7px;
     padding: 10px 0px;
     border-radius: 6px;
     display: -webkit-box;
@@ -167,13 +192,13 @@ body {
 #action-box #menu-wrap .toggler {
     position: absolute;
     height: 100%;
-    width: 2%;
+    width: 3%;
     top: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
-    z-index: 2;
+    z-index: 99;
 }
 
 #action-box #menu-wrap .toggler:checked~.menu {
@@ -443,10 +468,10 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     margin: auto;
 }
 
+
 .product-heading {
     color: #000000;
     font-size: 35px;
-    letter-spacing: 0.56px;
     position: relative;
     width: 715px;
     margin: auto;
@@ -489,7 +514,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
 
 .product-img-center img {
     width: 100%;
-    height: 242px;
+    height: 244px;
 }
 
 .product-img-right img {
@@ -762,7 +787,7 @@ textarea {
     width: 45px;
     background-color: #DB783D;
     position: absolute;
-    bottom: 10px;
+    bottom: 8px;
     left: -47px;
 }
 
@@ -1376,7 +1401,7 @@ textarea {
         height: 350px;
     }
 
-    .footer-button-section{
+    .footer-button-section {
         padding-left: 0px;
         padding-right: 0px;
     }
@@ -1705,3 +1730,317 @@ a.closebtn {
 a {
     cursor: pointer;
 }
+
+/* philosophy Css ************************************/
+
+.main-philosophy-section .container {
+    max-width: 1300px;
+}
+
+.philosophy-section {
+    height: 570px;
+    margin-top: -70px;
+    padding-top: 190px;
+    position: relative;
+}
+
+.philosophy-text {
+    color: #3F3F3F;
+    font-size: 22px;
+    text-align: center;
+    line-height: 29px;
+    font-family: 'Futura Lt BT';
+    letter-spacing: -1.2px;
+    padding: 0px 75px;
+}
+
+.philosophy {
+    color: #000000;
+    font-size: 50px;
+    letter-spacing: 0.56px;
+    font-family: 'Futura Md BT';
+    font-family: "Bodoni";
+    font-weight: 500;
+}
+
+.borderTop {
+    border-top: 1px solid #dee2e6 !important;
+    top: 135px;
+    position: absolute;
+    left: 19%;
+    width: 62%;
+    z-index: 9;
+    margin: auto;
+}
+
+.borderLeft {
+    position: absolute;
+    transform: rotate(180deg);
+    top: 65px;
+    right: 438px;
+    width: 1px;
+    background-color: #dee2e6;
+    height: 209px;
+}
+
+.video-section {
+    background-color: #F0EFEB;
+    height: 960px;
+}
+
+.video-box {
+    margin-top: -200px;
+}
+
+.manufacture {
+    margin: 0px 120px;
+    margin-bottom: 50px;
+}
+
+.who-we-are {
+    text-align: center;
+    border: 1px solid #D1D1D1;
+    padding: 16px;
+}
+
+img.who-we-img {
+    height: 60px;
+    width: 60px;
+}
+
+p.who-we-text {
+    color: #222222E5;
+    font-size: 15px;
+    font-family: 'Futura Md BT';
+    margin: 0;
+}
+
+.text1 {
+    color: #30302B;
+    font-size: 18px;
+    font-family: 'Futura Lt BT';
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.our-proces-main-section {
+    background-color: #F9F9F9;
+    padding-bottom: 50px;
+}
+
+.who-we-are-slider {
+    margin-top: -200px;
+}
+
+.our-proces-box {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+}
+
+.Manufacturing {
+    font-family: 'Futura Md BT';
+    color: #30302B;
+    font-size: 22px;
+    line-height: 27px;
+    margin-top: 10px;
+}
+
+.Aesthetically {
+    font-family: 'Futura Md BT';
+    color: #5B5B5B;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+.Process-text {
+    color: #727376;
+    font-size: 16px;
+    font-family: 'Futura Lt BT';
+    line-height: 25px;
+    text-transform: capitalize;
+    margin-top: 0px;
+    letter-spacing: 0.56px;
+}
+
+.multi-slider-img img {
+    width: 100% !important;
+}
+
+.main-sliser .draggable {
+    width: 100% !important;
+}
+
+.main-sliser .slick-track {
+    height: 300px !important;
+}
+
+.multi-slider-img {
+    position: relative;
+    padding: 0px !important;
+}
+
+.product-img-center {
+    position: relative;
+}
+
+.img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00000036;
+    padding: 15px 20px;
+}
+
+.img-overlay p {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Futura Lt BT';
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* Custom Arrow */
+.prev {
+    position: absolute;
+    right: 110px;
+    bottom: 5px;
+}
+
+.next {
+    position: absolute;
+    right: 28px;
+    bottom: -2px;
+}
+
+.prev1 {
+    position: absolute;
+    right: 340px;
+    bottom: -8px;
+}
+
+.next1 {
+    position: absolute;
+    right: 250px;
+    bottom: -15px;
+}
+
+img.slide-arrow {
+    cursor: pointer;
+}
+
+.our-client {
+    background-color: #fff;
+    padding-bottom: 65px;
+    padding-top: 30px;
+}
+
+.our-client-img-box {
+    border: 1px solid #EFEFEF;
+    box-shadow: 0px 3px 14px 0px #ededed;
+    background-color: #fff;
+    padding: 10px !important;
+    border-radius: 6px;
+    height: 150px !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.our-client-img-box img {
+    width: auto !important;
+    height: auto !important;
+}
+
+.responsive1 .slick-track {
+    padding-bottom: 0px !important;
+    height: 200px !important;
+}
+
+.our-presence {
+    background-color: #F9F9F9;
+}
+
+.map-img-box img {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+
+.product-customisation {
+    background-color: #F9F9F9;
+}
+
+.customisation-img-box {
+    border: 1px solid #E0E0E0;
+    text-align: center;
+    padding: 30px 15px;
+    background-color: #fff;
+}
+
+.customisation-img {
+    width: 30px;
+    margin-bottom: 10px;
+}
+
+.customisation-text {
+    color: #5B5B5B;
+    font-size: 16px;
+    font-family: 'Futura Lt BT';
+    margin: 0;
+}
+
+.customisation-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.green-measures {
+    background-color: #fff;
+    padding: 50px 0px;
+}
+
+.customisation-heading {
+    width: 860px;
+}
+
+.Measures-heading {
+    width: 760px;
+}
+
+.Clients-heading {
+    width: 680px;
+}
+
+.get-in-touch .get-in-touch-section {
+    margin-top: 0px;
+    padding-top: 70px;
+}
+
+.measures-img-box {
+    border: 1px solid #E0E0E0;
+    text-align: center;
+    padding: 15px 15px;
+    background-color: #fff;
+}
+
+.measures-img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+.measures-text{
+    color: #222222E5;
+    font-size: 16px;
+    font-family: 'Futura Lt BT';
+    margin: 0;
+}
+
+.who-we-are-slider .slick-prev {
+    top: 92%;
+}
+
+

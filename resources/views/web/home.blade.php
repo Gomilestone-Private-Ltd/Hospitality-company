@@ -13,4 +13,7 @@
 
     <!-- Include Restaurant -->
     @include('web.layout.partial.restaurant')
+
+    <!-- Include get_in_touch -->
+    @include('web.layout.partial.get_in_touch')
 @endsection

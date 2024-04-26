@@ -4,9 +4,10 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{{asset('assets/web/style.css')}}">
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/web/image/logo.png')}}">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/web/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/web/image/logo.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,8 +20,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
+    {{-- Item Slider Link  Start --}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.css">
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js"></script> --}}
+    {{-- Item Slider Link  End --}}
+
     <title>@yield('title')</title>
-     
+
     <!-- Include Css -->
     @include('web.layout.partial.css')
     @yield('css')
@@ -37,7 +45,7 @@
 
     <!-- Include Content -->
     @yield('content')
-    
+
     <!-- Include Footer -->
     @include('web.layout.partial.footer')
 
