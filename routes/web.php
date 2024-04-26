@@ -28,12 +28,7 @@ use App\Http\Controllers\Web\AppController;
  *********************************Web Application Route*********************************/
 
 Route::get('/',[AppController::class,'index'])->name('/');
-<<<<<<< HEAD
 Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->name('get.subcategory.list');
-=======
-Route::get('/philosophy',[AppController::class,'philosophy']);
-
->>>>>>> 7d4bb382c43e0ea440d5b2d5b7aff8d271b34036
 
 /**
  * 

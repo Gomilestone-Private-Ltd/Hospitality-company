@@ -36,7 +36,6 @@ class AppController extends Controller
     public function index(){
         return view('web.home');
     }
-<<<<<<< HEAD
 
     /**
      * @method Get sub category list
@@ -66,9 +65,7 @@ class AppController extends Controller
         }
     }
 
-=======
     public function philosophy(){
         return view('web.philosophy');
     }
->>>>>>> 7d4bb382c43e0ea440d5b2d5b7aff8d271b34036
 }
