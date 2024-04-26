@@ -28,6 +28,7 @@ use App\Http\Controllers\Web\AppController;
  *********************************Web Application Route*********************************/
 
 Route::get('/',[AppController::class,'index'])->name('/');
+Route::get('/philosophy',[AppController::class,'philosophy']);
 
 
 /**

@@ -15,4 +15,7 @@ class AppController extends Controller
     public function index(){
         return view('web.home');
     }
+    public function philosophy(){
+        return view('web.philosophy');
+    }
 }
