@@ -60,7 +60,9 @@ Route::group(['middleware'=>'admin'],function(){
     /******************************************Varient Type Routes*********************************** */
     Route::get('/add-varient-type',[VarientController::class,'create'])->name('add.varient.type');
     Route::post('/add-varient-type',[VarientController::class,'create'])->name('add.varient.type');
-
+    
+    Route::post('/add-varient-value',[VarientController::class,'addVarientValue'])->name('add.varient.value');
+    
     /******************************************Category Routes*********************************** */
     Route::get('/category',[CategoryController::class,'index'])->name('category');
     Route::get('/category-datatable',[CategoryController::class,'getCategoryDatatable'])->name('category.datatable');

@@ -99,4 +99,35 @@ class VarientController extends Controller
         }
 
     }
+
+    /**
+     * @method Create varient value 
+     * @param 
+     * @return create page
+     */
+    public function addVarientValue(Request $request)
+    {
+        try{
+            $varientValue = [
+                            'slug'                  => Slug::smallSlug() ??'',
+                            'varient_type_id'       => $request->getVarientTypeiD??'',
+                            'varient_value_label'   => $request->label_name ??'',
+                            'varient_value'         => $request->label_value ??'',
+                            'added_by'              => Masked::getUserId() ?? 1,
+                            ];
+
+            $this->varientValue->create($varientValue);
+            $getVarientValue = $this->varientValue->where(['status'=>1,'varient_type_id'=>$request->getVarientTypeiD])->get();
+            return response()->json([
+                                        'success'        => "Varient Value Created Successfully !!",
+                                        'status'         =>  $this->success,
+                                        'getVarientType' =>  $getVarientValue
+                                    ]);
+        }catch(\Exception $e){
+            CreateAppLog::getErrorLog("Create Varient value requested by ".Masked::getUserName());
+            return response()->json([
+                                       'error' => $e->getMessage()
+                                    ]);
+        } 
+    }
 }

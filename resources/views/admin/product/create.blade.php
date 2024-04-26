@@ -2,6 +2,8 @@
 @section('title',"Product")
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
 <style>
     .select2-container--default .select2-selection--single {
     background-color: #fff;
@@ -101,11 +103,11 @@
                         </div>
 
                         <div class="col-md-4 col-sm-6 col-12">
-                            <div class="form-group">
+                            <div class="form-group varientTypeClass">
                                 <label class="form-label-box">Varient Type </label> <i class="fa fa-plus addVarientType" style=" margin-left:10px; font-size:28px;color:green"></i>
                                 <select class="form-control form-control-user select2-search varientType" id="varientType" name="varientType">
-                                    @foreach ($getVarientType as $getVarient)
-                                        <option value="{{ $getVarient->id ??''}}">{{ $getVarient->varient_type_name ??'' }}</option>
+                                    @foreach ($getVarientType as $key=>$getVarient)
+                                        <option value="{{ $getVarient->id ??''}}" getVarientType="{{$getVarient->varient_type ??''}}" @if($key==0)selected @endif>{{ $getVarient->varient_type_name ??'' }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -113,7 +115,15 @@
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Varient Value</label> <i class="fa fa-plus addVarientValue"  style="margin-left:10px; font-size:28px;color:green"></i>
-                                <input type="text" placeholder="HSN Code" class="form-control form-control-user" name="HSN_Code">
+                                <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;">
+                                        <option>Alabama</option>
+                                        <option>Alaska</option>
+                                        <option>California</option>
+                                        <option>Delaware</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Washington</option>
+                                    </select>
                             </div>
                         </div>
                         
@@ -153,73 +163,72 @@
 
 @endsection
 @section('js')
-
+ 
 <script>
-$(document).ready(function() {
-    $('.category').select2();
-    $('.subcategory').select2();
-    $('.supersubcategory').select2();
-});
+// $(document).ready(function() {
+//     $('.category').select2();
+//     $('.subcategory').select2();
+//     $('.supersubcategory').select2();
+// });
+
+
 </script>
 
 <script>
     $(document).ready(function(){
-        $('.fplusClass').on('click',function(){
-            $html = '<tr><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td></tr>';
-            $('#exampleModa11l').append($html);
+        var count = 0;
+        $('.varientValueList').on('select2:select',function(){
+            count++;
+            var varientValue = $(this).val();
+            var html = '<tr class="'+count+'"><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td></tr>';
+            $('.tableBody').append(html);
+            
         });
-    });
-    $(document).ready(function(){
-        $('.addVarientType').on('click',function(){
-            $('#addVarientType').modal('show');
-        });
-    });
 
-    $(document).ready(function(){
-        $('.addVarientValue').on('click',function(){
-            $('#addVarientValue').modal('show');
+        $('.varientValueList').on('select2:unselect',function(){
+            $('.'+count).remove();
+            count--;
         });
-    });
 
+    });
+</script>
+<script src="{{asset('assets/admin/js/admin/product_create.js')}}"></script>
+
+<script>
     $(document).ready(function(){
-        $('.create_varient_type').on('click',function(e){
-            e.preventDefault();
-            var formData = new FormData($('#add_varient_type')[0]);
-            toastr.options = {
-                                "closeButton": true,
-                                "progressBar": true,
-                                "extendedTimeOut": 800
-                             };
-            $.ajax({
-                    url:base_url+'/add-varient-type',
-                    method:'post',
-                    contentType: false,
-                    processData: false,
-                    data:formData,
-                    success:function(response){
-                        
+       $('.addVarientValueFormSubmit').on('click',function(e){
+        e.preventDefault();
+        var getVarientTypeiD = $('#varientType').val();
+        if(getVarientTypeiD){
+            var formData = new FormData($('#addVarientValueForm')[0]);
+            formData.append('getVarientTypeiD',getVarientTypeiD);
+            console.log(formData);
+           $.ajax({
+                   url: base_url+"/add-varient-value",
+                   method:"post",
+                   dataType:"json",
+                   data:formData,      
+                   contentType: false,
+                   processData: false,
+                   success:function(response){
                         if(response.status == 200){
-                            $('#addVarientType').modal('hide');
                             toastr.success(response.success);
-                            $('.varientType').empty();
-                            $.each(response.getVarientType,function(key,value){
-                                $('.varientType').append('<option value="'+value.id+'">'+value.varient_type_name+'</option>');
-                            });
+                            
                         }else{
                             toastr.error(response);
                         }
-                    },
+                   },
                     error:function(xhr, textStatus, errorThrown){
-                        
                         $.each(xhr.responseJSON.errors,function(key,val){
-                            
-                            $('.'+key).append('<p class="text-danger">'+val+'</p>');
-                            
+                        $('.'+key).html(val);
                         });
-                    },
-            });
+                    }
+           });
+        }else{
+            toastr.error("Please select varient type");
+        }
 
-        });
+       });
     });
 </script>
 @endsection

@@ -1,7 +1,7 @@
 <div class="modal fade" id="addVarientValue" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form method="post" action="{{route('add.products')}}" id="add-inventory" enctype='multipart/form-data'>
+        <form id="addVarientValueForm" enctype='multipart/form-data'>
             @csrf
             <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Varient Value</h5>
@@ -15,19 +15,17 @@
                         <div class="form-group">
                             <label class="form-label-box">Label</label>
                             <input type="text" placeholder="Label Name" class="form-control form-control-user" name="label_name">
+                            <p class="text-danger varient_type_name"></p>
                         </div>
                     </div>
 
-                    <div class="col-md-12 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label class="form-label-box">Value</label>
-                            <input type="text" placeholder="label_value" class="form-control form-control-user" name="label_value">
-                        </div>
+                    <div class="col-md-12 col-sm-6 col-12 varientValueClass">
+                        
                     </div>
                 </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button type="button" class="btn btn-primary">Save changes</button>
+               <button type="button" class="btn btn-primary addVarientValueFormSubmit">Save changes</button>
             </div>
         </form>
       </div>
