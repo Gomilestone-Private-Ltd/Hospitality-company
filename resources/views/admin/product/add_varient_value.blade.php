@@ -13,9 +13,9 @@
 
                     <div class="col-md-12 col-sm-6 col-12">
                         <div class="form-group">
-                            <label class="form-label-box">Label</label>
+                            <label class="form-label-box">Label Name</label>
                             <input type="text" placeholder="Label Name" class="form-control form-control-user" name="label_name">
-                            <p class="text-danger varient_type_name"></p>
+                            <p class="text-danger label_name"></p>
                         </div>
                     </div>
 

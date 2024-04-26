@@ -13,6 +13,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Varient\CreateRequest;
 use App\Http\Requests\Varient\EditRequest;
+use App\Http\Requests\VarientValue\CreateValueRequest;
+use App\Http\Requests\VarientValue\EditValueRequest;
 use App\Traits\StatusCode;
 
 class VarientController extends Controller
@@ -105,26 +107,47 @@ class VarientController extends Controller
      * @param 
      * @return create page
      */
-    public function addVarientValue(Request $request)
+    public function addVarientValue(CreateValueRequest $request)
     {
         try{
             $varientValue = [
                             'slug'                  => Slug::smallSlug() ??'',
-                            'varient_type_id'       => $request->getVarientTypeiD??'',
-                            'varient_value_label'   => $request->label_name ??'',
-                            'varient_value'         => $request->label_value ??'',
+                            'varient_type_id'       => $request->getVarientTypeId ??'',
+                            'varient_label_name'    => $request->label_name ??'',
+                            'varient_label_value'   => $request->label_value ??'',
                             'added_by'              => Masked::getUserId() ?? 1,
                             ];
-
+                                         
             $this->varientValue->create($varientValue);
-            $getVarientValue = $this->varientValue->where(['status'=>1,'varient_type_id'=>$request->getVarientTypeiD])->get();
+            $getVarientValue = $this->varientValue->where(['status'=>1,'varient_type_id'=>$request->getVarientTypeId])->get();
             return response()->json([
-                                        'success'        => "Varient Value Created Successfully !!",
-                                        'status'         =>  $this->success,
-                                        'getVarientType' =>  $getVarientValue
+                                        'success'          => "Created Successfully !!",
+                                        'status'           =>  $this->success,
+                                        'getVarientValues' =>  $getVarientValue
                                     ]);
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("Create Varient value requested by ".Masked::getUserName());
+            return response()->json([
+                                       'error' => $e->getMessage()
+                                    ]);
+        } 
+    }
+    
+    /**
+     * @method Get Varient Value List
+     * @param Varient Type Id
+     * @return Varient Value List
+     */
+    public function getVarientValue(Request $request)
+    {  
+        try{
+            $getVarientValue = $this->varientValue->where(['status'=>1,'varient_type_id'=>$request->varientTypeId])->get();
+            return response()->json([
+                                        'success'          => "Fetched Successfully !!",
+                                        'status'           =>  $this->success,
+                                        'getVarientValues' =>  $getVarientValue
+                                    ]);
+        }catch(\Exception $e){
             return response()->json([
                                        'error' => $e->getMessage()
                                     ]);

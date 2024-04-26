@@ -13,8 +13,8 @@
 
                     <div class="col-md-12 col-sm-6 col-12">
                         <div class="form-group ">
-                            <label class="form-label-box">Varient Type Name</label>
-                            <input type="text" placeholder="Varient Type Name" class="form-control form-control-user" name="varient_type_name">
+                            <label class="form-label-box">Varient Name</label>
+                            <input type="text" placeholder="Varient Name" class="form-control form-control-user" name="varient_type_name">
                             <p class="text-danger varient_type_name"></p>
                             
                         </div>

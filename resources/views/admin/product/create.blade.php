@@ -89,7 +89,7 @@
                             <div class="form-group">
                                 <label class="form-label-box">Avg Purchase Price</label>
                                 <input id="PurchasePrice" type="text" placeholder="Purchase Price"
-                                    class="form-control form-control-user " name="Avg_purchasePrice">
+                                    class="form-control form-control-user " name="a_p">
                             </div>
                         </div>
                         
@@ -104,7 +104,7 @@
 
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="form-group varientTypeClass">
-                                <label class="form-label-box">Varient Type </label> <i class="fa fa-plus addVarientType" style=" margin-left:10px; font-size:28px;color:green"></i>
+                                <label class="form-label-box">Varient Type </label> <i class="fa fa-plus addVarientType" style=" margin-left:10px; font-size:20px;color:green"></i>
                                 <select class="form-control form-control-user select2-search varientType" id="varientType" name="varientType">
                                     @foreach ($getVarientType as $key=>$getVarient)
                                         <option value="{{ $getVarient->id ??''}}" getVarientType="{{$getVarient->varient_type ??''}}" @if($key==0)selected @endif>{{ $getVarient->varient_type_name ??'' }}</option>
@@ -114,16 +114,10 @@
                         </div>
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Varient Value</label> <i class="fa fa-plus addVarientValue"  style="margin-left:10px; font-size:28px;color:green"></i>
-                                <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;">
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
-                                    </select>
+                                <label class="form-label-box">Varient Value</label> <i class="fa fa-plus addVarientValue"  style="margin-left:10px; font-size:20px;color:green"></i>
+                                <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;"  name="varientValue[]">
+                                        
+                                </select>
                             </div>
                         </div>
                         
@@ -132,12 +126,14 @@
                             <table id="example" class="display table table table-bordered data-table" style="width:100%">
                                 <thead class="table-thead">
                                     <tr>
-                                        <th>S.No</th>
-                                        <th>Name</th>
+                                        <th>Label</th>
+                                        <!-- <th>Label</th> -->
+                                        <th>Price</th>
+                                        <!-- <th>MRP</th>
+                                        <th>Get Log</th>
                                         <th>Image</th>
-                                        <th>Status</th>
-                                        <th>Created By</th>
-                                        <th>Action</th>
+                                        <th>Stock</th>
+                                        <th>Action</th> -->
                                     </tr>
                                 </thead>
                                 <tbody class="tableBody">
@@ -170,65 +166,8 @@
 //     $('.subcategory').select2();
 //     $('.supersubcategory').select2();
 // });
-
-
 </script>
+<script src="{{asset('assets/admin/js/admin/product_varient_type.js')}}"></script>
+<script src="{{asset('assets/admin/js/admin/product_varient_value.js')}}"></script>
 
-<script>
-    $(document).ready(function(){
-        var count = 0;
-        $('.varientValueList').on('select2:select',function(){
-            count++;
-            var varientValue = $(this).val();
-            var html = '<tr class="'+count+'"><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td><td><input type="name" placeholder="Product Name" class="form-control form-control-user" name="name"></td></tr>';
-            $('.tableBody').append(html);
-            
-        });
-
-        $('.varientValueList').on('select2:unselect',function(){
-            $('.'+count).remove();
-            count--;
-        });
-
-    });
-</script>
-<script src="{{asset('assets/admin/js/admin/product_create.js')}}"></script>
-
-<script>
-    $(document).ready(function(){
-       $('.addVarientValueFormSubmit').on('click',function(e){
-        e.preventDefault();
-        var getVarientTypeiD = $('#varientType').val();
-        if(getVarientTypeiD){
-            var formData = new FormData($('#addVarientValueForm')[0]);
-            formData.append('getVarientTypeiD',getVarientTypeiD);
-            console.log(formData);
-           $.ajax({
-                   url: base_url+"/add-varient-value",
-                   method:"post",
-                   dataType:"json",
-                   data:formData,      
-                   contentType: false,
-                   processData: false,
-                   success:function(response){
-                        if(response.status == 200){
-                            toastr.success(response.success);
-                            
-                        }else{
-                            toastr.error(response);
-                        }
-                   },
-                    error:function(xhr, textStatus, errorThrown){
-                        $.each(xhr.responseJSON.errors,function(key,val){
-                        $('.'+key).html(val);
-                        });
-                    }
-           });
-        }else{
-            toastr.error("Please select varient type");
-        }
-
-       });
-    });
-</script>
 @endsection

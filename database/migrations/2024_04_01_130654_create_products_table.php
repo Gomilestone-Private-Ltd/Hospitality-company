@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('material')->nullable()->index();
             $table->string('make_in')->nullable()->index();
             $table->longText('varient_type')->nullable();
-            $table->longText('varient_value')->nullable();
+            $table->json('varient_value')->nullable();
+            $table->json('varient_detail')->nullable();
             $table->bigInteger('price')->nullable()->index();
             $table->bigInteger('added_by')->nullable()->index();
             $table->bigInteger('updated_by')->nullable()->index();

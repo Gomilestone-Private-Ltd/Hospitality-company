@@ -1,23 +1,13 @@
+//Show Varient Type Modal
 $(document).ready(function(){
     $('.addVarientType').on('click',function(){
         $('#addVarientType').modal('show');
     });
 });
 
-$(document).ready(function(){
-    $('.addVarientValue').on('click',function(){
-        var varientType = $('#varientType').find('option:selected').attr('getVarientType');
-        $('.varientValueClass').html('');
-        if(varientType == 1){
-            var getInputBox = '<div class="form-group"><label class="form-label-box">Value</label><input type="text" placeholder="label_value" class="form-control form-control-user" name="label_value"><p class="text-danger varient_type_name"></p></div>';
-        }else{
-            var getInputBox = '<div class="form-group"><label class="form-label-box">Choose Color</label><input type="color" id="favcolor" value="#ff0000" placeholder="label_value" class="form-control form-control-user" name="label_value"><p class="text-danger varient_type_name"></p></div>';
-        }
-        $('.varientValueClass').html(getInputBox);
-        $('#addVarientValue').modal('show');
-    });
-});
 
+
+//Add Varient Type
 $(document).ready(function(){
     $('.create_varient_type').on('click',function(e){
         e.preventDefault();

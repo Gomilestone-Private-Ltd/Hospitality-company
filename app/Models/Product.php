@@ -27,6 +27,7 @@ class Product extends Model
                           'discount_price',
                           'varient_type',
                           'varient_value',
+                          'varient_detail',
                           'make_in',
                           'added_by',    
                           'updated_by',
