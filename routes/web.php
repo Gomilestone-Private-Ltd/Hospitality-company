@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\SuperSubCategoryController;
 use App\Http\Controllers\Admin\VarientController;
 use App\Http\Controllers\Web\AppController;
+use App\Http\Controllers\Web\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::get('/',[AppController::class,'index'])->name('/');
 Route::get('/philosophy',[AppController::class,'philosophy']);
 Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->name('get.subcategory.list');
 
-
+Route::get('/contact',[ContactController::class,'contact']);
 /**
  * 
  *********************************User Pannel Route*********************************/

@@ -42,6 +42,7 @@
 
         .who-we-are-slider .slick-next {
             right: 36px !important;
+            top: 88.8%;
         }
     </style>
     <div class="main-philosophy-section">
@@ -59,13 +60,16 @@
                     </div>
                 </div>
             </div>
+            <div class="philosophy-right-box i-img">
+                <img src="{{ asset('assets/web/image/i-img2.png') }}" alt="">
+            </div>
         </div>
         <div class="video-section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="video-box">
-                            <iframe width="100%" height="500" autoplay muted controls
+                            <iframe width="100%" height="450" autoplay muted controls
                                 src="https://www.youtube.com/embed/S0MdRc_Iee4?si=fNPvmKk1hMZfYgKF"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
