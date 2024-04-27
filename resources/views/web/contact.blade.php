@@ -118,7 +118,7 @@
                                                                     alt="logo">
                                                                 +91 124 4222424 (INDIA)</a>
                                                             <a class="call-text-box" href="tel:+971 55 1532259"><img
-                                                                    src="{{ asset('assets/web/image/india-logo.png') }}"
+                                                                    src="{{ asset('assets/web/image/UAE-logo.png') }}"
                                                                     alt="logo"> +971 55 1532259 (UAE)</a>
                                                         </div>
                                                     </div>
