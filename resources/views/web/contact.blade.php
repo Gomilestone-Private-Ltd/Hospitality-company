@@ -10,8 +10,8 @@
                     <div class="col-md-12 text-center">
                         <div class="manufacture">
                             <h2 class="philosophy">CONTACT US</h2>
-                            <p class="philosophy-text">We offer a personal touch to customer service. If you have any
-                                enquiries or are in need on clarification on any aspect, please contact</p>
+                            <p class="philosophy-text letter-spacing">We Offer A Personal Touch To Customer Service. If You Have Any
+                                Enquiries Or Are In Need On Clarification On Any Aspect, Please Contact</p>
                         </div>
                     </div>
                 </div>

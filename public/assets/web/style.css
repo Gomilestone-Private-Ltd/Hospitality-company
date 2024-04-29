@@ -294,6 +294,10 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>a {
     margin-top: 10px;
 }
 
+.letter-spacing {
+    letter-spacing: normal !important;
+}
+
 .ruby-list-heading:hover {
     color: #C4383D;
 }
@@ -724,22 +728,31 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     opacity: 70%;
 }
 
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box .text-danger {
+    color: red !important;
+    font-family: 'Futura Lt BT' !important;
+    margin: 0;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
 .input-box input,
 select {
     width: 100%;
     height: 40px;
     border: 1px solid rgb(180, 180, 180);
-    margin-bottom: 20px;
     font-size: 15px !important;
     padding-left: 10px;
     font-family: 'Futura Lt BT' !important;
-
 }
 
 .input-box textarea {
     width: 100%;
     border: 1px solid rgb(180, 180, 180);
-    margin-bottom: 25px;
     font-size: 15px;
     padding-left: 8px;
     font-family: 'Futura Lt BT';
@@ -2407,12 +2420,20 @@ a.call-text-box img {
 }
 
 .GuestRoomItems-main-section .container {
-    max-width: 1450px;
-    width: 1450px;
+    max-width: 1430px;
+    width: 1430px;
+}
+
+@media (max-width:1400px) {
+    .GuestRoomItems-main-section .container {
+        max-width: 1300px;
+        width: 1300px;
+    }
 }
 
 .GuestRoomItems-section {
-    margin-top: -220px;
+    margin-top: -200px;
+    margin-bottom: 40px;
 }
 
 .GuestRoomItems-image-box {
@@ -2425,31 +2446,388 @@ a.call-text-box img {
     height: auto;
 }
 
-.filter{
-    color: #5B5B5B;
-    font-family: 'Futura Bt BT';
-    font-size: 22px;
+.filter-box {
+    margin-bottom: 45px;
 }
 
-.card-header .title {
-    font-size: 17px;
+.filter {
+    color: #5B5B5B;
+    font-family: 'Futura Md BT';
+    font-size: 22px;
+    position: relative;
+}
+
+.filter::before {
+    content: "";
+    background-color: #D3D3D3;
+    width: 50px;
+    height: 1.5px;
+    position: absolute;
+    bottom: 4px;
+    left: 55px;
+}
+
+.arrordion-header .accordion-title {
+    font-size: 16px;
+    color: #827D7D;
+    font-family: 'Futura Lt BT';
+}
+
+.arrordion-header .accicon {
+    float: right;
+}
+
+.arrordion-header .accicon .rotate-icon {
+    font-size: 24px;
+    color: #767676;
+}
+
+.arrordion-header {
+    cursor: pointer;
+    border-bottom: none;
+    background-color: #fff !important;
+}
+
+.accordion-card-box {
+    border: 1px solid #ddd;
+}
+
+.accrodion-card-body {
+    border-top: 1px solid #ddd;
+}
+
+.arrordion-header:not(.collapsed) .rotate-icon {
+    transform: rotate(180deg);
+}
+
+.check-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.check-box input {
+    height: 19px;
+    width: 19px;
+    margin: 0 !important;
+}
+
+.check-box p {
+    margin: 0;
+    margin-left: 8px;
+    font-size: 16px;
+    font-family: 'Futura Lt BT';
+    color: #827D7D;
+}
+
+.drop-btn {
+    border: 1px solid #E4E4E4;
+    height: 50px;
+    background-color: #fff;
+    padding: 0px 10px;
+    width: 200px;
+    font-family: 'Futura Lt BT';
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    float: right;
+    margin-bottom: 30px;
+}
+
+.our-product-right-img-box {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+}
+
+.our-products-right-section {
+    margin-left: 30px;
+}
+
+.our-product-img {
+    width: 100%;
+    height: auto;
+}
+
+.our-product-text {
+    color: #222222E5;
+    font-size: 18px;
+    font-family: 'Futura Lt BT';
+    margin-top: 10px;
+}
+
+
+/* DESK ACCESSORIES Section ******************************************/
+
+.desk-text {
+    font-size: 20px;
+    font-family: 'Futura Lt BT';
+    color: #3F3F3F;
+    line-height: 27px;
+    text-align: center;
+}
+
+.desk-img {
+    width: 100%;
+    object-fit: cover;
+    height: 580px;
+}
+
+.desk-left-img-box {
+    margin-bottom: 30px;
+}
+
+img.desk-small-img {
+    width: 85px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.deskRoomItems-section {
+    margin-top: -160px;
+}
+
+.GuestServiceDirectory {
+    background-color: #F9F9F9;
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+    margin-top: -100px;
+    padding-top: 200px;
+}
+
+.guest-heading {
     color: #000;
+    font-family: 'Futura Md BT';
+    font-size: 28px;
+    margin: 0;
+    margin-bottom: 20px;
 }
-.card-header .accicon {
-  float: right;
-  font-size: 20px;  
-  width: 1.2em;
+
+.guest-heading a {
+    color: #000;
+    text-decoration: none;
 }
-.card-header{
-  cursor: pointer;
-  border-bottom: none;
+
+.guest-heading a:hover {
+    color: #000;
+    text-decoration: none;
 }
-.card{
-  border: 1px solid #ddd;
+
+.guest-text {
+    color: #3F3F3F;
+    font-size: 20px;
+    font-family: 'Futura Lt BT';
+    line-height: 28px;
+    text-align: justify;
+    margin: 0;
 }
-.card-body{
-  border-top: 1px solid #ddd;
+
+.material-box h4 {
+    font-family: 'Futura Md BT';
+    font-size: 20px;
+    color: #4b4b4b;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
-.card-header:not(.collapsed) .rotate-icon {
-  transform: rotate(180deg);
+
+.material-btn {
+    color: #000;
+    font-family: 'Futura Lt BT';
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #E3E3E3;
+    padding: 10px 22px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.material-btn:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.materialActive {
+    background-color: #E3E3E3;
+}
+
+.material-btn-box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.material-box {
+    margin-bottom: 10px;
+}
+
+.select-box {
+    width: 250px;
+}
+
+.add-project-btn {
+    background-color: #E3E3E3;
+    color: #6A6A6A;
+    font-family: 'Futura Md BT';
+    font-size: 14px;
+    height: 50px;
+    width: 250px;
+    border: none;
+    margin-top: 20px;
+    text-align: end;
+    padding-right: 30px;
+    position: relative;
+}
+
+.add-project-btn::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #6A6A6A;
+    position: absolute;
+    bottom: 23px;
+    left: 20%;
+}
+
+.GuestServiceBlotter {
+    background-color: #F9F9F9;
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.WASTEBIN {
+    margin-bottom: 0;
+    padding-bottom: 80px;
+}
+
+
+/* desk-detail-section  ****************************************/
+
+.desk-detail-section {
+    margin-top: -70px;
+    padding-top: 190px;
+    background-color: #fff;
+    margin-bottom: 40px;
+}
+
+.RelatedProducts-main-section {
+    background-color: #F9F9F9;
+    padding-bottom: 150px;
+}
+
+.desk-slide-img {
+    margin-top: 15px;
+}
+
+.desk-slide-img p {
+    font-family: 'Futura Lt BT';
+    color: #222222E5;
+    margin: 0;
+    font-size: 16px;
+}
+
+.terms-condition-main-section {
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+.terms-condition-tab {
+    background-color: #fff;
+    margin-top: -100px;
+}
+
+.terms-condition-box {
+    padding: 0px 30px;
+    padding-bottom: 40px;
+
+}
+
+.terms-condition-main-section .nav-tabs .nav-item .nav-link {
+    padding: 20px 184px;
+}
+
+.underline-text {
+    color: #3F3F3F;
+    text-decoration: underline;
+}
+
+.underline-text:hover {
+    color: #3F3F3F;
+}
+
+.product-specification {
+    width: 40%;
+    margin: auto;
+    border: 1px solid #ECECEC;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.product-name-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.productTitle {
+    color: #3F3F3F;
+    font-family: 'Futura Lt BT';
+    font-size: 20px;
+    margin: 0;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.productTitle span {
+    width: 50px;
+}
+
+.productName {
+    color: #3F3F3F;
+    font-family: 'Futura Lt BT';
+    font-size: 20px;
+    margin: 0;
+}
+
+.email-box {
+    width: 35%;
+    margin: auto;
+    position: relative;
+    margin-bottom: 40px;
+
+}
+
+.email-box input {
+    width: 100%;
+    background-color: #F9F9F9;
+    border: none;
+    height: 50px;
+    padding: 15px;
+    padding-right: 120px;
+}
+
+.send-btn {
+    border: none;
+    background: none;
+    font-size: 15px;
+    color: #DB783D;
+    position: relative;
+    font-family: 'Futura Md BT';
+    position: absolute;
+    top: 14px;
+    right: 11px;
+}
+
+.send-btn::before {
+    content: '';
+    height: 1px;
+    width: 45px;
+    background-color: #DB783D;
+    position: absolute;
+    bottom: 10px;
+    left: -47px;
 }

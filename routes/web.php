@@ -37,6 +37,8 @@ Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->na
 Route::post('/get-in-touch',[AppController::class,'GetInTouch'])->name('get.in.touch');
 Route::get('/contact',[ContactController::class,'contact']);
 Route::get('/guest-room',[GuestRoomController::class,'guestRoomItems']);
+Route::get('/desk-accessorie',[GuestRoomController::class,'deskAccessories']);
+Route::get('/desk-accessorie-detail',[GuestRoomController::class,'deskAccessorieDetails']);
 /**
  * 
  *********************************User Pannel Route*********************************/
