@@ -114,7 +114,8 @@ header {
 }
 
 .header-right img {
-    margin-left: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
     cursor: pointer;
     width: 22px;
 }
@@ -715,15 +716,21 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     background-color: #ffffff;
     padding: 20px;
 }
-
-.input-box input {
+.input-box h4{
+    color: #827D7D;
+    font-family: 'Futura Lt BT';
+    font-size: 18px;
+    opacity: 70%;
+}
+.input-box input, select {
     width: 100%;
     height: 40px;
     border: 1px solid rgb(180, 180, 180);
     margin-bottom: 20px;
-    font-size: 15px;
-    padding-left: 8px;
-    font-family: 'Futura Lt BT';
+    font-size: 15px !important;
+    padding-left: 10px;
+    font-family: 'Futura Lt BT' !important;
+   
 }
 
 .input-box textarea {
@@ -779,6 +786,11 @@ textarea {
     color: #DB783D;
     position: relative;
     font-family: 'Futura Md BT';
+}
+
+.submit-btn:hover {
+    color: #DB783D;
+    text-decoration: none;
 }
 
 .submit-btn::before {
@@ -1763,6 +1775,33 @@ a {
     font-weight: 500;
 }
 
+@media (max-width:1400px) {
+    .philosophy-right-box {
+        position: absolute;
+        right: 1%;
+        bottom: 22px;
+    }
+
+    .i-img{
+        right: 2%;
+    }
+    
+    .philosophy-right-box img {
+        width: 95px;
+    }
+}
+.philosophy-right-box {
+    position: absolute;
+    right: 3%;
+    bottom: 22px;
+}
+
+
+.philosophy-right-box img {
+    width: 100%;
+}
+
+
 .borderTop {
     border-top: 1px solid #dee2e6 !important;
     top: 135px;
@@ -1785,11 +1824,13 @@ a {
 
 .video-section {
     background-color: #F0EFEB;
-    height: 960px;
+    height: 900px;
 }
 
 .video-box {
-    margin-top: -200px;
+    margin-top: -200px !important;
+    width: 90%;
+    margin: auto;
 }
 
 .manufacture {
@@ -1935,7 +1976,6 @@ img.slide-arrow {
 .our-client {
     background-color: #fff;
     padding-bottom: 65px;
-    padding-top: 30px;
 }
 
 .our-client-img-box {
@@ -2001,7 +2041,8 @@ img.slide-arrow {
 
 .green-measures {
     background-color: #fff;
-    padding: 50px 0px;
+    padding: 40px 0px;
+    padding-top: 0px;
 }
 
 .customisation-heading {
@@ -2032,7 +2073,8 @@ img.slide-arrow {
     width: 50px;
     margin-bottom: 10px;
 }
-.measures-text{
+
+.measures-text {
     color: #222222E5;
     font-size: 16px;
     font-family: 'Futura Lt BT';
@@ -2044,3 +2086,310 @@ img.slide-arrow {
 }
 
 
+/* Contact Section *****************************/
+
+.contact-section {
+    height: 570px;
+    margin-top: -70px;
+    padding-top: 190px;
+    position: relative;
+    background-color: #F0EFEB;
+}
+
+.QueriesInIndia-box {
+    border: 1px solid #DBDBDB;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #fff;
+}
+
+.contactOpine-setion .nav-tabs {
+    border: 1px solid #DBDBDB;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+    z-index: 9;
+    position: relative;
+}
+
+.contactOpine-setion {
+    margin-top: -180px;
+}
+
+.contactOpine-setion #TabContent .fade {
+    opacity: 1;
+}
+
+.contactOpine-setion .nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    border: none;
+}
+
+.contactOpine-setion .nav-tabs .nav-link {
+    border: none;
+}
+
+.contactOpine-setion .nav-tabs .nav-item .active {
+    border-bottom: 2px solid #DB783D;
+    padding: 20px 188px;
+    color: #DB783D !important;
+}
+
+.contactOpine-setion .nav-tabs .nav-item .nav-link {
+    padding: 20px 188px;
+    color: #3F3F3F;
+    font-size: 18px;
+    font-family: 'Futura Lt BT';
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.contactOpine-setion .tab-mE .active {
+    padding: 20px 188px !important;
+}
+
+.contactOpine-setion .nav-tabs>li {
+    margin: 0;
+}
+
+.Queries-heading {
+    width: 690px;
+}
+
+.Queries-box {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    padding-top: 40px;
+    margin-bottom: 12px !important;
+}
+
+.Queries-heading::after {
+    content: '';
+    height: 0.5px;
+    width: 180px;
+    background-color: #d6d6d6;
+    position: absolute;
+    bottom: 9px;
+    margin-left: 8px;
+}
+
+.Queries-heading::before {
+    content: '';
+    height: 0.5px;
+    width: 180px;
+    background-color: #d6d6d6;
+    position: absolute;
+    bottom: 9px;
+    left: 0;
+}
+
+.QueriesIndia-img {
+    text-align: center;
+}
+
+.QueriesIndia-img img {
+    width: 100%;
+    height: auto;
+}
+
+.QueriesIndia-img h4 {
+    color: #000000;
+    font-family: 'Futura Md BT';
+    font-size: 24px;
+    margin: 0;
+    margin-top: 18px;
+}
+
+.QueriesIndia-img p {
+    color: #3F3F3F;
+    font-family: 'Futura Lt BT';
+    font-size: 16px;
+    margin: 0;
+    margin-top: 3px;
+}
+
+.QueriesIndia-img .QueriesIndia-email {
+    color: #3F3F3F;
+    font-family: 'Futura Lt BT';
+    font-size: 16px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.CustomerService {
+    border-top: 1px solid #DBDBDB;
+    margin-top: 20px;
+}
+
+.CustomerService-heading {
+    width: 650px;
+    margin-bottom: 10px;
+}
+
+.CustomerService-heading::before {
+    width: 180px;
+}
+
+.CustomerService-heading::after {
+    width: 180px;
+}
+
+.whatsapp-icon {
+    border: 1px solid #efefef;
+    padding: 9px;
+    border-radius: 5px;
+    width: 36px;
+}
+
+/* .call-box img{
+    width: 37px;
+} */
+
+a.call-text-box {
+    padding-bottom: 10px;
+}
+
+a.call-text-box img {
+    margin-right: 4px;
+    margin-left: 8px;
+}
+
+.Custom-Project {
+    background-color: #F9F9F9;
+    margin-top: -400px;
+    height: 1000px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.Requirement-heading {
+    width: 960px;
+}
+
+.Request-heading {
+    width: 860px;
+}
+
+.location-heading {
+    width: 540px;
+}
+
+.location-heading::before {
+    width: 190px;
+}
+
+.location-heading::after {
+    width: 190px;
+}
+
+.india-location-box {
+    text-align: center;
+    margin: 0px 20px;
+}
+
+.india-location-box img {
+    width: 34px;
+    margin-bottom: 8px;
+}
+
+.india-name {
+    /* font-family: 'Futura Md BT'; */
+    font-family: 'Futura Lt BT';
+    font-size: 25px;
+    color: #5B5B5B;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.contact-no {
+    color: #000000;
+    font-family: 'Futura Md BT';
+    font-size: 20px;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.location-text {
+    color: #000000;
+    font-family: 'Futura Lt BT';
+    font-size: 18px;
+    margin: 0;
+    margin-top: 8px;
+    padding: 0px 30px;
+}
+
+.india-location {
+    margin-top: 20px;
+}
+
+.india-location iframe {
+    border: 6px solid #F0EFEB !important;
+}
+
+.textPadding {
+    padding: 0px 30px;
+}
+
+.work-with-us {
+    background-color: #cbcbcb;
+    padding-bottom: 60px;
+}
+
+.work-with-us-left img {
+    width: 100%;
+    height: auto;
+}
+
+.work-with-us-box {
+    background-color: #fff;
+    margin-top: -150px;
+}
+
+.work-with-us-right {
+    padding-top: 22px;
+    padding-right: 22px;
+}
+
+.Request-Catalogue {
+    margin-bottom: 180px;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.upload-btn {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgb(180, 180, 180);
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding-left: 10px;
+    font-family: 'Futura Lt BT';
+    background: none;
+    padding-right: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.upload-btn img{
+    width: 17px;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
