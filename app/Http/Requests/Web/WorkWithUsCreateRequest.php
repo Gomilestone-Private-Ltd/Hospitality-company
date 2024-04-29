@@ -25,8 +25,8 @@ class WorkWithUsCreateRequest extends FormRequest
                 'name'      =>"required|max:30",
                 'email'     =>"required|email|max:30",
                 'message'   =>"required|max:500",
-                'uploadfile'=>"required|max:1024|mimes:doc,docx",
-        ];
+                'uploadfile'=>"required|max:1024|mimes:doc,docx,jpeg,jpg,png",
+               ];
     }
 
     /**
@@ -37,15 +37,15 @@ class WorkWithUsCreateRequest extends FormRequest
     public function messages()
     {
         return [
-                'name.required'     =>"Name is required",
-                'name.max'          =>"Name can't be greater than 30 characters",
-                'email.required'    =>"E-mail id is required",
-                'email.email'       =>"Enter valid E-mail id ",     
-                'email.max'         =>"E-mail can't be greater than 30 characters",
-                'message.required'  =>"Message is required",
-                'message.max'       =>"Message can't be greater than 500 characters",
-                'uploadfile.required'  =>"File is required",
-                'uploadfile.max'       =>"File size can't be greater than 1mb characters",
-        ];
+                'name.required'        => "Name is required",
+                'name.max'             => "Name can't be greater than 30 characters",
+                'email.required'       => "E-mail id is required",
+                'email.email'          => "Enter valid E-mail id ",     
+                'email.max'            => "E-mail can't be greater than 30 characters",
+                'message.required'     => "Message is required",
+                'message.max'          => "Message can't be greater than 500 characters",
+                'uploadfile.required'  => "File is required",
+                'uploadfile.max'       => "File size can't be greater than 1 mb characters",
+               ];
     }
 }

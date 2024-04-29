@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-@section('title', 'Opine')
+@section('title', 'PHILOSOPHY')
 @section('content')
 
     <style>
@@ -422,7 +422,7 @@
         </div>
         <!-- Include get_in_touch -->
         <div class="get-in-touch">
-            @include('web.layout.partial.get_in_touch')
+        @include('web.layout.partial.get_in_touch')
         </div>
 
     </div>

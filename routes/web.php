@@ -35,6 +35,7 @@ Route::get('/',[AppController::class,'index'])->name('/');
 Route::get('/philosophy',[AppController::class,'philosophy']);
 Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->name('get.subcategory.list');
 Route::post('/get-in-touch',[AppController::class,'GetInTouch'])->name('get.in.touch');
+Route::post('/contact-us',[AppController::class,'contactUs'])->name('contact.us');
 Route::get('/contact',[ContactController::class,'contact']);
 
 /**

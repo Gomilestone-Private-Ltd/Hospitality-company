@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-@section('title', 'Opine')
+@section('title', 'Contact Us')
 @section('content')
     <div class="main-philosophy-section">
         <div class="contact-section">
@@ -175,29 +175,36 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <form action="">
+
+                                        <p class="text-success contactSuccessMessage" style="text-align:center;"></p>
+                                        <p class="text-danger contactErrorMessage" style="text-align:center;"></p>
+                                        <form id="queryForm" method="post" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>Company Name*</h4>
                                                         <input type="text" name="company" id="company">
+                                                        <p class="text-danger company"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>Type of Company*</h4>
-                                                        <select name="" id="">
+                                                        <select name="company_type" id="">
                                                             <option id="hideOption">Select Company</option>
-                                                            <option value="">Company 1</option>
-                                                            <option value="">Company 2</option>
-                                                            <option value="">Company 3</option>
+                                                            <option value="Company 1">Company 1</option>
+                                                            <option value="Company 2">Company 2</option>
+                                                            <option value="Company 3">Company 3</option>
                                                         </select>
+                                                        <p class="text-danger company_type"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>Full Name*</h4>
-                                                        <input type="name" name="name" id="name">
+                                                        <input type="name" name="full_name" id="name">
+                                                        <p class="text-danger full_name"></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -205,23 +212,26 @@
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>Email*</h4>
-                                                        <input type="email" name="email" id="email">
+                                                        <input type="email" name="c_email" id="email">
+                                                        <p class="text-danger c_email"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>Phone Number*</h4>
-                                                        <select name="" id="">
+                                                        <select name="phone_number" id="">
                                                             <option id="hideOption1">Select Number</option>
-                                                            <option value="">+91 124 4222424</option>
-                                                            <option value="">+971 55 1532259</option>
+                                                            <option value="+91 124 4222424">+91 124 4222424</option>
+                                                            <option value="+971 55 1532259">+971 55 1532259</option>
                                                         </select>
+                                                        <p class="text-danger phone_number"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>Job Title*</h4>
-                                                        <input type="text" name="job" id="job">
+                                                        <input type="text" name="job_title" id="job">
+                                                        <p class="text-danger job_title"></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,24 +239,27 @@
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>What Role Best Describes You?</h4>
-                                                        <select name="describes" id="describes">
+                                                        <select name="role_describes" id="describes">
                                                             <option id="hideOption2">Select Describes</option>
-                                                            <option value="">Describes 1</option>
-                                                            <option value="">Describes 2</option>
-                                                            <option value="">Describes 3</option>
+                                                            <option value="Describes 1">Describes 1</option>
+                                                            <option value="Describes 2">Describes 2</option>
+                                                            <option value="Describes 3">Describes 3</option>
                                                         </select>
+                                                        <p class="text-danger role_describes"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>City</h4>
                                                         <input type="text" name="city" id="city">
+                                                        <p class="text-danger city"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-box">
                                                         <h4>State</h4>
                                                         <input type="text" name="state" id="state">
+                                                        <p class="text-danger state"></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,6 +268,7 @@
                                                     <div class="input-box">
                                                         <h4>Postal Code</h4>
                                                         <input type="text" name="postal" id="postal">
+                                                        <p class="text-danger postal"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -262,26 +276,29 @@
                                                         <h4>Country*</h4>
                                                         <select name="country" id="country">
                                                             <option id="hideOption3">Select Country</option>
-                                                            <option value="">India</option>
-                                                            <option value="">UAE</option>
+                                                            <option value="India">India</option>
+                                                            <option value="UAE">UAE</option>
                                                         </select>
+                                                        <p class="text-danger country"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="input-box">
                                                         <h4>How Can We Help?*</h4>
-                                                        <textarea name="message" id="message" rows="3"></textarea>
+                                                        <textarea name="how_can_we_help" id="message" rows="3"></textarea>
+                                                        <p class="text-danger how_can_we_help"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="input-box">
                                                         <h4>Message</h4>
-                                                        <textarea name="message" id="message" rows="3"></textarea>
+                                                        <textarea name="c_message" id="message" rows="3"></textarea>
+                                                        <p class="text-danger c_message"></p>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12 text-right">
-                                                    <button type="button" class="submit-btn">SUBMIT</button>
+                                                    <button type="button" class="submit-btn queryForm">SUBMIT</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -381,68 +398,12 @@
                 </div>
 
             </div>
-            <div class="work-with-us">
-                <div class="container">
-                    <div class="work-with-us-box">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 col-12">
-                                <div class="work-with-us-left">
-                                    <img src="{{ asset('assets/web/image/work-img.png') }}" alt="image">
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-12 col-12 pl-0">
-                                <div class="work-with-us-right">
-                                    <form action="">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="input-box">
-                                                    <input type="name" name="name" id="name"
-                                                        placeholder="Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="input-box">
-                                                    <input type="email" name="email" id="email"
-                                                        placeholder="Email Address">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="input-box">
-                                                    <textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="input-box">
-                                                    <div class="upload-btn-wrapper">
-                                                        <button class="upload-btn">Upload a file
-                                                            <img src="{{ asset('assets/web/image/upload-icon.png') }}"
-                                                                alt="icon">
-                                                        </button>
-                                                        <input type="file" name="myfile" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 text-right">
-                                                <button type="button" class="submit-btn">SUBMIT</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('web.layout.partial.contactus')
         </div>
     </div>
 
-    <script>
-        (function() {
-            document.getElementById("hideOption").text = "";
-            document.getElementById("hideOption1").text = "";
-            document.getElementById("hideOption2").text = "";
-            document.getElementById("hideOption3").text = "";
-        })()
-    </script>
+    
+@endsection
+@section('js')
+<script src="{{asset('assets/web/js/contact_us.js')}}"></script>
 @endsection

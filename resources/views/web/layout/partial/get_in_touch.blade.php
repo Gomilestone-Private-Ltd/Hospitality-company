@@ -60,4 +60,4 @@
         </div>
     </div>
     
-    
+    <script src="{{asset('assets/web/js/get_in_touch.js')}}"></script>

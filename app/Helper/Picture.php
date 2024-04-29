@@ -59,9 +59,9 @@ class Picture{
      * @param file path
      * @return response
      */
-    public static function getFileSize($PATH_OF_FILE)
+    public static function getFileSize($path)
     {
-        return File::size($PATH_OF_FILE);
+        return $path->getSize();
     }
 
     /**
@@ -69,9 +69,9 @@ class Picture{
      * @param file path
      * @return response
      */
-    public static function getFileExtention($PATH_OF_FILE)
+    public static function getFileExtention($path)
     {
-        return File::extension($PATH_OF_FILE);
+        return $path->getClientOriginalExtension();
     }
 
     /**

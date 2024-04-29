@@ -16,4 +16,5 @@
 
     <!-- Include get_in_touch -->
     @include('web.layout.partial.get_in_touch')
+    
 @endsection
