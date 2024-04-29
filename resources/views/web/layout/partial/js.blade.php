@@ -131,3 +131,5 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 </script>
+<script src="{{asset('assets/web/js/work_with_us.js')}}"></script>
+<script src="{{asset('assets/web/js/get_in_touch.js')}}"></script>

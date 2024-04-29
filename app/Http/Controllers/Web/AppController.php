@@ -4,14 +4,19 @@ namespace App\Http\Controllers\Web;
 
 use App\Helper\Slug;
 use App\Models\Category;
+use App\Models\WorkWithUs;
 use App\Models\GetInTouch;
 use App\Models\Subcategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Web\GetInTouchCreateRequest;
+use App\Http\Requests\Web\WorkWithUsCreateRequest;
+use Picture;
 
 class AppController extends Controller
 {
+    
+
     #Bind the view
     protected $view="";
 
@@ -23,17 +28,20 @@ class AppController extends Controller
 
     #Bind Model GetInTouch
     protected $getInTouch;
-
+    
+    #Bind Model WorkWithUs
+    protected $workWithUs;
 
     /**
      * @method Define default constructor for controllers
      * @param
      * @return
      */
-    public function __construct(Category $category, Subcategory $subcategory,GetInTouch $getInTouch)
+    public function __construct(Category $category, Subcategory $subcategory,GetInTouch $getInTouch,WorkWithUs $workWithUs)
     {
-        $this->category = $category;
-        $this->getInTouch = $getInTouch;
+        $this->category    = $category;
+        $this->workWithUs  = $workWithUs;
+        $this->getInTouch  = $getInTouch;
         $this->subcategory = $subcategory;
     }
 
@@ -92,6 +100,37 @@ class AppController extends Controller
                     'message'  => $request->message ??'',
                     ];
             $this->getInTouch->create($data);
+            return response()->json([
+                                     'success'  => 'Soon we will Contact you !!',
+                                    ]);
+       }catch(\Exception $e){
+            return response()->json([
+                                        'errors'  => $e->getMessage()
+                                    ]);
+       }
+    }
+
+    /**
+     * @method Work with Us Form 
+     * @param 
+     * @return response
+     */
+    public function WorkWithUs(WorkWithUsCreateRequest $request)
+    {
+       try{
+            $data = [
+                    'slug'              => Slug::smallSlug() ??'',
+                    'name'              => $request->name ??'',
+                    'email'             => $request->email ??'',
+                    'message'           => $request->message ??'',
+                    'file'              => ($request->hasFile('uploadfile')) ? Picture::uploadPicture('work_with_us', $request->uploadfile) : null ,
+                    'size'              => ($request->hasFile('uploadfile')) ? Picture::getFileSize($request->uploadfile) : null ,
+                    'extention'         => ($request->hasFile('uploadfile')) ? Picture::getFileExtention($request->uploadfile) : null ,
+                    'original_file'     => ($request->hasFile('uploadfile')) ? Picture::getPictureDetails($request->uploadfile) : null ,
+                    ];
+            dd($data);
+            
+            $this->workWithUs->create($data);
             return response()->json([
                                      'success'  => 'Soon we will Contact you !!',
                                     ]);

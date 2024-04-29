@@ -36,6 +36,13 @@ Route::get('/philosophy',[AppController::class,'philosophy']);
 Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->name('get.subcategory.list');
 Route::post('/get-in-touch',[AppController::class,'GetInTouch'])->name('get.in.touch');
 Route::get('/contact',[ContactController::class,'contact']);
+
+/**
+ *************************************Work with us***************************
+ */
+Route::post('/work-with-us',[AppController::class,'WorkWithUs'])->name('work.with.us');
+
+
 Route::get('/guest-room',[GuestRoomController::class,'guestRoomItems']);
 Route::get('/desk-accessorie',[GuestRoomController::class,'deskAccessories']);
 Route::get('/desk-accessorie-detail',[GuestRoomController::class,'deskAccessorieDetails']);
