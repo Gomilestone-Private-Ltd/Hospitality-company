@@ -74,7 +74,7 @@
                                         <div class="row">
                                             <div class="col-md-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
-                                                    <h2 class="product-heading Queries-heading">For queries in Dubai</h2>
+                                                    <h2 class="product-heading Queries-heading">For Queries In Dubai</h2>
 
                                                 </div>
                                             </div>
@@ -227,7 +227,7 @@
                                 </div>
                                 <div class="col-md-12 text-center p-0">
                                     <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading ">Work with us
+                                        <h2 class="product-heading ">Work With Us
                                         </h2>
                                         <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
                                             Hotel
@@ -303,7 +303,7 @@
                                         <div class="row mb-5">
                                             <div class="col-md-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
-                                                    <h2 class="product-heading CustomerService-heading">Leave a Message
+                                                    <h2 class="product-heading CustomerService-heading">Leave A Message
                                                     </h2>
                                                 </div>
                                             </div>
@@ -500,7 +500,7 @@
                                 </div>
                                 <div class="col-md-12 text-center p-0">
                                     <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading ">Work with us
+                                        <h2 class="product-heading ">Work With Us
                                         </h2>
                                         <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
                                             Hotel
