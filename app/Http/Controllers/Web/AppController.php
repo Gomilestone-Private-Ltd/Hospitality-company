@@ -26,7 +26,7 @@ class AppController extends Controller
 
 
     /**
-     * @method Define default constructor for controller
+     * @method Define default constructor for controllers
      * @param
      * @return
      */
