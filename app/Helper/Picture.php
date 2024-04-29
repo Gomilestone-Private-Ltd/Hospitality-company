@@ -53,6 +53,26 @@ class Picture{
     {
         return File::delete($path);
     }
+    
+    /**
+     * @method Get file Size
+     * @param file path
+     * @return response
+     */
+    public static function getFileSize($PATH_OF_FILE)
+    {
+        return File::size($PATH_OF_FILE);
+    }
+
+    /**
+     * @method Get file Extention
+     * @param file path
+     * @return response
+     */
+    public static function getFileExtention($PATH_OF_FILE)
+    {
+        return File::extension($PATH_OF_FILE);
+    }
 
     /**
      * @method Uplaod file to s3 bucket
