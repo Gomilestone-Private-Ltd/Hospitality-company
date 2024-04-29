@@ -8,7 +8,7 @@
 
                     <div class="item">
                         <div class="slide-img-box">
-                            <img src="https://opine.gomilestone.com/assets/image/restaurant-img.png" alt="" />
+                            <img src="{{ asset('assets/web/image/restaurant-img.png')}}" alt="" />
                             <div class="overlay"></div>
                         </div>
 
@@ -50,7 +50,7 @@
                     </div>
                     <div class="item">
                         <div class="slide-img-box">
-                            <img src="https://opine.gomilestone.com/assets/image/restaurant-img.png" alt="" />
+                            <img src="{{ asset('assets/web/image/restaurant-img.png')}}" alt="" />
                             <div class="overlay"></div>
                         </div>
 

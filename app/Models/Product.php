@@ -13,27 +13,33 @@ class Product extends Model
     
     protected $fillable= [
                           'slug',
+                          'name',
+                          'title',
+                          'description',
+                          'is_varient_required',
                           'category_id',
                           'subcategory_id',
                           'supsubcategory_id',
-                          'name',
-                          'title',
-                          'sku',
+                          'specification',
+                          'product_code',
                           'dimention',
-                          'image',
-                          'description',
+                          'pack_of',
                           'material',
+                          'make_in',
+                          'thumbnail',
+                          'price',
                           'mrp',
-                          'discount_price',
                           'varient_type',
                           'varient_value',
                           'varient_detail',
-                          'make_in',
+                          'status',
+                          'stock',
+                          'tags',
                           'added_by',    
                           'updated_by',
                           'deleted_by'
                         ];
-                        
+                                          
     /**
      * @method Get aded by details
      * @param

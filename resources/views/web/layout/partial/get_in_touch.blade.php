@@ -26,25 +26,31 @@
                 </div>
                 <div class="col-md-6 col-sm-12 col-12 p-0">
                     <div class="get-in-touch-right">
-                        <form action="">
+                        <p class="text-success successMessage" style="text-align:center;"></p>
+                        <p class="text-danger errorMessage" style="text-align:center;"></p>
+                        <form id="GetIntouchForm" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-box">
-                                        <input type="name" name="name" id="name" placeholder="Name">
+                                        <input type="name" name="name" id="name" placeholder="Name" >
+                                        <p class="text-danger name"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-box">
-                                        <input type="email" name="email" id="email" placeholder="Email Address">
+                                        <input type="email" name="email" id="email" placeholder="Email Address" >
+                                        <p class="text-danger email"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input-box">
                                         <textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
+                                        <p class="text-danger message"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-right">
-                                    <button type="button" class="submit-btn">SUBMIT</button>
+                                    <button type="button" class="submit-btn GetIntouch">SUBMIT</button>
                                 </div>
                             </div>
                         </form>
@@ -53,3 +59,41 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        $(document).ready(function(){
+            $('.GetIntouch').on('click',function(e){
+                e.preventDefault();
+                $('.text-danger').html('');
+                $('.successMessage').html('');
+                $('.errorMessage').html('');
+                var formData = new FormData($('#GetIntouchForm')[0]);
+                $.ajax({
+                        url: base_url+"/get-in-touch",
+                        method:"post",
+                        contentType: false,
+                        processData: false,
+                        data:formData,
+                        success:function(response){
+                            
+                           $('.successMessage').html(response.success);
+                        },
+                        error:function(xhr, textStatus, errorThrown){
+                            console.log(xhr);
+                            if(xhr.responseJSON.exception == "ParseError"){
+                                $('.errorMessage').html("Sorry, We Have Some Technical issue !!");
+                            }else{
+                                $.each(xhr.responseJSON.errors,function(key,val){
+                                   $('.'+key).html(val);
+                                });
+                            }
+                            
+                                
+                            
+                            
+                        },
+                });
+
+            });
+        });
+    </script>

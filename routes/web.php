@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\SuperSubCategoryController;
 use App\Http\Controllers\Admin\VarientController;
 use App\Http\Controllers\Web\AppController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +31,7 @@ use App\Http\Controllers\Web\AppController;
 Route::get('/',[AppController::class,'index'])->name('/');
 Route::get('/philosophy',[AppController::class,'philosophy']);
 Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->name('get.subcategory.list');
-
+Route::post('/get-in-touch',[AppController::class,'GetInTouch'])->name('get.in.touch');
 
 /**
  * 
