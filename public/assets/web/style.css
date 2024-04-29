@@ -2430,6 +2430,17 @@ a.call-text-box img {
         width: 1300px;
     }
 }
+.desk-detail-section .container {
+    max-width: 1430px;
+    width: 1430px;
+}
+
+@media (max-width:1400px) {
+    .desk-detail-section .container {
+        max-width: 1300px;
+        width: 1300px;
+    }
+}
 
 .GuestRoomItems-section {
     margin-top: -200px;
