@@ -18,10 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable()->index();
             $table->string('image')->nullable()->index();
             $table->longText('description')->nullable();
-            $table->integer('status')->default(1)
-                                     ->comment('0 for deactive 1 for active')
-                                     ->nullable()
-                                     ->index();
+            $table->boolean('status')->default(1)->comment('1 for Active and 0 for Blocked')->index();
             $table->bigInteger('added_by')->nullable()->index();
             $table->bigInteger('updated_by')->nullable()->index();
             $table->bigInteger('deleted_by')->nullable()->index();

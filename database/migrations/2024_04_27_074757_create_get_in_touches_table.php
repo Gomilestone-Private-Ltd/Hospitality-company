@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('supersubcategories', function (Blueprint $table) {
+        Schema::create('get_in_touches', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->nullable()->index();
-            $table->bigInteger('category_id')->nullable()->index();
-            $table->bigInteger('subcategory_id')->nullable()->index();
             $table->string('name')->nullable()->index();
-            $table->string('image')->nullable()->index();
-            $table->longText('description')->nullable();
-            $table->boolean('status')->default(1)->comment('1 for Active and 0 for Blocked')->index();
-            $table->bigInteger('added_by')->nullable()->index();
+            $table->string('email')->nullable()->index();
+            $table->string('message')->nullable()->index();
+            $table->boolean('status')->default(1)->comment('1 for active and 0 for deactive')->index();
+            $table->longText('remark')->nullable()->index();
             $table->bigInteger('updated_by')->nullable()->index();
             $table->bigInteger('deleted_by')->nullable()->index();
             $table->softDeletes();
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('supersubcategories');
+        Schema::dropIfExists('get_in_touches');
     }
 };

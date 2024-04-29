@@ -134,7 +134,7 @@ $(document).ready(function(){
                     }
                 });
         }else{
-            toastr.error("Please Select Varient Type");
+           // toastr.error("Please Select Varient Type");
         }
         
 });
@@ -154,7 +154,7 @@ $(document).ready(function(){
             var getType = $(this).text();
             //Get  the selected option id
             var getTypeId = $(this).val();
-            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td><td><input type="text"  placeholder="Price" class="form-control form-control-user" name="varient_price[]"></td></tr>';
+            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td><td><input type="text"  placeholder="Price" class="form-control form-control-user" name="varient_price[]"></td><td><input type="text"  placeholder="Product Code" class="form-control form-control-user" name="product_code[]"></td></tr>';
             $('.tableBody').append(html); 
         });
     });

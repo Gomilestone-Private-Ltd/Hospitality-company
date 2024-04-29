@@ -115,33 +115,62 @@ class ProductController extends Controller
     public function store(CreateRequest $request)
     {
         try{
-            $varientDetail = [];
-            foreach($request->varient_name as $key=>$varient){
-                $varientDetail[] =[
-                                'varient_type'      => $request->varient_name[$key] ??"",
-                                'varient_value'     => $request->varient_price[$key] ??"",
-                ];
+            
+            if($request->varient_required){
+                dd($request->all(),1);
+                $varientData = [
+                                    'varient_type' => $request->varientType,
+                                    'varient_value' => $request->varientValue
+                                ];
+
+                $varientDetail = [];
+                foreach($request->varient_name as $key=>$varient){
+                    $varientDetail[] =[
+                                        'varient_id'        => $request->varientValue[$key] ??"",
+                                        'varient_lable'     => $request->varient_name[$key] ??"",
+                                        'varient_value'     => getVarientLabelValue($request->varientValue[$key]) ??"",       
+                                        'varient_price'     => $request->varient_price[$key] ??"",
+                                        'varient_type_id'   => $request->varientType,
+                                        'varient_type'      => getVarientType($request->varientType) ??'',
+                                    ];
+                }
+                $varientData['varient_detail'] = $varientDetail;
+
+                $productDetail = [
+                                'slug'              => Slug::smallSlug() ??'',
+                                'category_id'       => $request->category ??"",
+                                'subcategory_id'    => $request->subcategory ??"",
+                                'supsubcategory_id' => $request->supersubcategory ??"",
+                                'name'              => $request->name ??"",
+                                'title'             => $request->a_p ??"",
+                                'varient_detail'    => json_encode($varientData) ??"",
+                                'added_by'          => Masked::getUserId() ??'',
+                            ];
+                Product::create($productDetail);
+            }else{
+                dd($request->all(),2);
+                $productDetail = [
+                                    'slug'                 => Slug::smallSlug() ??'',
+                                    'title'                => $request->a_p ??"",
+                                    'description'          => $request->description ??"",
+                                    'is_varient_required'  => $request->varient_required ??"",
+                                    'category_id'          => $request->category ??"",
+                                    'subcategory_id'       => $request->subcategory ??"",
+                                    'supsubcategory_id'    => $request->supersubcategory ??"",
+                                    'specification'        => $request->supersubcategory ??"",
+                                    'product_code'         => $request->supersubcategory ??"",
+                                    'dimention'            => $request->supersubcategory ??"",
+                                    'pack_of'              => $request->supersubcategory ??"",
+                                    'material'             => $request->supersubcategory ??"",
+                                    'make_in'              => $request->supersubcategory ??"",
+                                    'stock'                => $request->supersubcategory ??"",
+                                    'tags'                 => $request->supersubcategory ??"",
+                                    'added_by'             => Masked::getUserId() ??'',
+                                ];
+                Product::create($productDetail);
             }
-            array_push($varientDetail,$request->varientType);
-            array_push($varientDetail,$request->varientValue);
-           
-
-
-            $data = [
-                     'slug'              => Slug::smallSlug() ??'',
-                     'category_id'       => $request->category ??"",
-                     'subcategory_id'    => $request->subcategory ??"",
-                     'supsubcategory_id' => $request->supersubcategory ??"",
-                     'name'              => $request->name ??"",
-                     'title'             => $request->a_p ??"",
-                     //'image'             => $request->file ??"",
-                     'varient_type'      => $request->varientType ??"",
-                     'varient_value'     => json_encode($request->varientValue) ??"",
-                     'varient_detail'    => json_encode($varientDetail) ??"",
-                     'added_by'          => Masked::getUserId() ??'',
-                    ];
-            Product::create($data);
-             dd($data);
+            
+            dd($productDetail);
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
         }catch(\Exception $e){
             return redirect()->back()->with(['error' => $e->getMessage()]);
