@@ -20,8 +20,8 @@
                                                     <div class="row">
                                                     @foreach($category->getSubCategory as $subcategory)
                                                         <div class="col-md-3">
-                                                            <h3 class="ruby-list-heading">{{$subcategory->name ??""}}
-                                                            </h3>
+                                                           <a href="/guest-room"> <h3 class="ruby-list-heading">{{$subcategory->name ??""}}
+                                                            </h3></a>
                                                             <ul>
                                                                 @foreach($subcategory->getSuperSubCategory as $superSubCategory)
                                                                 <li><a href="#">{{$superSubCategory->name ??''}}</a></li>
@@ -46,7 +46,7 @@
                                                     <div class="row">
                                                     @foreach($category->getSubCategory as $subcategory)
                                                         <div class="col-md-3">
-                                                            <h3 class="ruby-list-heading">{{$subcategory->name ??''}} </h3>
+                                                            <a href="/guest-room"><h3 class="ruby-list-heading">{{$subcategory->name ??''}} </h3></a>
                                                             <ul>
                                                                 @foreach($subcategory->getSuperSubCategory as $superSubCategory)
                                                                     <li><a href="#">{{$superSubCategory->name ??''}}</a></li>

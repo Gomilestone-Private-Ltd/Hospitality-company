@@ -24,31 +24,36 @@
     <div class="contactOpine-main-section">
         <div class="contactOpine-setion">
             <div class="container">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button"
-                            role="tab" aria-controls="home" aria-selected="true">CONTACT OPINE</button>
-                    </li>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home"
+                                    type="button" role="tab" aria-controls="home" aria-selected="true">CONTACT
+                                    OPINE</button>
+                            </li>
 
-                    <li class="nav-item tab-mE" role="presentation">
-                        <button class="nav-link " id="profile-tab" data-toggle="tab" data-target="#profile" type="button"
-                            role="tab" aria-controls="profile" aria-selected="false">HAVE OPINE CONTACT ME</button>
-                    </li>
+                            <li class="nav-item tab-mE" role="presentation">
+                                <button class="nav-link " id="profile-tab" data-toggle="tab" data-target="#profile"
+                                    type="button" role="tab" aria-controls="profile" aria-selected="false">HAVE OPINE
+                                    CONTACT ME</button>
+                            </li>
 
-                </ul>
-            </div>
-            <div class="tab-content" id="TabContent">
-                <div class="tab-pane fade show active contact-opine-main-section" id="home" role="tabpanel"
-                    aria-labelledby="home-tab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="tab-content" id="TabContent">
+                            <div class="tab-pane fade show active contact-opine-main-section" id="home" role="tabpanel"
+                                aria-labelledby="home-tab">
+
                                 <div class="QueriesInIndia-box">
                                     <div class="manufacture">
                                         <div class="row mb-5">
                                             <div class="col-md-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
-                                                    <h2 class="product-heading Queries-heading">For Queries In India</h2>
+                                                    <h2 class="product-heading Queries-heading">For Queries In
+                                                        India
+                                                    </h2>
 
                                                 </div>
                                             </div>
@@ -74,7 +79,9 @@
                                         <div class="row">
                                             <div class="col-md-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
-                                                    <h2 class="product-heading Queries-heading">For Queries In Dubai</h2>
+                                                    <h2 class="product-heading Queries-heading">For Queries In
+                                                        Dubai
+                                                    </h2>
 
                                                 </div>
                                             </div>
@@ -103,9 +110,13 @@
                                             <div class="row mb-5">
                                                 <div class="col-md-12 text-center p-0">
                                                     <div class="our-product our-proces-box" style="border-right: none">
-                                                        <h2 class="product-heading CustomerService-heading">Customer Service
+                                                        <h2 class="product-heading CustomerService-heading">
+                                                            Customer
+                                                            Service
                                                         </h2>
-                                                        <p class="text1">We offer a personal touch to customer service.</p>
+                                                        <p class="text1">We offer a personal touch to customer
+                                                            service.
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 p-0">
@@ -139,7 +150,8 @@
                                                             src="{{ asset('assets/web/image/whatsApp-icon.png') }}"
                                                             alt="image">
                                                         <div>
-                                                            <a href="mailto:opinelifestyles.india@gmail.com">Chat on
+                                                            <a href="mailto:opinelifestyles.india@gmail.com">Chat
+                                                                on
                                                                 WhatsApp</a>
                                                         </div>
                                                     </div>
@@ -149,161 +161,16 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            <div class="tab-pane fade Have-opine-contact-main-section" id="profile" role="tabpanel"
+                                aria-labelledby="profile-tab">
 
-                    <div class="Custom-Project">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 text-center p-0">
-                                    <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading Requirement-heading">Custom Project Requirement?
-                                        </h2>
-                                        <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
-                                            Hotel
-                                            Architects And Housekeeping Teams To Understand The Design Language And Guest
-                                            Servicing Requirements Respectively For Designing</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <a class="submit-btn">SUBMIT YOUR REQUIREMENT</a>
-                                    <div class="customisation-image-box">
-                                        <img class="customisation-image"
-                                            src="{{ asset('assets/web/image/customisation-img.png') }}" alt="image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="Request-Catalogue">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 text-center p-0">
-                                    <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading Request-heading">Request For Catalogue
-                                        </h2>
-                                        <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
-                                            Hotel
-                                            Architects And Housekeeping Teams To Understand The Design Language And Guest
-                                            Servicing Requirements Respectively For Designing</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <a class="submit-btn">SUBMIT YOUR REQUIREMENT</a>
-                                    <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading location-heading">Locations</h2>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="india-location-box">
-                                        <img src="{{ asset('assets/web/image/india-img.png') }}" alt="img">
-                                        <h4 class="india-name">INDIA NEW DELHI</h4>
-                                        <p class="contact-no">+91 124 4222424</p>
-                                        <p class="location-text">Plot No. 33 Sector 37 Pace City 1 Gurgaon, 122 001
-                                            Haryana, India</p>
-                                        <div class="india-location">
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d48267.178986628365!2d77.0861611691329!3d28.455692573212975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1714214426946!5m2!1sen!2sin"
-                                                width="100%" height="300" style="border:0;" allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="india-location-box">
-                                        <img src="{{ asset('assets/web/image/UAE-img.png') }}" alt="img">
-                                        <h4 class="india-name">UNITED ARAB EMIRATES DUBAI</h4>
-                                        <p class="contact-no">+971 55 1532259</p>
-                                        <p class="location-text">3808 Al Mazaya Tower BB2 Al Mazaya Business Avenue
-                                            Jumeirah Lake Towers</p>
-                                        <div class="india-location">
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d48267.178986628365!2d77.0861611691329!3d28.455692573212975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1714214426946!5m2!1sen!2sin"
-                                                width="100%" height="300" style="border:0;" allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center p-0">
-                                    <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading ">Work With Us
-                                        </h2>
-                                        <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
-                                            Hotel
-                                            Architects And Housekeeping Teams To Understand The Design Language And Guest
-                                            Servicing Requirements Respectively For Designing</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="work-with-us">
-                        <div class="container">
-                            <div class="work-with-us-box">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12 col-12">
-                                        <div class="work-with-us-left">
-                                            <img src="{{ asset('assets/web/image/work-img.png') }}" alt="image">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 col-12 pl-0">
-                                        <div class="work-with-us-right">
-                                            <form action="">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="input-box">
-                                                            <input type="name" name="name" id="name"
-                                                                placeholder="Name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input-box">
-                                                            <input type="email" name="email" id="email"
-                                                                placeholder="Email Address">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="input-box">
-                                                            <textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input-box">
-                                                            <div class="upload-btn-wrapper">
-                                                                <button class="upload-btn">Upload a file
-                                                                    <img src="{{ asset('assets/web/image/upload-icon.png') }}"
-                                                                        alt="icon">
-                                                                </button>
-                                                                <input type="file" name="myfile" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 text-right">
-                                                        <button type="button" class="submit-btn">SUBMIT</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade Have-opine-contact-main-section" id="profile" role="tabpanel"
-                    aria-labelledby="profile-tab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
                                 <div class="QueriesInIndia-box">
                                     <div class="manufacture">
                                         <div class="row mb-5">
                                             <div class="col-md-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
-                                                    <h2 class="product-heading CustomerService-heading">Leave A Message
+                                                    <h2 class="product-heading CustomerService-heading">Leave A
+                                                        Message
                                                     </h2>
                                                 </div>
                                             </div>
@@ -419,155 +286,154 @@
                                             </div>
                                         </form>
                                     </div>
+                                </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="Custom-Project">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 text-center p-0">
-                                    <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading Requirement-heading">Custom Project Requirement?
-                                        </h2>
-                                        <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
-                                            Hotel
-                                            Architects And Housekeeping Teams To Understand The Design Language And Guest
-                                            Servicing Requirements Respectively For Designing</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <a class="submit-btn">SUBMIT YOUR REQUIREMENT</a>
-                                    <div class="customisation-image-box">
-                                        <img class="customisation-image"
-                                            src="{{ asset('assets/web/image/customisation-img.png') }}" alt="image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="Request-Catalogue">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 text-center p-0">
-                                    <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading Request-heading">Request For Catalogue
-                                        </h2>
-                                        <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
-                                            Hotel
-                                            Architects And Housekeeping Teams To Understand The Design Language And Guest
-                                            Servicing Requirements Respectively For Designing</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <a class="submit-btn">SUBMIT YOUR REQUIREMENT</a>
-                                    <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading location-heading">Locations</h2>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="india-location-box">
-                                        <img src="{{ asset('assets/web/image/india-img.png') }}" alt="img">
-                                        <h4 class="india-name">INDIA NEW DELHI</h4>
-                                        <p class="contact-no">+91 124 4222424</p>
-                                        <p class="location-text">Plot No. 33 Sector 37 Pace City 1 Gurgaon, 122 001
-                                            Haryana, India</p>
-                                        <div class="india-location">
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d48267.178986628365!2d77.0861611691329!3d28.455692573212975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1714214426946!5m2!1sen!2sin"
-                                                width="100%" height="300" style="border:0;" allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="india-location-box">
-                                        <img src="{{ asset('assets/web/image/UAE-img.png') }}" alt="img">
-                                        <h4 class="india-name">UNITED ARAB EMIRATES DUBAI</h4>
-                                        <p class="contact-no">+971 55 1532259</p>
-                                        <p class="location-text">3808 Al Mazaya Tower BB2 Al Mazaya Business Avenue
-                                            Jumeirah Lake Towers</p>
-                                        <div class="india-location">
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d48267.178986628365!2d77.0861611691329!3d28.455692573212975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1714214426946!5m2!1sen!2sin"
-                                                width="100%" height="300" style="border:0;" allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center p-0">
-                                    <div class="our-product our-proces-box" style="border-right: none">
-                                        <h2 class="product-heading ">Work With Us
-                                        </h2>
-                                        <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
-                                            Hotel
-                                            Architects And Housekeeping Teams To Understand The Design Language And Guest
-                                            Servicing Requirements Respectively For Designing</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="work-with-us">
-                        <div class="container">
-                            <div class="work-with-us-box">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12 col-12">
-                                        <div class="work-with-us-left">
-                                            <img src="{{ asset('assets/web/image/work-img.png') }}" alt="image">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 col-12 pl-0">
-                                        <div class="work-with-us-right">
-                                            <form action="">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="input-box">
-                                                            <input type="name" name="name" id="name"
-                                                                placeholder="Name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input-box">
-                                                            <input type="email" name="email" id="email"
-                                                                placeholder="Email Address">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="input-box">
-                                                            <textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input-box">
-                                                            <div class="upload-btn-wrapper">
-                                                                <button class="upload-btn">Upload a file
-                                                                    <img src="{{ asset('assets/web/image/upload-icon.png') }}"
-                                                                        alt="icon">
-                                                                </button>
-                                                                <input type="file" name="myfile" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 text-right">
-                                                        <button type="button" class="submit-btn">SUBMIT</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="Custom-Project">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center p-0">
+                            <div class="our-product our-proces-box" style="border-right: none">
+                                <h2 class="product-heading Requirement-heading">Custom Project Requirement?
+                                </h2>
+                                <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
+                                    Hotel
+                                    Architects And Housekeeping Teams To Understand The Design Language And Guest
+                                    Servicing Requirements Respectively For Designing</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <a class="submit-btn">SUBMIT YOUR REQUIREMENT</a>
+                            <div class="customisation-image-box">
+                                <img class="customisation-image"
+                                    src="{{ asset('assets/web/image/customisation-img.png') }}" alt="image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="Request-Catalogue">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center p-0">
+                            <div class="our-product our-proces-box" style="border-right: none">
+                                <h2 class="product-heading Request-heading">Request For Catalogue
+                                </h2>
+                                <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
+                                    Hotel
+                                    Architects And Housekeeping Teams To Understand The Design Language And Guest
+                                    Servicing Requirements Respectively For Designing</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <a class="submit-btn">SUBMIT YOUR REQUIREMENT</a>
+                            <div class="our-product our-proces-box" style="border-right: none">
+                                <h2 class="product-heading location-heading">Locations</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="india-location-box">
+                                <img src="{{ asset('assets/web/image/india-img.png') }}" alt="img">
+                                <h4 class="india-name">INDIA NEW DELHI</h4>
+                                <p class="contact-no">+91 124 4222424</p>
+                                <p class="location-text">Plot No. 33 Sector 37 Pace City 1 Gurgaon, 122 001
+                                    Haryana, India</p>
+                                <div class="india-location">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d48267.178986628365!2d77.0861611691329!3d28.455692573212975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1714214426946!5m2!1sen!2sin"
+                                        width="100%" height="300" style="border:0;" allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="india-location-box">
+                                <img src="{{ asset('assets/web/image/UAE-img.png') }}" alt="img">
+                                <h4 class="india-name">UNITED ARAB EMIRATES DUBAI</h4>
+                                <p class="contact-no">+971 55 1532259</p>
+                                <p class="location-text">3808 Al Mazaya Tower BB2 Al Mazaya Business Avenue
+                                    Jumeirah Lake Towers</p>
+                                <div class="india-location">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d48267.178986628365!2d77.0861611691329!3d28.455692573212975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1714214426946!5m2!1sen!2sin"
+                                        width="100%" height="300" style="border:0;" allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center p-0">
+                            <div class="our-product our-proces-box" style="border-right: none">
+                                <h2 class="product-heading ">Work With Us
+                                </h2>
+                                <p class="text1 textPadding">For Rooms And Suites, The Idea Is To Collaborate With
+                                    Hotel
+                                    Architects And Housekeeping Teams To Understand The Design Language And Guest
+                                    Servicing Requirements Respectively For Designing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="work-with-us">
+                <div class="container">
+                    <div class="work-with-us-box">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <div class="work-with-us-left">
+                                    <img src="{{ asset('assets/web/image/work-img.png') }}" alt="image">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-12 pl-0">
+                                <div class="work-with-us-right">
+                                    <form action="">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <input type="name" name="name" id="name"
+                                                        placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <input type="email" name="email" id="email"
+                                                        placeholder="Email Address">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="input-box">
+                                                    <textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <div class="upload-btn-wrapper">
+                                                        <button class="upload-btn">Upload a file
+                                                            <img src="{{ asset('assets/web/image/upload-icon.png') }}"
+                                                                alt="icon">
+                                                        </button>
+                                                        <input type="file" name="myfile" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-right">
+                                                <button type="button" class="submit-btn">SUBMIT</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

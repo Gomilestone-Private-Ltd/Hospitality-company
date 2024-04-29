@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\VarientController;
 use App\Http\Controllers\Web\AppController;
 
 use App\Http\Controllers\Web\ContactController;
+use App\Http\Controllers\Web\GuestRoomController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,7 @@ Route::get('/philosophy',[AppController::class,'philosophy']);
 Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->name('get.subcategory.list');
 Route::post('/get-in-touch',[AppController::class,'GetInTouch'])->name('get.in.touch');
 Route::get('/contact',[ContactController::class,'contact']);
+Route::get('/guest-room',[GuestRoomController::class,'guestRoomItems']);
 /**
  * 
  *********************************User Pannel Route*********************************/
