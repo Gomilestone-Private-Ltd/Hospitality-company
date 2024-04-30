@@ -32,19 +32,19 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="input-box">
+                                    <div class="input-box footer-input-form">
                                         <input type="name" name="name" id="name" placeholder="Name" >
                                         <p class="text-danger name"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="input-box">
+                                    <div class="input-box footer-input-form">
                                         <input type="email" name="email" id="email" placeholder="Email Address" >
                                         <p class="text-danger email"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="input-box">
+                                    <div class="textarea-box footer-textarea-form">
                                         <textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
                                         <p class="text-danger message"></p>
                                     </div>

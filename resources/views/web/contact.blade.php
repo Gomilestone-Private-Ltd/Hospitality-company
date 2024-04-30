@@ -8,16 +8,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <div class="manufacture">
-                            <h2 class="philosophy">CONTACT US</h2>
-                            <p class="philosophy-text letter-spacing">We Offer A Personal Touch To Customer Service. If You Have Any
-                                Enquiries Or Are In Need On Clarification On Any Aspect, Please Contact</p>
-                        </div>
+                        <h2 class="philosophy">CONTACT US</h2>
+                        <p class="philosophy-text letter-spacing">We Offer A Personal Touch To Customer Service. If You Have
+                            Any
+                            Enquiries Or Are In Need On Clarification On Any Aspect, Please Contact</p>
+
                     </div>
                 </div>
             </div>
             <div class="philosophy-right-box">
                 <img src="{{ asset('assets/web/image/i-img1.png') }}" alt="">
+            </div>
+            <div class="scroll-box1">
+                <a href="#about">
+                    <img src="{{ asset('assets/web/image/scroll-icon2.png') }}" alt="">
+                </a>
             </div>
         </div>
     </div>
@@ -283,14 +288,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <div class="input-box">
+                                                    <div class="textarea-box">
                                                         <h4>How Can We Help?*</h4>
                                                         <textarea name="how_can_we_help" id="message" rows="3"></textarea>
                                                         <p class="text-danger how_can_we_help"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <div class="input-box">
+                                                    <div class="textarea-box">
                                                         <h4>Message</h4>
                                                         <textarea name="c_message" id="message" rows="3"></textarea>
                                                         <p class="text-danger c_message"></p>
@@ -402,8 +407,8 @@
         </div>
     </div>
 
-    
+
 @endsection
 @section('js')
-<script src="{{asset('assets/web/js/contact_us.js')}}"></script>
+    <script src="{{ asset('assets/web/js/contact_us.js') }}"></script>
 @endsection

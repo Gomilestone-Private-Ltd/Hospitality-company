@@ -8,16 +8,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <div class="manufacture">
-                            <h2 class="philosophy">GUEST ROOM ITEMS</h2>
-                            <p class="philosophy-text letter-spacing">We Offer A Personal Touch To Customer Service. If You Have Any
-                                Enquiries Or Are In Need On Clarification On Any Aspect, Please Contact</p>
-                        </div>
+                        <h2 class="philosophy">GUEST ROOM ITEMS</h2>
+                        <p class="philosophy-text letter-spacing">We Offer A Personal Touch To Customer Service. If You Have
+                            Any
+                            Enquiries Or Are In Need On Clarification On Any Aspect, Please Contact</p>
+
                     </div>
                 </div>
             </div>
             <div class="philosophy-right-box">
                 <img src="{{ asset('assets/web/image/i-img1.png') }}" alt="">
+            </div>
+            <div class="scroll-box1">
+                <a href="#about">
+                    <img src="{{ asset('assets/web/image/scroll-icon2.png') }}" alt="">
+                </a>
             </div>
         </div>
     </div>

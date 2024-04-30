@@ -52,16 +52,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <div class="manufacture">
-                            <h2 class="philosophy">PHILOSOPHY</h2>
-                            <p class="philosophy-text">A Hospitality-focused Design Company In New Delhi, India, Our Service
-                                Includes Design And Development Of Customized Interior Accessories.</p>
-                        </div>
+                        <h2 class="philosophy">PHILOSOPHY</h2>
+                        <p class="philosophy-text">A hospitality-focused design company in new delhi, india, our service includes design and development of customized interior accessories.</p>
+
                     </div>
                 </div>
             </div>
             <div class="philosophy-right-box i-img">
                 <img src="{{ asset('assets/web/image/i-img2.png') }}" alt="">
+            </div>
+            <div class="scroll-box1">
+                <a href="#about">
+                    <img src="{{ asset('assets/web/image/scroll-icon3.png') }}" alt="">
+                </a>
             </div>
         </div>
         <div class="video-section">
@@ -422,7 +425,7 @@
         </div>
         <!-- Include get_in_touch -->
         <div class="get-in-touch">
-        @include('web.layout.partial.get_in_touch')
+            @include('web.layout.partial.get_in_touch')
         </div>
 
     </div>

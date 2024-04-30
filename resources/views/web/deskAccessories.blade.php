@@ -8,19 +8,23 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <div class="manufacture">
-                            <h2 class="philosophy">DESK ACCESSORIES</h2>
-                            <p class="desk-text">Our artisanal techniques enable us to craft luxurious,
-                                contemporary accessories with a focus on functionality. The line of desk accessories are
-                                customized to complement the brand’s required size and aesthetics through handpicked
-                                textures, materials and hues as well as logo personalization including embossed, engraved or
-                                printed logo and taglines. </p>
-                        </div>
+                        <h2 class="philosophy">DESK ACCESSORIES</h2>
+                        <p class="desk-text">Our artisanal techniques enable us to craft luxurious,
+                            contemporary accessories with a focus on functionality. The line of desk accessories are
+                            customized to complement the brand’s required size and aesthetics through handpicked
+                            textures, materials and hues as well as logo personalization including embossed, engraved or
+                            printed logo and taglines. </p>
+
                     </div>
                 </div>
             </div>
             <div class="philosophy-right-box">
                 <img src="{{ asset('assets/web/image/i-img1.png') }}" alt="">
+            </div>
+            <div class="scroll-box1">
+                <a href="#about">
+                    <img src="{{ asset('assets/web/image/scroll-icon2.png') }}" alt="">
+                </a>
             </div>
         </div>
     </div>
@@ -42,21 +46,35 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="desk-left-img-box">
-                            <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}"
-                                alt="image">
+                            <img id="expandedImg" style="width:100%">
+                            <div id="imgtext">
+                                <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}"
+                                    alt="image">
+                            </div>
 
                         </div>
                         <div class="material-btn-box">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            
+                            <div class="column">
+                                <img onclick="myFunction(this);" class="desk-small-img"
+                                    src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}" alt="image">
+                            </div>
+                            <div class="column">
+                                <img onclick="myFunction(this);" class="desk-small-img"
+                                    src="{{ asset('assets/web/image/ourProces-img.png') }}" alt="image">
+                            </div>
+                            <div class="column">
+                                <img onclick="myFunction(this);" class="desk-small-img"
+                                    src="{{ asset('assets/web/image/ourProces-img3.png') }}" alt="image">
+                            </div>
+                            <div class="column">
+                                <img onclick="myFunction(this);" class="desk-small-img"
+                                    src="{{ asset('assets/web/image/ourProces-img2.png') }}" alt="image">
+                            </div>
+
                         </div>
+                        
+
+
                     </div>
                     <div class="col-md-6">
                         <div class="desk-right-text-box">
@@ -121,7 +139,7 @@
                                 alt="image">
                             <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
                                 alt="image">
-                            
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -187,7 +205,7 @@
                                 alt="image">
                             <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
                                 alt="image">
-                            
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -253,7 +271,7 @@
                                 alt="image">
                             <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
                                 alt="image">
-                            
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -306,4 +324,15 @@
     <div class="get-in-touch">
         @include('web.layout.partial.get_in_touch')
     </div>
+
+    <script>
+        function myFunction(imgs) {
+            var expandImg = document.getElementById("expandedImg");
+            var imgText = document.getElementById("imgtext");
+            expandImg.src = imgs.src;
+            imgText.innerHTML = "";
+            expandImg.parentElement.style.display = "block";
+            document.getElementById("expandedImg").style.display = "block";
+        }
+    </script>
 @endsection
