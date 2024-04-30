@@ -161,7 +161,7 @@ class AppController extends Controller
                     'slug'                 => Slug::smallSlug() ??'',
                     'c_name'               => $request->company ??'',
                     'c_type'               => $request->company_type ??'',
-                    'full_name'            => $request->full_name ??'',
+                    'name'                 => $request->full_name ??'',
                     'email'                => $request->c_email ??'',
                     'contact'              => $request->phone_number ??'',
                     'job_title'            => $request->job_title ??'',
@@ -173,8 +173,8 @@ class AppController extends Controller
                     'how_can_we_help'      => $request->how_can_we_help ??'',
                     'message'              => $request->c_message ??'',
                     ];  
-  
             $this->contactUs->create($data);
+           
             return response()->json([
                                      'success'  => 'Thank you for contacting us !!',
                                      'status'  => 200,

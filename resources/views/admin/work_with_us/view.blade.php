@@ -60,9 +60,9 @@
                         
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Message</label>
+                                <label class="form-label-box">Message :</label>
                                 <div class="">
-                                    <textarea class="text-area-box textarea" rows="2"  name="message">{{$workWithUs->message ??''}}</textarea>
+                                {{$workWithUs->message ??''}}
                                 </div>
                             </div>
                         </div> 
