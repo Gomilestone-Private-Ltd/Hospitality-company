@@ -45,6 +45,8 @@ Route::post('/work-with-us',[AppController::class,'WorkWithUs'])->name('work.wit
 
 
 Route::get('/guest-room',[GuestRoomController::class,'guestRoomItems']);
+Route::get('/desk-accessorie',[GuestRoomController::class,'deskAccessories']);
+Route::get('/desk-accessorie-detail',[GuestRoomController::class,'deskAccessorieDetails']);
 /**
  * 
  *********************************User Pannel Route*********************************/
