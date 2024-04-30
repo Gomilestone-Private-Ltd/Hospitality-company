@@ -1923,6 +1923,7 @@ a {
 img.who-we-img {
     height: 60px;
     width: 60px;
+    margin-bottom: 20px;
 }
 
 p.who-we-text {
