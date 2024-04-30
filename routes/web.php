@@ -10,6 +10,9 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\SuperSubCategoryController;
 use App\Http\Controllers\Admin\VarientController;
 use App\Http\Controllers\Web\AppController;
+use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\GetInTouchController;
+use App\Http\Controllers\Admin\WorkWithUsController;
 
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\GuestRoomController;
@@ -121,6 +124,26 @@ Route::group(['middleware'=>'admin'],function(){
     
     Route::get('/profile',[LoginController::class,'edit'])->name('edit.profile');
     Route::post('/update-profile',[LoginController::class,'update'])->name('update.profile');
+    
+    /******************************************Get In Touch Routes*********************************** */
+    Route::get('/get-in-touch',[GetInTouchController::class,'index'])->name('get.in.touch');
+    Route::get('/view-get-in-touch/{slug}',[GetInTouchController::class,'view'])->name('view.get.in.touch');
+    Route::get('/edit-get-in-touch',[GetInTouchController::class,'edit'])->name('edit-get-in-touch');
+    Route::post('/update-get-in-touch',[GetInTouchController::class,'update'])->name('update-get-in-touch');
+    Route::post('/delete-get-in-touch',[GetInTouchController::class,'delete'])->name('delete.get.in.touch');
+    
+    /******************************************Work With Us Routes*********************************** */
+    Route::get('/work-with-us',[WorkWithUsController::class,'index'])->name('work.with.us');
+    Route::get('/view-work-with-us/{slug}',[WorkWithUsController::class,'view'])->name('view.work.with.us');
+    Route::post('/delete-work-with-us',[WorkWithUsController::class,'delete'])->name('delete.work.with.us');
+
+    
+
+
+    /******************************************Contact Us Routes*********************************** */
+    Route::get('/contact-us',[ContactUsController::class,'index'])->name('contact.us');
+    Route::get('/view-contact-us/{slug}',[ContactUsController::class,'view'])->name('view.contact.us');
+    Route::post('/delete-contact-us',[ContactUsController::class,'delete'])->name('delete.contact.us');
 
     Route::get('/admin-logout',[LoginController::class,'logout'])->name('admin.logout');
 });

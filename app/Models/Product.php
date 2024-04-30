@@ -37,7 +37,7 @@ class Product extends Model
                           'tags',
                           'added_by',    
                           'updated_by',
-                          'deleted_by'
+                          'deleted_by',
                         ];
                                           
     /**
