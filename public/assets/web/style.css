@@ -1846,7 +1846,7 @@ a {
 @media (max-width:1400px) {
     .philosophy-right-box {
         position: absolute;
-        right: 1%;
+        right: 1% !important;
         bottom: 22px;
     }
 
