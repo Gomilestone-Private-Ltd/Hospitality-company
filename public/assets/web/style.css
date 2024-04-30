@@ -1855,7 +1855,14 @@ a {
     }
 
     .philosophy-right-box img {
-        width: 95px;
+        width: 95px !important;
+    }
+    .scroll-box1 {
+        left: 38px;
+    }
+    .video-box {
+        width: 95% !important;
+        margin: auto;
     }
 }
 
