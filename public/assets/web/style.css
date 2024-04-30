@@ -1098,7 +1098,7 @@ textarea {
     }
 
     .slider-section {
-        padding: 10px 0px 25px 0px !important;
+        padding: 150px 0px 25px 0px !important;
         padding-bottom: 0;
         overflow: hidden;
     }
@@ -1342,7 +1342,7 @@ textarea {
     }
 
     .text-box {
-        top: 41% !important;
+        top: 53% !important;
         left: 37% !important;
         transform: translate(-30%, -50%) !important;
     }

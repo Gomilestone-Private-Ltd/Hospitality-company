@@ -2,7 +2,7 @@
     <div id="mySidenav" class="sidenav">
         <div class="responsive-menu-box">
             <div class="header-logo">
-                <img src="{{asset('assets/web/image/logo.png')}}" alt="image">
+                <a href="/"> <img src="{{asset('assets/web/image/logo.png')}}" alt="image"></a>
             </div>
 
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -10,8 +10,8 @@
                 <a id="PRODUCTS" class="card-link product-arro accordion-heading-box">
                     PRODUCTS <i class="fa fa-angle-right angle-icon" aria-hidden="true"></i>
                 </a>
-                <a class="menu-inner accordion-heading-box" href="#">OUR STORY</a>
-                <a class="menu-inner accordion-heading-box" href="#">CONTACT</a>
+                <a class="menu-inner accordion-heading-box" href="/philosophy">PHILOSOPHY</a>
+                <a class="menu-inner accordion-heading-box" href="/contact">CONTACT</a>
             </div>
 
             <div id="productMenu" class="productMenu">
