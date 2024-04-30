@@ -8,6 +8,9 @@
                 <a href="{{route('subcategory')}}" class="sub-btn nav-link dropdown-btns" id="crunch"> Sub Category </a>
                 <a href="{{route('supersubcategory')}}" class="sub-btn nav-link dropdown-btns" id="crunch">Super Sub Category </a>
                 <a href="{{route('products')}}" class="sub-btn nav-link dropdown-btns" id="crunch"> Products </a>
+                <a href="{{route('get.in.touch')}}" class="sub-btn nav-link dropdown-btns" id="crunch"> Get In Touch </a>
+                <a href="{{route('work.with.us')}}" class="sub-btn nav-link dropdown-btns" id="crunch"> Work With Us </a>
+                <a href="{{route('contact.us')}}" class="sub-btn nav-link dropdown-btns" id="crunch"> Contact Us </a>
                 <a href="{{route('setting')}}" class="sub-btn nav-link dropdown-btns" id="crunch"> Setting </a>
             </div>
 
