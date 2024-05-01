@@ -483,7 +483,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     padding: 2px 102px;
     padding-top: 60px;
     margin-bottom: 30px !important;
-    width: 83.3%;
+    width: 85.5%;
     margin: auto;
 }
 
@@ -2608,12 +2608,11 @@ a.call-text-box img {
 
 .our-product-right-img-box {
     margin-left: 10px;
-    margin-right: 10px;
     margin-bottom: 50px;
 }
 
 .our-products-right-section {
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 .our-product-img {
@@ -2824,7 +2823,7 @@ img.desk-small-img {
 }
 
 .terms-condition-box {
-    padding: 0px 30px;
+    padding: 0px 50px;
     padding-bottom: 40px;
 
 }
@@ -2894,6 +2893,8 @@ img.desk-small-img {
     height: 50px;
     padding: 15px;
     padding-right: 120px;
+    font-family: 'Futura Lt BT';
+    font-size: 16px;
 }
 
 .send-btn {
