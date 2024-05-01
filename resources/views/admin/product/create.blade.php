@@ -88,71 +88,68 @@
                             </div>
                         </div>
 
+                        
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
-                            <label class="form-label-box">Product Thumbnail 2</label>
-                                <div class="fallback">
-                                    <input name="file2" type="file" />
-                                </div>   
+                                <label class="form-label-box">Product Code</label>
+                                <input id="Unit" type="text" placeholder="Product Code" class="form-control form-control-user " name="product_code">
                             </div>
                         </div>
+                       
 
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Want to add Varient ?</label><br>
-                                <input type="checkbox" placeholder="Want to add Varient" name="varient_required" class="wantToAddVarient" style="height:20px; width:20px;">
+                                <label class="form-label-box">Color Varients</label> 
+                                <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;"  name="varientValue[]">
+                                    @foreach($getColors as $getColor)
+                                    <option value="{{$getColor->id ??''}}" varientValueName="{{$getColor->color_name ??''}}">{{$getColor->color_name ??''}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-
-                        <div class="row col-md-12 col-sm-12 col-12 add_varient">
-                            <div class="col-md-4 col-sm-6 col-12">
-                                <div class="form-group varientTypeClass">
-                                    <label class="form-label-box">Varient Type </label> <i class="fa fa-plus addVarientType" style=" margin-left:10px; font-size:20px;color:green"></i>
-                                    <select class="form-control form-control-user select2-search varientType" id="varientType" name="varientType">
-                                        @foreach ($getVarientType as $key=>$getVarient)
-                                            <option value="{{ $getVarient->id ??''}}" getVarientType="{{$getVarient->varient_type ??''}}" @if($key==0)selected @endif>{{ $getVarient->varient_type_name ??'' }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label class="form-label-box">Varient Value</label> <i class="fa fa-plus addVarientValue"  style="margin-left:10px; font-size:20px;color:green"></i>
-                                    <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;"  name="varientValue[]">
-                                            
-                                    </select>
-                                </div>
-                            </div>
                             
-                            <div class=" table-responsive main-table">
+                        <div class=" table-responsive main-table">
                                 <table id="example" class="display table table table-bordered data-table" style="width:100%">
                                     <thead class="table-thead">
                                         <tr>
-                                            <th>Label</th>
-                                            <!-- <th>Label</th> -->
-                                            <th>Price</th>
-                                            <th>Product code</th>
-                                            <!-- <th>Get Log</th>
+                                            <th>Color</th>
                                             <th>Image</th>
-                                            <th>Stock</th>
-                                            <th>Action</th> -->
                                         </tr>
                                     </thead>
                                     <tbody class="tableBody">
                                         
                                     </tbody>
                                 </table>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label class="form-label-box">Size Varients</label> 
+                                <select class="select2 sizevarientValueList" multiple="multiple" data-placeholder="Select Size" style="width: 100%;"  name="size[]">
+                                    @foreach($getSizes as $getSize)
+                                    <option value="{{$getSize->id ??''}}" sizevarientValueName="{{$getSize->size ??''}}">{{$getSize->size ??''}}-{{$getSize->type ??''}}</option>
+                                    @endforeach
+                                </select>
                             </div>
+                        </div>
+                            
+                        <div class="table-responsive main-table">
+                                <table id="example" class="display table table table-bordered data-table" style="width:100%">
+                                    <thead class="table-thead">
+                                        <tr>
+                                            <th>Size</th>
+                                            <th>Price</th>
+                                            <th>Gst</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="sizevarientTable">
+                                        
+                                    </tbody>
+                                </table>
                         </div>
 
-                        <div class="row col-md-12 col-sm-12 col-12 without_varient">
-                            <div class="col-md-4 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label class="form-label-box">Product Code</label>
-                                    <input id="Unit" type="text" placeholder="Product Code" class="form-control form-control-user " name="product_code">
-                                </div>
-                            </div>
-                        </div>
+
+                        
                         <br>
                         <hr>
                         <div class="col-md-3 col-sm-6 col-12">
@@ -214,37 +211,85 @@
     </div>
 </div>
 
-@include('admin.product.add_varient_type');
-@include('admin.product.add_varient_value');
+<!-- @include('admin.product.add_varient_type');
+@include('admin.product.add_varient_value'); -->
 
 @endsection
 @section('js')
  
 <script>
-    $(document).ready(function(){
-        $('.add_varient').hide();
-        $('.wantToAddVarient').mousedown(function() {
-            if (!$(this).is(':checked')) {
-                $('.without_varient').hide();
-                $('.add_varient').show();
-                //$('.add_varient').addClass('showVarientForm');
+    //Append input box according to varient Value in table
+$(document).ready(function(){
 
-            }else{
-                //$('.tableBody').html('');
-                $('.without_varient').show();
-                $('.add_varient').hide();
-               // $('.add_varient').remove('showVarientForm');
-            }
-       });
-        
+    $('.varientValueList').on('select2:select',function(){
+        //Get Selected options
+        var selectedOptions = $(this).find('option:selected');
+        //Empty the table
+        $('.tableBody').empty('');
+        //selected avarient array loop
+        selectedOptions.each(function(){
+            //Get the selected options
+            var getType = $(this).text();
+            //Get  the selected option id
+            var getTypeId = $(this).val();
+            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td><td><input type="file" class="form-control form-control-user" name="image[]"></td></tr>';
+            $('.tableBody').append(html); 
+        });
     });
-// $(document).ready(function() {
-//     $('.category').select2();
-//     $('.subcategory').select2();
-//     $('.supersubcategory').select2();
-// });
+
+    //Remove the varient from the table list
+    $('.varientValueList').on('select2:unselect',function(){
+        //get the unselected varienr value list
+        var notSelected = $(".varientValueList").find('option').not(':selected');
+        //array loop
+        notSelected.each(function(){
+            //get varient value
+            var removeVarientVal = $(this).text();
+            var getTypeId = $(this).val();
+            //remove varient
+            $('.'+removeVarientVal+getTypeId).remove();
+        });
+    });
+});
 </script>
-<script src="{{asset('assets/admin/js/admin/product_varient_type.js')}}"></script>
-<script src="{{asset('assets/admin/js/admin/product_varient_value.js')}}"></script>
+
+<script>
+//Append input box according to size varient in table
+$(document).ready(function(){
+
+    $('.sizevarientValueList').on('select2:select',function(){
+        //Get Selected options
+        var selectedOptions = $(this).find('option:selected');
+        //Empty the table
+        $('.sizevarientTable').empty('');
+        //selected avarient array loop
+        selectedOptions.each(function(){
+            //Get the selected options
+            var getType = $(this).text();
+            //Get  the selected option id
+            var getTypeId = $(this).val();
+            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product size" class="form-control form-control-user" name="size[]" readonly></td><td><input type="text" class="form-control form-control-user" name="price[]"></td><td><input type="text" class="form-control form-control-user" name="gst[]"></td></tr>';
+            $('.sizevarientTable').append(html); 
+        });
+    });
+
+    //Remove the varient from the table list
+    $('.sizevarientValueList').on('select2:unselect',function(){
+        //get the unselected varienr value list
+        var notSelected = $(".sizevarientValueList").find('option').not(':selected');
+        //array loop
+        notSelected.each(function(){
+            //get varient value
+            var removeVarientVal = $(this).text();
+            var getTypeId = $(this).val();
+            //remove varient
+            $('.'+removeVarientVal+getTypeId).remove();
+        });
+    });
+});
+</script>
+
+<!-- <script src="{{asset('assets/admin/js/admin/product_varient_type.js')}}"></script> -->
+<!-- <script src="{{asset('assets/admin/js/admin/product_varient_value.js')}}"></script>  -->
 
 @endsection
