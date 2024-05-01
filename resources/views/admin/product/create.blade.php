@@ -30,10 +30,10 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Product Title</label>
-                                <input type="text" placeholder="Product Title" class="form-control form-control-user" name="title">
-                                @if($errors->has('title'))
-                                    <p class="text-danger">{{$errors->first('title')}}</p>
+                                <label class="form-label-box">Product Name</label>
+                                <input type="text" placeholder="Product Name" class="form-control form-control-user" name="product_name">
+                                @if($errors->has('product_name'))
+                                    <p class="text-danger">{{$errors->first('product_name')}}</p>
                                 @endif
                             </div>
                         </div>
@@ -81,9 +81,12 @@
                         
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
-                            <label class="form-label-box">Product Thumbnail 1</label>
+                            <label class="form-label-box">Product Image</label>
                                 <div class="fallback">
-                                    <input name="file1" type="file"  />
+                                    <input name="product_img[]" type="file"  multiple="multiple"/>
+                                       @if($errors->has('product_img'))
+                                       <p class="text-danger">{{$errors->first('product_img')}}</p>
+                                       @endif
                                 </div>   
                             </div>
                         </div>
@@ -91,24 +94,30 @@
                         
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Product Code</label>
-                                <input id="Unit" type="text" placeholder="Product Code" class="form-control form-control-user " name="product_code">
+                                <label class="form-label-box">HSN Code</label>
+                                <input id="Unit" type="text" placeholder="HSN Code" class="form-control form-control-user " name="hsn_code">
+                                @if($errors->has('hsn_code'))
+                                <p class="text-danger">{{$errors->first('hsn_code')}}</p>
+                                @endif
                             </div>
                         </div>
-                       
+                        
 
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Color Varients</label> 
-                                <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;"  name="varientValue[]">
+                                <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;"  name="color[]">
                                     @foreach($getColors as $getColor)
                                     <option value="{{$getColor->id ??''}}" varientValueName="{{$getColor->color_name ??''}}">{{$getColor->color_name ??''}}</option>
                                     @endforeach
                                 </select>
+                                @if($errors->has('color'))
+                                <p class="text-danger">{{$errors->first('color')}}</p>
+                                @endif
                             </div>
                         </div>
                             
-                        <div class=" table-responsive main-table">
+                        <div class=" table-responsive main-table colorTable">
                                 <table id="example" class="display table table table-bordered data-table" style="width:100%">
                                     <thead class="table-thead">
                                         <tr>
@@ -124,22 +133,59 @@
                         
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
+                                <label class="form-label-box">Specification</label>
+                                    <div class="fallback">
+                                        <input name="specification" type="file" />
+                                        @if($errors->has('specification'))
+                                            <p class="text-danger">{{$errors->first('specification')}}</p>
+                                        @endif
+                                    </div>   
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label class="form-label-box">MOQ</label>
+                                <input id="Unit" type="text" placeholder="Pack" class="form-control form-control-user " name="moq">
+                                @if($errors->has('moq'))
+                                    <p class="text-danger">{{$errors->first('moq')}}</p>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label class="form-label-box">Material</label>
+                                <select class="select2 " multiple="multiple" data-placeholder="Select a Material" style="width: 100%;"  name="material[]">
+                                    @foreach($materials as $material)
+                                    <option value="{{$material->id ??''}}">{{$material->name ??''}}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('material'))
+                                    <p class="text-danger">{{$errors->first('material')}}</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="form-group">
                                 <label class="form-label-box">Size Varients</label> 
                                 <select class="select2 sizevarientValueList" multiple="multiple" data-placeholder="Select Size" style="width: 100%;"  name="size[]">
                                     @foreach($getSizes as $getSize)
-                                    <option value="{{$getSize->id ??''}}" sizevarientValueName="{{$getSize->size ??''}}">{{$getSize->size ??''}}-{{$getSize->type ??''}}</option>
+                                    <option value="{{$getSize->id ??''}}" sizevarientValueName="{{$getSize->size ??''}}">{{$getSize->size ??''}}</option>
                                     @endforeach
                                 </select>
+                                @if($errors->has('size'))
+                                    <p class="text-danger">{{$errors->first('size')}}</p>
+                                @endif
                             </div>
                         </div>
                             
-                        <div class="table-responsive main-table">
+                        <div class="table-responsive main-table sizeTable">
                                 <table id="example" class="display table table table-bordered data-table" style="width:100%">
                                     <thead class="table-thead">
                                         <tr>
                                             <th>Size</th>
                                             <th>Price</th>
-                                            <th>Gst</th>
+                                            <th>Gst %</th>
                                         </tr>
                                     </thead>
                                     <tbody class="sizevarientTable">
@@ -152,51 +198,50 @@
                         
                         <br>
                         <hr>
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label class="form-label-box">Specification</label>
-                                    <div class="fallback">
-                                        <input name="specification" type="file" />
-                                    </div>   
-                            </div>
-                        </div>
                         
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Dimention</label>
-                                <input id="Unit" type="text" placeholder="Dimention" class="form-control form-control-user " name="dimention">
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label class="form-label-box">Pack</label>
-                                <input id="Unit" type="text" placeholder="Pack" class="form-control form-control-user " name="pack">
+                                <label class="form-label-box">General Price</label>
+                                <input id="Unit" type="text" placeholder="General Price" class="form-control form-control-user " name="general_price">
+                                @if($errors->has('general_price'))
+                                    <p class="text-danger">{{$errors->first('general_price')}}</p>
+                                @endif
                             </div>
                         </div>
 
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Material</label>
-                                <input id="Unit" type="text" placeholder="Material" class="form-control form-control-user " name="material">
+                                <label class="form-label-box">General Gst %</label>
+                                <input id="Unit" type="text" placeholder="General Gst %" class="form-control form-control-user " name="general_gst">
+                                @if($errors->has('general_gst'))
+                                    <p class="text-danger">{{$errors->first('general_gst')}}</p>
+                                @endif
                             </div>
                         </div>
                         
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label class="form-label-box">Make In</label>
-                                <input id="Unit" type="text" placeholder="Make In" class="form-control form-control-user " name="make_in">
-                            </div>
-                        </div>
-
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Tags</label>
                                 <input id="Unit" type="text" placeholder="Tags" class="form-control form-control-user " name="tags">
+                                @if($errors->has('tags'))
+                                    <p class="text-danger">{{$errors->first('tags')}}</p>
+                                @endif
                             </div>
                         </div>
                         
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="form-group">
+                                <label class="form-label-box">Description</label>
+                                <textarea class="form-control" rows="3"  name="description">{{$getProfile->address ??''}}</textarea>
+                                
+                                @if ($errors->has('description'))
+                                    <p class="text-danger">{{ $errors->first('description') }}</p>
+                                @endif
+                                
+                            </div>
+                        </div>
                         
+        
 
                         <div class="col-md-12 text-right">
                             <button id="success" type="submit" class="submit-btn fplusClass11">
@@ -218,10 +263,13 @@
 @section('js')
  
 <script>
-    //Append input box according to varient Value in table
+//Append input box according to varient Value in table
 $(document).ready(function(){
+    $('.colorTable').hide();
+    $('.sizeTable').hide();
 
     $('.varientValueList').on('select2:select',function(){
+        $('.colorTable').show();
         //Get Selected options
         var selectedOptions = $(this).find('option:selected');
         //Empty the table
@@ -232,7 +280,7 @@ $(document).ready(function(){
             var getType = $(this).text();
             //Get  the selected option id
             var getTypeId = $(this).val();
-            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td><td><input type="file" class="form-control form-control-user" name="image[]"></td></tr>';
+            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td><td><input type="file" class="form-control form-control-user" name="varient_image[]"></td></tr>';
             $('.tableBody').append(html); 
         });
     });
@@ -256,8 +304,9 @@ $(document).ready(function(){
 <script>
 //Append input box according to size varient in table
 $(document).ready(function(){
-
+     
     $('.sizevarientValueList').on('select2:select',function(){
+        $('.sizeTable').show();
         //Get Selected options
         var selectedOptions = $(this).find('option:selected');
         //Empty the table
@@ -268,7 +317,7 @@ $(document).ready(function(){
             var getType = $(this).text();
             //Get  the selected option id
             var getTypeId = $(this).val();
-            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product size" class="form-control form-control-user" name="size[]" readonly></td><td><input type="text" class="form-control form-control-user" name="price[]"></td><td><input type="text" class="form-control form-control-user" name="gst[]"></td></tr>';
+            var html = '<tr class="'+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product size" class="form-control form-control-user" name="varientSize[]" readonly></td><td><input type="text" class="form-control form-control-user" name="price[]"></td><td><input type="text" class="form-control form-control-user" name="gst[]"></td></tr>';
             $('.sizevarientTable').append(html); 
         });
     });
@@ -283,7 +332,7 @@ $(document).ready(function(){
             var removeVarientVal = $(this).text();
             var getTypeId = $(this).val();
             //remove varient
-            $('.'+removeVarientVal+getTypeId).remove();
+            $('.'+getTypeId).remove();
         });
     });
 });
