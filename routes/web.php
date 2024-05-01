@@ -14,6 +14,12 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\GetInTouchController;
 use App\Http\Controllers\Admin\WorkWithUsController;
 
+use App\Http\Controllers\Admin\AreaOfUseController;
+use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\IdealForController;
+use App\Http\Controllers\Admin\MaterialController;
+use App\Http\Controllers\Admin\SizeController;
+
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\GuestRoomController;
 
@@ -137,8 +143,50 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/view-work-with-us/{slug}',[WorkWithUsController::class,'view'])->name('view.work.with.us');
     Route::post('/delete-work-with-us',[WorkWithUsController::class,'delete'])->name('delete.work.with.us');
 
-    
+    /********************************************Area Of use  Routes***************************************/
+    Route::get('/area-of-use',[AreaOfUseController::class,'index'])->name('area.of.use');
+    Route::get('/add-area-of-use',[AreaOfUseController::class,'create'])->name('add.area.of.use');
+    Route::post('/store-area-of-use',[AreaOfUseController::class,'store'])->name('store.area.of.use');
+    Route::get('/edit-area-of-use/{slug}',[AreaOfUseController::class,'edit'])->name('edit.area.of.use');
+    Route::post('/update-area-of-use/{slug}',[AreaOfUseController::class,'update'])->name('update.area.of.use');
+    Route::post('/delete-area-of-use',[AreaOfUseController::class,'delete'])->name('delete.area.of.use');
+    Route::post('/area-of-use-status',[AreaOfUseController::class,'status'])->name('area.of.use.status');
 
+    /********************************************Color Routes***************************************/
+    Route::get('/color',[ColorController::class,'index'])->name('color');
+    Route::get('/add-color',[ColorController::class,'create'])->name('add.color');
+    Route::post('/store-color',[ColorController::class,'store'])->name('store.color');
+    Route::get('/edit-color/{slug}',[ColorController::class,'edit'])->name('edit.color');
+    Route::post('/update-color/{slug}',[ColorController::class,'update'])->name('update.color');
+    Route::post('/delete-color',[ColorController::class,'delete'])->name('delete.color');
+    Route::post('/color-status',[ColorController::class,'status'])->name('color.status');
+
+    /********************************************IdealFor Routes***************************************/
+    Route::get('/ideal-for',[IdealForController::class,'index'])->name('ideal.for');
+    Route::get('/add-ideal-for',[IdealForController::class,'create'])->name('add.ideal.for');
+    Route::post('/store-ideal-for',[IdealForController::class,'store'])->name('store.ideal.for');
+    Route::get('/edit-ideal-for/{slug}',[IdealForController::class,'edit'])->name('edit.ideal.for');
+    Route::post('/update-ideal-for/{slug}',[IdealForController::class,'update'])->name('update.ideal.for');
+    Route::post('/delete-ideal-for',[IdealForController::class,'delete'])->name('delete.ideal.for');
+    Route::post('/ideal-for-status',[IdealForController::class,'status'])->name('ideal.for.status');
+
+    /********************************************Material Routes***************************************/
+    Route::get('/material',[MaterialController::class,'index'])->name('material');
+    Route::get('/add-material',[MaterialController::class,'create'])->name('add.material');
+    Route::post('/store-material',[MaterialController::class,'store'])->name('store.material');
+    Route::get('/edit-material/{slug}',[MaterialController::class,'edit'])->name('edit.material');
+    Route::post('/update-material/{slug}',[MaterialController::class,'update'])->name('update.material');
+    Route::post('/delete-material',[MaterialController::class,'delete'])->name('delete.material');
+    Route::post('/material-status',[MaterialController::class,'status'])->name('material.status');
+
+    /********************************************Size Routes***************************************/
+    Route::get('/size',[SizeController::class,'index'])->name('size');
+    Route::get('/add-size',[SizeController::class,'create'])->name('add.size');
+    Route::post('/store-size',[SizeController::class,'store'])->name('store.size');
+    Route::get('/edit-size/{slug}',[SizeController::class,'edit'])->name('edit.size');
+    Route::post('/update-size/{slug}',[SizeController::class,'update'])->name('update.size');
+    Route::post('/delete-size',[SizeController::class,'delete'])->name('delete.size');
+    Route::post('/size-status',[SizeController::class,'status'])->name('size.status');
 
     /******************************************Contact Us Routes*********************************** */
     Route::get('/contact-us',[ContactUsController::class,'index'])->name('contact.us');
@@ -147,4 +195,8 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/admin-logout',[LoginController::class,'logout'])->name('admin.logout');
 });
+
+
+
+
 

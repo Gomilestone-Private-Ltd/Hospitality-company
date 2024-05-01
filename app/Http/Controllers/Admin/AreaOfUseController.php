@@ -4,63 +4,51 @@ namespace App\Http\Controllers\Admin;
 
 use Slug;
 use Masked;
-use Picture;
 use DataTables;
 use CreateAppLog;
-use App\Models\Category;
-use App\Models\Subcategory;
+use App\Models\AreaOfUse;
+use App\Http\Requests\Areaofuse\EditRequest;
+use App\Http\Requests\Areaofuse\CreateRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Category\CreateRequest;
-use App\Http\Requests\Category\EditRequest;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class AreaOfUseController extends Controller
 {
     #Bind the view
-    protected $view = "admin.category";
+    protected $view = "admin.masters.areaOfUse";
     
-    #Bind Model Category
-    protected $category;
+    #Bind Model AreaOfUse
+    protected $areaOfUse;
 
-    #Bind Model Subcategory
-    protected $subcategory;
-    
     /**
      * @method Define default constructor for controller
      * @param
      * @return
      */
-    public function __construct(Category $category,Subcategory $subcategory)
+    public function __construct(AreaOfUse $areaOfUse)
     {
-        $this->category = $category;
-        $this->subcategory = $subcategory;
+        $this->areaOfUse = $areaOfUse;
     }
+
 
     /**
      * @method
      * @param
      * @return
      */
-    public function index()
-    {
-        // $categories = $this->category->get();
-        return view($this->view.'.index');
-    }
-
-    /**
-     * @method
-     * @param
-     * @return
-     */
-    public function getCategoryDatatable()
+    public function index(Request $request)
     {
         try{
-            $category  = $this->category->with(['addedBy'])->select('*');
-            return Datatables::of($category)->addIndexColumn()
-                                            ->addColumn('action', function($row){
-                                            })->rawColumns(['action'])->make(true);
+            if($request->ajax()){ 
+                $areaOfUse  = $this->areaOfUse->with(['addedBy'])->select('*');
+                return Datatables::of($areaOfUse)->addIndexColumn()
+                                                 ->addColumn('action', function($row){
+                                                })->rawColumns(['action'])->make(true);
+            }else{
+                return view($this->view.'.index');
+            }
         }catch(\Exception $e){
-            CreateAppLog::getErrorLog("View category requested by ".Masked::getUserName());
+            CreateAppLog::getErrorLog("View area of use requested by ".Masked::getUserName());
             return redirect()->back()->with([
                                                 'error' => $e->getMessage()
                                             ]);
@@ -69,7 +57,7 @@ class CategoryController extends Controller
 
     
     /**
-     * @method Create category 
+     * @method Create area Of Use 
      * @param 
      * @return create page
      */
@@ -79,30 +67,26 @@ class CategoryController extends Controller
     }
 
     /**
-     * @method Create category
-     * @param category details
+     * @method Create area Of Use
+     * @param area Of Use details
      * @return response
      */
     public function store(CreateRequest $request)
     {
         try{
-            $picture = Picture::uploadPicture('assets/category/',$request->image);
-           
-                $categoryDetail = [
-                                    'slug'      => Slug::smallSlug() ??'',
-                                    'name'      => $request->name ??'',
-                                    'type'      => ($request->category_type == "material") ? 1 : (($request->category_type == "collection") ? 2 : (($request->category_type == "use") ? 3 : 4)) ,
-                                    'image'     => ($request->hasFile('image')) ? $picture : "" ??'',
-                                    'added_by'  => Masked::getUserId() ??'',
+                $areaOfUseDetail = [
+                                    'slug'         => Slug::smallSlug() ??'',
+                                    'area_of_use'  => $request->area_of_use ??'',
+                                    'added_by'     => Masked::getUserId() ??'',
                                   ];
-                $this->category->create($categoryDetail);
+                $this->areaOfUse->create($areaOfUseDetail);
            
-            CreateAppLog::getInfoLog(Masked::getUserName()." created category ".$request->name);
+            CreateAppLog::getInfoLog(Masked::getUserName()." created area Of Use ".$request->name);
             return redirect()->back()->with([
                                                 'success' =>"Created successfully !!"
                                             ]);
         }catch(\Exception $e){
-            CreateAppLog::getErrorLog("created category requested by ".Masked::getUserName());
+            CreateAppLog::getErrorLog("created area Of Use requested by ".Masked::getUserName());
             return redirect()->back()->with([
                                              'error' => $e->getMessage()
                                             ]);
@@ -111,19 +95,19 @@ class CategoryController extends Controller
     }
 
     /**
-     * @method Edit category 
+     * @method Edit area Of Use 
      * @param  
      * @return Edit page
      */
     public function edit($slug)
     {
         try{
-            $getCategoryDetail = $this->category->whereSlug($slug)->first();
+            $areaOfUseDetail = $this->areaOfUse->whereSlug($slug)->first();
             return view($this->view.'.edit')->with([
-                                                    'getCategoryDetail' => $getCategoryDetail
+                                                    'areaOfUseDetail' => $areaOfUseDetail
                                                    ]);
         }catch(\Exception $e){
-            CreateAppLog::getErrorLog("Edit category requested by ".Masked::getUserName());
+            CreateAppLog::getErrorLog("Edit area Of use requested by ".Masked::getUserName());
             return redirect()->back()->with([
                                              'error'  => $e->getMessage()
                                             ]);
@@ -131,27 +115,24 @@ class CategoryController extends Controller
     }
 
     /**
-     * @method Update category 
+     * @method Update area Of Use  
      * @param 
      * @return update response
      */
     public function update(EditRequest $request,$slug)
     {
         try{
-            $getCategoryDetail = $this->category->select('image')->whereSlug($request->slug)->first();
-            $categoryDetail = [
-                                'name'        => $request->name ??'',
-                                'type'        => ($request->category_type == "material") ? 1 : (($request->category_type == "collection") ? 2 : (($request->category_type == "use") ? 3 : 4)) ,
-                                'image'       => ($request->hasFile('image')) ? Picture::uploadPicture('assets/category/',$request->image) : $getCategoryDetail->image ??'',
+            $areaOfUseDetail = [
+                                'area_of_use' => $request->area_of_use ??'',
                                 'updated_by'  => Masked::getUserId() ??'',
-                              ];
-            $this->category->whereSlug($slug)->update($categoryDetail);
-            CreateAppLog::getInfoLog(Masked::getUserName()." updated the category ");
+                               ];
+            $this->areaOfUse->whereSlug($slug)->update($areaOfUseDetail);
+            CreateAppLog::getInfoLog(Masked::getUserName()." updated the area Of Use ");
             return redirect()->back()->with([
                                                 'success' =>"Updated successfully !!"
                                             ]);
         }catch(\Exception $e){
-            CreateAppLog::getErrorLog("updated category requested by ".Masked::getUserName());
+            CreateAppLog::getErrorLog("updated area of use requested by ".Masked::getUserName());
             return redirect()->back()->with([
                                              'error' => $e->getMessage()
                                             ]);
@@ -159,7 +140,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @method Delete category 
+     * @method Delete areaOfUse 
      * @param 
      * @return delete response
      */
@@ -167,16 +148,16 @@ class CategoryController extends Controller
     {
         try{
 
-            $getCategory = $this->category->whereSlug($request->slug)->first();
-            $getSubCategory = $this->subcategory->where('category_id',$getCategory->id)->get();
-            if(count($getSubCategory)){
+            $getAreaOfUse = $this->areaOfUse->whereSlug($request->slug)->first();
+            //$getSubCategory = $this->areaOfUse->where('category_id',$getCategory->id)->get();
+            if(empty($getAreaOfUse)){
                 return response()->json([
                                             'status'   => 300,
                                             'error'  => "System using this Category !!"
                                         ]);
             }else{
-                $getCategory->delete();
-                CreateAppLog::getErrorLog("category Deleted successfully by ".Masked::getUserName());
+                $getAreaOfUse->delete();
+                CreateAppLog::getErrorLog("Area of use Deleted successfully by ".Masked::getUserName());
                 return response()->json([
                                         'status'   => 200,
                                         'success'  => "Deleted Successfully !!"
@@ -185,7 +166,7 @@ class CategoryController extends Controller
             
 
         }catch(\Exception $e){
-            CreateAppLog::getErrorLog("Delete category requested by ".Masked::getUserName());
+            CreateAppLog::getErrorLog("Delete area of use requested by ".Masked::getUserName());
             return response()->json([
                                      'status' => 300,
                                      'error'  => $e->getMessage()
@@ -194,32 +175,32 @@ class CategoryController extends Controller
     }
 
     /**
-     * @method Change category status
+     * @method Change status
      * @param 
      * @return Change status response
      */
     public function status(Request $request)
     {
         try{
-            $getCategoryDetail = $this->category->whereSlug($request->slug)->first();
+            $getDetail = $this->areaOfUse->whereSlug($request->slug)->first();
             $key = "";
-            if($getCategoryDetail->status == 1){
+            if($getDetail->status == 1){
                 $data = [
                             'status'     => 0 ??'',
                             'updated_by' => Masked::getUserId() ??'',
                         ];
-                $this->category->whereSlug($request->slug)->update($data);
+                $this->areaOfUse->whereSlug($request->slug)->update($data);
                 $key = "Disable";
             }else{
                 $data = [
                             'status'     => 1 ??'',
                             'updated_by' => Masked::getUserId() ??'',
                         ];
-                $this->category->whereSlug($request->slug)->update($data);
+                $this->areaOfUse->whereSlug($request->slug)->update($data);
                 $key = "Enable";
             }
 
-            CreateAppLog::getErrorLog("Category status changed by ".Masked::getUserName());
+            CreateAppLog::getErrorLog("Area Of use status changed by ".Masked::getUserName());
             return response()->json([
                                      'status'     => 200,
                                      'statusName' => $key,
@@ -227,12 +208,11 @@ class CategoryController extends Controller
                                     ]);
 
         }catch(\Exception $e){
-            CreateAppLog::getErrorLog("Change category status requested by ".Masked::getUserName());
+            CreateAppLog::getErrorLog("Change area of use status requested by ".Masked::getUserName());
             return response()->json([
                                      'status' => 300,
                                      'error'  => $e->getMessage()
                                     ]);
         }
     }
-
 }
