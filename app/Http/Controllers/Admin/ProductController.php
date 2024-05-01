@@ -9,6 +9,7 @@ use App\Models\Size;
 use App\Helper\Masked;
 use App\Helper\Picture;
 use App\Models\Product;
+use App\Models\Material;
 use App\Models\Category;
 use App\Models\VarientType;
 use App\Models\VarientValue;
@@ -32,6 +33,9 @@ class ProductController extends Controller
     #Bind Model Product
     protected $product;
     
+    #Bind Model Material
+    protected $material;
+
     #Bind Model Category
     protected $category;
 
@@ -40,11 +44,12 @@ class ProductController extends Controller
      * @param
      * @return
      */
-    public function __construct(Product $product,Category $category, Color $color,Size $size)
+    public function __construct(Product $product,Category $category,Material $material, Color $color,Size $size)
     {
         $this->size          = $size;
         $this->color         = $color;
         $this->product       = $product;
+        $this->material      = $material;
         $this->category      = $category;
     }
 
@@ -98,10 +103,12 @@ class ProductController extends Controller
             $getColors = $this->color->where('status',1)->get();
             $getSize = $this->size->where('status',1)->get();
             $categories = $this->category->where('status',1)->get();
+            $materials = $this->material->where('status',1)->get();
             return view($this->view.'.create')->with([
-                                                    'categories'     => $categories,
-                                                    'getColors'      => $getColors,
-                                                    'getSizes'        => $getSize
+                                                      'categories'   => $categories,
+                                                      'getColors'    => $getColors,
+                                                      'getSizes'     => $getSize,
+                                                      'materials'    => $materials
                                                     ]);
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("Create product requested by ".Masked::getUserName());
@@ -119,13 +126,11 @@ class ProductController extends Controller
     public function store(CreateRequest $request)
     {
         try{
-            
-            if($request->varient_required){
                 dd($request->all(),1);
                 $varientData = [
                                     'varient_type' => $request->varientType,
                                     'varient_value' => $request->varientValue
-                                ];
+                               ];
 
                 $varientDetail = [];
                 foreach($request->varient_name as $key=>$varient){
@@ -151,30 +156,9 @@ class ProductController extends Controller
                                 'added_by'          => Masked::getUserId() ??'',
                             ];
                 Product::create($productDetail);
-            }else{
-                dd($request->all(),2);
-                $productDetail = [
-                                    'slug'                 => Slug::smallSlug() ??'',
-                                    'title'                => $request->a_p ??"",
-                                    'description'          => $request->description ??"",
-                                    'is_varient_required'  => $request->varient_required ??"",
-                                    'category_id'          => $request->category ??"",
-                                    'subcategory_id'       => $request->subcategory ??"",
-                                    'supsubcategory_id'    => $request->supersubcategory ??"",
-                                    'specification'        => $request->supersubcategory ??"",
-                                    'product_code'         => $request->supersubcategory ??"",
-                                    'dimention'            => $request->supersubcategory ??"",
-                                    'pack_of'              => $request->supersubcategory ??"",
-                                    'material'             => $request->supersubcategory ??"",
-                                    'make_in'              => $request->supersubcategory ??"",
-                                    'stock'                => $request->supersubcategory ??"",
-                                    'tags'                 => $request->supersubcategory ??"",
-                                    'added_by'             => Masked::getUserId() ??'',
-                                ];
-                Product::create($productDetail);
-            }
             
-            dd($productDetail);
+            
+            
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
         }catch(\Exception $e){
             return redirect()->back()->with(['error' => $e->getMessage()]);
