@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use DataTables;
 use App\Helper\Slug;
+use App\Models\Color;
+use App\Models\Size;
 use App\Helper\Masked;
 use App\Helper\Picture;
 use App\Models\Product;
@@ -21,29 +23,29 @@ class ProductController extends Controller
     #Bind the view
     protected $view = "admin.product";
     
+    #Bind Model Color
+    protected $color;
+    
+    #Bind Model Size
+    protected $size;
+
     #Bind Model Product
     protected $product;
     
     #Bind Model Category
     protected $category;
-    
-    #Bind Model VarientType
-    protected $varientType;
-
-    #Bind Model VarientValue
-    protected $varientValue;
 
     /**
      * @method Define default constructor for controller
      * @param
      * @return
      */
-    public function __construct(Product $product,Category $category, VarientType $varientType, VarientValue $varientValue)
+    public function __construct(Product $product,Category $category, Color $color,Size $size)
     {
+        $this->size          = $size;
+        $this->color         = $color;
         $this->product       = $product;
         $this->category      = $category;
-        $this->varientType   = $varientType;
-        $this->varientValue  = $varientValue;
     }
 
     /**
@@ -93,11 +95,13 @@ class ProductController extends Controller
     public function create()
     {
         try{
-            $getVarientType = $this->varientType->where('status',1)->get();
+            $getColors = $this->color->where('status',1)->get();
+            $getSize = $this->size->where('status',1)->get();
             $categories = $this->category->where('status',1)->get();
             return view($this->view.'.create')->with([
                                                     'categories'     => $categories,
-                                                    'getVarientType' => $getVarientType
+                                                    'getColors'      => $getColors,
+                                                    'getSizes'        => $getSize
                                                     ]);
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("Create product requested by ".Masked::getUserName());

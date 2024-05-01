@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class IdealForController extends Controller
 {
     #Bind the view
-    protected $view = "admin.masters.idealFor";
+    protected $view = "admin.masters.idealfor";
     
     #Bind Model IdealFor
     protected $idealFor;

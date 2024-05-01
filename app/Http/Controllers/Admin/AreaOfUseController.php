@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class AreaOfUseController extends Controller
 {
     #Bind the view
-    protected $view = "admin.masters.areaOfUse";
+    protected $view = "admin.masters.areaofuse";
     
     #Bind Model AreaOfUse
     protected $areaOfUse;
