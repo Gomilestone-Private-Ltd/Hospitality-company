@@ -211,13 +211,6 @@ class ProductController extends Controller
                 } 
             }
             
-<<<<<<< HEAD
-           dd($request->all(),json_encode($sizeVarientDetail),json_encode($sizeDetail),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
-
-            if($request->product_img != null ){
-
-                dd($request->all(),count($request->varientSize),4);   
-=======
             $genImage = [];
             if(isset($request->product_img)){
                 foreach($request->product_img as $key=>$product_img){
@@ -229,7 +222,6 @@ class ProductController extends Controller
             $specification = null;
             if($request->hasFile('specification')){
                 $specification = Picture::uploadPicture('assets/web/specification',$request->specification);
->>>>>>> 3cd4780cba59d3485bdd479f9d51a454b4007238
             }
 
            //dd($request->all(),json_encode($sizeVarientDetail),json_encode($sizeDetail),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
