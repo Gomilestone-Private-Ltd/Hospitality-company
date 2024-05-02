@@ -150,17 +150,28 @@ img.header-img {
     font-family: 'Montserrat-Medium';
     font-size: 18px;
     margin-bottom: 18px;
-    border-radius: 2px;
-    border-bottom: 1px dashed #ffffff;
+    border-radius: 2px !important;
+    border-bottom: 1px dashed #ffffff !important;
 }
 
 .nav-link:hover {
     background-color: #47457c;
     color: #ffffff;
-    border-radius: 8px;
-    border-bottom: 1px dashed #47457c;
+    border-radius: 8px !important;
+    border-bottom: 1px dashed #47457c !important;
 }
 
+.side-setting-dropdown {
+    padding-top: 0px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+.dropdown-btns:not(.collapsed) .rotate-icon {
+    transform: rotate(180deg);
+}
+.dropdown-btns .accicon {
+    float: right;
+}
 a.nav-link-text {
     font-family: 'Montserrat-Regular';
     font-size: 15px;
@@ -186,11 +197,15 @@ a.nav-link-text {
     cursor: pointer;
 }
 
-.side-bar .menu .item a .dropdown {
+/* .side-bar .menu .item a .dropdown {
     position: absolute;
     right: 15px;
     top: 17px;
     transition: 0.3s ease;
+} */
+
+.side-setting-drop{
+    background: transparent !important;
 }
 
 .side-bar .menu .item .sub-menu {
