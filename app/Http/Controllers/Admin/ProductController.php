@@ -117,7 +117,7 @@ class ProductController extends Controller
                                             ]);
         }
     }
-
+    
     /**
      * @method
      * @param
@@ -126,7 +126,113 @@ class ProductController extends Controller
     public function store(CreateRequest $request)
     {
         try{
-                dd($request->all(),1);
+            //Get material details only in array
+            $materialDetail = [];
+            if($request->material != null ){
+                $materialDetail = [];
+                foreach($request->material as $key=>$material){
+                    $getMaterial = $this->material->where(['id'=>$material,'status'=>1])->first();
+                    $materialDetail[] = [
+                                          'id'       => $material,
+                                          'material' => $getMaterial->name,
+                                        ];
+                }
+                //dd($request->all(),count($request->material),8,$materialDetail);   
+            }
+            
+            //Get color details only in array
+            $colorDetail =[];
+            if($request->color != null ){
+                foreach($request->color as $key=>$color){
+                    $getColor = $this->color->where(['id'=>$color,'status'=>1])->first();
+                    $colorDetail[] = [
+                                        'id'          => $color,
+                                        'color_name'  => $getColor->color_name,
+                                        'color_code'  => $getColor->color_code,
+                                     ];
+                }  
+            }
+            
+            //Get color varient details with image in array
+            $colorVarientDetail = [];
+            $allImageDetail = [];
+            if($request->color != null ){
+                foreach($request->color as $key=>$color){
+                    $getColor = $this->color->where(['id'=>$color,'status'=>1])->first();
+                    
+                    //Check color variable exist or not
+                    $colorImage = [];
+                    if(isset($request->varient_image[$getColor->color_name])){
+                        foreach($request->varient_image[$getColor->color_name] as $key=>$varient_image){
+                            $imagePath = Picture::uploadPicture('assets/web/product',$varient_image);
+                            $allImageDetail[] = $colorImage[] = $imagePath;
+                        }
+                    }
+                    $colorVarientDetail[] = [
+                                               'id'          => $color,
+                                               'color_name'  => $getColor->color_name,
+                                               'colorImage'  => $colorImage,
+                                            ];
+                }
+                 
+            }
+
+            //dd($request->all(),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
+            
+            //Get size details only in array
+            $sizeDetail =[];
+            if($request->size != null ){
+                foreach($request->size as $key=>$size){
+                    $getSize = $this->size->where(['id'=>$size,'status'=>1])->first();
+                    $sizeDetail[] = [
+                                        'id'    => $size,
+                                        'size'  => $getSize->size,
+                                        'type'  => $getSize->type,
+                                     ];
+                }  
+            }
+            
+            //Get color varient details with image in array
+            $sizeVarientDetail = [];
+            if($request->size != null ){
+                foreach($request->size as $key=>$size){
+                    $getSize = $this->size->where(['id'=>$size,'status'=>1])->first();
+                    
+                    $sizeVarientDetail[] = [
+                                                'id'     => $size,
+                                                'size'   => $getSize->size,
+                                                'type'   => $getSize->type,
+                                                'price'  => (!empty($request->price[$key])) ? $request->price[$key]: null,
+                                                'gst'    => (!empty($request->price[$key])) ? $request->price[$key]: null,
+                                           ];
+                } 
+            }
+            
+           //dd($request->all(),json_encode($sizeVarientDetail),json_encode($sizeDetail),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
+
+            if($request->product_img != null ){
+
+                dd($request->all(),count($request->varientSize),4);   
+            }
+
+            
+                
+            //Product::create();
+            return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
+        }catch(\Exception $e){
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        } 
+    }
+
+    /**
+     * @method
+     * @param
+     * @return
+     */
+    public function store22(CreateRequest $request)
+    {
+        try{
+                dd($request->all(),1);   
                 $varientData = [
                                     'varient_type' => $request->varientType,
                                     'varient_value' => $request->varientValue
