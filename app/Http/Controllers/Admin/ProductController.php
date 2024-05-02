@@ -81,10 +81,11 @@ class ProductController extends Controller
     {
         try{
             $product  = $this->product->with(['addedBy'])->select('*');
-    
                 return Datatables::of($product)->addIndexColumn()
-                                               ->addColumn('action', function($row){
-                                               })->rawColumns(['action'])->make(true);
+                ->addColumn('image',function($row){
+                    return $row->gen_image[0];
+                })->addColumn('action', function($row){
+                })->rawColumns(['action','image'])->make(true);
             
             
         }catch(\Exception $e){
@@ -166,7 +167,7 @@ class ProductController extends Controller
                     $colorImage = [];
                     if(isset($request->varient_image[$getColor->color_name])){
                         foreach($request->varient_image[$getColor->color_name] as $key=>$varient_image){
-                            $imagePath = Picture::uploadPicture('assets/web/product',$varient_image);
+                            $imagePath = Picture::uploadPicture('assets/web/product/',$varient_image);
                             $allImageDetail[] = $colorImage[] = $imagePath;
                         }
                     }
@@ -211,18 +212,17 @@ class ProductController extends Controller
             $genImage = [];
             if(isset($request->product_img)){
                 foreach($request->product_img as $key=>$product_img){
-                    $genImagePath = Picture::uploadPicture('assets/web/product',$product_img);
+                    $genImagePath = Picture::uploadPicture('assets/web/product/',$product_img);
                     $genImage[] = $genImagePath;
                 }
             }
             
             $specification = null;
             if($request->hasFile('specification')){
-                $specification = Picture::uploadPicture('assets/web/specification',$request->specification);
+                $specification = Picture::uploadPicture('assets/web/specification/',$request->specification);
             }
 
-           //dd($request->all(),json_encode($sizeVarientDetail),json_encode($sizeDetail),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
-           $productDetail = [
+            $productDetail = [
                                'slug'                => Slug::smallSlug() ??'',
                                'name'                => $request->product_name ??'',
                                'description'         => $request->description ??'',
@@ -250,8 +250,7 @@ class ProductController extends Controller
                                //'is_varient_available'=> $request->pp ??'',
                                'added_by'            => Masked::getUserId() ??'',
                             ];
-
-            Product::create($productDetail);
+            $this->product->create($productDetail);
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
         }catch(\Exception $e){
             return redirect()->back()->with(['error' => $e->getMessage()]);

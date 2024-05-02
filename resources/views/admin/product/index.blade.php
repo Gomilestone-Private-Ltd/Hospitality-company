@@ -77,9 +77,9 @@
                                         },
                                         {   data: 'action',    name: 'action', 
                                             render:function(data,type,row,meta){
-                                                var btn1 = `<a href="{{url('edit-category')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
-                                                var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','delete-category')"></i>`;
-                                                var actionBtn = btn1+btn2;
+                                                //var btn1 = `<a href="{{url('edit-category')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
+                                                //var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','delete-category')"></i>`;
+                                                var actionBtn='';
                                                 return actionBtn; 
                                             },
                                             orderable: false, searchable: true},
