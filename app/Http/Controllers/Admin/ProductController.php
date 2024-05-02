@@ -208,7 +208,7 @@ class ProductController extends Controller
                 } 
             }
             
-           //dd($request->all(),json_encode($sizeVarientDetail),json_encode($sizeDetail),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
+           dd($request->all(),json_encode($sizeVarientDetail),json_encode($sizeDetail),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
 
             if($request->product_img != null ){
 
