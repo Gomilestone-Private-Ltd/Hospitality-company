@@ -219,7 +219,7 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-3 col-sm-6 col-12">
+                        <!-- <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Tags</label>
                                 <input id="Unit" type="text" placeholder="Tags" class="form-control form-control-user " name="tags">
@@ -227,7 +227,7 @@
                                     <p class="text-danger">{{$errors->first('tags')}}</p>
                                 @endif
                             </div>
-                        </div>
+                        </div> -->
                         
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="form-group">

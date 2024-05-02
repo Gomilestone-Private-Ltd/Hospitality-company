@@ -108,7 +108,7 @@ header {
     position: absolute;
     bottom: -23px;
     left: 0;
-    border-bottom: 2px solid #fff;
+    border-bottom: 1px solid #fff;
     width: 80%;
     z-index: 1;
 }

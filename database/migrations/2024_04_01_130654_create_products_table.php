@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('slug')->nullable()->index();
             $table->longText('name')->nullable()->index();
             $table->longText('description')->nullable();
-            $table->bigInteger('category_id')->nullable()->index();
-            $table->bigInteger('subCategory_id')->nullable()->index();
-            $table->bigInteger('sup_subCategory_id')->nullable()->index();
+            $table->string('category_id')->nullable()->index();
+            $table->string('subCategory_id')->nullable()->index();
+            $table->string('sup_subCategory_id')->nullable()->index();
             
             $table->json('gen_image')->nullable();
             $table->string('hsn_code')->nullable()->index();

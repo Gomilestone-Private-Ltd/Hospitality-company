@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Slug;
+use Masked;
+use Picture;
 use DataTables;
-use App\Helper\Slug;
-use App\Models\Color;
+use CreateAppLog;
 use App\Models\Size;
-use App\Helper\Masked;
-use App\Helper\Picture;
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\Material;
 use App\Models\Category;
 use App\Models\VarientType;
 use App\Models\VarientValue;
-use App\Helper\CreateAppLog;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\EditRequest;
 use App\Http\Requests\Product\CreateRequest;
@@ -80,10 +80,16 @@ class ProductController extends Controller
     public function getProductDatatable()
     {
         try{
-            $product  = $this->product->with(['addedBy'])->select('*');
-            return Datatables::of($product)->addIndexColumn()
-                                            ->addColumn('action', function($row){
-                                            })->rawColumns(['action'])->make(true);
+            // if(){
+                $product  = $this->product->with(['addedBy'])->select('*');
+    
+                return Datatables::of($product)->addIndexColumn()
+                                               ->addColumn('action', function($row){
+                                               })->rawColumns(['action'])->make(true);
+            // }else{
+
+            // }
+            
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("View product requested by ".Masked::getUserName());
             return redirect()->back()->with([
@@ -136,8 +142,7 @@ class ProductController extends Controller
                                           'id'       => $material,
                                           'material' => $getMaterial->name,
                                         ];
-                }
-                //dd($request->all(),count($request->material),8,$materialDetail);   
+                }  
             }
             
             //Get color details only in array
@@ -177,8 +182,6 @@ class ProductController extends Controller
                  
             }
 
-            //dd($request->all(),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
-            
             //Get size details only in array
             $sizeDetail =[];
             if($request->size != null ){
@@ -208,16 +211,60 @@ class ProductController extends Controller
                 } 
             }
             
+<<<<<<< HEAD
            dd($request->all(),json_encode($sizeVarientDetail),json_encode($sizeDetail),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
 
             if($request->product_img != null ){
 
                 dd($request->all(),count($request->varientSize),4);   
+=======
+            $genImage = [];
+            if(isset($request->product_img)){
+                foreach($request->product_img as $key=>$product_img){
+                    $genImagePath = Picture::uploadPicture('assets/web/product',$product_img);
+                    $genImage[] = $genImagePath;
+                }
+            }
+            
+            $specification = null;
+            if($request->hasFile('specification')){
+                $specification = Picture::uploadPicture('assets/web/specification',$request->specification);
+>>>>>>> 3cd4780cba59d3485bdd479f9d51a454b4007238
             }
 
-            
+           //dd($request->all(),json_encode($sizeVarientDetail),json_encode($sizeDetail),json_encode($allImageDetail),json_encode($colorVarientDetail),json_encode($colorDetail),json_encode($materialDetail));  
+           $productDetail = [
+                               'slug'                => Slug::smallSlug() ??'',
+                               'name'                => $request->product_name ??'',
+                               'description'         => $request->description ??'',
+                               'is_varient_available'=> 1 ??'',
+                               'category_id'         => $request->category ??'',
+                               'subCategory_id'      => $request->subcategory ??'',
+                               'sup_subCategory_id'  => $request->supersubcategory ??'',
+                               'gen_image'           => json_encode($genImage) ??'',
+                               'hsn_code'            => $request->hsn_code ??'',
+                               'color'               => json_encode($colorDetail) ??'',
+                               'color_varient'       => json_encode($colorVarientDetail) ??'',
+                               'color_varient_images'=> json_encode($allImageDetail) ??'',
+                               'specification'       => $specification ??'',
+                               'moq'                 => $request->moq ??'',
+                               'material'            => json_encode($materialDetail) ??'',
+                               'size'                => json_encode($sizeDetail) ??'',
+                               'size_varient'        => json_encode($sizeVarientDetail) ??'',
+                               'gen_price'           => $request->general_price ??'',
+                               'gen_gst'             => $request->general_gst ??'',
+                               //'gen_stock'           => $request->pp ??'',
+                               //'make_in'             => $request->pp ??'',
+                               //'status'              => $request->pp ??'',
+                               //'tags'                => $request->pp ??'',
+                               //'meta_tags'           => $request->pp ??'',
+                               //'is_varient_available'=> $request->pp ??'',
+                               'added_by'            => Masked::getUserId() ??'',
+                            ];
+
                 
-            //Product::create();
+                            dd($productDetail);
+            Product::create($productDetail);
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
         }catch(\Exception $e){
             return redirect()->back()->with(['error' => $e->getMessage()]);
