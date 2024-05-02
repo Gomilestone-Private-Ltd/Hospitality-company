@@ -10,12 +10,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory, SoftDeletes;
-    
+    protected $casts = [
+                         'color'                => 'array',
+                         'gen_image'            => 'array',
+                         'color_varient'        => 'array',
+                         'color_varient_images' => 'array',
+                         'material'             => 'array',
+                         'size'                 => 'array',
+                         'size_varient'         => 'array',
+                       ];
+
     protected $fillable= [
                           'slug',
                           'name',
                           'description',
-                          'is_varient_required',
                           'category_id',
                           'subCategory_id',
                           'sup_subCategory_id',
@@ -25,7 +33,6 @@ class Product extends Model
                           'color_varient',
                           'color_varient_images',
                           'specification',
-                          'dimention',
                           'moq',
                           'material',
                           'size',
