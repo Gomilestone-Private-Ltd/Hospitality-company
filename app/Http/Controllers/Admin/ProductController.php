@@ -80,15 +80,12 @@ class ProductController extends Controller
     public function getProductDatatable()
     {
         try{
-            // if(){
-                $product  = $this->product->with(['addedBy'])->select('*');
+            $product  = $this->product->with(['addedBy'])->select('*');
     
                 return Datatables::of($product)->addIndexColumn()
                                                ->addColumn('action', function($row){
                                                })->rawColumns(['action'])->make(true);
-            // }else{
-
-            // }
+            
             
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("View product requested by ".Masked::getUserName());
@@ -254,8 +251,6 @@ class ProductController extends Controller
                                'added_by'            => Masked::getUserId() ??'',
                             ];
 
-                
-                            dd($productDetail);
             Product::create($productDetail);
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
         }catch(\Exception $e){
