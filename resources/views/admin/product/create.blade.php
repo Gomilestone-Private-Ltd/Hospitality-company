@@ -280,7 +280,7 @@ $(document).ready(function(){
             var getType = $(this).text();
             //Get  the selected option id
             var getTypeId = $(this).val();
-            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td><td><input type="file" class="form-control form-control-user" name="varient_image[]"></td></tr>';
+            var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td><td><input type="file" class="form-control form-control-user" name="varient_image['+getType+'][]" multiple="multiple"></td></tr>';
             $('.tableBody').append(html); 
         });
     });
@@ -317,7 +317,7 @@ $(document).ready(function(){
             var getType = $(this).text();
             //Get  the selected option id
             var getTypeId = $(this).val();
-            var html = '<tr class="'+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product size" class="form-control form-control-user" name="varientSize[]" readonly></td><td><input type="text" class="form-control form-control-user" name="price[]"></td><td><input type="text" class="form-control form-control-user" name="gst[]"></td></tr>';
+            var html = '<tr class="'+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product size" class="form-control form-control-user" name="varient_size[]" readonly></td><td><input type="text" class="form-control form-control-user" name="price[]"></td><td><input type="text" class="form-control form-control-user" name="gst[]"></td></tr>';
             $('.sizevarientTable').append(html); 
         });
     });
