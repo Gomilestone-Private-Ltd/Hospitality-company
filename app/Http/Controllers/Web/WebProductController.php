@@ -140,6 +140,6 @@ class WebProductController extends Controller
      * @return
      */
     public function productDetails($name,$slug){
-        dd($name, $slug);
+        return view($this->view.'.product_detail');
     }
 }

@@ -54,7 +54,7 @@ Route::get('/contact',[ContactController::class,'contact']);
  */
 Route::get('/category/{name}/{slug}',[WebProductController::class,'subcategoryProducts']);
 Route::get('/sub-category/{name}/{slug}',[WebProductController::class,'supsubCategoryProducts']);
-Route::get('/product-detail/{name}/{slug}',[WebProductController::class,'productDetails']);
+Route::get('/product/{name}/{slug}',[WebProductController::class,'productDetails']);
 
 /**
  *************************************Work with us***************************

@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="desk-right-text-box">
-                                <h3 class="guest-heading"><a href="#">{{$getProduct->name ??''}}</a></h3>
+                                <h3 class="guest-heading"><a href="{{url('/product')}}/{{$getProduct->meta_url ??''}}/{{$getProduct->slug ??''}}">{{$getProduct->name ??''}}</a></h3>
                                 <p class="guest-text">{{$getProduct->description ??''}}</p>
                                 @if(count($getProduct->material))
                                     <div class="material-box">

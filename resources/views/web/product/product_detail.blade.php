@@ -69,7 +69,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="desk-right-text-box">
-                            <h3 class="guest-heading"><a href="/desk-accessorie-detail">DESK BLOTTER</a></h3>
+                            <h3 class="guest-heading">DESK BLOTTER</h3>
                             <p class="guest-text">Our artisanal techniques enable us to craft luxurious, contemporary
                                 accessories with a focus
                                 on functionality. The line of desk accessories are customized to complement the brand’s
@@ -80,17 +80,25 @@
                             <div class="material-box">
                                 <h4>MATERIAL</h4>
                                 <div class="material-btn-box">
-                                    <a href="" class="material-btn materialActive">LEATHERETTE</a>
-                                    <a href="" class="material-btn">METAL</a>
-                                    <a href="" class="material-btn">WOOD</a>
+                                    <button class="material-btn">LEATHERETTE</button>
+                                    <button class="material-btn">METAL</button>
+                                    <button class="material-btn">WOOD</button>
                                 </div>
                             </div>
                             <div class="material-box">
                                 <h4>COLOUR</h4>
                                 <div class="material-btn-box">
-                                    <a href="" class="material-btn materialActive">RED</a>
-                                    <a href="" class="material-btn">YELLOW</a>
-                                    <a href="" class="material-btn">GREEN</a>
+                                    <button class="material-btn">RED</button>
+                                    <button class="material-btn">YELLOW</button>
+                                    <button class="material-btn">GREEN</button>
+                                </div>
+                            </div>
+                            <div class="material-box">
+                                <h4>COLOUR</h4>
+                                <div class="material-btn-box">
+                                    <button class="material-btn">RED</button>
+                                    <button class="material-btn">YELLOW</button>
+                                    <button class="material-btn">GREEN</button>
                                 </div>
                             </div>
                             <div class="material-box">
@@ -347,6 +355,11 @@
                     }
                 }
             ]
+        });
+
+        $('.material-btn').on('click', function() {
+            $('button').removeClass('materialActive');
+            $(this).addClass('materialActive');
         });
     </script>
 
