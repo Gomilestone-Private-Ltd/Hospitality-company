@@ -130,5 +130,10 @@
             expandImg.parentElement.style.display = "block";
             document.getElementById("expandedImg").style.display = "block";
         }
+
+        $('.material-btn').on('click', function() {
+            $('button').removeClass('materialActive');
+            $(this).addClass('materialActive');
+        });
     </script>
 @endsection
