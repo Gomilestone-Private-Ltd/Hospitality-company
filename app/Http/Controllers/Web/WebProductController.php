@@ -8,6 +8,8 @@ use App\Models\Color;
 use App\Models\Product;
 use App\Models\Material;
 use App\Models\Category;
+use App\Models\IdealFor;
+use App\Models\AreaOfUse;
 use App\Models\Subcategory;
 use App\Models\Supersubcategory;
 use App\Http\Controllers\Controller;
@@ -38,19 +40,27 @@ class WebProductController extends Controller
 
     #Bind Model Supersubcategory
     protected $supersubcategory;
+
+    #Bind Model AreaOfUse
+    protected $areaOfUse;
+
+   #Bind Model IdealFor
+   protected $idealFor;
     
     /**
      * @method Define default constructor for controller
      * @param
      * @return
      */
-    public function __construct(Product $product,Category $category,Material $material, Color $color,Size $size, Subcategory $subcategory, Supersubcategory $supersubcategory)
+    public function __construct(Product $product,Category $category,Material $material, Color $color,Size $size, Subcategory $subcategory, Supersubcategory $supersubcategory,AreaOfUse $areaOfUse, IdealFor $idealFor)
     {
         $this->size               = $size;
         $this->color              = $color;
         $this->product            = $product;
         $this->material           = $material;
+        $this->idealFor           = $idealFor;
         $this->category           = $category;
+        $this->areaOfUse          = $areaOfUse;
         $this->subcategory        = $subcategory;
         $this->supersubcategory   = $supersubcategory;
     }
@@ -76,7 +86,20 @@ class WebProductController extends Controller
             $getSubcategory =$this->subcategory->where(['slug'=>$slug,'status'=>1])->first();
             if(!empty($getSubcategory)){
                 $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->get();
+                $sizes =$this->size->where(['status'=>1])->get();
+                $colors =$this->color->where(['status'=>1])->get();
+                $materials =$this->material->where(['status'=>1])->get();
+                $areaOfUse =$this->areaOfUse->where(['status'=>1])->get();
+                $idealFor =$this->idealFor->where(['status'=>1])->get();
+
+                
+
                 return view($this->view.'.subcategory_p')->with([
+                                                                    'sizes'          => $sizes,
+                                                                    'colors'         => $colors,
+                                                                    'idealFor'       => $idealFor,
+                                                                    'areaOfUse'      => $areaOfUse,
+                                                                    'materials'      => $materials,
                                                                     'getProducts'    => $getProducts,
                                                                     'getSubcategory' => $getSubcategory
                                                                 ]);
