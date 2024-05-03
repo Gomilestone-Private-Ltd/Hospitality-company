@@ -1,12 +1,12 @@
 <header class="main-header" id="main-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-2 col-sm-3 col-3">
+                <div class="col-md-2 col-sm-3 col-6">
                     <div class="header-left">
                        <a href="/"> <img src="{{asset('assets/web/image/logo.png')}}" alt="image"></a>
                     </div>
                 </div>
-                <div class="col-md-10 col-sm-9 col-9 text-right">
+                <div class="col-md-10 col-sm-9 col-6 text-right">
                     <div class="header-center">
                        
                         <!-- Include Web Menu------------>

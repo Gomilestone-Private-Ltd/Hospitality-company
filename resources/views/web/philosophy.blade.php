@@ -44,6 +44,51 @@
             right: 36px !important;
             top: 88.8%;
         }
+
+        @media (max-width: 600px) {
+            .who-we-are-slider .slick-slide img {
+                height: auto !important;
+            }
+
+            .who-we-are-slider .slick-next {
+                width: 41px;
+                height: 25px;
+                top: 84% !important;
+            }
+
+            .who-we-are-slider .slick-prev {
+                width: 41px;
+                height: 25px;
+                right: 100px !important;
+            }
+
+            .multi-slider-img img {
+                height: 200px !important;
+            }
+
+            .main-sliser .slick-track {
+                height: 230px !important;
+                padding-bottom: 20px !important;
+                position: initial !important;
+            }
+
+            .img-overlay {
+                padding: 10px 13px;
+            }
+
+            .slide-arrow {
+                height: 28px;
+            }
+
+            img.slide-arrow1 {
+                width: 33px;
+            }
+
+            .prev {
+                right: 95px;
+            }
+
+        }
     </style>
     <div class="main-philosophy-section">
         <div class="philosophy-section">
@@ -53,7 +98,8 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h2 class="philosophy">PHILOSOPHY</h2>
-                        <p class="philosophy-text">A hospitality-focused design company in new delhi, india, our service includes design and development of customized interior accessories.</p>
+                        <p class="philosophy-text">A hospitality-focused design company in new delhi, india, our service
+                            includes design and development of customized interior accessories.</p>
 
                     </div>
                 </div>
@@ -88,28 +134,28 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="who-we-are">
                                         <img class="who-we-img" src="{{ asset('assets/web/image/who-we-img.png') }}"
                                             alt="">
                                         <p class="who-we-text">Designs & Manufactures 1000's of Products</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="who-we-are">
                                         <img class="who-we-img" src="{{ asset('assets/web/image/who-we-img1.png') }}"
                                             alt="">
                                         <p class="who-we-text">In-Stock & Ready<br> to Ship</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="who-we-are">
                                         <img class="who-we-img" src="{{ asset('assets/web/image/who-we-img2.png') }}"
                                             alt="">
                                         <p class="who-we-text">Product Confidence Guarantee</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="who-we-are">
                                         <img class="who-we-img" src="{{ asset('assets/web/image/who-we-img3.png') }}"
                                             alt="">
@@ -219,7 +265,7 @@
                         </div>
                         <!-- control arrows -->
                         <div class="prev">
-                            <img class="slide-arrow" src="{{ asset('assets/web/image/left-arrow.png') }}"
+                            <img class="slide-arrow1" src="{{ asset('assets/web/image/left-arrow.png') }}"
                                 alt="image" />
                         </div>
                         <div class="next">
@@ -277,7 +323,7 @@
                         </div>
                         <!-- control arrows -->
                         <div class="prev1">
-                            <img class="slide-arrow" src="{{ asset('assets/web/image/left-arrow.png') }}"
+                            <img class="slide-arrow1" src="{{ asset('assets/web/image/left-arrow.png') }}"
                                 alt="image" />
                         </div>
                         <div class="next1">
@@ -323,7 +369,7 @@
                                         <h2 class="product-heading customisation-heading">Product Customisation</h2>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="customisation-img-box">
                                         <img class="customisation-img"
                                             src="{{ asset('assets/web/image/product-icon1.png') }}" alt="image">
@@ -331,28 +377,28 @@
                                         <p class="customisation-text">Hospitality</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="customisation-img-box">
                                         <img class="customisation-img"
                                             src="{{ asset('assets/web/image/product-icon2.png') }}" alt="image">
                                         <p class="customisation-text">Retail & Commercial</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="customisation-img-box">
                                         <img class="customisation-img"
                                             src="{{ asset('assets/web/image/product-icon.png') }}" alt="image">
                                         <p class="customisation-text">Residential</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="customisation-img-box">
                                         <img class="customisation-img"
                                             src="{{ asset('assets/web/image/product-icon3.png') }}" alt="image">
                                         <p class="customisation-text">Residential</p>
                                     </div>
                                 </div>
-                                <div class="col-md-12 text-center mt-5">
+                                <div class="col-md-12 text-center mt-md-5">
                                     <p class="Process-text">A customized process is followed from start to finish, where
                                         perfectly coordinated colors and quality fabrics are used to create exclusive,
                                         detailed designs relating to a brand. As Opine Lifestyles extends its services
@@ -361,7 +407,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 text-center">
+                    <div class="col-md-12 text-center  mb-btn">
                         <a class="submit-btn">SUBMIT YOUR REQUIREMENT</a>
                         <div class="customisation-image-box">
                             <img class="customisation-image" src="{{ asset('assets/web/image/customisation-img.png') }}"
@@ -387,7 +433,7 @@
                                             craftsmen make the tableware and decorative range,</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="measures-img-box">
                                         <img class="measures-img" src="{{ asset('assets/web/image/measures-img.png') }}"
                                             alt="image">
@@ -395,21 +441,21 @@
                                         <p class="measures-text">Carbon footprint measures</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="measures-img-box">
                                         <img class="measures-img" src="{{ asset('assets/web/image/measures-img1.png') }}"
                                             alt="image">
                                         <p class="measures-text">Waste collection & recycling</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="measures-img-box">
                                         <img class="measures-img" src="{{ asset('assets/web/image/measures-img2.png') }}"
                                             alt="image">
                                         <p class="measures-text">Sustainable<br> infrastructure</p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-6">
                                     <div class="measures-img-box">
                                         <img class="measures-img" src="{{ asset('assets/web/image/measures-img3.png') }}"
                                             alt="image">
@@ -459,7 +505,7 @@
                 {
                     breakpoint: 480,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: 2,
                         slidesToScroll: 1
                     }
                 }
@@ -495,7 +541,7 @@
                 {
                     breakpoint: 480,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: 2,
                         slidesToScroll: 1
                     }
                 }
