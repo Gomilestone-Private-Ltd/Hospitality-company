@@ -1,4 +1,4 @@
-<div class="col-md-6 col-2 mobile-view">
+<div class="col-md-6 col-4 mobile-view">
     <div id="mySidenav" class="sidenav">
         <div class="responsive-menu-box">
             <div class="header-logo">

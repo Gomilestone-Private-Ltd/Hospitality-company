@@ -176,7 +176,7 @@
         }
 
         .heading {
-            font-size: 26px;
+            font-size: 32px;
             line-height: 36px;
         }
 

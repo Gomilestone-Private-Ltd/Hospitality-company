@@ -212,7 +212,7 @@
                                         <img class="our-product-img"
                                             src="{{ asset('assets/web/image/guest-room/guest-room-img.png') }}"
                                             alt="image">
-                                        <p class="our-product-text">GUEST SERVICE DIRECTORY</p>
+                                        <a href="/desk-accessorie-detail" class="our-product-text">GUEST SERVICE DIRECTORY</a>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -220,7 +220,7 @@
                                         <img class="our-product-img"
                                             src="{{ asset('assets/web/image/guest-room/guest-room-img.png') }}"
                                             alt="image">
-                                        <p class="our-product-text">GUEST SERVICE DIRECTORY</p>
+                                        <a href="/desk-accessorie-detail" class="our-product-text">GUEST SERVICE DIRECTORY</a>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -228,7 +228,7 @@
                                         <img class="our-product-img"
                                             src="{{ asset('assets/web/image/guest-room/guest-room-img.png') }}"
                                             alt="image">
-                                        <p class="our-product-text">GUEST SERVICE DIRECTORY</p>
+                                        <a href="/desk-accessorie-detail" class="our-product-text">GUEST SERVICE DIRECTORY</a>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -236,7 +236,7 @@
                                         <img class="our-product-img"
                                             src="{{ asset('assets/web/image/guest-room/guest-room-img.png') }}"
                                             alt="image">
-                                        <p class="our-product-text">GUEST SERVICE DIRECTORY</p>
+                                        <a href="/desk-accessorie-detail" class="our-product-text">GUEST SERVICE DIRECTORY</a>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -244,7 +244,7 @@
                                         <img class="our-product-img"
                                             src="{{ asset('assets/web/image/guest-room/guest-room-img.png') }}"
                                             alt="image">
-                                        <p class="our-product-text">GUEST SERVICE DIRECTORY</p>
+                                        <a href="/desk-accessorie-detail" class="our-product-text">GUEST SERVICE DIRECTORY</a>
                                     </div>
                                 </div>
                             </div>

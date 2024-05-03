@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item tab-con" role="presentation">
                                 <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home"
                                     type="button" role="tab" aria-controls="home" aria-selected="true">CONTACT
                                     OPINE</button>
@@ -54,7 +54,7 @@
                                 <div class="QueriesInIndia-box">
                                     <div class="manufacture">
                                         <div class="row mb-5">
-                                            <div class="col-md-12 text-center p-0">
+                                            <div class="col-md-12 col-sm-12 col-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
                                                     <h2 class="product-heading Queries-heading">For Queries In
                                                         India
@@ -63,7 +63,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-2"></div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-sm-6 col-6">
                                                 <div class="QueriesIndia-img">
                                                     <img src="{{ asset('assets/web/image/user-img3.png') }}" alt="image">
                                                     <h4>Michelle Luzzi</h4>
@@ -71,7 +71,7 @@
                                                     <p class="QueriesIndia-email">Michelle@gmail.com</p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-sm-6 col-6">
                                                 <div class="QueriesIndia-img">
                                                     <img src="{{ asset('assets/web/image/user-img.png') }}" alt="image">
                                                     <h4>Cherylee Cruz</h4>
@@ -82,7 +82,7 @@
                                             <div class="col-md-2"></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12 text-center p-0">
+                                            <div class="col-md-12 col-sm-12 col-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
                                                     <h2 class="product-heading Queries-heading">For Queries In
                                                         Dubai
@@ -91,7 +91,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-2"></div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-sm-6 col-6">
                                                 <div class="QueriesIndia-img">
                                                     <img src="{{ asset('assets/web/image/user-img1.png') }}" alt="image">
                                                     <h4>John Eilers</h4>
@@ -99,7 +99,7 @@
                                                     <p class="QueriesIndia-email">John@gmail.com</p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-sm-6 col-6">
                                                 <div class="QueriesIndia-img">
                                                     <img src="{{ asset('assets/web/image/user-img2.png') }}" alt="image">
                                                     <h4>Kaitlyn Kynerd</h4>
@@ -113,7 +113,7 @@
                                     <div class="CustomerService">
                                         <div class="manufacture">
                                             <div class="row mb-5">
-                                                <div class="col-md-12 text-center p-0">
+                                                <div class="col-md-12 col-sm-12 col-12 text-center p-0">
                                                     <div class="our-product our-proces-box" style="border-right: none">
                                                         <h2 class="product-heading CustomerService-heading">
                                                             Customer
@@ -124,8 +124,8 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 p-0">
-                                                    <div class="call-box">
+                                                <div class="col-md-4">
+                                                    <div class="call-box1">
                                                         <img src="{{ asset('assets/web/image/call-icon.png') }}"
                                                             alt="">
                                                         <div class="call-nu-box">
@@ -140,7 +140,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div class="call-box">
+                                                    <div class="call-box1">
                                                         <img src="{{ asset('assets/web/image/message-icon.png') }}"
                                                             alt="">
                                                         <div>
@@ -150,7 +150,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div class="call-box">
+                                                    <div class="call-box1">
                                                         <img class="whatsapp-icon"
                                                             src="{{ asset('assets/web/image/whatsApp-icon.png') }}"
                                                             alt="image">
@@ -171,7 +171,7 @@
 
                                 <div class="QueriesInIndia-box">
                                     <div class="manufacture">
-                                        <div class="row mb-5">
+                                        <div class="row mb-md-5">
                                             <div class="col-md-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
                                                     <h2 class="product-heading CustomerService-heading">Leave A
@@ -360,7 +360,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="india-location-box">
+                            <div class="india-location-box location-mb">
                                 <img src="{{ asset('assets/web/image/india-img.png') }}" alt="img">
                                 <h4 class="india-name">INDIA NEW DELHI</h4>
                                 <p class="contact-no">+91 124 4222424</p>

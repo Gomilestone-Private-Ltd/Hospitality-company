@@ -1,0 +1,1175 @@
+@media (max-width:1200px) {
+    .call-main-box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .call-main-box {
+        padding-left: 70px;
+    }
+
+    .call-box {
+        margin-top: 8px;
+    }
+
+    .get-in-touch-box {
+        width: 100%;
+    }
+
+    .touch-heading {
+        width: 93%;
+    }
+
+    .heading {
+        font-size: 50px;
+    }
+
+    .our-product {
+        padding: 2px 0px;
+        padding-top: 60px;
+    }
+
+    .product-name {
+        bottom: 28px;
+        width: 90%;
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .borderS {
+        right: 330px;
+    }
+}
+
+@media (max-width:800px) {
+
+    .slick-track {
+        left: -170px;
+    }
+
+    .sub-heading {
+        width: 570px;
+    }
+
+    .sub-heading::before {
+        width: 200px;
+    }
+
+    .aboutUs-section {
+        padding: 50px 20px 0px 20px;
+    }
+
+    .sub-heading::after {
+        width: 200px;
+    }
+
+    .product-heading {
+        width: 570px;
+    }
+
+    .product-heading::after {
+        width: 170px;
+    }
+
+    .product-heading::before {
+        width: 170px;
+    }
+
+    .slide-text-left {
+        position: absolute;
+        bottom: 16%;
+        left: 0% !important;
+    }
+
+    .slide-text-right {
+        position: absolute;
+        top: 6%;
+        right: 0% !important;
+    }
+}
+
+@media (max-width:767px) {
+    .product-img-center {
+        margin: 10px 0px;
+
+    }
+
+    .main-header {
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-menu li a {
+        font-size: 14px;
+    }
+
+    #action-box #menu-wrap .menu {
+        width: 65% !important;
+    }
+
+    .borderB {
+        width: 70%;
+    }
+
+    .borderS {
+        right: 200px;
+    }
+
+    .touch-heading {
+        width: 78%;
+    }
+
+    .sub-heading::after {
+        width: 165px;
+    }
+
+    .sub-heading::before {
+        width: 165px;
+    }
+
+    .sub-heading {
+        width: 500px;
+    }
+
+    .our-product {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-img-right {
+        margin-top: 10px;
+    }
+
+    .borderB {
+        display: none;
+    }
+
+    .main-header {
+        padding: 5px 10px;
+    }
+
+    .slider-section {
+        padding: 150px 0px 25px 0px !important;
+        padding-bottom: 0;
+        overflow: hidden;
+    }
+
+    .slick-slide p {
+        font-size: 15px;
+    }
+
+    .heading {
+        font-size: 32px;
+    }
+
+    .slick-track {
+        left: -136px;
+    }
+
+    .slick-list {
+        width: 100% !important;
+    }
+
+    .slick-slide img {
+        height: 330px;
+    }
+
+    .slick-prev {
+        left: 25px;
+        top: 88% !important;
+    }
+
+    .slick-next {
+        right: 25px;
+        top: 85% !important;
+    }
+
+    .slick-prev:hover,
+    .slick-prev:focus {
+        top: 80% !important;
+    }
+
+    .scroll-box p {
+        font-size: 13px;
+    }
+
+    .scroll-box img {
+        width: 34px;
+    }
+
+    .aboutUs-section {
+        padding: 50px 15px 0px 15px;
+    }
+
+    .about-left-box img {
+        margin-bottom: 15px;
+    }
+
+    .sub-heading {
+        width: 300px;
+        font-size: 25px;
+    }
+
+    .sub-heading::before {
+        width: 85px;
+    }
+
+    .sub-heading::after {
+        width: 85px;
+    }
+
+    .our-product {
+        padding: 2px 0px;
+        padding-top: 40px;
+        width: 100%;
+    }
+
+    .product-heading {
+        width: 360px;
+        margin-bottom: 15px;
+        font-size: 25px;
+    }
+
+    .product-heading::before {
+        width: 95px;
+    }
+
+    .product-heading::after {
+        width: 90px;
+    }
+
+    .product-section {
+        padding: 0px 15px;
+    }
+
+    .text {
+        font-size: 14px;
+        padding-right: 20px;
+    }
+
+    .product-img-left img {
+        height: 400px;
+    }
+
+    .product-img-right img {
+        height: 400px;
+    }
+
+    .product-name {
+        bottom: 25px;
+        font-size: 16px;
+    }
+
+    .product-img-center {
+        margin-top: 10px !important;
+        margin: 0;
+    }
+
+    .restaurant-box {
+        padding: 0px 20px;
+    }
+
+    .get-in-touch-section {
+        padding-top: 120px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 90px;
+    }
+
+    .touch-heading {
+        width: 364px;
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .call-main-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .get-in-touch-left {
+        padding: 30px 0px !important;
+    }
+
+    .call-box {
+        margin: 10px 15px;
+    }
+
+    /* .call-box img {
+        height: 30px;
+    } */
+
+    .input-box input {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+
+    .footer-left {
+        margin: 20px 0;
+    }
+
+    .footer-center {
+        margin: 20px 0;
+    }
+
+    .footer-center h3 {
+        margin-bottom: 8px;
+        font-size: 20px;
+    }
+
+    .footer-left p {
+        font-size: 15px;
+    }
+
+    .facebook-icon {
+        font-size: 17px;
+        height: 30px;
+        width: 30px;
+    }
+
+    .footer-menu li {
+        margin-bottom: 5px;
+    }
+
+    .footer-menu li a {
+        font-size: 14px;
+    }
+
+    .footer-right-text {
+        font-size: 14px;
+    }
+
+    .footer-main-section {
+        padding: 30px 2px;
+        padding-bottom: 20px;
+    }
+
+    .hover-box {
+        width: 25px;
+        height: 80px;
+        top: 8px;
+        left: 50px;
+    }
+
+    .hover-box1 {
+        width: 38px;
+        height: 51px;
+        left: 26%;
+    }
+
+    .read-more::before {
+        width: 42px;
+        bottom: 5px;
+        left: -47px;
+    }
+
+    .read-more {
+        font-size: 13px;
+    }
+
+    .hover-text-box1 h3 {
+        font-size: 18px;
+    }
+
+    .hover-text-box1 {
+        width: 315px;
+        padding: 15px 10px;
+        top: 23px;
+        left: -22px;
+    }
+
+    .hover-text-box {
+        width: 320px;
+        padding: 15px 10px;
+        top: 39px;
+        left: -20px;
+    }
+
+    .hover-text-box h3 {
+        font-size: 18px;
+    }
+
+    .text-box {
+        top: 53% !important;
+        left: 24% !important;
+        transform: translate(-16%, -50%) !important;
+    }
+
+    .header-right img {
+        margin-left: 8px;
+        cursor: pointer;
+        width: 22px !important;
+    }
+
+    .header-menu-icon {
+        width: 26px;
+        margin-right: 11px;
+    }
+
+    .header-right .searchIcon {
+        margin-left: 6px;
+        cursor: pointer;
+        width: 22px !important;
+    }
+
+    .about-left {
+        display: none;
+    }
+
+    .slide-text-left {
+        bottom: 26% !important;
+        left: -12% !important;
+        font-size: 13px !important;
+    }
+
+    .slide-text-right {
+        top: 11% !important;
+        right: -8% !important;
+        font-size: 13px !important;
+    }
+
+
+    /* .Contact Page  *********************************/
+
+    .contact-section {
+        padding-top: 150px;
+        height: 490px;
+    }
+
+    .philosophy {
+        font-size: 36px;
+    }
+
+    .philosophy-text {
+        font-size: 19px;
+        line-height: 26px;
+        padding: 0px 0px;
+    }
+
+    .philosophy-right-box {
+        display: none;
+    }
+
+    .contactOpine-setion {
+        margin-top: -130px;
+    }
+
+    .contactOpine-setion .nav-tabs .nav-item .nav-link {
+        padding: 14px 0px;
+        font-size: 16px;
+    }
+
+    .manufacture {
+        margin: 0px 20px;
+    }
+
+    .Queries-heading {
+        width: 435px;
+    }
+
+    .Queries-heading::before {
+        bottom: 6px;
+    }
+
+    .Queries-heading::after {
+        bottom: 6px;
+    }
+
+    .Queries-box {
+        padding-top: 25px;
+    }
+
+    .QueriesIndia-img h4 {
+        font-size: 20px;
+        margin-top: 12px;
+    }
+
+    .QueriesIndia-img p {
+        font-size: 15px;
+    }
+
+    .QueriesIndia-img .QueriesIndia-email {
+        font-size: 15px;
+        margin-top: 8px;
+    }
+
+    .CustomerService {
+        margin-top: 40px;
+    }
+
+    .our-proces-box {
+        padding-top: 30px;
+    }
+
+    .CustomerService-heading {
+        width: 400px;
+    }
+
+    .text1 {
+        font-size: 16px;
+    }
+
+    .call-text-box img {
+        height: auto;
+    }
+
+    .call-box1 div a {
+        margin-left: 10px;
+    }
+
+    .call-box1 {
+        margin-bottom: 15px;
+    }
+
+    .Custom-Project {
+        height: 790px;
+    }
+
+    .Requirement-heading {
+        width: 460px;
+        font-size: 22px;
+    }
+
+    .Requirement-heading::before {
+        width: 60px;
+        bottom: 6px;
+    }
+
+    .Requirement-heading::after {
+        width: 60px;
+        margin-left: 2px;
+        bottom: 6px;
+    }
+
+    .textPadding {
+        padding: 0px 20px;
+    }
+
+    .Request-heading {
+        width: 460px;
+    }
+
+    .Request-heading::before {
+        bottom: 6px;
+        left: 0;
+    }
+
+    .Request-heading::after {
+        bottom: 6px;
+        margin-left: 6px;
+    }
+
+    .borderLeft {
+        display: none;
+    }
+
+    .location-heading {
+        width: 300px;
+    }
+
+    .location-heading::after {
+        bottom: 6px;
+        margin-left: 5px;
+    }
+
+    .location-heading::before {
+        bottom: 6px;
+    }
+
+    .india-location-box {
+        margin: 0;
+    }
+
+    .india-name {
+        font-size: 22px;
+    }
+
+    .contact-no {
+        font-size: 18px;
+    }
+
+    .location-text {
+        font-size: 16px;
+    }
+
+    .location-mb {
+        margin-bottom: 30px;
+    }
+
+    .work-with-us-right {
+        padding-left: 22px;
+        padding-bottom: 25px;
+    }
+
+    .work-with-us {
+        padding-bottom: 97px;
+    }
+
+    .input-box {
+        height: 98px;
+    }
+
+    .textarea-box {
+        height: 120px;
+    }
+
+    button.submit-btn.queryForm {
+        margin-bottom: 25px;
+        margin-top: 10px;
+    }
+
+    .footer-input-form {
+        height: 65px;
+    }
+
+    .input-box .text-danger {
+        font-size: 14px;
+    }
+
+    /* .philosophy Page  *********************************/
+
+    .philosophy-section {
+        height: 530px;
+        padding-top: 150px;
+    }
+
+    .video-box iframe {
+        height: 350px;
+    }
+
+    .who-we-are {
+        margin-bottom: 22px;
+        padding: 15px 3px;
+    }
+
+    p.who-we-text {
+        font-size: 14px;
+    }
+
+    img.who-we-img {
+        width: 50px;
+        height: auto;
+    }
+
+    .who-we-are-slider {
+        margin-top: -95px;
+    }
+
+    .video-section {
+        height: 926px;
+    }
+
+    .who-we-are-slider .slick-slide img {
+        height: auto !important;
+    }
+
+    .Manufacturing {
+        font-size: 20px;
+        margin-top: -5px;
+    }
+
+    .Aesthetically {
+        font-size: 18px;
+    }
+
+    .Process-text {
+        font-size: 15px;
+    }
+
+    .our-proces-main-section {
+        padding-bottom: 30px;
+    }
+
+    .next1 {
+        right: 30px;
+    }
+
+    .prev1 {
+        right: 95px;
+    }
+
+    .responsive1 {
+        margin-bottom: 0px !important;
+    }
+
+    .our-client {
+        padding-bottom: 40px;
+    }
+
+    .map-img-box img {
+        margin-top: 20px;
+    }
+
+    .customisation-img-box {
+        padding: 22px 5px;
+        margin-bottom: 25px;
+    }
+
+    .customisation-text {
+        font-size: 15px;
+    }
+    .customisation-heading {
+        width: 360px;
+    }
+
+    .customisation-heading::before {
+        width: 50px;
+        bottom: 6px;
+    }
+
+    .customisation-heading::after {
+        width: 50px;
+        bottom: 6px;
+        margin-left: 4px;
+    }
+
+    .mb-btn{
+        margin-top: 30px;
+    }
+    .Measures-heading {
+        width: 385px;
+    }
+
+    .Measures-heading::after {
+        bottom: 6px;
+        margin-left: 5px;
+    }
+    .Measures-heading::before {
+        bottom: 6px;
+    }
+    
+    .measures-img-box {
+        margin-bottom: 25px;
+    }
+    .borderTop{
+        display: none;
+    }
+
+}
+
+@media (max-width: 425px) {
+
+    .Custom-Project {
+        height: 760px;
+    }
+
+    .slick-track {
+        left: -100px;
+    }
+
+    .touch-heading {
+        width: 300px;
+    }
+
+    .touch-heading::before {
+        width: 75px;
+    }
+
+    .touch-heading::after {
+        width: 75px;
+    }
+
+    .our-product {
+        width: 100%;
+    }
+
+    .product-heading::after {
+        width: 65px;
+    }
+
+    .product-heading::before {
+        width: 65px;
+    }
+
+    .product-heading {
+        width: 300px;
+    }
+
+    .product-img-left img {
+        height: 300px;
+    }
+
+    .product-img-right img {
+        height: 300px;
+    }
+
+    .restaurant-box img {
+        width: 100%;
+        height: 350px;
+    }
+
+    .footer-button-section {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .Queries-heading {
+        width: 325px;
+    }
+
+    .Queries-heading::before {
+        bottom: 5px;
+        width: 44px;
+    }
+
+    .Queries-heading::after {
+        bottom: 5px;
+        width: 42px;
+        margin-left: 3px;
+    }
+
+    .CustomerService-heading {
+        width: 325px;
+    }
+
+    .CustomerService-heading::after {
+        width: 50px;
+        bottom: 6px;
+        margin-left: 6px;
+    }
+
+    .CustomerService-heading::before {
+        width: 60px;
+        bottom: 6px;
+    }
+
+    .Requirement-heading {
+        width: 380px;
+    }
+
+    .Requirement-heading::before {
+        width: 40px;
+        bottom: 6px;
+    }
+
+    .Requirement-heading::after {
+        width: 40px;
+        margin-left: 2px;
+        bottom: 6px;
+    }
+
+    .contactOpine-setion .nav-tabs .tab-mE {
+        width: 60%;
+    }
+
+    .contactOpine-setion .nav-tabs .tab-con {
+        width: 40%;
+    }
+
+    .Request-heading {
+        width: 360px;
+    }
+
+    .Request-heading::before {
+        width: 50px;
+    }
+
+    .Request-heading::after {
+        width: 50px;
+    }
+
+    .location-heading {
+        width: 240px;
+    }
+
+    .customisation-heading {
+        width: 360px;
+    }
+
+    .customisation-heading::before {
+        width: 48px;
+    }
+
+    .customisation-heading::after {
+        width: 48px;
+    }
+
+    .Measures-heading{
+        width: 330px;
+    }
+}
+
+/* Mobile View Header Responsive Start************************************/
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: #242323f5;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 7px 15px 7px 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #474747;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Futura Md BT';
+    font-size: 16px !important;
+    margin: 6px 0px;
+    cursor: pointer;
+}
+
+.sidenav a:hover {
+    text-decoration: none;
+}
+
+.mo-menu-item {
+    color: #525252 !important;
+}
+
+a.closebtn {
+    position: absolute;
+    top: -2px;
+    right: 4px;
+    color: #fff;
+    background-color: #c4383d;
+    font-size: 20px !important;
+    font-weight: 700;
+    z-index: 999;
+    height: 34px;
+    width: 35px;
+    border-radius: 50%;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-view {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+
+    .mobile-view {
+        display: block;
+        padding: 0;
+        margin-top: 4px;
+    }
+
+    .header-center {
+        margin-top: 0;
+    }
+
+    .Web-view {
+        display: none;
+    }
+
+    .borderS {
+        display: none;
+    }
+
+    .sidebarnav {
+        padding: 0 !important;
+    }
+
+    .sidenav {
+        padding-top: 0px;
+    }
+
+    .sidenav a {
+        font-size: 15px !important;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .sidenav {
+        display: block;
+    }
+
+    .responsive-menu-box {
+        background-color: #fafafa;
+        height: 100vh;
+        width: 350px !important;
+        padding-top: 20px;
+        position: relative;
+        overflow: scroll;
+        padding: 30px 0px;
+        text-align: left;
+    }
+
+
+    a:-webkit-any-link:focus-visible {
+        outline-offset: 0px;
+    }
+
+    :focus-visible {
+        outline: -webkit-focus-ring-color auto 0px;
+    }
+
+    .header-logo {
+        text-align: center;
+        border-bottom: 1px dashed #cfcfcf;
+        padding-bottom: 14px;
+    }
+
+    .header-logo img {
+        width: 101px;
+        height: auto;
+    }
+
+    span.responsive-icon {
+        color: #424241;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .read-btn {
+        bottom: 10px !important;
+        left: 39% !important;
+    }
+
+    .collections-btn {
+        left: 38% !important;
+        bottom: 98px !important;
+    }
+
+    .accordion-heading-box {
+        background-color: #fafafa;
+        padding: 0;
+        border-bottom: 1px solid #dedede;
+    }
+
+    .product-arro {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .product-arro .angle-icon {
+        font-size: 26px;
+        color: #545454;
+    }
+
+    .main-section-accordion .card {
+        background: none;
+        border: none;
+    }
+
+    .main-section-accordion ul {
+        padding-left: 20px;
+    }
+
+    .main-section-accordion ul li {
+        list-style: none;
+    }
+
+    .main-section-accordion ul li p {
+        font-family: 'Futura Md BT';
+        font-size: 17px;
+        color: #535353;
+        margin-left: 8px;
+        margin-bottom: 10px;
+        margin-top: 12px;
+    }
+
+    .main-section-accordion ul li a {
+        text-decoration: none;
+        border-bottom: 1px solid #dedede;
+        color: gray;
+    }
+
+    .mo-menu-item {
+        padding-left: 25px !important;
+    }
+
+    .mo-menu-item .fa-angle-down {
+        font-size: 23px;
+    }
+
+    .mo-menu-item:hover .fa-angle-down {
+        transform: rotate(180deg);
+    }
+
+    .product-arro .fa-angle-down {
+        font-size: 23px;
+    }
+
+    .product-arro:hover .fa-angle-down {
+        transform: rotate(180deg);
+    }
+
+    .product-arro #secondPage {
+        display: block !important;
+    }
+
+    .productByMaterial_subMenu {
+        padding: 10px 15px;
+    }
+
+    .productByMaterial_subMenu p {
+        margin: 0;
+        font-family: 'Futura Md BT';
+        font-size: 16px;
+        color: #474747;
+        letter-spacing: 0.56px;
+    }
+
+    .productByMaterial_subMenu ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .productByMaterial_subMenu ul li {
+        list-style: none;
+    }
+
+    .productByMaterial_subMenu ul li a {
+        font-size: 14px;
+        color: #808080;
+    }
+
+    .back-btn-box {
+        background-color: #f2f2f2;
+        padding: 10px 10px;
+        font-family: 'Futura Md BT';
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        color: #474747;
+    }
+
+    .back-btn-box .leftArro {
+        font-size: 22px;
+        margin-right: 13px;
+    }
+}
+
+.read-btn {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+}
+
+.collections-btn {
+    position: absolute;
+    bottom: 98px;
+    z-index: 9;
+    left: 47%;
+    text-transform: uppercase;
+}
+
+.slide-img-box {
+    position: relative;
+}
+
+/* Mobile View Header Responsive End************************************/
