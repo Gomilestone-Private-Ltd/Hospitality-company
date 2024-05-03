@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-@section('title',"Add Sub Category")
+@section('title',"Add Super Sub Category")
 @section('content')
 
 <div class="main-container-box">
@@ -9,7 +9,7 @@
                 <div class="backBtn">
                     <a class="backBtn-icon" href="{{ route('supersubcategory') }}"> 
                         <img src="{{ url('/assets/admin/img/left.png') }}" alt=""></a>
-                        <h1 class="heading">Add Super SubCategory</h1>
+                        <h1 class="heading">Add</h1>
                 </div>
 
             </div>
@@ -64,7 +64,19 @@
                                 @endif
                             </div>
                         </div>
-
+                        
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="form-group">
+                                <label class="form-label-box">Description*</label>
+                                <textarea class="form-control" rows="3"  name="description">{{$getSubCategoryDetail->description ??''}}</textarea>
+                                
+                                @if ($errors->has('description'))
+                                    <p class="text-danger">{{ $errors->first('description') }}</p>
+                                @endif
+                                
+                            </div>
+                        </div>
+                        
                         <div class="col-md-12 text-right">
                             <button id="success" type="submit" class="submit-btn">
                                 Submit

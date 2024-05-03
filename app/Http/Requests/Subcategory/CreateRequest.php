@@ -22,21 +22,24 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'name'      => "required|max:50",
-                'category'  => "required",
-                'image'     => "required|mimes:png,jpeg,jpg|max:1024",
+                'name'         => "required|max:50",
+                'category'     => "required",
+                'image'        => "required|mimes:png,jpeg,jpg|max:1024",
+                'description'  => "required|max:250",
         ];
     }
 
     public function messages()
     {
         return[
-              'name.required'      => "This field is required",
-              'name.max'           => "Name can not be greater then 50 char",
-              'category.required'  => "This field is required",
-              'image.required'     => "This field is required",
-              'image.mimes'        => "Image must be of (png, jpeg, jpg) only",
-              'image.max'          => "Image must be smaller then 1 mb size",
+              'name.required'        => "This field is required",
+              'name.max'             => "Name can not be greater then 50 char",
+              'category.required'    => "This field is required",
+              'image.required'       => "This field is required",
+              'image.mimes'          => "Image must be of (png, jpeg, jpg) only",
+              'image.max'            => "Image must be smaller then 1 mb size",
+              'description.required' => "This field is required",
+              'description.max'      => "Description can not be greater then 250 char",
         ];
     }
 }

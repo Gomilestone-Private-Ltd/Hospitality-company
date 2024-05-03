@@ -10,7 +10,7 @@
                     <a class="backBtn-icon" href="{{ route('category') }}"> 
                         <img src="{{ url('/assets/admin/img/left.png') }}" alt="">
                     </a>
-                    <h1 class="heading">Add Category</h1>
+                    <h1 class="heading">Add</h1>
                 </div>
             </div>
             <div class="add-input-box">

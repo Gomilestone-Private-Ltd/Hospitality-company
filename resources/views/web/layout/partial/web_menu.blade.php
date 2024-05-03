@@ -1,4 +1,4 @@
-    <div id="action-box" class="Web-view">
+<div id="action-box" class="Web-view">
         <div id="menu-wrap">
             <input type="checkbox" class="toggler" />
             <div class="dots">
@@ -20,11 +20,11 @@
                                                     <div class="row">
                                                     @foreach($category->getSubCategory as $subcategory)
                                                         <div class="col-md-3">
-                                                           <a href="/guest-room"> <h3 class="ruby-list-heading">{{$subcategory->name ??""}}
+                                                           <a href="{{url('/category')}}/{{$subcategory->meta_url ??""}}/{{$subcategory->slug ??""}}"> <h3 class="ruby-list-heading">{{$subcategory->name ??""}}
                                                             </h3></a>
                                                             <ul>
                                                                 @foreach($subcategory->getSuperSubCategory as $superSubCategory)
-                                                                <li><a href="/desk-accessorie">{{$superSubCategory->name ??''}}</a></li>
+                                                                <li><a href="{{url('/sub-category')}}/{{$superSubCategory->meta_url ??""}}/{{$superSubCategory->slug ??""}}">{{$superSubCategory->name ??''}}</a></li>
                                                                 @endforeach
                                                             </ul>
                                                         </div>
@@ -46,10 +46,10 @@
                                                     <div class="row">
                                                     @foreach($category->getSubCategory as $subcategory)
                                                         <div class="col-md-3">
-                                                            <a href="/guest-room"><h3 class="ruby-list-heading">{{$subcategory->name ??''}} </h3></a>
+                                                            <a href="{{url('/category')}}/{{$subcategory->meta_url ??""}}/{{$subcategory->slug ??""}}"><h3 class="ruby-list-heading">{{$subcategory->name ??''}} </h3></a>
                                                             <ul>
                                                                 @foreach($subcategory->getSuperSubCategory as $superSubCategory)
-                                                                    <li><a href="/desk-accessorie">{{$superSubCategory->name ??''}}</a></li>
+                                                                    <li><a href="{{url('/sub-category')}}/{{$superSubCategory->meta_url ??""}}/{{$superSubCategory->slug ??""}}">{{$superSubCategory->name ??''}}</a></li>
                                                                 @endforeach
                                                             </ul>
                                                         </div>

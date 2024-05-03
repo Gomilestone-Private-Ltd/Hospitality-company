@@ -10,7 +10,7 @@
                     <a class="backBtn-icon" href="{{route('subcategory')}}"> 
                         <img src="{{ url('/assets/admin/img/left.png') }}" alt="">
                     </a>
-                    <h1 class="heading">Edit Category</h1>
+                    <h1 class="heading">Edit</h1>
                 </div>
             </div>
             <div class="add-input-box">
@@ -52,6 +52,18 @@
                                 @if($errors->has('image'))
                                     <p class="text-danger">{{$errors->first('image')}}</p>
                                 @endif
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="form-group">
+                                <label class="form-label-box">Description*</label>
+                                <textarea class="form-control" rows="3"  name="description">{{$getSubCategoryDetail->description ??''}}</textarea>
+                                
+                                @if ($errors->has('description'))
+                                    <p class="text-danger">{{ $errors->first('description') }}</p>
+                                @endif
+                                
                             </div>
                         </div>
 

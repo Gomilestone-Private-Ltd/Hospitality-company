@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="main-section-box">
             <div class="heading-box">
-                <h1 class="heading">SuperSubCategory</h1>
+                <h1 class="heading">Super SubCategory</h1>
                 <a href="{{ route('add.supersubcategory') }}">
                     <h3 class="add-user-text"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD </h3>
                 </a>

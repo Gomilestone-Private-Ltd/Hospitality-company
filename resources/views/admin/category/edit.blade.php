@@ -9,7 +9,7 @@
                 <div class="backBtn">
                     <a class="backBtn-icon" href="{{route('category')}}"> 
                         <img src="{{ url('/assets/admin/img/left.png') }}" alt=""></a>
-                        <h1 class="heading">Edit Category</h1>
+                        <h1 class="heading">Edit</h1>
                 </div>
 
             </div>

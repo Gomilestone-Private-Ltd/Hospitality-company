@@ -145,7 +145,7 @@ class CategoryController extends Controller
                                 'name'        => $request->name ??'',
                                 'type'        => ($request->category_type == "material") ? 1 : (($request->category_type == "collection") ? 2 : (($request->category_type == "use") ? 3 : 4)) ,
                                 'image'       => ($request->hasFile('image')) ? Picture::uploadPicture('assets/category/',$request->image) : $getCategoryDetail->image ??'',
-                                'meta_url'    => $request->name ??'',
+                                'meta_url'    => str_replace(' ', '-', strtolower($request->name)) ??'',
                                 'updated_by'  => Masked::getUserId() ??'',
                               ];
             $this->category->whereSlug($slug)->update($categoryDetail);

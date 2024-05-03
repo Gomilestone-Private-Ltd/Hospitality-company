@@ -100,6 +100,7 @@ class SuperSubCategoryController extends Controller
                                         'slug'           => Slug::smallSlug() ??'',
                                         'name'           => $request->name ??'',
                                         'category_id'    => $request->category ??'',
+                                        'description'    => $request->description ??'',
                                         'subcategory_id' => $request->subcategory ??'',
                                         'image'          => ($request->hasFile('image')) ? Picture::uploadPicture('assets/supersubcategory/',$request->image) : "" ??'',
                                         'meta_url'       => $request->name ??'',
@@ -159,8 +160,9 @@ class SuperSubCategoryController extends Controller
                                 'name'           => $request->name ??'',
                                 'category_id'    => $request->category ??'',
                                 'subcategory_id' => $request->subcategory ??'',
+                                'description'    => $request->description ??'',
                                 'image'          => ($request->hasFile('image')) ? Picture::uploadPicture('assets/supersubcategory/',$request->image) : $getSuperSubCategoryDetail->image ??'',
-                                'meta_url'       => $request->name ??'',
+                                'meta_url'       => str_replace(' ', '-', strtolower($request->name)) ??'',
                                 'updated_by'     => Masked::getUserId() ??'',
                               ];
             $this->supersubcategory->whereSlug($slug)->update($categoryDetail);

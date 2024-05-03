@@ -26,6 +26,7 @@ class EditRequest extends FormRequest
                 'category'     => "required",
                 'subcategory'  => "required",
                 'image'        => "mimes:png,jpeg,jpg|max:1024",
+                'description'  => "required|max:250",
         ];
     }
 
@@ -38,6 +39,8 @@ class EditRequest extends FormRequest
               'subcategory.required'   => "This field is required",
               'image.mimes'            => "Image must be of (png, jpeg, jpg) only",
               'image.max'              => "Image must be smaller then 1 mb size",
+              'description.required' => "This field is required",
+              'description.max'      => "Description can not be greater then 250 char",
         ];
     }
 }

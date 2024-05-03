@@ -20,15 +20,17 @@ class CategorySeeder extends Seeder
         $subCategory1 = ['LEATHERETTE','METAL','WOOD'];
         $subCategory2 = ['CLASSIC COLLECTION','FEATURED COLLECTION','HAMMERED COLLECTION','C-SHAPE COLLECTION'];
         $subCategory3 = ['GUEST ROOM ITEMS','GUEST BATH ITEMS','PUBLIC AREA AND FRONT OFFICE','F&B','BANQUET'];
-        $superSubCategory = ['Menu Item #1','Menu Item #2','Menu Item #3','Menu Item #4','Menu Item #5','Menu Item #6','Menu Item #7'];
-
+        $superSubCategory = ['Menu Item 1','Menu Item 2','Menu Item 3','Menu Item 4','Menu Item 5','Menu Item 6','Menu Item 7'];
+        $description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+        
         foreach($category as $key=> $categories){
             $categoryDetail = [
                                 'slug'      => Slug::smallSlug() ??'',
                                 'name'      => $categories ??'',
                                 'type'      => ($categories == "Products by Collection") ? 1 : (($categories == "Products by Use") ? 2 : (($categories == "Products by Material") ? 3 : 4)) ,
-                                'image'     => ($key==0) ? 'assets/category/DhWHaCVRqM.jpg' :(($key==1) ? 'assets/category/bIyz9MZbmW.jpg': 'assets/category/4EK6HHzNjf.jpg'),
+                                'image'     => ($key==0) ? 'assets/category/bIyz9MZbmW.png' :(($key==1) ? 'assets/category/bIyz9MZbmW.png': 'assets/category/bIyz9MZbmW.png'),
                                 'meta_url'  => $categories ??'',
+                                'description' => $description ??'',
                                 'added_by'  => 1 ??'',
                               ];
             $getCategoryId = Category::create($categoryDetail);
@@ -40,8 +42,9 @@ class CategorySeeder extends Seeder
                                         'slug'        => Slug::smallSlug() ??'',
                                         'name'        => $subCategories ??'',
                                         'category_id' => $getCategoryId->id ??'',
-                                        'image'       => "assets/category/bIyz9MZbmW.jpg" ??'',
+                                        'image'       => "assets/category/bIyz9MZbmW.png" ??'',
                                         'meta_url'    => $subCategories ??'',
+                                        'description' => $description ??'',
                                         'added_by'    => 1 ??'',
                                     ];
                 $getsubCategoryId = Subcategory::create($subcategoryDetail);
@@ -52,8 +55,9 @@ class CategorySeeder extends Seeder
                                                 'name'           => $superSubCategories ??'',
                                                 'category_id'    => $getCategoryId->id ??'',
                                                 'subcategory_id' => $getsubCategoryId->id ??'',
-                                                'image'          => "assets/category/bIyz9MZbmW.jpg" ??'',
+                                                'image'          => "assets/category/bIyz9MZbmW.png" ??'',
                                                 'meta_url'       => $superSubCategories ??'',
+                                                'description'    => $description ??'',
                                                 'added_by'       => 1 ??'',
                                             ];
                     Supersubcategory::create($supsubcategoryDetail);

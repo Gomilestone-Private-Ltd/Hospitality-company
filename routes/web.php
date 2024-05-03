@@ -52,8 +52,8 @@ Route::get('/contact',[ContactController::class,'contact']);
 /**
  *************************************Product route***************************
  */
-Route::get('/category/{name}/{slug}',[WebProductController::class,'categoryProducts']);
-Route::get('/sub-category/{name}/{slug}',[WebProductController::class,'subCategoryProducts']);
+Route::get('/category/{name}/{slug}',[WebProductController::class,'subcategoryProducts']);
+Route::get('/sub-category/{name}/{slug}',[WebProductController::class,'supsubCategoryProducts']);
 Route::get('/product-detail/{name}/{slug}',[WebProductController::class,'productDetails']);
 
 /**

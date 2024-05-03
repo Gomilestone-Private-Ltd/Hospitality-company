@@ -47,7 +47,7 @@
                 </div>
               </form> -->
               <div class="mt-3">
-                <a href="{{url('/dashboard')}}">Back to Home</a>
+                <a href="{{url('/')}}">Back to Home</a>
               </div>
             </div>
           </div>
