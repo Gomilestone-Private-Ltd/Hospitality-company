@@ -7,7 +7,7 @@
         <div class="main-section-box">
             <div class="heading-box">
                 <h1 class="heading">Products</h1>
-                <a href="{{ route('add.products') }}">
+                <a href="{{ route('add.product') }}">
                     <h3 class="add-user-text"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD </h3>
                 </a>
             </div>
@@ -48,7 +48,7 @@
                                 stateSave:true,
                                 ordering:false,
                                 oLanguage:{sProcessing: "<div class='loader'><img src='{{url('/assets/admin/img/loader1.gif')}}' height='100px' width='100px'></div>"},
-                                ajax:"{{ route('product.datatable') }}",
+                                ajax:"{{ route('products') }}",
                                 columns:[
                                         {   data: 'id',  name:'id',
                                             render:function(data,type,row,meta){
@@ -64,9 +64,8 @@
                                         },
                                         {   data: 'status',      name: 'status',
                                             render:function(data,type,row,meta){
-                                                $enableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','category-status')"><span class="badge badge-success">Enable</span></p>`;
-                                                $disableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','category-status')"><span class="badge badge-danger">Disable</span></p>`;
-
+                                                $enableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','product-status')"><span class="badge badge-success">Live</span></p>`;
+                                                $disableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','product-status')"><span class="badge badge-danger">Disable</span></p>`;
                                                 return (data)? $enableBtn: $disableBtn;
                                             }
                                         },
@@ -77,10 +76,10 @@
                                         },
                                         {   data: 'action',    name: 'action', 
                                             render:function(data,type,row,meta){
-                                                //var btn1 = `<a href="{{url('edit-category')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
+                                                var btn1 = `<a href="{{url('edit-product')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
                                                 //var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','delete-category')"></i>`;
-                                                var actionBtn='';
-                                                return actionBtn; 
+                                                //var actionBtn='';
+                                                return btn1; 
                                             },
                                             orderable: false, searchable: true},
                                         ]

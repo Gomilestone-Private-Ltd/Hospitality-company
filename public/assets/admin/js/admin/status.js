@@ -11,6 +11,8 @@ function changeStatus(slug,url){
                 if(response.status == 200){
                     if(response.statusName == "Enable"){
                         $('.changeStatus'+slug).html('<span class="badge badge-success">Enable</span>');
+                    }else if(response.statusName == "Live"){
+                        $('.changeStatus'+slug).html('<span class="badge badge-success">Live</span>');
                     }else{
                         $('.changeStatus'+slug).html('<span class="badge badge-danger">Disable</span>');
                     }

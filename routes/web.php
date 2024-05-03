@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Web\AppController;
+use App\Http\Controllers\Web\ContactController;
+use App\Http\Controllers\Web\GuestRoomController;
+use App\Http\Controllers\Web\WebProductController;
+
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
@@ -9,7 +14,6 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\SuperSubCategoryController;
 use App\Http\Controllers\Admin\VarientController;
-use App\Http\Controllers\Web\AppController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\GetInTouchController;
 use App\Http\Controllers\Admin\WorkWithUsController;
@@ -20,8 +24,6 @@ use App\Http\Controllers\Admin\IdealForController;
 use App\Http\Controllers\Admin\MaterialController;
 use App\Http\Controllers\Admin\SizeController;
 
-use App\Http\Controllers\Web\ContactController;
-use App\Http\Controllers\Web\GuestRoomController;
 
 
 /*
@@ -46,6 +48,13 @@ Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->na
 Route::post('/get-in-touch',[AppController::class,'GetInTouch'])->name('get.in.touch');
 Route::post('/contact-us',[AppController::class,'contactUs'])->name('contact.us');
 Route::get('/contact',[ContactController::class,'contact']);
+
+/**
+ *************************************Product route***************************
+ */
+Route::get('/category/{name}/{slug}',[WebProductController::class,'categoryProducts']);
+Route::get('/sub-category/{name}/{slug}',[WebProductController::class,'subCategoryProducts']);
+Route::get('/product-detail/{name}/{slug}',[WebProductController::class,'productDetails']);
 
 /**
  *************************************Work with us***************************
@@ -79,9 +88,11 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/dashboard',[LoginController::class,'dashboard'])->name('dashboard');
 
     Route::get('/products',[ProductController::class,'index'])->name('products');
-    Route::get('/product-datatable',[ProductController::class,'getProductDatatable'])->name('product.datatable');
-    Route::get('/add-products',[ProductController::class,'create'])->name('add.products');
-    Route::post('/add-products',[ProductController::class,'store'])->name('add.products');
+    Route::get('/add-product',[ProductController::class,'create'])->name('add.product');
+    Route::post('/add-product',[ProductController::class,'store'])->name('add.product');
+    Route::get('/edit-product/{slug}',[ProductController::class,'edit'])->name('edit.product');
+    Route::post('/update-product/{slug}',[ProductController::class,'update'])->name('update.product');
+    Route::post('/product-status',[ProductController::class,'status'])->name('product.status');
 
     /******************************************Varient Type Routes*********************************** */
     Route::get('/add-varient-type',[VarientController::class,'create'])->name('add.varient.type');

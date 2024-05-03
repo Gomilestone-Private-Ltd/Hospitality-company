@@ -58,11 +58,19 @@ class ProductController extends Controller
      * @param
      * @return
      */
-    public function index()
+    public function index(Request $request)
     {
         try{
-
-            return view($this->view.'.index');
+            if($request->ajax()){
+                $product  = $this->product->with(['addedBy'])->select('*');
+                    return Datatables::of($product)->addIndexColumn()
+                                                   ->addColumn('image',function($row){
+                                                            return $row->gen_image[0];
+                                                        })->addColumn('action', function($row){
+                                                    })->rawColumns(['action','image'])->make(true);
+            }else{
+                return view($this->view.'.index');
+            }
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("View product requested by ".Masked::getUserName());
             return redirect()->back()->with([
@@ -72,29 +80,6 @@ class ProductController extends Controller
         
     }
     
-    /**
-     * @method
-     * @param
-     * @return
-     */
-    public function getProductDatatable()
-    {
-        try{
-            $product  = $this->product->with(['addedBy'])->select('*');
-                return Datatables::of($product)->addIndexColumn()
-                ->addColumn('image',function($row){
-                    return $row->gen_image[0];
-                })->addColumn('action', function($row){
-                })->rawColumns(['action','image'])->make(true);
-            
-            
-        }catch(\Exception $e){
-            CreateAppLog::getErrorLog("View product requested by ".Masked::getUserName());
-            return redirect()->back()->with([
-                                                'error' => $e->getMessage()
-                                            ]);
-        }
-    }
 
     /**
      * @method
@@ -221,9 +206,9 @@ class ProductController extends Controller
             if($request->hasFile('specification')){
                 $specification = Picture::uploadPicture('assets/web/specification/',$request->specification);
             }
-
+            for($i=0; $i<=11;$i++){
             $productDetail = [
-                               'slug'                => Slug::smallSlug() ??'',
+                               'slug'                => Slug::largeSlug() ??'',
                                'name'                => $request->product_name ??'',
                                'description'         => $request->description ??'',
                                'is_varient_available'=> 1 ??'',
@@ -242,6 +227,7 @@ class ProductController extends Controller
                                'size_varient'        => json_encode($sizeVarientDetail) ??'',
                                'gen_price'           => $request->general_price ??'',
                                'gen_gst'             => $request->general_gst ??'',
+                               'meta_url'            => $request->product_name ??'',
                                //'gen_stock'           => $request->pp ??'',
                                //'make_in'             => $request->pp ??'',
                                //'status'              => $request->pp ??'',
@@ -250,58 +236,75 @@ class ProductController extends Controller
                                //'is_varient_available'=> $request->pp ??'',
                                'added_by'            => Masked::getUserId() ??'',
                             ];
-            $this->product->create($productDetail);
+            
+
+                $this->product->create($productDetail);
+            }
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
         }catch(\Exception $e){
             return redirect()->back()->with(['error' => $e->getMessage()]);
         } 
+    }
+    
+    /**
+     * @method Edit the product 
+     * @param slug
+     * @return Edit page
+     */
+    public function edit($slug)
+    {
+        dd($slug);
     }
 
     /**
-     * @method
-     * @param
-     * @return
+     * @method Update the product 
+     * @param Request $request
+     * @return Update page
      */
-    public function store22(CreateRequest $request)
+    public function update(EditRequest $request)
+    {
+        dd($request->all());
+    }
+    
+    /**
+     * @method Change status
+     * @param 
+     * @return Change status response
+     */
+    public function status(Request $request)
     {
         try{
-                dd($request->all(),1);   
-                $varientData = [
-                                    'varient_type' => $request->varientType,
-                                    'varient_value' => $request->varientValue
-                               ];
+            $getDetail = $this->product->whereSlug($request->slug)->first();
+            $key = "";
+            if($getDetail->status == 1){
+                $data = [
+                            'status'     => 0 ??'',
+                            'updated_by' => Masked::getUserId() ??'',
+                        ];
+                $this->product->whereSlug($request->slug)->update($data);
+                $key = "Disable";
+            }else{
+                $data = [
+                            'status'     => 1 ??'',
+                            'updated_by' => Masked::getUserId() ??'',
+                        ];
+                $this->product->whereSlug($request->slug)->update($data);
+                $key = "Live";
+            }
 
-                $varientDetail = [];
-                foreach($request->varient_name as $key=>$varient){
-                    $varientDetail[] =[
-                                        'varient_id'        => $request->varientValue[$key] ??"",
-                                        'varient_lable'     => $request->varient_name[$key] ??"",
-                                        'varient_value'     => getVarientLabelValue($request->varientValue[$key]) ??"",       
-                                        'varient_price'     => $request->varient_price[$key] ??"",
-                                        'varient_type_id'   => $request->varientType,
-                                        'varient_type'      => getVarientType($request->varientType) ??'',
-                                    ];
-                }
-                $varientData['varient_detail'] = $varientDetail;
+            CreateAppLog::getErrorLog("Product status changed by ".Masked::getUserName());
+            return response()->json([
+                                     'status'     => 200,
+                                     'statusName' => $key,
+                                     'success'    => "Staus changed successfully !!"
+                                    ]);
 
-                $productDetail = [
-                                'slug'              => Slug::smallSlug() ??'',
-                                'category_id'       => $request->category ??"",
-                                'subcategory_id'    => $request->subcategory ??"",
-                                'supsubcategory_id' => $request->supersubcategory ??"",
-                                'name'              => $request->name ??"",
-                                'title'             => $request->a_p ??"",
-                                'varient_detail'    => json_encode($varientData) ??"",
-                                'added_by'          => Masked::getUserId() ??'',
-                            ];
-                Product::create($productDetail);
-            
-            
-            
-            return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
         }catch(\Exception $e){
-            return redirect()->back()->with(['error' => $e->getMessage()]);
-        } 
+            CreateAppLog::getErrorLog("Change product status requested by ".Masked::getUserName());
+            return response()->json([
+                                     'status' => 300,
+                                     'error'  => $e->getMessage()
+                                    ]);
+        }
     }
-
 }

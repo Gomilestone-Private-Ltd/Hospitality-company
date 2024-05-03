@@ -45,6 +45,7 @@ class Product extends Model
                           'tags',
                           'meta_tags',
                           'is_varient_available',
+                          'meta_url',
                           'added_by',    
                           'updated_by',
                           'deleted_by',
@@ -77,5 +78,15 @@ class Product extends Model
        */
       public function getGenImageAttribute($value){
         return json_decode($value);
+      }
+
+      /**
+       * @method Get Meta url
+       * @param
+       * @return 
+       */
+      public function setMetaUrlAttribute($value)
+      {
+        $this->attributes['meta_url'] = str_replace(' ', '-', strtolower($value));
       }
 }

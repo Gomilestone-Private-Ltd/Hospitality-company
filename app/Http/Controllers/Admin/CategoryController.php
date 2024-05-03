@@ -93,9 +93,11 @@ class CategoryController extends Controller
                                     'name'      => $request->name ??'',
                                     'type'      => ($request->category_type == "material") ? 1 : (($request->category_type == "collection") ? 2 : (($request->category_type == "use") ? 3 : 4)) ,
                                     'image'     => ($request->hasFile('image')) ? $picture : "" ??'',
+                                    'meta_url'  => $request->name ??'',
                                     'added_by'  => Masked::getUserId() ??'',
                                   ];
-                $this->category->create($categoryDetail);
+                                  $this->category->create($categoryDetail);
+                                  dd($categoryDetail);
            
             CreateAppLog::getInfoLog(Masked::getUserName()." created category ".$request->name);
             return redirect()->back()->with([
@@ -143,6 +145,7 @@ class CategoryController extends Controller
                                 'name'        => $request->name ??'',
                                 'type'        => ($request->category_type == "material") ? 1 : (($request->category_type == "collection") ? 2 : (($request->category_type == "use") ? 3 : 4)) ,
                                 'image'       => ($request->hasFile('image')) ? Picture::uploadPicture('assets/category/',$request->image) : $getCategoryDetail->image ??'',
+                                'meta_url'    => $request->name ??'',
                                 'updated_by'  => Masked::getUserId() ??'',
                               ];
             $this->category->whereSlug($slug)->update($categoryDetail);

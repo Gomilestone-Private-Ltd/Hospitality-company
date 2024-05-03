@@ -46,7 +46,16 @@ class DatabaseSeeder extends Seeder
         
         //Seed category seeder
         $this->call(CategorySeeder::class);
-
+        
+        //Seed category seeder
+        $this->call(ColorSeeder::class);
+        
+        //Seed SizeSeeder seeder
+        $this->call(SizeSeeder::class);
+        
+         //Seed MaterialSeeder seeder
+         $this->call(MaterialSeeder::class);
+        
         //Create superadmin
         $data = [
                  'slug'       => $this->slug->smallSlug() ??'',

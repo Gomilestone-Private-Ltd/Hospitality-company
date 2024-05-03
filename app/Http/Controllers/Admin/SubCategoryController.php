@@ -98,6 +98,7 @@ class SubCategoryController extends Controller
                                     'slug'        => Slug::smallSlug() ??'',
                                     'name'        => $request->name ??'',
                                     'category_id' => $request->category ??'',
+                                    'meta_url'    => $request->name ??'',
                                     'image'       => ($request->hasFile('image')) ? Picture::uploadPicture('assets/subcategory/',$request->image) : "" ??'',
                                     'added_by'    => Masked::getUserId() ??'',
                               ];
@@ -150,6 +151,7 @@ class SubCategoryController extends Controller
                                 'name'        => $request->name ??'',
                                 'category_id' => $request->category ??'',
                                 'image'       => ($request->hasFile('image')) ? Picture::uploadPicture('assets/subcategory/',$request->image) : $getSubCategoryDetail->image ??'',
+                                'meta_url'  => $request->name ??'',
                                 'updated_by'  => Masked::getUserId() ??'',
                               ];
             $this->subcategory->whereSlug($slug)->update($categoryDetail);

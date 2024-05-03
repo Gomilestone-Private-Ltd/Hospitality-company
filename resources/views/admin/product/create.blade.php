@@ -25,7 +25,7 @@
 
             </div>
             <div class="add-input-box">
-                <form method="post" action="{{route('add.products')}}" id="add-inventory" enctype='multipart/form-data'>
+                <form method="post" action="{{route('add.product')}}" id="add-inventory" enctype='multipart/form-data'>
                     @csrf
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-12">

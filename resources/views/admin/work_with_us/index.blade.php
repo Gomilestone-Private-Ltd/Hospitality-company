@@ -7,7 +7,7 @@
         <div class="main-section-box">
             <div class="heading-box">
                 <h1 class="heading">Work With Us</h1>
-                <!-- <a href="{{ route('add.products') }}">
+                <!-- <a href="#">
                     <h3 class="add-user-text"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD </h3>
                 </a> -->
             </div>

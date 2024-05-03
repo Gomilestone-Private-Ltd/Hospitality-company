@@ -40,6 +40,7 @@ return new class extends Migration
             $table->json('tags')->nullable()->index();
             $table->json('meta_tags')->nullable()->index();
             $table->boolean('is_varient_available')->default(0)->nullable()->index();
+            $table->string('meta_url')->nullable()->index();
             $table->bigInteger('added_by')->nullable()->index();
             $table->bigInteger('updated_by')->nullable()->index();
             $table->bigInteger('deleted_by')->nullable()->index();

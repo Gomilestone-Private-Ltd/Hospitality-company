@@ -18,6 +18,7 @@ class Subcategory extends Model
                           'image',
                           'description',
                           'status',
+                          'meta_url',
                           'added_by',
                           'updated_by',
                           'deleted_by'
@@ -61,5 +62,15 @@ class Subcategory extends Model
       
         return $this->hasMany(Supersubcategory::class,'subcategory_id','id')->where('status',1);
     }
+
+  /**
+   * @method Get Meta url
+   * @param
+   * @return 
+   */
+  public function setMetaUrlAttribute($value)
+  {
+    $this->attributes['meta_url'] = str_replace(' ', '-', strtolower($value));
+  }
   
 }

@@ -28,6 +28,7 @@ class CategorySeeder extends Seeder
                                 'name'      => $categories ??'',
                                 'type'      => ($categories == "Products by Collection") ? 1 : (($categories == "Products by Use") ? 2 : (($categories == "Products by Material") ? 3 : 4)) ,
                                 'image'     => ($key==0) ? 'assets/category/DhWHaCVRqM.jpg' :(($key==1) ? 'assets/category/bIyz9MZbmW.jpg': 'assets/category/4EK6HHzNjf.jpg'),
+                                'meta_url'  => $categories ??'',
                                 'added_by'  => 1 ??'',
                               ];
             $getCategoryId = Category::create($categoryDetail);
@@ -40,6 +41,7 @@ class CategorySeeder extends Seeder
                                         'name'        => $subCategories ??'',
                                         'category_id' => $getCategoryId->id ??'',
                                         'image'       => "assets/category/bIyz9MZbmW.jpg" ??'',
+                                        'meta_url'    => $subCategories ??'',
                                         'added_by'    => 1 ??'',
                                     ];
                 $getsubCategoryId = Subcategory::create($subcategoryDetail);
@@ -51,6 +53,7 @@ class CategorySeeder extends Seeder
                                                 'category_id'    => $getCategoryId->id ??'',
                                                 'subcategory_id' => $getsubCategoryId->id ??'',
                                                 'image'          => "assets/category/bIyz9MZbmW.jpg" ??'',
+                                                'meta_url'       => $superSubCategories ??'',
                                                 'added_by'       => 1 ??'',
                                             ];
                     Supersubcategory::create($supsubcategoryDetail);

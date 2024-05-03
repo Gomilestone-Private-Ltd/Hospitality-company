@@ -28,13 +28,13 @@ class CreateRequest extends FormRequest
                 'subcategory'      => "required",
                 'supersubcategory' => "required",
                 'hsn_code'         => "required|max:20",
-                'specification'    => "required|max:1024|mimes:pdf",
+                'specification'    => "required|max:5000|mimes:pdf",
                 'general_price'    => "required|max:10",
                 'general_gst'      => "required|max:10",
                 'moq'              => "required|max:10",
                 'product_img'      => "required|array",
-                //'product_img.*'      => "required|array",
-                'material'       => 'required|array'
+                //'product_img.*'  => "required|array",
+                'material'         => 'required|array'
         ];
     }
     
@@ -55,7 +55,7 @@ class CreateRequest extends FormRequest
               'hsn_code.required'          => "This field is required",
               'hsn_code.max'               => "Hsn code can not be greater then 20 char",
               'specification.required'     => "This field is required",
-              'specification.max'          => "Size can not be greater then 1 mb",
+              'specification.max'          => "Size can not be greater then 5 mb",
               'specification.mimes'        => "Specification must be in PDF only",
               'general_price.required'     => "This field is required",
               'general_price.max'          => "Size type can not be greater then 10 char",
@@ -66,8 +66,8 @@ class CreateRequest extends FormRequest
               'genImage.required'          => "This field is required",
               'genImage.max'               => "Size type can not be greater then 10 char",
               'material.required'          => "This field is required",
-             // 'product_img.required'       => "This field is required",
-              //'product_img.mimes'          => "Size type can not be greater then 10 char",
+             // 'product_img.required'     => "This field is required",
+              //'product_img.mimes'        => "Size type can not be greater then 10 char",
         ];
     }
 }

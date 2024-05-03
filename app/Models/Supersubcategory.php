@@ -19,6 +19,7 @@ class Supersubcategory extends Model
                           'image',
                           'description',
                           'status',
+                          'meta_url',
                           'added_by',
                           'updated_by',
                           'deleted_by'
@@ -61,4 +62,14 @@ class Supersubcategory extends Model
         //return Carbon::parse($value)->format('d-m-Y');
         return Carbon::parse($value)->format('d M Y');
     }
+    
+    /**
+   * @method Get Meta url
+   * @param
+   * @return 
+   */
+  public function setMetaUrlAttribute($value)
+  {
+    $this->attributes['meta_url'] = str_replace(' ', '-', strtolower($value));
+  }
 }
