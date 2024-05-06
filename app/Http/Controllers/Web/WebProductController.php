@@ -80,17 +80,36 @@ class WebProductController extends Controller
      * @param
      * @return
      */
-    public function subcategoryProducts($name,$slug){
+    public function subcategoryProducts($name,$slug, $filter= null){
         try{
-
+            
             $getSubcategory =$this->subcategory->where(['slug'=>$slug,'status'=>1])->first();
             if(!empty($getSubcategory)){
-                $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->get();
-                $sizes =$this->size->where(['status'=>1])->get();
-                $colors =$this->color->where(['status'=>1])->get();
-                $materials =$this->material->where(['status'=>1])->get();
-                $areaOfUse =$this->areaOfUse->where(['status'=>1])->get();
-                $idealFor =$this->idealFor->where(['status'=>1])->get();
+                if(!empty($filter)){
+                    if($filter == 'RECOMMENDED'){
+                        $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->paginate(10);
+                    }else if($filter == 'ASC'){
+                        $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('name','asc')->paginate(10);
+                    }else if($filter == 'DESC'){
+                        $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('name','desc')->paginate(10);
+                    }elseif ($filter == 'PRICELOWTOHIGH') {
+                        $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('gen_price','desc')->paginate(10);
+                    }elseif ($filter == 'PRICEHIGHTOLOW') {
+                        $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('gen_price','asc')->paginate(10);
+                    }elseif ($filter == 'NEWIN') {
+                        $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('id','desc')->paginate(10);
+                    }else{
+                        $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->paginate(10);
+                    }
+                   
+                }else{ 
+                    $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->paginate(10);
+                }
+                $sizes     = $this->size->where(['status'=>1])->get();
+                $colors    = $this->color->where(['status'=>1])->get();
+                $materials = $this->material->where(['status'=>1])->get();
+                $areaOfUse = $this->areaOfUse->where(['status'=>1])->get();
+                $idealFor  = $this->idealFor->where(['status'=>1])->get();
 
                 
 
@@ -101,7 +120,8 @@ class WebProductController extends Controller
                                                                     'areaOfUse'      => $areaOfUse,
                                                                     'materials'      => $materials,
                                                                     'getProducts'    => $getProducts,
-                                                                    'getSubcategory' => $getSubcategory
+                                                                    'getSubcategory' => $getSubcategory,
+                                                                    'filter' => $filter ??'',
                                                                 ]);
             }else{
                 return redirect()->back();
@@ -135,11 +155,26 @@ class WebProductController extends Controller
     }
 
     /**
-     * @method
-     * @param
-     * @return
+     * @method Get Product details
+     * @param slug and catergory/ sub category
+     * @return product detail page
      */
     public function productDetails($name,$slug){
-        return view($this->view.'.product_detail');
+        try{
+            $getProducts = $this->product->where(['slug'=>$slug,'status'=>1])->first();
+            if(!empty($getProducts)){
+                $getRelatedproducts =$this->product->where(['sup_subCategory_id'=>$getProducts->sup_subCategory_id,'status'=>1])->get();
+                return view($this->view.'.product_detail')->with([
+                                                                   'getProducts' => $getProducts,
+                                                                   'getRelatedproducts' =>$getRelatedproducts
+                                                                 ]);
+            }else{
+                return view('errors.500');
+            }
+            
+        }catch(\Exception $e){
+            return view('errors.500');
+        }
+        
     }
 }

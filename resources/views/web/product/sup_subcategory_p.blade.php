@@ -91,15 +91,27 @@
                                     </div>
                                 </div>
                                 @endif
+                                 
+                                @if(count($getProduct->size))
+                                    <div class="material-box">
+                                        <h4>Size</h4>
+                                        <div class="material-btn-box">
+                                            @foreach($getProduct->size as $key=>$sizes)
+                                            <a href="" class="material-btn @if($key == 0) materialActive @endif {{$sizes->size}}">{{$sizes->size ??''}}</a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
 
                                 <div class="material-box">
                                     <h4>MINIMUM QUANTITY</h4>
                                     <div class="material-btn-box select-box">
-                                        <select name="" id="">
+                                        {{$getProduct->moq ??''}}
+                                        <!-- <select name="" id="">
                                             <option value="">500-1000</option>
                                             <option value="">500-1000</option>
                                             <option value="">500-1000</option>
-                                        </select>
+                                        </select> -->
                                     </div>
                                 </div>
                                 <div class="material-box">

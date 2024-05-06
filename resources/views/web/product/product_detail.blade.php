@@ -1,7 +1,6 @@
 @extends('web.layout.app')
 @section('title', 'Opine')
 @section('content')
-
     <style>
         .who-we-are-slider .slick-list {
             overflow: hidden;
@@ -51,64 +50,64 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="desk-left-img-box">
-                            <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}"
-                                alt="image">
-
+                            <img class="desk-img" src="{{ asset($getProducts->gen_image[0] ??'assets/web/image/guest-room/desk-img1.png') }}" alt="image">
                         </div>
                         <div class="material-btn-box">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
+                            @if(count($getProducts->gen_image))
+                                @foreach($getProducts->gen_image as $image)
+                                    <img class="desk-small-img" src="{{ asset($image ?? 'assets/web/image/guest-room/desk-img.png') }}"  alt="image">
+                                @endforeach
+                            @endif
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="desk-right-text-box">
-                            <h3 class="guest-heading">DESK BLOTTER</h3>
-                            <p class="guest-text">Our artisanal techniques enable us to craft luxurious, contemporary
-                                accessories with a focus
-                                on functionality. The line of desk accessories are customized to complement the brand’s
-                                required size and aesthetics through handpicked textures, materials and hues as well as logo
-                                personalization including embossed, engraved or printed logo and taglines.
-                            </p>
-
+                            <h3 class="guest-heading">{{$getProducts->name ??""}}</h3>
+                            <p class="guest-text">{{$getProducts->description ??""}}</p>
+                            @if(count($getProducts->material))
                             <div class="material-box">
                                 <h4>MATERIAL</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">LEATHERETTE</button>
-                                    <button class="material-btn">METAL</button>
-                                    <button class="material-btn">WOOD</button>
+                                   @foreach($getProducts->material as $key=>$material)
+                                    <button class="material-btn">{{$material->material ??''}}</button>
+                                   @endforeach
                                 </div>
                             </div>
+                            @endif
+                            
+                            @if(count($getProducts->color))
                             <div class="material-box">
                                 <h4>COLOUR</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    @foreach($getProducts->color as $key=>$color)
+                                        <button class="material-btn">{{$color->color_name ??''}}</button>
+                                    @endforeach
                                 </div>
                             </div>
+                            @endif
+
+                            @if(count($getProducts->size))
                             <div class="material-box">
-                                <h4>COLOUR</h4>
+                                <h4>Size</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    @foreach($getProducts->size as $key=>$sizes)
+                                        <button class="material-btn">{{$sizes->size ??''}}</button>
+                                    @endforeach
                                 </div>
                             </div>
+                            @endif
+
+                            
                             <div class="material-box">
                                 <h4>MINIMUM QUANTITY</h4>
                                 <div class="material-btn-box select-box">
-                                    <select name="" id="">
+                                    {{$getProducts->moq ??''}}
+                                    <!-- <select name="" id="">
                                         <option value="">500-1000</option>
                                         <option value="">500-1000</option>
                                         <option value="">500-1000</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                             <div class="material-box">
@@ -131,11 +130,7 @@
                                     <div class="our-product our-proces-box" style="border-right: none">
                                         <h2 class="product-heading CustomerService-heading">Related Products</h2>
 
-                                        <p class="Process-text">For rooms and suites, the idea is to collaborate with hotel
-                                            architects and housekeeping teams to understand the design language and guest
-                                            servicing requirements respectively for designing an entire range of products to
-                                            accentuate the space with a warm and personalized touch. The most skilled
-                                            craftsmen make the tableware and decorative range, </p>
+                                        <p class="Process-text">{{$getProducts->superSubCategoryDetail->description ??''}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,42 +140,17 @@
                     <!-- Slider -->
                     <div class="col-md-12">
                         <div class="slider responsive main-sliser">
-                            <div class="multi-slider-img">
-                                <img src="{{ asset('assets/web/image/guest-room/slide-img.png') }}" alt="image" />
-                                <div class="desk-slide-img">
-                                    <p>GUEST SERVICE DIRECTORY</p>
+                            @if(count($getRelatedproducts))
+                                @foreach($getRelatedproducts as $products)
+                                <div class="multi-slider-img">
+                                    <img src="{{ asset($products->gen_image[0] ??'assets/web/image/guest-room/slide-img.png') }}" alt="image" />
+                                    <div class="desk-slide-img">
+                                    <a href="{{url('/product')}}/{{$products->meta_url ??''}}/{{$products->slug ??''}}" class="our-product-text">{{$products->name ??''}}</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="multi-slider-img">
-                                <img src="{{ asset('assets/web/image/guest-room/slide-img.png') }}" alt="image" />
-                                <div class="desk-slide-img">
-                                    <p>GUEST SERVICE DIRECTORY</p>
-                                </div>
-                            </div>
-                            <div class="multi-slider-img">
-                                <img src="{{ asset('assets/web/image/guest-room/slide-img.png') }}" alt="image" />
-                                <div class="desk-slide-img">
-                                    <p>GUEST SERVICE DIRECTORY</p>
-                                </div>
-                            </div>
-                            <div class="multi-slider-img">
-                                <img src="{{ asset('assets/web/image/guest-room/slide-img.png') }}" alt="image" />
-                                <div class="desk-slide-img">
-                                    <p>GUEST SERVICE DIRECTORY</p>
-                                </div>
-                            </div>
-                            <div class="multi-slider-img">
-                                <img src="{{ asset('assets/web/image/guest-room/slide-img.png') }}" alt="image" />
-                                <div class="desk-slide-img">
-                                    <p>GUEST SERVICE DIRECTORY</p>
-                                </div>
-                            </div>
-                            <div class="multi-slider-img">
-                                <img src="{{ asset('assets/web/image/guest-room/slide-img.png') }}" alt="image" />
-                                <div class="desk-slide-img">
-                                    <p>GUEST SERVICE DIRECTORY</p>
-                                </div>
-                            </div>
+                                @endforeach
+                            @endif
+                             
                         </div>
                         <!-- control arrows -->
                         <div class="prev">

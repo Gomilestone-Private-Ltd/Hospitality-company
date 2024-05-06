@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
             $categories = Category::select('id','name','image','slug')->with(['getSubCategory'])->where('status',1)->get();
             View::share(['setting'=>$setting,'categories'=>$categories]);
         }
+        //Paginator::useBootstrap();
+        //Paginator::useBootstrapFour();
         
     }
 }

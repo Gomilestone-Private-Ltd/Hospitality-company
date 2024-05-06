@@ -59,6 +59,16 @@ class Product extends Model
     public function addedBy(){
         return $this->belongsTo(Admin::class,'added_by');
     }
+
+    /**
+     * @method Get super sub category detail
+     * @param
+     * @return added by details
+     */
+    public function superSubCategoryDetail(){
+      return $this->belongsTo(Supersubcategory::class,'sup_subCategory_id');
+  }
+
   
       /**
        * @method Get Created At
@@ -97,6 +107,16 @@ class Product extends Model
       public function getColorAttribute($value){
         return json_decode($value);
       }
+
+      /**
+       * @method Get Decode format of size
+       * @param
+       * @return 
+       */
+      public function getSizeAttribute($value){
+        return json_decode($value);
+      }
+
 
       /**
        * @method Get Meta url

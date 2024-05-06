@@ -56,9 +56,12 @@
                                             Sorting
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Link 1</a>
-                                            <a class="dropdown-item" href="#">Link 2</a>
-                                            <a class="dropdown-item" href="#">Link 3</a>
+                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/RECOMMENDED">Recommended </a>
+                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/ASC">Name A To Z</a>
+                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/DESC">Name Z To A</a>
+                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICELOWTOHIGH">Price Low To High</a>
+                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICEHIGHTOLOW">Price High To Low</a>
+                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/NEWIN">New In</a>
                                         </div>
                                     </div>
                                 </div>
@@ -69,12 +72,17 @@
                                             <img class="our-product-img"
                                                 src="{{ asset($getProduct->gen_image[0] ??'assets/web/image/guest-room/guest-room-img.png') }}"
                                                 alt="image">
-                                            <a href="{{url('/product')}}/{{$getProduct->meta_url ??''}}/{{$getProduct->slug ??''}}" class="our-product-text">{{$getProduct->name ??''}}</a>
+                                            <a href="{{url('/product')}}/{{$getProduct->meta_url ??''}}/{{$getProduct->slug ??''}}" class="our-product-text">{{$getProduct->name ??''}}-{{$getProduct->gen_price ??''}}</a>
                                         </div>
                                     </div>
                                     @endforeach
+                                   
                                 @endif
                             </div>
+                            @if(count($getProducts))
+                            {!! $getProducts->links() !!} 
+                            @endif
+                            
                         </div>
                     </div>
                 </div>

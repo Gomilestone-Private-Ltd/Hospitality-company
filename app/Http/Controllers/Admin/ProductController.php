@@ -206,7 +206,7 @@ class ProductController extends Controller
             if($request->hasFile('specification')){
                 $specification = Picture::uploadPicture('assets/web/specification/',$request->specification);
             }
-            for($i=0; $i<=11;$i++){
+            for($i=0; $i<=98;$i++){
             $productDetail = [
                                'slug'                => Slug::largeSlug() ??'',
                                'name'                => $request->product_name ??'',
