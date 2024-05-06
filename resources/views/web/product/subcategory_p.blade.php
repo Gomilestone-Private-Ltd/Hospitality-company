@@ -10,7 +10,6 @@
                     <div class="col-md-12 text-center">
                         <h2 class="philosophy">{{$getSubcategory->name ??''}}</h2>
                         <p class="philosophy-text letter-spacing">{{$getSubcategory->description ??''}}</p>
-
                     </div>
                 </div>
             </div>
@@ -72,7 +71,7 @@
                                             <img class="our-product-img"
                                                 src="{{ asset($getProduct->gen_image[0] ??'assets/web/image/guest-room/guest-room-img.png') }}"
                                                 alt="image">
-                                            <a href="{{url('/product')}}/{{$getProduct->meta_url ??''}}/{{$getProduct->slug ??''}}" class="our-product-text">{{$getProduct->name ??''}}-{{$getProduct->gen_price ??''}}</a>
+                                            <a href="{{url('/product')}}/{{$getProduct->meta_url ??''}}/{{$getProduct->slug ??''}}" class="our-product-text">{{$getProduct->name ??''}}</a>
                                         </div>
                                     </div>
                                     @endforeach
@@ -80,7 +79,7 @@
                                 @endif
                             </div>
                             @if(count($getProducts))
-                            {!! $getProducts->links() !!} 
+                               {!! $getProducts->links() !!} 
                             @endif
                             
                         </div>

@@ -31,8 +31,6 @@ class AppServiceProvider extends ServiceProvider
             $categories = Category::select('id','name','image','slug')->with(['getSubCategory'])->where('status',1)->get();
             View::share(['setting'=>$setting,'categories'=>$categories]);
         }
-        //Paginator::useBootstrap();
-        //Paginator::useBootstrapFour();
         
     }
 }
