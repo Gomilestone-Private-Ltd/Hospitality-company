@@ -189,25 +189,7 @@ class WebProductController extends Controller
     public function filterProduct(Request $request)
     {
         try{
-            $getProducts = $this->product->where(['status'=>1]);
-            
-            // if(isset($sort)){
-            //     if($sort == 'RECOMMENDED'){
-            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id]);
-            //     }else if($sort == 'ASC'){
-            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('name','asc');
-            //     }else if($sort == 'DESC'){
-            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('name','desc');
-            //     }elseif ($sort == 'PRICELOWTOHIGH') {
-            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('gen_price','desc');
-            //     }elseif ($sort == 'PRICEHIGHTOLOW') {
-            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('gen_price','asc');
-            //     }elseif ($sort == 'NEWIN') {
-            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('id','desc');
-            //     }else{
-            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id]);
-            //     }
-            // }
+            $getProducts = $this->product->where(['status'=>1,'subCategory_id'=>$request->subcategoryId]);
 
             if(isset($request->color)){
                 $ids = $request->color;
@@ -246,9 +228,29 @@ class WebProductController extends Controller
             if(isset($request->area)){
 
             }
-            
+        
+            //Sort the product
+            if(isset($request->sort)){
+                if($request->sort == 'RECOMMENDED'){
+                    $getProducts = $this->product;
+                }else if($request->sort == 'ASC'){
+                    $getProducts = $this->product->orderBy('name','asc');
+                }else if($request->sort == 'DESC'){
+                    $getProducts = $this->product->orderBy('name','desc');
+                }elseif ($request->sort == 'PRICELOWTOHIGH') {
+                    $getProducts = $this->product->orderBy('gen_price','desc');
+                }elseif ($request->sort == 'PRICEHIGHTOLOW') {
+                    $getProducts = $this->product->orderBy('gen_price','asc');
+                }elseif ($request->sort == 'NEWIN') {
+                    $getProducts = $this->product->orderBy('id','desc');
+                }else{
+                   // $getProducts = $this->product;
+                }
+            }
+
             $view = view($this->view.'.partial.subcategory_p')->with([
-                                                                      'getProducts'    => $getProducts->paginate(10)
+                                                                      'getProducts'    => $getProducts->get(),
+                                                                      'total'=>count($getProducts->get()),
                                                                      ])->render();
             return ['data'=>$view,'status'=>200,'success' => "Filtered data"];
        }catch(\Exception $e){

@@ -50,28 +50,16 @@
                         <div class="our-products-right-section">
                             <div class="row ">
                                 <div class="col-md-12 text-right">
-                                    <select name="" id="" class="drop-btn">
+                                    <select name="" id="" class="drop-btn sort_product" onchange="getval(this);">
                                         <option>Sorting</option>
-                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/RECOMMENDED">Recommended</option>
-                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/ASC">Name A To Z</option>
-                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/DESC">Name Z To A</option>
-                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICELOWTOHIGH">Price Low To High</option>
-                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICEHIGHTOLOW">Price High To Low</option>
-                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/NEWIN">New In</option>
+                                        <option value="RECOMMENDED">Recommended</option>
+                                        <option value="ASC">Name A To Z</option>
+                                        <option value="DESC">Name Z To A</option>
+                                        <!-- <option value="PRICELOWTOHIGH">Price Low To High</option>
+                                        <option value="PRICEHIGHTOLOW">Price High To Low</option> -->
+                                        <option value="NEWIN">New In</option>
                                     </select>
-                                    {{-- <div class="dropdown dropdown-box">
-                                        <button type="button" class="dropdown-toggle drop-btn" data-toggle="dropdown">
-                                            Sorting
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/RECOMMENDED">Recommended </a>
-                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/ASC">Name A To Z</a>
-                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/DESC">Name Z To A</a>
-                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICELOWTOHIGH">Price Low To High</a>
-                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICEHIGHTOLOW">Price High To Low</a>
-                                            <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/NEWIN">New In</a>
-                                        </div>
-                                    </div> --}}
+                                    
                                 </div>
                                 <div class="col-md-12 productList">
                                     @if(count($getProducts))
@@ -107,5 +95,10 @@
         @include('web.layout.partial.get_in_touch')
     </div>
   
-
+    <script>
+        function getval(sel){
+            sort = sel.value;
+            getProduct();
+        }  
+    </script>
 @endsection

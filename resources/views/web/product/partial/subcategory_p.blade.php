@@ -12,7 +12,3 @@
     @endforeach
 
 @endif
-
- @if(count($getProducts))
-    {!! $getProducts->nextPageUrl() !!} 
- @endif 
