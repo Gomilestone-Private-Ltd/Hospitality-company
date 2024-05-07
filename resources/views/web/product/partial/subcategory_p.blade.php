@@ -15,4 +15,4 @@
 
  @if(count($getProducts))
     {!! $getProducts->nextPageUrl() !!} 
-@endif 
+ @endif 
