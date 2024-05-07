@@ -66,7 +66,7 @@
                                         </a>
                                     @endforeach
                                 @endif
-                                
+
 
                             </div>
                         </div>
@@ -127,12 +127,19 @@
                             <div class="material-box">
                                 <h4>MINIMUM QUANTITY</h4>
                                 <div class="material-btn-box select-box">
-                                    {{ $getProducts->moq ?? '' }}
+                                    <div class="value-add-btn-box">
+                                        <button class="value-add-btn"> – </button>
+                                        <div class="value-btn">
+                                            <p>{{ $getProducts->moq ?? '' }}</p>
+                                        </div>
+                                        <button class="value-add-btn"> + </button>
+                                    </div>
+                                    
                                     <!-- <select name="" id="">
-                                                            <option value="">500-1000</option>
-                                                            <option value="">500-1000</option>
-                                                            <option value="">500-1000</option>
-                                                        </select> -->
+                                                                <option value="">500-1000</option>
+                                                                <option value="">500-1000</option>
+                                                                <option value="">500-1000</option>
+                                                            </select> -->
                                 </div>
                             </div>
                             <div class="material-box">
@@ -209,7 +216,8 @@
 
                                 <li class="nav-item tab-mE" role="presentation">
                                     <button class="nav-link " id="profile-tab" data-toggle="tab" data-target="#profile"
-                                        type="button" role="tab" aria-controls="profile" aria-selected="false">PRODUCT
+                                        type="button" role="tab" aria-controls="profile"
+                                        aria-selected="false">PRODUCT
                                         SPECIFICATIONS</button>
                                 </li>
 
@@ -284,28 +292,30 @@
                                                 <div class="product-specification">
                                                     <div class="product-name-box">
                                                         <p class="productTitle">Product Name <span>:</span></p>
-                                                        <p class="productName">{{$getProducts->name ??''}}</p>
+                                                        <p class="productName">{{ $getProducts->name ?? '' }}</p>
                                                     </div>
                                                     <div class="product-name-box">
                                                         <p class="productTitle">Product Code <span>:</span></p>
-                                                        <p class="productName">{{$getProducts->hsn_code ??''}}</p>
+                                                        <p class="productName">{{ $getProducts->hsn_code ?? '' }}</p>
                                                     </div>
-                                                    @if(count($getProducts->size))
-                                                    <div class="product-name-box">
-                                                        <p class="productTitle">Dimensions <span>:</span></p>
-                                                            @foreach($getProducts->size as $key=>$sizes)
-                                                                <p class="productName">{{$sizes->size ??'3.5" x 3.5"'}}, </p>
+                                                    @if (count($getProducts->size))
+                                                        <div class="product-name-box">
+                                                            <p class="productTitle">Dimensions <span>:</span></p>
+                                                            @foreach ($getProducts->size as $key => $sizes)
+                                                                <p class="productName">{{ $sizes->size ?? '3.5" x 3.5"' }},
+                                                                </p>
                                                             @endforeach
                                                         </div>
                                                     @endif
-                                                    
-                                                    @if(count($getProducts->material))
-                                                    <div class="product-name-box">
-                                                        <p class="productTitle">Material <span>:</span></p>
-                                                        @foreach($getProducts->material as $key=>$materials)
-                                                            <p class="productName">{{$materials->material ??''}}, </p>
-                                                        @endforeach
-                                                    </div>
+
+                                                    @if (count($getProducts->material))
+                                                        <div class="product-name-box">
+                                                            <p class="productTitle">Material <span>:</span></p>
+                                                            @foreach ($getProducts->material as $key => $materials)
+                                                                <p class="productName">{{ $materials->material ?? '' }},
+                                                                </p>
+                                                            @endforeach
+                                                        </div>
                                                     @endif
 
                                                 </div>
