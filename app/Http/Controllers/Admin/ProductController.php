@@ -116,11 +116,13 @@ class ProductController extends Controller
     {
         try{
             //Get material details only in array
-            $materialDetail = [];
+            $materialIdDetail = [];
+            $materialDetail   = [];
             if($request->material != null ){
                 $materialDetail = [];
                 foreach($request->material as $key=>$material){
                     $getMaterial = $this->material->where(['id'=>$material,'status'=>1])->first();
+                    $materialIdDetail[] = $material;
                     $materialDetail[] = [
                                           'id'       => $material,
                                           'material' => $getMaterial->name,
@@ -129,15 +131,17 @@ class ProductController extends Controller
             }
             
             //Get color details only in array
+            $colorIdDetail =[];
             $colorDetail =[];
             if($request->color != null ){
                 foreach($request->color as $key=>$color){
                     $getColor = $this->color->where(['id'=>$color,'status'=>1])->first();
+                    $colorIdDetail[] = $color;
                     $colorDetail[] = [
                                         'id'          => $color,
                                         'color_name'  => $getColor->color_name,
                                         'color_code'  => $getColor->color_code,
-                                     ];
+                                    ];
                 }  
             }
             
@@ -166,10 +170,13 @@ class ProductController extends Controller
             }
 
             //Get size details only in array
+            $sizeIdDetail =[];
             $sizeDetail =[];
             if($request->size != null ){
                 foreach($request->size as $key=>$size){
                     $getSize = $this->size->where(['id'=>$size,'status'=>1])->first();
+                    $sizeIdDetail[] = $size;
+        
                     $sizeDetail[] = [
                                         'id'    => $size,
                                         'size'  => $getSize->size,
@@ -206,7 +213,8 @@ class ProductController extends Controller
             if($request->hasFile('specification')){
                 $specification = Picture::uploadPicture('assets/web/specification/',$request->specification);
             }
-            for($i=0; $i<=98;$i++){
+            
+            for($i=0;$i<=10;$i++){
             $productDetail = [
                                'slug'                => Slug::largeSlug() ??'',
                                'name'                => $request->product_name ??'',
@@ -218,11 +226,14 @@ class ProductController extends Controller
                                'gen_image'           => json_encode($genImage) ??'',
                                'hsn_code'            => $request->hsn_code ??'',
                                'color'               => json_encode($colorDetail) ??'',
+                               'color_id'            => json_encode($colorIdDetail) ??'',
                                'color_varient'       => json_encode($colorVarientDetail) ??'',
                                'color_varient_images'=> json_encode($allImageDetail) ??'',
                                'specification'       => $specification ??'',
                                'moq'                 => $request->moq ??'',
                                'material'            => json_encode($materialDetail) ??'',
+                               'material_id'         => json_encode($materialIdDetail) ??'',
+                               'size_id'             => json_encode($sizeIdDetail) ??'',
                                'size'                => json_encode($sizeDetail) ??'',
                                'size_varient'        => json_encode($sizeVarientDetail) ??'',
                                'gen_price'           => $request->general_price ??'',
@@ -236,10 +247,13 @@ class ProductController extends Controller
                                //'is_varient_available'=> $request->pp ??'',
                                'added_by'            => Masked::getUserId() ??'',
                             ];
+
+            
             
 
                 $this->product->create($productDetail);
             }
+            
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
         }catch(\Exception $e){
             return redirect()->back()->with(['error' => $e->getMessage()]);

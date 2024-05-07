@@ -24,12 +24,15 @@ return new class extends Migration
             $table->string('hsn_code')->nullable()->index();
 
             $table->json('color')->nullable()->index();
+            $table->json('color_id')->nullable()->index();
             $table->json('color_varient')->nullable()->index();
             $table->json('color_varient_images')->nullable()->index();
             $table->string('specification')->nullable()->index();
             $table->bigInteger('moq')->nullable()->index();
             $table->json('material')->nullable()->index();
+            $table->json('material_id')->nullable()->index();
             $table->json('size')->nullable()->index();
+            $table->json('size_id')->nullable()->index();
             $table->json('size_varient')->nullable()->index();
             $table->bigInteger('gen_price')->nullable()->index();
             $table->integer('gen_gst')->nullable()->index();

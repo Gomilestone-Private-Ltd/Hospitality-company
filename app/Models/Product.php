@@ -30,12 +30,15 @@ class Product extends Model
                           'gen_image',
                           'hsn_code',
                           'color',
+                          'color_id',
                           'color_varient',
                           'color_varient_images',
                           'specification',
                           'moq',
                           'material',
+                          'material_id',
                           'size',
+                          'size_id',
                           'size_varient',
                           'gen_price',
                           'gen_gst',
@@ -50,7 +53,7 @@ class Product extends Model
                           'updated_by',
                           'deleted_by',
                         ];
-                                                           
+
     /**
      * @method Get aded by details
      * @param

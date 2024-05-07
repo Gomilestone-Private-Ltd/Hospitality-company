@@ -14,7 +14,7 @@ use App\Models\Subcategory;
 use App\Models\Supersubcategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use DB;
 class WebProductController extends Controller
 {
     #Bind the view
@@ -188,31 +188,55 @@ class WebProductController extends Controller
      */
     public function filterProduct(Request $request)
     {
-    //    try{
+        try{
             $getProducts = $this->product->where(['status'=>1]);
-        //    return $getProducts;
-            // if(isset($request->color) ){
-            //     foreach ($request->color as $key => $value) {
-            //        $getProducts->orWhereJsonContains('color', ['id'=> $value]);
+            
+            // if(isset($sort)){
+            //     if($sort == 'RECOMMENDED'){
+            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id]);
+            //     }else if($sort == 'ASC'){
+            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('name','asc');
+            //     }else if($sort == 'DESC'){
+            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('name','desc');
+            //     }elseif ($sort == 'PRICELOWTOHIGH') {
+            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('gen_price','desc');
+            //     }elseif ($sort == 'PRICEHIGHTOLOW') {
+            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('gen_price','asc');
+            //     }elseif ($sort == 'NEWIN') {
+            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id])->orderBy('id','desc');
+            //     }else{
+            //         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id]);
             //     }
-
             // }
-            $ids = [1, 2, 3];
 
-            // Search for rows where the color column contains any of the specified IDs
-            $results = $getProducts->where(function ($query) use ($ids) {
-                foreach ($ids as $id) {
-                    $query->orWhereJsonContains('color', ['id' => $id]);
-                }
-            })->get();
-            // return $getProducts->get();
-            dd($results);
+            if(isset($request->color)){
+                $ids = $request->color;
+                // Search for rows where the color column contains any of the specified IDs
+                $getProducts = $getProducts->where(function ($query) use ($ids) {
+                    foreach ($ids as $id) {
+                        $query->orWhereJsonContains('color_id',$id);
+                    }
+                });
+            }
+
             if(isset($request->size)){
-
+                $sizeIds = $request->size;
+                // Search for rows where the size column contains any of the specified IDs
+                $getProducts = $getProducts->where(function ($query) use ($sizeIds) {
+                    foreach ($sizeIds as $id) {
+                        $query->orWhereJsonContains('size_id',$id);
+                    }
+                });
             }
 
             if(isset($request->material)){
-
+                $materialId = $request->material;
+                // Search for rows where the material column contains any of the specified IDs
+                $getProducts = $getProducts->where(function ($query) use ($materialId) {
+                    foreach ($materialId as $id) {
+                        $query->orWhereJsonContains('material_id',$id);
+                    }
+                });
             }
 
             if(isset($request->ideal)){
@@ -222,14 +246,15 @@ class WebProductController extends Controller
             if(isset($request->area)){
 
             }
-
-            return response()->json([
-                                     'error'=>"something went wrong",
-                                     'data'=>$filteredProducts
-                                    ]);
-    //    }catch(\Exception $e){
-    //          CreateAppLog::getErrorLog("View area of use requested by ".$e->getMessage());
-    //         return view('errors.500');
-    //    }
+            
+            $view = view($this->view.'.partial.subcategory_p')->with([
+                                                                      'getProducts'    => $getProducts->paginate(10)
+                                                                     ])->render();
+            return ['data'=>$view,'status'=>200,'success' => "Filtered data"];
+       }catch(\Exception $e){
+             CreateAppLog::getErrorLog("View area of use requested by ".$e->getMessage());
+            //return view('errors.500');
+            return response()->json(['error'=>$e->getMessage()]);
+       }
     }
 }

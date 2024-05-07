@@ -39,7 +39,7 @@
                 <form action="">
                 @foreach($colors as $color)
                     <div class="check-box">
-                        <input type="checkbox" id="Colour" class="color" name="color[]" value="{{$color->id}}" onchange="filterData('color',this)">
+                        <input type="checkbox" id="Colour" class="color" name="color[]" value="{{$color->id}}" >
                         <p>{{$color->color_name ??''}}</p>
                     </div>
                 @endforeach    
@@ -215,11 +215,17 @@
                       'material':material
                 },
                 success:function(response){
-                    console.log(response.data);
+                    console.log(response);
+                    if(response.status == 200){
+                       $('.productList').html('');
+                       $('.productList').html(response.data);
+
+                    }
+                    
                 },
                 error:function(xhr){
-                   // alert(xhr);
-                    ///console.log(xhr.textMessage);
+                    alert(xhr.responseText);
+                    ///console.log(xhr.responseText);
                 }
             });
         }
