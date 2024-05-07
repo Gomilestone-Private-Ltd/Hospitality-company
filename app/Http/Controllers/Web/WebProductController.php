@@ -80,23 +80,23 @@ class WebProductController extends Controller
      * @param
      * @return
      */
-    public function subcategoryProducts($name,$slug, $filter= null){
+    public function subcategoryProducts($name,$slug, $sort= null){
         try{
             
             $getSubcategory =$this->subcategory->where(['slug'=>$slug,'status'=>1])->first();
             if(!empty($getSubcategory)){
-                if(!empty($filter)){
-                    if($filter == 'RECOMMENDED'){
+                if(!empty($sort)){
+                    if($sort == 'RECOMMENDED'){
                         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->paginate(10);
-                    }else if($filter == 'ASC'){
+                    }else if($sort == 'ASC'){
                         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('name','asc')->paginate(10);
-                    }else if($filter == 'DESC'){
+                    }else if($sort == 'DESC'){
                         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('name','desc')->paginate(10);
-                    }elseif ($filter == 'PRICELOWTOHIGH') {
+                    }elseif ($sort == 'PRICELOWTOHIGH') {
                         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('gen_price','desc')->paginate(10);
-                    }elseif ($filter == 'PRICEHIGHTOLOW') {
+                    }elseif ($sort == 'PRICEHIGHTOLOW') {
                         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('gen_price','asc')->paginate(10);
-                    }elseif ($filter == 'NEWIN') {
+                    }elseif ($sort == 'NEWIN') {
                         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->orderBy('id','desc')->paginate(10);
                     }else{
                         $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->paginate(10);
@@ -105,6 +105,7 @@ class WebProductController extends Controller
                 }else{ 
                     $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->paginate(10);
                 }
+
                 $sizes     = $this->size->where(['status'=>1])->get();
                 $colors    = $this->color->where(['status'=>1])->get();
                 $materials = $this->material->where(['status'=>1])->get();
@@ -121,7 +122,7 @@ class WebProductController extends Controller
                                                                     'materials'      => $materials,
                                                                     'getProducts'    => $getProducts,
                                                                     'getSubcategory' => $getSubcategory,
-                                                                    'filter' => $filter ??'',
+                                                                    'sort' => $sort ??'',
                                                                 ]);
             }else{
                 return redirect()->back();
@@ -130,6 +131,8 @@ class WebProductController extends Controller
             return view('errors.500');
         }
     }
+    
+
 
     /**
      * @method
@@ -176,5 +179,57 @@ class WebProductController extends Controller
             return view('errors.500');
         }
         
+    }
+
+    /**
+     * @method Filter product 
+     * @param
+     * @return
+     */
+    public function filterProduct(Request $request)
+    {
+    //    try{
+            $getProducts = $this->product->where(['status'=>1]);
+        //    return $getProducts;
+            // if(isset($request->color) ){
+            //     foreach ($request->color as $key => $value) {
+            //        $getProducts->orWhereJsonContains('color', ['id'=> $value]);
+            //     }
+
+            // }
+            $ids = [1, 2, 3];
+
+            // Search for rows where the color column contains any of the specified IDs
+            $results = $getProducts->where(function ($query) use ($ids) {
+                foreach ($ids as $id) {
+                    $query->orWhereJsonContains('color', ['id' => $id]);
+                }
+            })->get();
+            // return $getProducts->get();
+            dd($results);
+            if(isset($request->size)){
+
+            }
+
+            if(isset($request->material)){
+
+            }
+
+            if(isset($request->ideal)){
+
+            }
+
+            if(isset($request->area)){
+
+            }
+
+            return response()->json([
+                                     'error'=>"something went wrong",
+                                     'data'=>$filteredProducts
+                                    ]);
+    //    }catch(\Exception $e){
+    //          CreateAppLog::getErrorLog("View area of use requested by ".$e->getMessage());
+    //         return view('errors.500');
+    //    }
     }
 }

@@ -2095,12 +2095,25 @@ img.desk-small-img {
 }
 
 .product-specification {
-    width: 40%;
+    width: 50%;
     margin: auto;
     border: 1px solid #ECECEC;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 30px;
+}
+a:-webkit-any-link:focus-visible {
+    outline-offset: 0px;
+}
+
+:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+a:focus {
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color !important;
+    outline-offset: -2px;
 }
 
 .product-name-box {

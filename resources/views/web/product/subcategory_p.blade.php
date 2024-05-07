@@ -92,4 +92,6 @@
     <div class="get-in-touch">
         @include('web.layout.partial.get_in_touch')
     </div>
+  
+
 @endsection

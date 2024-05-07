@@ -255,20 +255,30 @@
                                                 <div class="product-specification">
                                                     <div class="product-name-box">
                                                         <p class="productTitle">Product Name <span>:</span></p>
-                                                        <p class="productName">Soap Dish</p>
+                                                        <p class="productName">{{$getProducts->name ??''}}</p>
                                                     </div>
                                                     <div class="product-name-box">
                                                         <p class="productTitle">Product Code <span>:</span></p>
-                                                        <p class="productName">SL/BL001</p>
+                                                        <p class="productName">{{$getProducts->hsn_code ??''}}</p>
                                                     </div>
+                                                    @if(count($getProducts->size))
                                                     <div class="product-name-box">
                                                         <p class="productTitle">Dimensions <span>:</span></p>
-                                                        <p class="productName">3.5" x 3.5"</p>
-                                                    </div>
+                                                            @foreach($getProducts->size as $key=>$sizes)
+                                                                <p class="productName">{{$sizes->size ??'3.5" x 3.5"'}}, </p>
+                                                            @endforeach
+                                                        </div>
+                                                    @endif
+                                                    
+                                                    @if(count($getProducts->material))
                                                     <div class="product-name-box">
                                                         <p class="productTitle">Material <span>:</span></p>
-                                                        <p class="productName">Metal</p>
+                                                        @foreach($getProducts->material as $key=>$materials)
+                                                            <p class="productName">{{$materials->material ??''}}, </p>
+                                                        @endforeach
                                                     </div>
+                                                    @endif
+
                                                 </div>
                                                 <div class="email-box">
                                                     <input type="email" name="email" id="email" placeholder="Enter Email For Specifications">
