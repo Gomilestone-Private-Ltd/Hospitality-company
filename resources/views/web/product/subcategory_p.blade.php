@@ -50,7 +50,16 @@
                         <div class="our-products-right-section">
                             <div class="row">
                                 <div class="col-md-12 text-right">
-                                    <div class="dropdown dropdown-box">
+                                    <select name="" id="" class="drop-btn">
+                                        <option>Sorting</option>
+                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/RECOMMENDED">Recommended</option>
+                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/ASC">Name A To Z</option>
+                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/DESC">Name Z To A</option>
+                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICELOWTOHIGH">Price Low To High</option>
+                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICEHIGHTOLOW">Price High To Low</option>
+                                        <option value="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/NEWIN">New In</option>
+                                    </select>
+                                    {{-- <div class="dropdown dropdown-box">
                                         <button type="button" class="dropdown-toggle drop-btn" data-toggle="dropdown">
                                             Sorting
                                         </button>
@@ -62,7 +71,7 @@
                                             <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/PRICEHIGHTOLOW">Price High To Low</a>
                                             <a class="dropdown-item" href="{{url('/category')}}/{{$getSubcategory->meta_url ??''}}/{{$getSubcategory->slug ??''}}/NEWIN">New In</a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 @if(count($getProducts))
                                     @foreach($getProducts as $getProduct)

@@ -135,7 +135,14 @@
                                     <div class="material-box">
                                         <h4>MINIMUM QUANTITY</h4>
                                         <div class="material-btn-box select-box">
-                                            {{ $getProduct->moq ?? '' }}
+                                            
+                                            <div class="value-add-btn-box">
+                                                <button class="value-add-btn"> – </button>
+                                                <div class="value-btn">
+                                                    <p>{{ $getProduct->moq ?? '' }}</p>
+                                                </div>
+                                                <button class="value-add-btn"> + </button>
+                                            </div>
                                             <!-- <select name="" id="">
                                                         <option value="">500-1000</option>
                                                         <option value="">500-1000</option>
