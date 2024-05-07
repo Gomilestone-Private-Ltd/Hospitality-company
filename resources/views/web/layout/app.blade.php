@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="{{ asset('assets/web/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/web/responsive.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/web/image/logo.png') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
@@ -24,10 +25,15 @@
     {{-- Item Slider Link  Start --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.css">
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js"></script> --}}
     {{-- Item Slider Link  End --}}
 
+    {{-- Product Gallery Link  --}}
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.js"></script> --}}
+    {{-- Product Gallery Link  --}}
+    
     <title>@yield('title')</title>
 
     <!-- Include Css -->
@@ -35,8 +41,8 @@
     @yield('css')
 
     <script>
-        var base_url = "{{url('/')}}";
-        var csrf_token ="{{csrf_token()}}";
+        var base_url = "{{ url('/') }}";
+        var csrf_token = "{{ csrf_token() }}";
     </script>
 </head>
 

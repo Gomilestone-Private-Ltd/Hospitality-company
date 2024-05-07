@@ -8,8 +8,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2 class="philosophy">{{$getsupSubcategory->name ??'DESK ACCESSORIES'}}</h2>
-                        <p class="desk-text">{{$getsupSubcategory->description ??'No Data Found'}}. </p>
+                        <h2 class="philosophy">{{ $getsupSubcategory->name ?? 'DESK ACCESSORIES' }}</h2>
+                        <p class="desk-text">{{ $getsupSubcategory->description ?? 'No Data Found' }}. </p>
 
                     </div>
                 </div>
@@ -30,30 +30,54 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="GuestRoomItems-image-box">
-                            <img class="GuestRoomItems-image" src="{{ asset($getsupSubcategory->image ??'assets/web/image/customisation-img.png') }}"
+                            <img class="GuestRoomItems-image"
+                                src="{{ asset($getsupSubcategory->image ?? 'assets/web/image/customisation-img.png') }}"
                                 alt="image">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        @if(count($getProducts))
-           @foreach($getProducts as $key=> $getProduct)
-            <div class=" @if($key == 0) GuestServiceDirectory  @else GuestServiceBlotter @endif" >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="desk-left-img-box">
-                                <img id="expandedImg" style="width:100%">
+        @if (count($getProducts))
+            @foreach ($getProducts as $key => $getProduct)
+                <div class=" @if ($key == 0) GuestServiceDirectory  @else GuestServiceBlotter @endif">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="gallery js-gallery">
+                                    <div class="gallery__hero desk-left-img-box">
+                                        <img class="desk-img"
+                                            src="{{ asset($getProduct->gen_image[0] ?? 'assets/web/image/guest-room/desk-img1.png') }}">
+                                    </div>
+                                    <div class="gallery__thumbs material-btn-box">
+                                        @if (count($getProduct->gen_image))
+                                            @foreach ($getProduct->gen_image as $image)
+                                                {{-- <div class="column">
+                                                    <img onclick="myFunction(this);" class="desk-small-img"
+                                                        src="{{ asset($image ?? 'assets/web/image/guest-room/desk-img1.png') }}"
+                                                        alt="image">
+                                                </div> --}}
+                                                <a href="{{ asset($image ?? 'assets/web/image/guest-room/desk-img1.png') }}"
+                                                    data-gallery="thumb" class="is-active">
+                                                    <img class="desk-small-img"
+                                                        src="{{ asset($image ?? 'assets/web/image/guest-room/desk-img1.png') }}">
+                                                </a>
+                                            @endforeach
+                                        @endif
+                                        
+                                    </div>
+                                </div>
+                                {{-- <div class="desk-left-img-box">
+                                <img id="expandedImg" style="width:100%">{{ asset($getProduct->gen_image[0] ??'assets/web/image/guest-room/desk-img1.png') }}
                                 <div id="imgtext">
-                                    <img class="desk-img" src="{{ asset($getProduct->gen_image[0] ??'assets/web/image/guest-room/desk-img1.png') }}"
+                                    <img class="desk-img" src=""
                                         alt="image">
                                 </div>
 
-                            </div>
-                            <div class="material-btn-box">
-                                @if(count($getProduct->gen_image))
-                                    @foreach($getProduct->gen_image as $image)
+                            </div> --}}
+                                {{-- <div class="material-btn-box">
+                                @if (count($getProduct->gen_image))
+                                    @foreach ($getProduct->gen_image as $image)
                                         <div class="column">
                                             <img onclick="myFunction(this);" class="desk-small-img"
                                                 src="{{ asset($image??'assets/web/image/guest-room/desk-img1.png') }}" alt="image">
@@ -61,68 +85,73 @@
                                     @endforeach
                                 @endif
 
+                            </div> --}}
+
+
+
                             </div>
-                            
+                            <div class="col-md-6">
+                                <div class="desk-right-text-box">
+                                    <h3 class="guest-heading"><a
+                                            href="{{ url('/product') }}/{{ $getProduct->meta_url ?? '' }}/{{ $getProduct->slug ?? '' }}">{{ $getProduct->name ?? '' }}</a>
+                                    </h3>
+                                    <p class="guest-text">{{ $getProduct->description ?? '' }}</p>
+                                    @if (count($getProduct->material))
+                                        <div class="material-box">
+                                            <h4>MATERIAL</h4>
+                                            <div class="material-btn-box">
+                                                @foreach ($getProduct->material as $key => $material)
+                                                    <button
+                                                        class="material-btn @if ($key == 1)  @endif {{ $material->material }}">{{ $material->material ?? '' }}</button>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
 
+                                    @if (count($getProduct->color))
+                                        <div class="material-box">
+                                            <h4>COLOUR</h4>
+                                            <div class="material-btn-box">
+                                                @foreach ($getProduct->color as $key => $color)
+                                                    <button
+                                                        class="color-btn @if ($key == 0)  @endif {{ $color->color_name }}">{{ $color->color_name ?? '' }}</button>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
 
-                        </div>
-                        <div class="col-md-6">
-                            <div class="desk-right-text-box">
-                                <h3 class="guest-heading"><a href="{{url('/product')}}/{{$getProduct->meta_url ??''}}/{{$getProduct->slug ??''}}">{{$getProduct->name ??''}}</a></h3>
-                                <p class="guest-text">{{$getProduct->description ??''}}</p>
-                                @if(count($getProduct->material))
+                                    @if (count($getProduct->size))
+                                        <div class="material-box">
+                                            <h4>Size</h4>
+                                            <div class="material-btn-box">
+                                                @foreach ($getProduct->size as $key => $sizes)
+                                                    <button
+                                                        class="size-btn @if ($key == 0)  @endif {{ $sizes->size }}">{{ $sizes->size ?? '' }}</button>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
                                     <div class="material-box">
-                                        <h4>MATERIAL</h4>
-                                        <div class="material-btn-box">
-                                            @foreach($getProduct->material as $key=>$material)
-                                                <a href="#" class="material-btn @if($key == 1) materialActive @endif {{$material->material}}">{{$material->material ??''}}</a>
-                                            @endforeach
+                                        <h4>MINIMUM QUANTITY</h4>
+                                        <div class="material-btn-box select-box">
+                                            {{ $getProduct->moq ?? '' }}
+                                            <!-- <select name="" id="">
+                                                        <option value="">500-1000</option>
+                                                        <option value="">500-1000</option>
+                                                        <option value="">500-1000</option>
+                                                    </select> -->
                                         </div>
                                     </div>
-                                @endif
-                                
-                                @if(count($getProduct->color))
-                                <div class="material-box">
-                                    <h4>COLOUR</h4>
-                                    <div class="material-btn-box">
-                                    @foreach($getProduct->color as $key=>$color)
-                                        <a href="" class="material-btn @if($key == 0) materialActive @endif {{$color->color_name}}">{{$color->color_name ??''}}</a>
-                                    @endforeach
-                                    </div>
-                                </div>
-                                @endif
-                                 
-                                @if(count($getProduct->size))
                                     <div class="material-box">
-                                        <h4>Size</h4>
-                                        <div class="material-btn-box">
-                                            @foreach($getProduct->size as $key=>$sizes)
-                                            <a href="" class="material-btn @if($key == 0) materialActive @endif {{$sizes->size}}">{{$sizes->size ??''}}</a>
-                                            @endforeach
-                                        </div>
+                                        <button class="add-project-btn">ADD TO PROJECT</button>
                                     </div>
-                                @endif
-
-                                <div class="material-box">
-                                    <h4>MINIMUM QUANTITY</h4>
-                                    <div class="material-btn-box select-box">
-                                        {{$getProduct->moq ??''}}
-                                        <!-- <select name="" id="">
-                                            <option value="">500-1000</option>
-                                            <option value="">500-1000</option>
-                                            <option value="">500-1000</option>
-                                        </select> -->
-                                    </div>
-                                </div>
-                                <div class="material-box">
-                                    <button class="add-project-btn">ADD TO PROJECT</button>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         @else
             @include('web.product.partial.demo_product')
@@ -134,18 +163,59 @@
     </div>
 
     <script>
-        function myFunction(imgs) {
-            var expandImg = document.getElementById("expandedImg");
-            var imgText = document.getElementById("imgtext");
-            expandImg.src = imgs.src;
-            imgText.innerHTML = "";
-            expandImg.parentElement.style.display = "block";
-            document.getElementById("expandedImg").style.display = "block";
-        }
-
         $('.material-btn').on('click', function() {
-            $('button').removeClass('materialActive');
+            $('.material-btn').removeClass('materialActive');
             $(this).addClass('materialActive');
         });
+        $('.color-btn').on('click', function() {
+            $('.color-btn').removeClass('materialActive');
+            $(this).addClass('materialActive');
+        });
+        $('.size-btn').on('click', function() {
+            $('.size-btn').removeClass('materialActive');
+            $(this).addClass('materialActive');
+        });
+
+
+        var App = (function() {
+            'use strict';
+            var gallery = $('.js-gallery');
+            var Gallery = {
+                switch: function(trigger, imgContainer) {
+                    var src = trigger.attr('href'),
+                        thumbs = trigger.siblings(),
+                        img = trigger.parent().prev().children();
+                    trigger.addClass('is-active');
+                    thumbs.each(function() {
+                        if ($(this).hasClass('is-active')) {
+                            $(this).removeClass('is-active');
+                        }
+                    });
+                    img.attr('src', src);
+                }
+            };
+
+            function init() {
+                gallery.delegate('a', 'click', function(event) {
+                    var trigger = $(this);
+                    var triggerData = trigger.data("gallery");
+                    if (triggerData === 'zoom') {
+                        var imgContainer = trigger.parent(),
+                            img = trigger.siblings();
+                        Gallery.zoom(imgContainer, img);
+                    } else if (triggerData === 'thumb') {
+                        var imgContainer = trigger.parent().siblings();
+                        Gallery.switch(trigger, imgContainer);
+                    } else {
+                        return;
+                    }
+                    event.preventDefault();
+                });
+            }
+            return {
+                init: init
+            };
+        })();
+        App.init();
     </script>
 @endsection
