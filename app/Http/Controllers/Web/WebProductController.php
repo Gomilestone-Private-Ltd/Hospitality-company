@@ -103,7 +103,8 @@ class WebProductController extends Controller
                     }
                    
                 }else{ 
-                    $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->paginate(10);
+                   // $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->paginate(10);
+                    $getProducts = $this->product->where(['subCategory_id'=>$getSubcategory->id,'status'=>1])->get();
                 }
 
                 $sizes     = $this->size->where(['status'=>1])->get();

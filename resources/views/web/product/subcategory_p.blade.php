@@ -77,9 +77,7 @@
                                     
                                     @endif
                                     
-                                    <!-- @if(count($getProducts))
-                                    {!! $getProducts->links() !!} 
-                                    @endif -->
+                                    
                                 </div>
                             </div>
                             
