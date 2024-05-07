@@ -45,36 +45,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="desk-left-img-box">
-                            <img id="expandedImg" style="width:100%">
-                            <div id="imgtext">
-                                <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}"
-                                    alt="image">
-                            </div>
 
+                        <div class="gallery js-gallery">
+                            <div class="gallery__hero desk-left-img-box">
+                                <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}">
+                            </div>
+                            <div class="gallery__thumbs material-btn-box">
+                                <a href="{{ asset('assets/web/image/guest-room/desk-img1.png') }}" data-gallery="thumb"
+                                    class="is-active">
+                                    <img class="desk-small-img"
+                                        src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}">
+                                </a>
+                                <a href="{{ asset('assets/web/image/ourProces-img3.png') }}" data-gallery="thumb">
+                                    <img class="desk-small-img" src="{{ asset('assets/web/image/ourProces-img3.png') }}">
+                                </a>
+                                <a href="{{ asset('assets/web/image/ourProces-img2.png') }}" data-gallery="thumb">
+                                    <img class="desk-small-img" src="{{ asset('assets/web/image/ourProces-img2.png') }}">
+                                </a>
+                            </div>
                         </div>
-                        <div class="material-btn-box">
-                            <div class="column">
-                                <img onclick="myFunction(this);" class="desk-small-img"
-                                    src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}" alt="image">
-                            </div>
-                            <div class="column">
-                                <img onclick="myFunction(this);" class="desk-small-img"
-                                    src="{{ asset('assets/web/image/ourProces-img.png') }}" alt="image">
-                            </div>
-                            <div class="column">
-                                <img onclick="myFunction(this);" class="desk-small-img"
-                                    src="{{ asset('assets/web/image/ourProces-img3.png') }}" alt="image">
-                            </div>
-                            <div class="column">
-                                <img onclick="myFunction(this);" class="desk-small-img"
-                                    src="{{ asset('assets/web/image/ourProces-img2.png') }}" alt="image">
-                            </div>
-
-                        </div>
-
-
-
                     </div>
                     <div class="col-md-6">
                         <div class="desk-right-text-box">
@@ -97,17 +86,17 @@
                             <div class="material-box">
                                 <h4>COLOUR</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    <button class="color-btn">RED</button>
+                                    <button class="color-btn">YELLOW</button>
+                                    <button class="color-btn">GREEN</button>
                                 </div>
                             </div>
                             <div class="material-box">
-                                <h4>COLOUR</h4>
+                                <h4>SIZE</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    <button class="size-btn">Small</button>
+                                    <button class="size-btn">Large</button>
+                                    <button class="size-btn">Medium</button>
                                 </div>
                             </div>
                             <div class="material-box">
@@ -125,7 +114,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -133,21 +121,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="desk-left-img-box">
-                            <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}"
-                                alt="image">
 
-                        </div>
-                        <div class="material-btn-box">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-
+                        <div class="gallery js-gallery">
+                            <div class="gallery__hero desk-left-img-box">
+                                <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}">
+                            </div>
+                            <div class="gallery__thumbs material-btn-box">
+                                <a href="{{ asset('assets/web/image/guest-room/desk-img1.png') }}" data-gallery="thumb"
+                                    class="is-active">
+                                    <img class="desk-small-img"
+                                        src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}">
+                                </a>
+                                <a href="{{ asset('assets/web/image/ourProces-img3.png') }}" data-gallery="thumb">
+                                    <img class="desk-small-img" src="{{ asset('assets/web/image/ourProces-img3.png') }}">
+                                </a>
+                                <a href="{{ asset('assets/web/image/ourProces-img2.png') }}" data-gallery="thumb">
+                                    <img class="desk-small-img" src="{{ asset('assets/web/image/ourProces-img2.png') }}">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -171,17 +162,17 @@
                             <div class="material-box">
                                 <h4>COLOUR</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    <button class="color-btn">RED</button>
+                                    <button class="color-btn">YELLOW</button>
+                                    <button class="color-btn">GREEN</button>
                                 </div>
                             </div>
                             <div class="material-box">
-                                <h4>COLOUR</h4>
+                                <h4>SIZE</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    <button class="size-btn">Small</button>
+                                    <button class="size-btn">Large</button>
+                                    <button class="size-btn">Medium</button>
                                 </div>
                             </div>
                             <div class="material-box">
@@ -207,21 +198,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="desk-left-img-box">
-                            <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}"
-                                alt="image">
 
-                        </div>
-                        <div class="material-btn-box">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-
+                        <div class="gallery js-gallery">
+                            <div class="gallery__hero desk-left-img-box">
+                                <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}">
+                            </div>
+                            <div class="gallery__thumbs material-btn-box">
+                                <a href="{{ asset('assets/web/image/guest-room/desk-img1.png') }}" data-gallery="thumb"
+                                    class="is-active">
+                                    <img class="desk-small-img"
+                                        src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}">
+                                </a>
+                                <a href="{{ asset('assets/web/image/ourProces-img3.png') }}" data-gallery="thumb">
+                                    <img class="desk-small-img" src="{{ asset('assets/web/image/ourProces-img3.png') }}">
+                                </a>
+                                <a href="{{ asset('assets/web/image/ourProces-img2.png') }}" data-gallery="thumb">
+                                    <img class="desk-small-img" src="{{ asset('assets/web/image/ourProces-img2.png') }}">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -245,17 +239,17 @@
                             <div class="material-box">
                                 <h4>COLOUR</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    <button class="color-btn">RED</button>
+                                    <button class="color-btn">YELLOW</button>
+                                    <button class="color-btn">GREEN</button>
                                 </div>
                             </div>
                             <div class="material-box">
-                                <h4>COLOUR</h4>
+                                <h4>SIZE</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    <button class="size-btn">Small</button>
+                                    <button class="size-btn">Large</button>
+                                    <button class="size-btn">Medium</button>
                                 </div>
                             </div>
                             <div class="material-box">
@@ -281,21 +275,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="desk-left-img-box">
-                            <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}"
-                                alt="image">
 
-                        </div>
-                        <div class="material-btn-box">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-                            <img class="desk-small-img" src="{{ asset('assets/web/image/guest-room/desk-img.png') }}"
-                                alt="image">
-
+                        <div class="gallery js-gallery">
+                            <div class="gallery__hero desk-left-img-box">
+                                <img class="desk-img" src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}">
+                            </div>
+                            <div class="gallery__thumbs material-btn-box">
+                                <a href="{{ asset('assets/web/image/guest-room/desk-img1.png') }}" data-gallery="thumb"
+                                    class="is-active">
+                                    <img class="desk-small-img"
+                                        src="{{ asset('assets/web/image/guest-room/desk-img1.png') }}">
+                                </a>
+                                <a href="{{ asset('assets/web/image/ourProces-img3.png') }}" data-gallery="thumb">
+                                    <img class="desk-small-img" src="{{ asset('assets/web/image/ourProces-img3.png') }}">
+                                </a>
+                                <a href="{{ asset('assets/web/image/ourProces-img2.png') }}" data-gallery="thumb">
+                                    <img class="desk-small-img" src="{{ asset('assets/web/image/ourProces-img2.png') }}">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -319,17 +316,17 @@
                             <div class="material-box">
                                 <h4>COLOUR</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">RED</button>
-                                    <button class="material-btn">YELLOW</button>
-                                    <button class="material-btn">GREEN</button>
+                                    <button class="color-btn">RED</button>
+                                    <button class="color-btn">YELLOW</button>
+                                    <button class="color-btn">GREEN</button>
                                 </div>
                             </div>
                             <div class="material-box">
                                 <h4>SIZE</h4>
                                 <div class="material-btn-box">
-                                    <button class="material-btn">SMALL</button>
-                                    <button class="material-btn">MEDIUM</button>
-                                    <button class="material-btn">LARGE</button>
+                                    <button class="size-btn">Small</button>
+                                    <button class="size-btn">Large</button>
+                                    <button class="size-btn">Medium</button>
                                 </div>
                             </div>
                             <div class="material-box">
@@ -358,18 +355,59 @@
     </div>
 
     <script>
-        function myFunction(imgs) {
-            var expandImg = document.getElementById("expandedImg");
-            var imgText = document.getElementById("imgtext");
-            expandImg.src = imgs.src;
-            imgText.innerHTML = "";
-            expandImg.parentElement.style.display = "block";
-            document.getElementById("expandedImg").style.display = "block";
-        }
-
         $('.material-btn').on('click', function() {
-            $('button').removeClass('materialActive');
+            $('.material-btn').removeClass('materialActive');
             $(this).addClass('materialActive');
         });
+        $('.color-btn').on('click', function() {
+            $('.color-btn').removeClass('materialActive');
+            $(this).addClass('materialActive');
+        });
+        $('.size-btn').on('click', function() {
+            $('.size-btn').removeClass('materialActive');
+            $(this).addClass('materialActive');
+        });
+
+
+        var App = (function() {
+            'use strict';
+            var gallery = $('.js-gallery');
+            var Gallery = {
+                switch: function(trigger, imgContainer) {
+                    var src = trigger.attr('href'),
+                        thumbs = trigger.siblings(),
+                        img = trigger.parent().prev().children();
+                    trigger.addClass('is-active');
+                    thumbs.each(function() {
+                        if ($(this).hasClass('is-active')) {
+                            $(this).removeClass('is-active');
+                        }
+                    });
+                    img.attr('src', src);
+                }
+            };
+
+            function init() {
+                gallery.delegate('a', 'click', function(event) {
+                    var trigger = $(this);
+                    var triggerData = trigger.data("gallery");
+                    if (triggerData === 'zoom') {
+                        var imgContainer = trigger.parent(),
+                            img = trigger.siblings();
+                        Gallery.zoom(imgContainer, img);
+                    } else if (triggerData === 'thumb') {
+                        var imgContainer = trigger.parent().siblings();
+                        Gallery.switch(trigger, imgContainer);
+                    } else {
+                        return;
+                    }
+                    event.preventDefault();
+                });
+            }
+            return {
+                init: init
+            };
+        })();
+        App.init();
     </script>
 @endsection
