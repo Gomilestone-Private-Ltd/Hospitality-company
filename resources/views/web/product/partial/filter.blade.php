@@ -14,7 +14,7 @@
                 <form action="">
                 @foreach($sizes as $size)
                     <div class="check-box">
-                        <input type="checkbox" id="Size" class="size" name="Size[]" value="{{$size->id}}">
+                        <input type="checkbox" id="Size" class="size" name="Size[]" value="{{$size->id}}" onchange="filterData('size',this)">
                         <p>{{$size->size ??''}}</p>
                     </div>
                 @endforeach
@@ -39,7 +39,7 @@
                 <form action="">
                 @foreach($colors as $color)
                     <div class="check-box">
-                        <input type="checkbox" id="Colour" class="color" name="color[]" value="{{$color->id}}" >
+                        <input type="checkbox" id="Colour" class="color" name="color[]" value="{{$color->id}}" onchange="filterData('color',this)">
                         <p>{{$color->color_name ??''}}</p>
                     </div>
                 @endforeach    
@@ -63,7 +63,7 @@
                 <form action="">
                 @foreach($materials as $material)
                     <div class="check-box">
-                        <input type="checkbox" id="Material" class="material" name="material[]" value="{{$material->id ??''}}">
+                        <input type="checkbox" id="Material" class="material" name="material[]" value="{{$material->id ??''}}" onchange="filterData('material',this)">
                         <p>{{$material->name ??''}}</p>
                     </div>
                 @endforeach    
@@ -87,7 +87,7 @@
                 <form action="">
                 @foreach($areaOfUse as $areaOfUses)
                     <div class="check-box">
-                        <input type="checkbox" id="Area" name="area[]" class="area" value="{{$areaOfUses->id ??""}}">
+                        <input type="checkbox" id="Area" name="area[]" class="area" value="{{$areaOfUses->id ??""}}" onchange="filterData('area',this)">
                         <p>{{$areaOfUses->area_of_use ??""}}</p>
                     </div>
                 @endforeach
@@ -110,7 +110,7 @@
                 <form action="">
                 @foreach($idealFor as $idealFor)
                     <div class="check-box">
-                        <input type="checkbox" id="Ideal" name="ideal[]" class="ideal" value="{{$idealFor->id ??''}}">
+                        <input type="checkbox" id="Ideal" name="ideal[]" class="ideal" value="{{$idealFor->id ??''}}" onchange="filterData('ideal',this)">
                         <p>{{$idealFor->ideal_for ??''}}</p>
                     </div>
                 @endforeach    
@@ -128,78 +128,75 @@
         var ideal = [];
         var area  = [];
         var material = [];
-    $(document).ready(function(){
+    //$(document).ready(function(){
         
-        $(".color").change(function() {
-            if($(this).is(':checked')){
-                color.push($(this).val());
-                getProduct();
-            }else{
-                const index = color.indexOf($(this).val());
-                if (index > -1) {
-                    color.splice(index, 1);
-                    getProduct();
-                }
-            }
+        // $(".color").change(function() {
+        //     if($(this).is(':checked')){
+        //         color.push($(this).val());
+        //         getProduct();
+        //     }else{
+        //         const index = color.indexOf($(this).val());
+        //         if (index > -1) {
+        //             color.splice(index, 1);
+        //             getProduct();
+        //         }
+        //     }
             
-        });
+        // });
 
-        $(".size").change(function() {
-            if($(this).is(':checked')){
-                size.push($(this).val());
-                getProduct();
-            }else{
-                const index = size.indexOf($(this).val());
-                if (index > -1) {
-                    size.splice(index, 1);
-                    getProduct();
-                }
-            }
-        });
+        // $(".size").change(function() {
+        //     if($(this).is(':checked')){
+        //         size.push($(this).val());
+        //         getProduct();
+        //     }else{
+        //         const index = size.indexOf($(this).val());
+        //         if (index > -1) {
+        //             size.splice(index, 1);
+        //             getProduct();
+        //         }
+        //     }
+        // });
         
-        $(".material").change(function() {
-            if($(this).is(':checked')){
-                material.push($(this).val());
-                getProduct();
-            }else{
-                const index = material.indexOf($(this).val());
-                if (index > -1) {
-                    material.splice(index, 1);
-                    getProduct();
-                }
-            }
-        });
+        // $(".material").change(function() {
+        //     if($(this).is(':checked')){
+        //         material.push($(this).val());
+        //         getProduct();
+        //     }else{
+        //         const index = material.indexOf($(this).val());
+        //         if (index > -1) {
+        //             material.splice(index, 1);
+        //             getProduct();
+        //         }
+        //     }
+        // });
 
-        $(".area").change(function() {
-            if($(this).is(':checked')){
-                area.push($(this).val());
-                getProduct();
-            }else{
-                const index = area.indexOf($(this).val());
-                if (index > -1) {
-                    area.splice(index, 1);
-                    getProduct();
-                }
-            }
-        });
+        // $(".area").change(function() {
+        //     if($(this).is(':checked')){
+        //         area.push($(this).val());
+        //         getProduct();
+        //     }else{
+        //         const index = area.indexOf($(this).val());
+        //         if (index > -1) {
+        //             area.splice(index, 1);
+        //             getProduct();
+        //         }
+        //     }
+        // });
 
-        
-        
-        
-       
-    });
-    // function filterData(className, data) {
-    //     if($(data).is(':checked')){
-    //         eval(className).push(data.value);
-    //         getProduct();
-    //     }else{
-    //         const index = eval(className).indexOf(data.value);
-    //         if (index > -1) {
-    //             eval(className).splice(index, 1);
-    //             getProduct();
-    //         }
-    //     }
-    // }
+      //});
+      
+    function filterData(className, data) {
+        if($(data).is(':checked')){
+            eval(className).push(data.value);
+            getProduct();
+        }else{
+            const index = eval(className).indexOf(data.value);
+            if (index > -1) {
+                eval(className).splice(index, 1);
+                getProduct();
+            }
+        }
+    }
 
     function getProduct(){
             $.ajax({
