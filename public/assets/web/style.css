@@ -2269,3 +2269,44 @@ a:focus {
     text-align: center;
     font-family: 'Futura Md BT';
 }
+
+.no-data-found-box {
+    width: 50%;
+    box-shadow: 0px 0px 7px #dddddd;
+    background-color: #fff;
+    padding: 20px 20px 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 11%;
+}
+.no-data-found-box img{
+    width: 150px;
+    height: auto;
+}
+
+.no-data-found-box h3{
+    font-family: 'Futura Md BT';
+    font-size: 30px;
+    color: #000;
+    margin-top: 10px;
+}
+
+.no-data-found-box p{
+    font-family: 'Futura Lt BT';
+    font-size: 18px;
+    color: #2e2e2e;
+    margin-bottom: 25px;
+}
+
+.no-data-found-box a{
+    background-color: #cbcbcb;
+    color: #000000;
+    padding: 12px 25px;
+    font-family: 'Futura Lt BT';
+    font-size: 18px;
+}
+
+.no-data-found-box a:hover{
+    color: #000000;
+    text-decoration: none;
+}
