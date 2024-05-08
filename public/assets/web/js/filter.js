@@ -99,18 +99,22 @@
                             $('.productList').html(response.data);
                         }else{
                             $('.productList').html('');
-                            //$('.productList').html("No Product Found");
+                            var notFound = `<div class="no-data-found-box"><img src="`+base_url+`/assets/web/image/found.png" alt="image"><h3>No Data Available</h3><p>There is no data to show you right now.</p><a href="/">Back To Home</a></div>`;
+                            $('.productList').html(notFound);
                         } 
                        
                     }else{
+                        var notFound = `<div class="no-data-found-box"><img src="`+base_url+`/assets/web/image/found.png" alt="image"><h3>No Data Available</h3><p>There is no data to show you right now.</p><a href="/">Back To Home</a></div>`;
                         $('.productList').html('');
-                        //$('.productList').html("No Product Found");
+                        $('.productList').html(notFound);
                     }
                     
                 },
                 error:function(xhr){
+                    //$('.productList').html(xhr.responseText);
+                    var notFound = `<div class="no-data-found-box"><img src="`+base_url+`/assets/web/image/found.png" alt="image"><h3>No Data Available</h3><p>There is no data to show you right now.</p><a href="/">Back To Home</a></div>`;
                     $('.productList').html('');
-                    $('.productList').html(xhr.responseText);
+                    $('.productList').html(notFound);
                 }
             });
         }
