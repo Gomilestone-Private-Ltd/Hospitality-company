@@ -1909,7 +1909,7 @@ a.call-text-box img {
 .desk-img {
     width: 100%;
     object-fit: cover;
-    height: 700px;
+    height: 600px;
 }
 
 .desk-left-img-box {
@@ -2257,6 +2257,7 @@ a:focus {
     font-size: 17px;
     border-radius: 50%;
     font-family: 'Futura Md BT';
+    line-height: 1px;
 }
 
 .value-btn p{
@@ -2272,22 +2273,25 @@ a:focus {
 
 .no-data-found-box {
     width: 50%;
-    box-shadow: 0px 0px 7px #dddddd;
+    box-shadow: 0px 0px 7px #e6e6e6;
     background-color: #fff;
     padding: 20px 20px 40px 20px;
     border-radius: 8px;
     text-align: center;
     margin-left: 11%;
 }
+.data-found-center{
+    margin: auto;
+}
 .no-data-found-box img{
-    width: 150px;
+    width: 100px;
     height: auto;
 }
 
 .no-data-found-box h3{
     font-family: 'Futura Md BT';
     font-size: 30px;
-    color: #000;
+    color: #333;
     margin-top: 10px;
 }
 
