@@ -1173,6 +1173,7 @@ p.who-we-text {
     font-family: 'Futura Lt BT';
     margin: 0;
     text-transform: capitalize;
+    line-height: 26px;
 }
 
 .our-proces-main-section {

@@ -664,7 +664,7 @@
     }
 
     .video-section {
-        height: 926px;
+        height: 920px;
     }
 
     .who-we-are-slider .slick-slide img {
@@ -748,6 +748,7 @@
     
     .measures-img-box {
         margin-bottom: 25px;
+        padding: 15px 5px;
     }
     .borderTop{
         display: none;
@@ -895,6 +896,9 @@
     .Measures-heading{
         width: 330px;
     }
+    .who-we-text{
+        font-size: 13px !important;
+    }
 }
 
 /* Mobile View Header Responsive Start************************************/
@@ -943,7 +947,7 @@ a.closebtn {
     font-size: 20px !important;
     font-weight: 700;
     z-index: 999;
-    height: 34px;
+    height: 35px;
     width: 35px;
     border-radius: 50%;
     padding: 0px;
@@ -957,6 +961,12 @@ a.closebtn {
 }
 
 @media screen and (max-width: 650px) {
+    .card-link+.card-link{
+        margin: 0px !important;
+    }
+    .who-we{
+        padding: 0 !important;
+    }
 
     .mobile-view {
         display: block;
@@ -1003,7 +1013,7 @@ a.closebtn {
         padding-top: 20px;
         position: relative;
         overflow: scroll;
-        padding: 30px 0px;
+        padding: 3px 0px;
         text-align: left;
     }
 

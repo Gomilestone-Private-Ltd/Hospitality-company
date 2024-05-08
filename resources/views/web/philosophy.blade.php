@@ -125,7 +125,7 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 who-we">
                         <div class="manufacture">
                             <div class="row">
                                 <div class="col-md-12 text-center p-0">
