@@ -46,17 +46,21 @@
                             <div class="col-md-6">
                                 <div class="gallery js-gallery">
                                     <div class="gallery__hero desk-left-img-box">
-                                        <img class="desk-img"
+                                        <img class="desk-img productId{{$getProduct->id ??''}}"
                                             src="{{ asset($getProduct->gen_image[0] ?? 'assets/web/image/guest-room/desk-img1.png') }}">
                                     </div>
+
+
                                     <div class="gallery__thumbs material-btn-box">
                                         @if (count($getProduct->gen_image))
-                                            @foreach ($getProduct->gen_image as $image)
-                                                {{-- <div class="column">
-                                                    <img onclick="myFunction(this);" class="desk-small-img"
-                                                        src="{{ asset($image ?? 'assets/web/image/guest-room/desk-img1.png') }}"
-                                                        alt="image">
-                                                </div> --}}
+                                            <?php 
+                                                if(count($getProduct->color_varient_images)){
+                                                    $productImages = array_merge($getProduct->gen_image,$getProduct->color_varient_images);
+                                                }else{
+                                                    $productImages = $getProduct->gen_image;
+                                                }
+                                            ?>
+                                            @foreach ($productImages as $image)
                                                 <a href="{{ asset($image ?? 'assets/web/image/guest-room/desk-img1.png') }}"
                                                     data-gallery="thumb" class="is-active">
                                                     <img class="desk-small-img"
@@ -67,25 +71,7 @@
                                         
                                     </div>
                                 </div>
-                                {{-- <div class="desk-left-img-box">
-                                <img id="expandedImg" style="width:100%">{{ asset($getProduct->gen_image[0] ??'assets/web/image/guest-room/desk-img1.png') }}
-                                <div id="imgtext">
-                                    <img class="desk-img" src=""
-                                        alt="image">
-                                </div>
-
-                            </div> --}}
-                                {{-- <div class="material-btn-box">
-                                @if (count($getProduct->gen_image))
-                                    @foreach ($getProduct->gen_image as $image)
-                                        <div class="column">
-                                            <img onclick="myFunction(this);" class="desk-small-img"
-                                                src="{{ asset($image??'assets/web/image/guest-room/desk-img1.png') }}" alt="image">
-                                        </div>
-                                    @endforeach
-                                @endif
-
-                            </div> --}}
+                                
 
 
 
@@ -108,18 +94,18 @@
                                         </div>
                                     @endif
 
-                                    @if (count($getProduct->color))
+                                    
+                                    @if (count($getProduct->color_varient))
                                         <div class="material-box">
                                             <h4>COLOUR</h4>
                                             <div class="material-btn-box">
-                                                @foreach ($getProduct->color as $key => $color)
-                                                    <button
-                                                        class="color-btn @if ($key == 0)  @endif {{ $color->color_name }}">{{ $color->color_name ?? '' }}</button>
+                                                @foreach ($getProduct->color_varient as $key => $color)
+                                                    <button class="color-btn" onclick="changesuperCatColorImage('{{$color->colorImage[0]}}',{{$getProduct->id}})">{{ $color->color_name ?? '' }}</button>
                                                 @endforeach
                                             </div>
                                         </div>
                                     @endif
-
+                                    
                                     @if (count($getProduct->size))
                                         <div class="material-box">
                                             <h4>Size</h4>
@@ -166,6 +152,7 @@
     </div>
     
     <script> 
+        //Moq Addon
         function productMoqAddon(type,productId,minMoq){
             var addonMoq = $('.productMoq'+productId).text();
             var newMoq = minMoq; 
@@ -184,6 +171,12 @@
             }
             $('.productMoq'+productId).html(addonMoq);
         }
+
+        //Change Image according to color
+        function changesuperCatColorImage(imgPath,productId){
+            $(".productId"+productId).attr('src',base_url+'/'+imgPath);
+        }
+
     </script>
 
     <script>
