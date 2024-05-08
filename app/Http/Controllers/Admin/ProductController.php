@@ -261,7 +261,24 @@ class ProductController extends Controller
      */
     public function edit($slug)
     {
-        return view($this->view.'.edit');
+        try{
+            $getProduct = $this->product->whereSlug($slug)->first();
+            $getColors = $this->color->where('status',1)->get();
+            $getSize = $this->size->where('status',1)->get();
+            $categories = $this->category->where('status',1)->get();
+            $materials = $this->material->where('status',1)->get();
+
+            return view($this->view.'.edit')->with([
+                                                    'getProduct'  => $getProduct,
+                                                    'categories'   => $categories,
+                                                    'getColors'    => $getColors,
+                                                    'getSizes'     => $getSize,
+                                                    'materials'    => $materials
+                                                   ]);
+        }catch(\Exception $e){
+            CreateAppLog::getErrorLog("Edit product requested by ".Masked::getUserName().' having Error '.$e->getMessage());
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 
     /**

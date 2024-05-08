@@ -18,45 +18,55 @@
                     enctype='multipart/form-data'>
                     @csrf
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 col-12">
+                        <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Item Name</label>
-                                <input type="name" placeholder="Item" class="form-control form-control-user"
+                                <input type="name" placeholder="Item" value="{{$getProduct->name ??''}}" class="form-control form-control-user"
                                     name="Item">
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-12">
-                            {{-- <div class="form-group">
-                                <label class="form-label-box">Category</label>
-                                <input id="Category" type="text" placeholder="Category"
-                                    class="form-control form-control-user" name="Category">
-                            </div> --}}
+                        
+                        <div class="col-md-3 col-sm-6 col-12">
+                            
                             <div class="form-group">
-                                <label class="form-label-box" for="sel1">Category</label>
-                                <select class="form-control form-control-user" id="category" name="Category">
-                                    <option value="0">Select Category</option>
-                                    @if(isset($inventCat))
-                                    @foreach ($inventCat as $data)
-                                        <option value="{{ $data->id }}">{{ $data->cat_name }}</option>
+                                <label class="form-label-box" for="sel1">Category*</label>
+                                <select class="form-control form-control-user select2-search category" id="category" name="category">
+                                    <option value="">Select Category</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" @if($getProduct->category_id == $category->id) selected @endif>{{ $category->name }}</option>
                                     @endforeach
-                                    @endif
+                                    
                                 </select>
+                                @if($errors->has('category'))
+                                    <p class="text-danger">{{$errors->first('category')}}</p>
+                                @endif
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-12">
+                        <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Sub Category</label>
-                                <input id="SubCategory" type="text" placeholder="Sub Category"
-                                    class="form-control form-control-user " name="SubCategory">
+                                <label class="form-label-box" for="sel1">SubCategory*</label>
+                                <select class="form-control form-control-user select2-search subcategory" id="subcategory" name="subcategory">
+                                    <option value="" >Select SubCategory</option>
+                                </select>
+                                @if($errors->has('subcategory'))
+                                    <p class="text-danger">{{$errors->first('subcategory')}}</p>
+                                @endif
                             </div>
                         </div>
-                        {{-- <div class="col-md-4 col-sm-6 col-12">
+
+                        <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label class="form-label-box">Total (₹)</label>
-                                <input id="Total" type="text" placeholder="Total"
-                                    class="form-control form-control-user " name="Total">
+                                <label class="form-label-box" for="sel1">S. SubCategory*</label>
+                                <select class="form-control form-control-user select2-search supersubcategory" id="category" name="supersubcategory">
+                                    <option value="">Select S. SubCategory</option>
+                                    
+                                </select>
+                                @if($errors->has('supersubcategory'))
+                                    <p class="text-danger">{{$errors->first('supersubcategory')}}</p>
+                                @endif
                             </div>
-                        </div> --}}
+                        </div>
+                        
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Unit</label>
@@ -71,21 +81,7 @@
                                     class="form-control form-control-user " name="Avg_purchasePrice">
                             </div>
                         </div>
-                        {{-- <div class="col-md-4 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label class="form-label-box">Current Stock </label>
-                                <input id="CurrentStock" type="text" placeholder="Current Stock"
-                                    class="form-control form-control-user " name="CurrentStock">
-                            </div>
-                        </div> --}}
-                        {{-- <div class="col-md-4 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label class="form-label-box">Avg Purchase Price Without Tax</label>
-                                <input type="text" placeholder="Avg Purchase Price Without Tax"
-                                    class="form-control form-control-user " name="Avg_purchasePrice_withouttax">
-                            </div>
-                        </div> --}}
-
+                        
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Sap Code </label>
