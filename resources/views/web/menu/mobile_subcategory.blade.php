@@ -4,11 +4,11 @@
     </p>
     @foreach($subCategoryList as $subCategory)
     <div class="productByMaterial_subMenu">
-        <p>{{$subCategory->name ??''}}</p>
+        <a href="{{url('/category')}}/{{$subCategory->meta_url ??""}}/{{$subCategory->slug ??""}}">{{$subCategory->name ??''}}</p>
         <ul>  
             @foreach($subCategory->getSuperSubCategory as $superSubCategory)
                 <li>
-                    <a href="#">{{$superSubCategory->name ??''}}</a>
+                    <a href="{{url('/sub-category')}}/{{$superSubCategory->meta_url ??""}}/{{$superSubCategory->slug ??""}}">{{$superSubCategory->name ??''}}</a>
                 </li>
             @endforeach
         </ul>

@@ -20,7 +20,7 @@
                 </p>
                 
                 @foreach($categories as $key=> $category)
-                <a id="productMaterail" onclick="getSubCategoryMenu({{$category->id}})" class="card-link product-arro accordion-heading-box productMaterail">
+                <a href="#" id="productMaterail" onclick="getSubCategoryMenu({{$category->id}})" class="card-link product-arro accordion-heading-box productMaterail">
                     {{$category->name ??''}}
                     <i class="fa fa-angle-right angle-icon" aria-hidden="true"></i>
                 </a>
@@ -38,6 +38,5 @@
     <span class="responsive-icon" onclick="openNav()">&#9776;</span>
 </div>
 
-@section('js')
+
 <script src="{{asset('assets/web/js/mobileViewCategory.js')}}"></script>
-@endsection
