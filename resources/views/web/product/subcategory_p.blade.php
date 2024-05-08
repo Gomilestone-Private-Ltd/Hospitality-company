@@ -76,15 +76,17 @@
                                                 </div>
                                             </div>
                                         @endforeach
+                                    @else
+                                        <div class="no-data-found-box">
+                                            <img src="{{ asset('assets/web/image/found.png') }}" alt="image">
+                                            <h3>No Data Available</h3>
+                                            <p>There is no data to show you right now.</p>
+                                            <a href="/">Back To Home</a>
+                                        </div>
                                     @endif
                                 </div>
                             </div>
-                            <div class="no-data-found-box">
-                                <img src="{{ asset('assets/web/image/found.png') }}" alt="image">
-                                <h3>No Data Available</h3>
-                                <p>There is no data to show you right now.</p>
-                                <a href="/">Back To Home</a>
-                            </div>
+                            
 
                         </div>
                     </div>
