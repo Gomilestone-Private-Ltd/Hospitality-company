@@ -65,7 +65,7 @@
                                 </div>
 
                                 <div class="col-md-12 productList">
-                                    {{-- @if (count($getProducts))
+                                   @if (count($getProducts))
                                         @foreach ($getProducts as $getProduct)
                                             <div class="col-md-4">
                                                 <div class="our-product-right-img-box">
@@ -77,13 +77,15 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                    @endif --}}
-                                    <div class="no-data-found-box">
-                                        <img src="{{ asset('assets/web/image/found.png') }}" alt="image">
-                                        <h3>No Data Available</h3>
-                                        <p>There is no data to show you right now.</p>
-                                        <a href="/">Back To Home</a>
-                                    </div>
+                                    @else
+                                        <div class="no-data-found-box">
+                                            <img src="{{ asset('assets/web/image/found.png') }}" alt="image">
+                                            <h3>No Data Available</h3>
+                                            <p>There is no data to show you right now.</p>
+                                            <a href="{{url('')}}">Back To Home</a>
+                                        </div>
+                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>
