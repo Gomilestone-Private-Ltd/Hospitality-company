@@ -214,7 +214,6 @@ class ProductController extends Controller
                 $specification = Picture::uploadPicture('assets/web/specification/',$request->specification);
             }
             
-            for($i=0;$i<=10;$i++){
             $productDetail = [
                                'slug'                => Slug::largeSlug() ??'',
                                'name'                => $request->product_name ??'',
@@ -247,14 +246,9 @@ class ProductController extends Controller
                                //'is_varient_available'=> $request->pp ??'',
                                'added_by'            => Masked::getUserId() ??'',
                             ];
-
-            
-            
-
-                $this->product->create($productDetail);
-            }
-            
+            $this->product->create($productDetail);
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
+            
         }catch(\Exception $e){
             return redirect()->back()->with(['error' => $e->getMessage()]);
         } 
@@ -267,7 +261,7 @@ class ProductController extends Controller
      */
     public function edit($slug)
     {
-        dd($slug);
+        return view($this->view.'.edit');
     }
 
     /**

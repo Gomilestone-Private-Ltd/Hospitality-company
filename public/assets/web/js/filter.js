@@ -93,17 +93,24 @@
                       'subcategoryId' :subcategoryId
                 },
                 success:function(response){
-                    console.log(response);
                     if(response.status == 200){
-                       $('.productList').html('');
-                       $('.productList').html(response.data);
-
+                        if(response.productCount){
+                            $('.productList').html('');
+                            $('.productList').html(response.data);
+                        }else{
+                            $('.productList').html('');
+                            //$('.productList').html("No Product Found");
+                        } 
+                       
+                    }else{
+                        $('.productList').html('');
+                        //$('.productList').html("No Product Found");
                     }
                     
                 },
                 error:function(xhr){
-                    alert(xhr.responseText);
-                    ///console.log(xhr.responseText);
+                    $('.productList').html('');
+                    $('.productList').html(xhr.responseText);
                 }
             });
         }

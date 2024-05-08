@@ -46,7 +46,7 @@
                             <div class="col-md-6">
                                 <div class="gallery js-gallery">
                                     <div class="gallery__hero desk-left-img-box">
-                                        <img class="desk-img productId{{$getProduct->id ??''}}"
+                                        <img class="desk-img productId{{$getProduct->slug ??''}}"
                                             src="{{ asset($getProduct->gen_image[0] ?? 'assets/web/image/guest-room/desk-img1.png') }}">
                                     </div>
 
@@ -100,7 +100,7 @@
                                             <h4>COLOUR</h4>
                                             <div class="material-btn-box">
                                                 @foreach ($getProduct->color_varient as $key => $color)
-                                                    <button class="color-btn" onclick="changesuperCatColorImage('{{$color->colorImage[0]}}',{{$getProduct->id}})">{{ $color->color_name ?? '' }}</button>
+                                                    <button class="color-btn" onclick="changesuperCatColorImage('{{$color->colorImage[0]}}','{{$getProduct->slug}}')">{{ $color->color_name ?? '' }}</button>
                                                 @endforeach
                                             </div>
                                         </div>
@@ -122,12 +122,12 @@
                                         <h4>MINIMUM QUANTITY</h4>
                                         <div class="material-btn-box select-box">
                                             
-                                            <div class="value-add-btn-box productMoqBox{{$getProduct->id}}">
-                                                <button class="value-add-btn" onclick="productMoqAddon('moqSub',{{$getProduct->id}},{{$getProduct->moq}})"> – </button>
+                                            <div class="value-add-btn-box productMoqBox{{$getProduct->slug}}">
+                                                <button class="value-add-btn" onclick="productMoqAddon('moqSub','{{$getProduct->slug}}',{{$getProduct->moq}})"> – </button>
                                                 <div class="value-btn">
-                                                    <p class="productMoq{{$getProduct->id}}">{{ $getProduct->moq ?? '' }}</p>
+                                                    <p class="productMoq{{$getProduct->slug}}">{{ $getProduct->moq ?? '' }}</p>
                                                 </div>
-                                                <button class="value-add-btn" onclick="productMoqAddon('moqAdd',{{$getProduct->id}},{{$getProduct->moq}})"> + </button>
+                                                <button class="value-add-btn" onclick="productMoqAddon('moqAdd','{{$getProduct->slug}}',{{$getProduct->moq}})"> + </button>
                                             </div>
                                             
                                         </div>

@@ -252,7 +252,7 @@ class WebProductController extends Controller
             $view = view($this->view.'.partial.subcategory_p')->with([
                                                                       'getProducts'    => $getProducts->get(),
                                                                      ])->render();
-            return ['data'=>$view,'status'=>200,'success' => "Filtered data"];
+            return ['data'=>$view,'status'=>200,'productCount'=>count($getProducts->get()),'success' => "Filtered data"];
        }catch(\Exception $e){
              CreateAppLog::getErrorLog("View area of use requested by ".$e->getMessage());
             //return view('errors.500');
