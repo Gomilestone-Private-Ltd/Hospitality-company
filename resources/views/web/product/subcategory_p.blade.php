@@ -58,13 +58,14 @@
                                         <option value="ASC">Name A To Z</option>
                                         <option value="DESC">Name Z To A</option>
                                         <!-- <option value="PRICELOWTOHIGH">Price Low To High</option>
-                                            <option value="PRICEHIGHTOLOW">Price High To Low</option> -->
+                                                <option value="PRICEHIGHTOLOW">Price High To Low</option> -->
                                         <option value="NEWIN">New In</option>
                                     </select>
 
                                 </div>
+
                                 <div class="col-md-12 productList">
-                                    @if (count($getProducts))
+                                    {{-- @if (count($getProducts))
                                         @foreach ($getProducts as $getProduct)
                                             <div class="col-md-4">
                                                 <div class="our-product-right-img-box">
@@ -76,18 +77,15 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                    @else
-                                        <div class="no-data-found-box">
-                                            <img src="{{ asset('assets/web/image/found.png') }}" alt="image">
-                                            <h3>No Data Available</h3>
-                                            <p>There is no data to show you right now.</p>
-                                            <a href="/">Back To Home</a>
-                                        </div>
-                                    @endif
+                                    @endif --}}
+                                    <div class="no-data-found-box">
+                                        <img src="{{ asset('assets/web/image/found.png') }}" alt="image">
+                                        <h3>No Data Available</h3>
+                                        <p>There is no data to show you right now.</p>
+                                        <a href="/">Back To Home</a>
+                                    </div>
                                 </div>
                             </div>
-                            
-
                         </div>
                     </div>
                 </div>
