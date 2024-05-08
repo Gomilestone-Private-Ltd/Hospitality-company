@@ -57,7 +57,15 @@
                             </div>
                             <div class="gallery__thumbs material-btn-box">
                                 @if (count($getProducts->gen_image))
-                                    @foreach ($getProducts->gen_image as $image)
+                                    
+                                    <?php 
+                                     if(count($getProducts->color_varient_images)){
+                                        $productImages = array_merge($getProducts->gen_image,$getProducts->color_varient_images);
+                                     }else{
+                                        $productImages = $getProducts->gen_image;
+                                     }
+                                    ?>
+                                    @foreach ($productImages as $image)
                                         <a href="{{ asset($image ?? 'assets/web/image/guest-room/desk-img1.png') }}"
                                             data-gallery="thumb" class="is-active">
                                             <img class="desk-small-img"
@@ -70,21 +78,7 @@
 
                             </div>
                         </div>
-                        {{-- <div class="desk-left-img-box">
-                            <img class="desk-img"
-                                src="{{ asset($getProducts->gen_image[0] ?? 'assets/web/image/guest-room/desk-img1.png') }}"
-                                alt="image">
-                        </div>
-                        <div class="material-btn-box">
-                            @if (count($getProducts->gen_image))
-                                @foreach ($getProducts->gen_image as $image)
-                                    <img class="desk-small-img"
-                                        src="{{ asset($image ?? 'assets/web/image/guest-room/desk-img.png') }}"
-                                        alt="image">
-                                @endforeach
-                            @endif
-
-                        </div> --}}
+                        
                     </div>
                     <div class="col-md-6">
                         <div class="desk-right-text-box">
@@ -101,12 +95,12 @@
                                 </div>
                             @endif
 
-                            @if (count($getProducts->color))
+                            @if (count($getProducts->color_varient))
                                 <div class="material-box">
                                     <h4>COLOUR</h4>
                                     <div class="material-btn-box">
-                                        @foreach ($getProducts->color as $key => $color)
-                                            <button class="color-btn">{{ $color->color_name ?? '' }}</button>
+                                        @foreach ($getProducts->color_varient as $key => $color)
+                                            <button class="color-btn" onclick="changeColorImage('{{$color->colorImage[0]}}')">{{ $color->color_name ?? '' }}</button>
                                         @endforeach
                                     </div>
                                 </div>
@@ -128,18 +122,13 @@
                                 <h4>MINIMUM QUANTITY</h4>
                                 <div class="material-btn-box select-box">
                                     <div class="value-add-btn-box">
-                                        <button class="value-add-btn"> – </button>
+                                        <button class="value-add-btn productMoqSub" onclick="updateProductMoq('sub')"> – </button>
                                         <div class="value-btn">
-                                            <p>{{ $getProducts->moq ?? '' }}</p>
+                                            <p class="productMoq">{{ $getProducts->moq ?? '' }}</p>
                                         </div>
-                                        <button class="value-add-btn"> + </button>
+                                        <button class="value-add-btn productMoqAdd" onclick="updateProductMoq('add')"> + </button>
                                     </div>
                                     
-                                    <!-- <select name="" id="">
-                                                                <option value="">500-1000</option>
-                                                                <option value="">500-1000</option>
-                                                                <option value="">500-1000</option>
-                                                            </select> -->
                                 </div>
                             </div>
                             <div class="material-box">
@@ -341,6 +330,29 @@
 
     </div>
 
+    <script>
+        //Update Moq
+        var getProductMoq = Number("{{ $products->moq ?? '' }}");
+        var getFixedProductMoq =  Number("{{ $products->moq ?? '' }}");
+        function updateProductMoq(key){
+            
+            var newMoq = getProductMoq;
+            if(key == 'add'){
+                newMoq++;
+            }else if(key == 'sub'){
+                if(getFixedProductMoq < newMoq){
+                    newMoq--;
+                }
+            }
+            getProductMoq = newMoq;
+            $('.productMoq').html(newMoq);
+        }
+
+        //Change Image according to color
+        function changeColorImage(val){
+            $(".desk-img").attr('src',base_url+'/'+val);
+        }
+    </script>
     <script>
         $('.responsive').slick({
             dots: false,

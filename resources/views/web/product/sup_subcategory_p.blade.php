@@ -136,18 +136,14 @@
                                         <h4>MINIMUM QUANTITY</h4>
                                         <div class="material-btn-box select-box">
                                             
-                                            <div class="value-add-btn-box">
-                                                <button class="value-add-btn"> – </button>
+                                            <div class="value-add-btn-box productMoqBox{{$getProduct->id}}">
+                                                <button class="value-add-btn" onclick="productMoqAddon('moqSub',{{$getProduct->id}},{{$getProduct->moq}})"> – </button>
                                                 <div class="value-btn">
-                                                    <p>{{ $getProduct->moq ?? '' }}</p>
+                                                    <p class="productMoq{{$getProduct->id}}">{{ $getProduct->moq ?? '' }}</p>
                                                 </div>
-                                                <button class="value-add-btn"> + </button>
+                                                <button class="value-add-btn" onclick="productMoqAddon('moqAdd',{{$getProduct->id}},{{$getProduct->moq}})"> + </button>
                                             </div>
-                                            <!-- <select name="" id="">
-                                                        <option value="">500-1000</option>
-                                                        <option value="">500-1000</option>
-                                                        <option value="">500-1000</option>
-                                                    </select> -->
+                                            
                                         </div>
                                     </div>
                                     <div class="material-box">
@@ -168,6 +164,27 @@
     <div class="get-in-touch">
         @include('web.layout.partial.get_in_touch')
     </div>
+    
+    <script> 
+        function productMoqAddon(type,productId,minMoq){
+            var addonMoq = $('.productMoq'+productId).text();
+            var newMoq = minMoq; 
+            if(type == 'moqAdd'){ 
+                if(addonMoq < minMoq){
+                    addonMoq  = minMoq+1;
+                }else{
+                    addonMoq++;
+                }
+            }else if(type == 'moqSub'){
+                if(minMoq < addonMoq){
+                    addonMoq--;
+                }else{
+                    addonMoq  = minMoq;
+                }
+            }
+            $('.productMoq'+productId).html(addonMoq);
+        }
+    </script>
 
     <script>
         $('.material-btn').on('click', function() {

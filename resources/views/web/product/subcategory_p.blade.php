@@ -51,7 +51,7 @@
                             <div class="row ">
                                 <div class="col-md-12 text-right">
                                     <select name="" id="" class="drop-btn sort_product" onchange="getval(this);">
-                                        <option>Sorting</option>
+                                        <option value="">Sorting</option>
                                         <option value="RECOMMENDED">Recommended</option>
                                         <option value="ASC">Name A To Z</option>
                                         <option value="DESC">Name Z To A</option>
@@ -95,8 +95,10 @@
   
     <script>
         function getval(sel){
-            sort = sel.value;
-            getProduct();
+            if(sel.value != ''){
+                sort = sel.value;
+                getProduct();
+            }
         }  
     </script>
 @endsection

@@ -233,25 +233,24 @@ class WebProductController extends Controller
             //Sort the product
             if(isset($request->sort)){
                 if($request->sort == 'RECOMMENDED'){
-                    $getProducts = $this->product;
+                    $getProducts = $getProducts->orderBy('name','asc');
                 }else if($request->sort == 'ASC'){
-                    $getProducts = $this->product->orderBy('name','asc');
+                    $getProducts = $getProducts->orderBy('name','asc');
                 }else if($request->sort == 'DESC'){
-                    $getProducts = $this->product->orderBy('name','desc');
+                    $getProducts = $getProducts->orderBy('name','desc');
                 }elseif ($request->sort == 'PRICELOWTOHIGH') {
-                    $getProducts = $this->product->orderBy('gen_price','desc');
+                    $getProducts = $getProducts->orderBy('gen_price','desc');
                 }elseif ($request->sort == 'PRICEHIGHTOLOW') {
-                    $getProducts = $this->product->orderBy('gen_price','asc');
+                    $getProducts = $getProducts->orderBy('gen_price','asc');
                 }elseif ($request->sort == 'NEWIN') {
-                    $getProducts = $this->product->orderBy('id','desc');
+                    $getProducts = $getProducts->orderBy('id','desc');
                 }else{
-                   // $getProducts = $this->product;
+                   // $getProducts = $getProducts;
                 }
             }
 
             $view = view($this->view.'.partial.subcategory_p')->with([
                                                                       'getProducts'    => $getProducts->get(),
-                                                                      'total'=>count($getProducts->get()),
                                                                      ])->render();
             return ['data'=>$view,'status'=>200,'success' => "Filtered data"];
        }catch(\Exception $e){

@@ -92,6 +92,24 @@ class Product extends Model
       public function getGenImageAttribute($value){
         return json_decode($value);
       }
+      
+      /**
+       * @method Get Decode format
+       * @param
+       * @return 
+       */
+      public function getcolorVarientImagesAttribute($value){
+        return json_decode($value);
+      }
+
+      /**
+       * @method Get Decode format
+       * @param
+       * @return 
+       */
+      public function getcolorVarientAttribute($value){
+        return json_decode($value);
+      }
 
       /**
        * @method Get Decode format of material
