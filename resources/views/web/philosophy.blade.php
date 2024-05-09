@@ -67,7 +67,7 @@
             }
 
             .main-sliser .slick-track {
-                height: 230px !important;
+                height: 200px !important;
                 padding-bottom: 20px !important;
                 position: initial !important;
             }
@@ -86,6 +86,12 @@
 
             .prev {
                 right: 95px;
+            }
+            .client-arro{
+                bottom: -14px;
+            }
+            .client-arro1{
+                bottom: -19px;
             }
 
         }
@@ -322,11 +328,11 @@
                             </div>
                         </div>
                         <!-- control arrows -->
-                        <div class="prev1">
+                        <div class="prev1 client-arro">
                             <img class="slide-arrow1" src="{{ asset('assets/web/image/left-arrow.png') }}"
                                 alt="image" />
                         </div>
-                        <div class="next1">
+                        <div class="next1 client-arro1">
                             <img class="slide-arrow" src="{{ asset('assets/web/image/right-arrow.png') }}"
                                 alt="image" />
                         </div>
