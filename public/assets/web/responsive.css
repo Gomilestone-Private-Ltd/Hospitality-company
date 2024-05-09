@@ -472,9 +472,21 @@
         margin-top: -130px;
     }
 
+    .terms-condition-main-section{
+        margin-top: -43px;
+    }
+
     .contactOpine-setion .nav-tabs .nav-item .nav-link {
         padding: 14px 0px;
         font-size: 15px;
+    }
+
+    .related-slider1{
+        bottom: 29px;
+    }
+
+    .related-slider{
+        bottom: -20px;
     }
 
     .manufacture {
@@ -815,7 +827,7 @@
     }
 
     .our-product-text {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .desk-text {

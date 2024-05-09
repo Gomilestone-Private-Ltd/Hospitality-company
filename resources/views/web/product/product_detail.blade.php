@@ -28,6 +28,7 @@
 
         .multi-slider-img img {
             height: 300px !important;
+            object-fit: cover
         }
 
         .our-client-img-box img {
@@ -47,6 +48,10 @@
         @media (max-width:600px) {
             .multi-slider-img img {
                 height: 225px !important;
+            }
+
+            .main-sliser .slick-track{
+                position: initial !important;
             }
         }
     </style>
@@ -187,10 +192,10 @@
 
                         </div>
                         <!-- control arrows -->
-                        <div class="prev">
+                        <div class="prev related-slider">
                             <img class="slide-arrow" src="{{ asset('assets/web/image/left-arrow.png') }}" alt="image" />
                         </div>
-                        <div class="next">
+                        <div class="next related-slider1">
                             <img class="slide-arrow" src="{{ asset('assets/web/image/right-arrow.png') }}"
                                 alt="image" />
                         </div>
@@ -281,7 +286,7 @@
                                         <div class="row">
                                             <div class="col-md-12 text-center p-0">
                                                 <div class="our-product Queries-box" style="border-right: none">
-                                                    <h2 class="product-heading Request-heading">Product Specifications
+                                                    <h2 class="product-heading Request-heading Request-heading-mob">Product Specifications
                                                     </h2>
                                                 </div>
                                             </div>
