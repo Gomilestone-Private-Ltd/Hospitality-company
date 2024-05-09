@@ -10,7 +10,7 @@
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "league/flysystem-aws-s3-v3": "^3.26",
+        "league/flysystem-aws-s3-v3": "^3.27",
         "nesbot/carbon": "^2.72",
         "yajra/laravel-datatables-oracle": "^10.11"
     },

@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
                  'name'       => "Mayur" ??'',
                  'email'      => "admin@gmail.com" ??'',
                  'contact'    => "9098765432" ??'',
-                 'avtar'      => "assets/images/profile.png" ??'',
+                 'avtar'      => "https://opines3.s3.ap-south-1.amazonaws.com/default_images/profile.png" ??'',
                  'status'     =>  1 ??'',
                  'password'   => Hash::make('1234567') ??'',
                  'c_password' => "1234567" ??'',

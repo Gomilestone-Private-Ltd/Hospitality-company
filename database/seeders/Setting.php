@@ -20,8 +20,8 @@ class Setting extends Seeder
                         'app_name'        => "Opine" ??'',
                         'email'           => "Opine@gmail.com" ??'',
                         'contact'         => "1234567890"??'',
-                        'logo'            => "/assets/admin/logo.png" ??'',
-                        'favicon'         => "/assets/admin/logo.png" ??'',
+                        'logo'            => "https://opines3.s3.ap-south-1.amazonaws.com/default_images/logo.png" ??'',
+                        'favicon'         => "https://opines3.s3.ap-south-1.amazonaws.com/default_images/logo.png" ??'',
                         'address'         => "619 DLF Star Tower, Sector 30, Gurugram, Haryana 122008" ??'',
                         'added_by'        => 1 ??'',
                     ];

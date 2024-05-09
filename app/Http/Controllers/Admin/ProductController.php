@@ -115,6 +115,24 @@ class ProductController extends Controller
     public function store(CreateRequest $request)
     {
         try{
+
+            //Create Product First
+            $productDetail = [
+                              'slug'                => Slug::largeSlug() ??'',
+                              'name'                => $request->product_name ??'',
+                              'description'         => $request->description ??'',
+                              'is_varient_available'=> 1 ??'',
+                              'category_id'         => $request->category ??'',
+                              'subCategory_id'      => $request->subcategory ??'',
+                              'sup_subCategory_id'  => $request->supersubcategory ??'',
+                              'hsn_code'            => $request->hsn_code ??'',
+                              'moq'                 => $request->moq ??'',
+                              'gen_price'           => $request->general_price ??'',
+                              'gen_gst'             => $request->general_gst ??'',
+                              'meta_url'            => $request->product_name ??'',
+                              ];
+            $getProductDetail = $this->product->create($productDetail);
+
             //Get material details only in array
             $materialIdDetail = [];
             $materialDetail   = [];
@@ -156,7 +174,7 @@ class ProductController extends Controller
                     $colorImage = [];
                     if(isset($request->varient_image[$getColor->color_name])){
                         foreach($request->varient_image[$getColor->color_name] as $key=>$varient_image){
-                            $imagePath = Picture::uploadPicture('assets/web/product/',$varient_image);
+                            $imagePath = Picture::uploadToS3('/product/'.$getProductDetail->id,$varient_image);
                             $allImageDetail[] = $colorImage[] = $imagePath;
                         }
                     }
@@ -171,7 +189,7 @@ class ProductController extends Controller
 
             //Get size details only in array
             $sizeIdDetail =[];
-            $sizeDetail =[];
+            $sizeDetail = [];
             if($request->size != null ){
                 foreach($request->size as $key=>$size){
                     $getSize = $this->size->where(['id'=>$size,'status'=>1])->first();
@@ -204,49 +222,30 @@ class ProductController extends Controller
             $genImage = [];
             if(isset($request->product_img)){
                 foreach($request->product_img as $key=>$product_img){
-                    $genImagePath = Picture::uploadPicture('assets/web/product/',$product_img);
+                    $genImagePath = Picture::uploadToS3('/product/'.$getProductDetail->id,$product_img);
                     $genImage[] = $genImagePath;
                 }
             }
             
             $specification = null;
-            if($request->hasFile('specification')){
-                $specification = Picture::uploadPicture('assets/web/specification/',$request->specification);
+            if($request->hasFile('specification')){ 
+                $specification = Picture::uploadToS3('/product/'.$getProductDetail->id.'/specification',$request->specification);
             }
             
-            $productDetail = [
-                               'slug'                => Slug::largeSlug() ??'',
-                               'name'                => $request->product_name ??'',
-                               'description'         => $request->description ??'',
-                               'is_varient_available'=> 1 ??'',
-                               'category_id'         => $request->category ??'',
-                               'subCategory_id'      => $request->subcategory ??'',
-                               'sup_subCategory_id'  => $request->supersubcategory ??'',
-                               'gen_image'           => json_encode($genImage) ??'',
-                               'hsn_code'            => $request->hsn_code ??'',
-                               'color'               => json_encode($colorDetail) ??'',
-                               'color_id'            => json_encode($colorIdDetail) ??'',
-                               'color_varient'       => json_encode($colorVarientDetail) ??'',
-                               'color_varient_images'=> json_encode($allImageDetail) ??'',
-                               'specification'       => $specification ??'',
-                               'moq'                 => $request->moq ??'',
-                               'material'            => json_encode($materialDetail) ??'',
-                               'material_id'         => json_encode($materialIdDetail) ??'',
-                               'size_id'             => json_encode($sizeIdDetail) ??'',
-                               'size'                => json_encode($sizeDetail) ??'',
-                               'size_varient'        => json_encode($sizeVarientDetail) ??'',
-                               'gen_price'           => $request->general_price ??'',
-                               'gen_gst'             => $request->general_gst ??'',
-                               'meta_url'            => $request->product_name ??'',
-                               //'gen_stock'           => $request->pp ??'',
-                               //'make_in'             => $request->pp ??'',
-                               //'status'              => $request->pp ??'',
-                               //'tags'                => $request->pp ??'',
-                               //'meta_tags'           => $request->pp ??'',
-                               //'is_varient_available'=> $request->pp ??'',
-                               'added_by'            => Masked::getUserId() ??'',
-                            ];
-            $this->product->create($productDetail);
+            $updateProductDetail = [
+                                     'gen_image'           => json_encode($genImage) ??'',
+                                     'color'               => json_encode($colorDetail) ??'',
+                                     'color_id'            => json_encode($colorIdDetail) ??'',
+                                     'color_varient'       => json_encode($colorVarientDetail) ??'',
+                                     'color_varient_images'=> json_encode($allImageDetail) ??'',
+                                     'specification'       => $specification ??'',
+                                     'material'            => json_encode($materialDetail) ??'',
+                                     'material_id'         => json_encode($materialIdDetail) ??'',
+                                     'size_id'             => json_encode($sizeIdDetail) ??'',
+                                     'size'                => json_encode($sizeDetail) ??'',
+                                     'size_varient'        => json_encode($sizeVarientDetail) ??'',
+                                    ];
+            $getProductDetail->update($updateProductDetail);
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
             
         }catch(\Exception $e){

@@ -102,11 +102,15 @@ class SuperSubCategoryController extends Controller
                                         'category_id'    => $request->category ??'',
                                         'description'    => $request->description ??'',
                                         'subcategory_id' => $request->subcategory ??'',
-                                        'image'          => ($request->hasFile('image')) ? Picture::uploadPicture('assets/supersubcategory/',$request->image) : "" ??'',
+                                        //'image'          => ($request->hasFile('image')) ? Picture::uploadToS3('/supersubcategory',$request->image) : "" ??'',
                                         'meta_url'       => $request->name ??'',
                                         'added_by'       => Masked::getUserId() ??'',
                                       ];
-            $this->supersubcategory->create($superSubcategoryDetail);
+            $getSuperCategory = $this->supersubcategory->create($superSubcategoryDetail);
+            $updateSuperSubcategoryDetail = [
+                                             'image'  => ($request->hasFile('image')) ? Picture::uploadToS3('/supersubcategory/'.$getSuperCategory->id,$request->image) : "" ??'',
+                                            ];
+            $getSuperCategory->update($updateSuperSubcategoryDetail);
             CreateAppLog::getInfoLog(Masked::getUserName()." created super subcategory ".$request->name);
             return redirect()->back()->with([
                                                 'success' =>"Created successfully !!"
@@ -161,7 +165,7 @@ class SuperSubCategoryController extends Controller
                                 'category_id'    => $request->category ??'',
                                 'subcategory_id' => $request->subcategory ??'',
                                 'description'    => $request->description ??'',
-                                'image'          => ($request->hasFile('image')) ? Picture::uploadPicture('assets/supersubcategory/',$request->image) : $getSuperSubCategoryDetail->image ??'',
+                                'image'          => ($request->hasFile('image')) ? Picture::uploadToS3('/supersubcategory/'.$getSuperSubCategoryDetail->id,$request->image) : $getSuperSubCategoryDetail->image ??'',
                                 'meta_url'       => str_replace(' ', '-', strtolower($request->name)) ??'',
                                 'updated_by'     => Masked::getUserId() ??'',
                               ];

@@ -79,7 +79,7 @@ class Picture{
      * @param File
      * @return File path
      */
-    public function uploadToS3($path,$picture)
+    public static function uploadToS3($path,$picture)
     {
         $path = Storage::disk('s3')->put($path, $picture);
         $path = Storage::disk('s3')->url($path);
@@ -91,9 +91,10 @@ class Picture{
      * @param file path
      * @return response
      */
-    public static function removeFileFromS3($path)
+    public static function removeFileFromS3()
     {
-        return Storage::disk('s3')->delete($path);;
+        $path1 = "https://opines3.s3.ap-south-1.amazonaws.com/category/SywdX2tr6Q6eRRL0hYScTPvWJOlutF8bOhOSsz92.jpg";
+        return Storage::disk('s3')->delete($path1);;
     }
     
 

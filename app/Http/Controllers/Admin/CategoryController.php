@@ -43,7 +43,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // $categories = $this->category->get();
         return view($this->view.'.index');
     }
 
@@ -86,19 +85,24 @@ class CategoryController extends Controller
     public function store(CreateRequest $request)
     {
         try{
-            $picture = Picture::uploadPicture('assets/category/',$request->image);
-           
                 $categoryDetail = [
                                     'slug'      => Slug::smallSlug() ??'',
                                     'name'      => $request->name ??'',
                                     'type'      => ($request->category_type == "material") ? 1 : (($request->category_type == "collection") ? 2 : (($request->category_type == "use") ? 3 : 4)) ,
-                                    'image'     => ($request->hasFile('image')) ? $picture : "" ??'',
+                                    //'image'     => ($request->hasFile('image')) ? $picture : "" ??'',
                                     'meta_url'  => $request->name ??'',
                                     'added_by'  => Masked::getUserId() ??'',
                                   ];
-                                  $this->category->create($categoryDetail);
-                                  dd($categoryDetail);
-           
+                $getCategoryDetail = $this->category->create($categoryDetail);
+
+                $picture = Picture::uploadToS3('/category/'.$getCategoryDetail->id,$request->image);
+
+                $updateCategoryDetail = [
+                                         'image'     => ($request->hasFile('image')) ? $picture : "" ??'',
+                                        ];
+
+                $getCategoryDetail->update($updateCategoryDetail);
+
             CreateAppLog::getInfoLog(Masked::getUserName()." created category ".$request->name);
             return redirect()->back()->with([
                                                 'success' =>"Created successfully !!"
@@ -144,7 +148,7 @@ class CategoryController extends Controller
             $categoryDetail = [
                                 'name'        => $request->name ??'',
                                 'type'        => ($request->category_type == "material") ? 1 : (($request->category_type == "collection") ? 2 : (($request->category_type == "use") ? 3 : 4)) ,
-                                'image'       => ($request->hasFile('image')) ? Picture::uploadPicture('assets/category/',$request->image) : $getCategoryDetail->image ??'',
+                                'image'       => ($request->hasFile('image')) ? Picture::uploadToS3('/category/'.$getCategoryDetail->id,$request->image) : $getCategoryDetail->image ??'',
                                 'meta_url'    => str_replace(' ', '-', strtolower($request->name)) ??'',
                                 'updated_by'  => Masked::getUserId() ??'',
                               ];
