@@ -25,7 +25,7 @@
 
             </div>
             <div class="add-input-box">
-                <form method="post" action="{{route('add.product')}}" id="add-inventory" enctype='multipart/form-data'>
+                <form method="post" action="{{route('update.product',[$getProduct->slug ??''])}}" id="add-inventory" enctype='multipart/form-data'>
                     @csrf
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-12">
@@ -124,7 +124,14 @@
                                         </tr>
                                     </thead>
                                     <tbody class="tableBody">
-                                        
+                                        @if(count($getProduct->color_id))
+                                            @foreach($getProduct->color as $color)
+                                                <tr class="{{$color->color_name}}{{$color->id}}">
+                                                    <td><input type="text" value="{{$color->color_name}}" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td>
+                                                    <td><input type="file" class="form-control form-control-user" name="varient_image[{{$color->color_name}}][]" multiple="multiple" accept=".png, .jpg, .jpeg" ></td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                         </div>
@@ -165,12 +172,13 @@
                                 @endif
                             </div>
                         </div>
+                        
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Size Varients</label> 
                                 <select class="select2 sizevarientValueList" multiple="multiple" data-placeholder="Select Size" style="width: 100%;"  name="size[]">
                                     @foreach($getSizes as $getSize)
-                                    <option value="{{$getSize->id ??''}}" sizevarientValueName="{{$getSize->size ??''}}" @if(in_array($getSize->id,$getProduct->size_id)) selected @endif>{{$getSize->size ??''}}</option>
+                                       <option value="{{$getSize->id ??''}}" sizevarientValueName="{{$getSize->size ??''}}"  pricevarientValueName="{{$getSize->price ??'0'}}" gstvarientValueName="{{$getSize->gst ??'0'}}"  @if(in_array($getSize->id,$getProduct->size_id)) selected @endif>{{$getSize->size ??''}}</option>
                                     @endforeach
                                 </select>
                                 @if($errors->has('size'))
@@ -189,7 +197,15 @@
                                         </tr>
                                     </thead>
                                     <tbody class="sizevarientTable">
-                                        
+                                    @if(count($getProduct->size))
+                                        @foreach($getProduct->size_varient as $size)
+                                        <tr class="{{$size->id}}">
+                                            <td><input type="text" value="{{$size->size}}" placeholder="Product size" class="form-control form-control-user" name="varient_size[]" readonly></td>
+                                            <td><input type="text" value="{{$size->price}}" class="form-control form-control-user" name="price[]" required></td>
+                                            <td><input type="text" value="{{$size->gst}}" class="form-control form-control-user" name="gst[]" required></td>
+                                        </tr>
+                                        @endforeach
+                                    @endif
                                     </tbody>
                                 </table>
                         </div>
@@ -265,15 +281,23 @@
 <script>
 //Append input box according to varient Value in table
 $(document).ready(function(){
-    $('.colorTable').hide();
-    $('.sizeTable').hide();
-
+    
+    var countSelectedColor = "{{count($getProduct->color_id)}}"; 
+    if(countSelectedColor >0){
+        $('.colorTable').show();
+    }else{
+        console.log(countSelectedColor);
+        $('.colorTable').hide();
+    }
     $('.varientValueList').on('select2:select',function(){
         $('.colorTable').show();
         //Get Selected options
         var selectedOptions = $(this).find('option:selected');
         //Empty the table
         $('.tableBody').empty('');
+
+        //Update count
+        countSelectedColor ++;
         //selected avarient array loop
         selectedOptions.each(function(){
             //Get the selected options
@@ -289,8 +313,16 @@ $(document).ready(function(){
     $('.varientValueList').on('select2:unselect',function(){
         //get the unselected varienr value list
         var notSelected = $(".varientValueList").find('option').not(':selected');
+        //Update count
+        countSelectedColor--;
+        if(countSelectedColor){
+            $('.colorTable').show();
+        }else{
+            $('.colorTable').hide();
+        }
         //array loop
         notSelected.each(function(){
+            
             //get varient value
             var removeVarientVal = $(this).text();
             var getTypeId = $(this).val();
@@ -302,40 +334,78 @@ $(document).ready(function(){
 </script>
 
 <script>
-//Append input box according to size varient in table
-$(document).ready(function(){
-     
-    $('.sizevarientValueList').on('select2:select',function(){
+    //Append input box according to size varient in table
+    let size_varient = '{{ json_encode($getProduct->size_varient) }}';
+    size_varient = size_varient.replaceAll('&quot;', '"');
+    size_varient = JSON.parse(size_varient);
+    var countSelectedSize = "{{count($getProduct->size_id)}}"; 
+    if(countSelectedSize > 0){
         $('.sizeTable').show();
-        //Get Selected options
-        var selectedOptions = $(this).find('option:selected');
-        //Empty the table
-        $('.sizevarientTable').empty('');
-        //selected avarient array loop
-        selectedOptions.each(function(){
-            //Get the selected options
-            var getType = $(this).text();
-            //Get  the selected option id
-            var getTypeId = $(this).val();
-            var html = '<tr class="'+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product size" class="form-control form-control-user" name="varient_size[]" readonly></td><td><input type="text" class="form-control form-control-user" name="price[]" required></td><td><input type="text" class="form-control form-control-user" name="gst[]" required></td></tr>';
-            $('.sizevarientTable').append(html); 
-        });
-    });
+    }else{
+        console.log(countSelectedSize);
+        $('.sizeTable').hide();
+    }
 
-    //Remove the varient from the table list
-    $('.sizevarientValueList').on('select2:unselect',function(){
-        //get the unselected varienr value list
-        var notSelected = $(".sizevarientValueList").find('option').not(':selected');
-        //array loop
-        notSelected.each(function(){
-            //get varient value
-            var removeVarientVal = $(this).text();
-            var getTypeId = $(this).val();
-            //remove varient
-            $('.'+getTypeId).remove();
+    // console.log(size_varient);
+    $(document).ready(function(){
+        
+        $('.sizevarientValueList').on('select2:select',function(){
+            $('.sizeTable').show();
+            //Get Selected options
+            var selectedOptions = $(this).find('option:selected');
+            //Empty the table
+            $('.sizevarientTable').empty('');
+            
+            //Update size count
+            countSelectedSize++;
+            console.log(countSelectedSize);
+            //selected avarient array loop
+            selectedOptions.each(function(){
+
+                //Get the selected options
+                var getType = $(this).text();
+                //Get  the selected option id
+                var getTypeId = $(this).val();
+
+                //Match the data 
+                var price = '';
+                var gst = '';
+                size_varient.forEach(item => {
+                    // Access properties of each object
+                    if(item.id == getTypeId){
+                        price = item.price;
+                        gst = item.gst;
+                    }
+                });
+
+                var html = '<tr class="'+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product size" class="form-control form-control-user" name="varient_size[]" readonly></td><td><input type="text" value="'+price+'" class="form-control form-control-user" name="price[]" required></td><td><input type="text" class="form-control form-control-user" value="'+gst+'" name="gst[]" required></td></tr>';
+                $('.sizevarientTable').append(html); 
+            });
+        });
+
+        //Remove the varient from the table list
+        $('.sizevarientValueList').on('select2:unselect',function(){
+            //get the unselected varienr value list
+            var notSelected = $(".sizevarientValueList").find('option').not(':selected');
+
+            //Update size count
+            countSelectedSize--;
+            if(countSelectedSize){
+                $('.sizeTable').show();
+            }else{
+                $('.sizeTable').hide();
+            }
+
+            //array loop
+            notSelected.each(function(){
+                //get varient value
+                var removeVarientVal = $(this).text();
+                var getTypeId = $(this).val();
+                //remove varient
+                $('.'+getTypeId).remove();
+            });
         });
     });
-});
 </script>
 
 <!-- <script src="{{asset('assets/admin/js/admin/product_varient_type.js')}}"></script> -->

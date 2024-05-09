@@ -175,6 +175,16 @@ class Product extends Model
       }
 
       /**
+       * @method Get Decode format of size id
+       * @param
+       * @return 
+       */
+      public function getSizeVarientAttribute($value){
+        return json_decode($value);
+      }
+
+
+      /**
        * @method Get Meta url
        * @param
        * @return 

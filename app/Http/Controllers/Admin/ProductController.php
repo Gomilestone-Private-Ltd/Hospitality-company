@@ -287,9 +287,184 @@ class ProductController extends Controller
      * @param Request $request
      * @return Update page
      */
-    public function update(EditRequest $request)
+    public function update(EditRequest $request,$slug)
     {
-        dd($request->all());
+       try{
+            $getProductDetail = $this->product->whereSlug($slug)->first();
+            
+            //Get material details only in array
+            $materialIdDetail = [];
+            $materialDetail   = [];
+            if($request->material != null ){
+                $materialDetail = [];
+                foreach($request->material as $key=>$material){
+                    $getMaterial = $this->material->where(['id'=>$material,'status'=>1])->first();
+                    $materialIdDetail[] = $material;
+                    $materialDetail[] = [
+                                          'id'       => $material,
+                                          'material' => $getMaterial->name,
+                                        ];
+                }  
+            }else{
+                $materialIdDetail = $getProductDetail->material_id;
+                $materialDetail   = $getProductDetail->material;
+            }
+            
+            //Get color details only in array
+            $colorIdDetail =[];
+            $colorDetail =[];
+            if($request->color != null ){
+                foreach($request->color as $key=>$color){
+                    $getColor = $this->color->where(['id'=>$color,'status'=>1])->first();
+                    $colorIdDetail[] = $color;
+                    $colorDetail[] = [
+                                        'id'          => $color,
+                                        'color_name'  => $getColor->color_name,
+                                        'color_code'  => $getColor->color_code,
+                                    ];
+                }  
+            }else{
+                $colorIdDetail =[];
+                $colorDetail =[];
+            }
+            
+            //Get color varient details with image in array
+            $colorVarientDetail = [];
+            $allImageDetail = [];
+            if($request->color != null ){
+                foreach($request->color as $key=>$color){
+                    $getColor = $this->color->where(['id'=>$color,'status'=>1])->first();
+                    
+                    //Check color variable exist or not
+                    $colorImage = [];
+                    if(isset($request->varient_image[$getColor->color_name])){
+                        foreach($request->varient_image[$getColor->color_name] as $key=>$varient_image){
+                            $imagePath = Picture::uploadToS3('/product/'.$getProductDetail->id,$varient_image);
+                            $allImageDetail[] = $colorImage[] = $imagePath;
+                        }
+                    }
+                    
+                    //If no image uploded get old one
+                    if(count($colorImage)){
+                        $colorVarientDetail[] = [
+                                                 'id'          => $color,
+                                                 'color_name'  => $getColor->color_name,
+                                                 'colorImage'  => $colorImage,
+                                                ];
+                    }else{
+                        $getOldArrayImage = "";
+                        foreach($getProductDetail->color_varient as $colorvarientData){
+                            //dd($colorvarientData->color_name, $getColor->color_name);
+                            if($colorvarientData->color_name == $getColor->color_name){
+                                $getOldArrayImage = $colorvarientData->colorImage;
+                            }
+                        }
+                        $colorVarientDetail[] = [
+                                                  'id'          => $color,
+                                                  'color_name'  => $getColor->color_name,
+                                                  'colorImage'  => $getOldArrayImage,
+                                                ];
+                    }
+                    
+                }
+ 
+                if(count($allImageDetail)){
+                    $allImageDetail = array_merge($getProductDetail->color_varient_images,$allImageDetail);
+                }else{
+                    $allImageDetail = $getProductDetail->color_varient_images;
+                }
+                 
+            }else{
+                $colorVarientDetail = $getProductDetail->color_varient;
+                $allImageDetail = $getProductDetail->color_varient_images;
+            }
+
+            //Get size details only in array
+            $sizeIdDetail =[];
+            $sizeDetail = [];
+            if($request->size != null ){
+                foreach($request->size as $key=>$size){
+                    $getSize = $this->size->where(['id'=>$size,'status'=>1])->first();
+                    $sizeIdDetail[] = $size;
+        
+                    $sizeDetail[] = [
+                                        'id'    => $size,
+                                        'size'  => $getSize->size,
+                                        'type'  => $getSize->type,
+                                     ];
+                }  
+            }else{
+                $sizeIdDetail = $getProductDetail->size_id;
+                $sizeDetail   = $getProductDetail->size;
+            }
+
+            //Get color varient details with image in array
+            $sizeVarientDetail = [];
+            if($request->size != null ){
+                foreach($request->size as $key=>$size){
+                    $getSize = $this->size->where(['id'=>$size,'status'=>1])->first();
+                    
+                    $sizeVarientDetail[] = [
+                                                'id'     => $size,
+                                                'size'   => $getSize->size,
+                                                'type'   => $getSize->type,
+                                                'price'  => (!empty($request->price[$key])) ? $request->price[$key]: null,
+                                                'gst'    => (!empty($request->price[$key])) ? $request->price[$key]: null,
+                                           ];
+                } 
+            }else{
+                $sizeVarientDetail = $getProductDetail->size_varient;
+            }
+
+            $genImage = [];
+            if(isset($request->product_img)){
+                foreach($request->product_img as $key=>$product_img){
+                    $genImagePath = Picture::uploadToS3('/product/'.$getProductDetail->id,$product_img);
+                    $genImage[] = $genImagePath;
+                }
+                $genImage = array_merge($getProductDetail->gen_image,$genImage);
+            }else{
+                $genImage = $getProductDetail->gen_image;
+            }
+            
+            $specification = null;
+            if($request->hasFile('specification')){ 
+                $specification = Picture::uploadToS3('/product/'.$getProductDetail->id.'/specification',$request->specification);
+            }else{
+                $specification = $getProductDetail->specification;
+            }
+
+        $updateProductDetail = [
+                                 'name'                => $request->product_name ??'',
+                                 'description'         => $request->description ??'',
+                                 'is_varient_available'=> 1 ??'',
+                                 'category_id'         => $request->category ??'',
+                                 'subCategory_id'      => $request->subcategory ??'',
+                                 'sup_subCategory_id'  => $request->supersubcategory ??'',
+                                 'hsn_code'            => $request->hsn_code ??'',
+                                 'moq'                 => $request->moq ??'',
+                                 'gen_price'           => $request->general_price ??'',
+                                 'gen_gst'             => $request->general_gst ??'',
+                                 'meta_url'            => $request->product_name ??'',
+                                 'gen_image'           => json_encode($genImage) ??'',
+                                 'color'               => json_encode($colorDetail) ??'',
+                                 'color_id'            => json_encode($colorIdDetail) ??'',
+                                 'color_varient'       => json_encode($colorVarientDetail) ??'',
+                                 'color_varient_images'=> json_encode($allImageDetail) ??'',
+                                 'specification'       => $specification ??'',
+                                 'material'            => json_encode($materialDetail) ??'',
+                                 'material_id'         => json_encode($materialIdDetail) ??'',
+                                 'size_id'             => json_encode($sizeIdDetail) ??'',
+                                 'size'                => json_encode($sizeDetail) ??'',
+                                 'size_varient'        => json_encode($sizeVarientDetail) ??'',
+                                ];
+        
+        $this->product->whereId($getProductDetail->id)->update($updateProductDetail);
+        return redirect()->back()->with(['success'=>"Product Updated Successfully !!"]);
+       }catch(\Exception $e){
+          CreateAppLog::getErrorLog("Edit product requested by ".Masked::getUserName().' having Error '.$e->getMessage());
+          return redirect()->back()->with(['error' => $e->getMessage()]);
+       }
     }
     
     /**
