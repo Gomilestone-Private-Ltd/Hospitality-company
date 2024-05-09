@@ -70,7 +70,17 @@ class Product extends Model
      */
     public function superSubCategoryDetail(){
       return $this->belongsTo(Supersubcategory::class,'sup_subCategory_id');
-  }
+    }
+
+    /**
+     * @method Get sub category detail
+     * @param
+     * @return added by details
+     */
+    public function getSubCategoryDetail(){
+      return $this->belongsTo(Subcategory::class,'subCategory_id');
+    }
+
 
   
       /**

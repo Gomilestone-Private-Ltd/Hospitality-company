@@ -70,7 +70,7 @@
                                                 {   data: 'image',     name: 'image',
                                                         render:function(data,type,row,meta){
 
-                                                            return `<img src='{{url('`+data+`')}}' height='60px' width='100px'>`;
+                                                            return `<img src='`+data+`' height='60px' width='100px'>`;
                                                         }
                                                 },
                                                 {   data: 'status',      name: 'status',
