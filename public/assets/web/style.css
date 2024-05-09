@@ -1790,9 +1790,10 @@ a.call-text-box img {
 }
 
 .arrordion-header .accordion-title {
-    font-size: 16px;
+    font-size: 20px;
     color: #827D7D;
     font-family: 'Futura Lt BT';
+    text-transform: capitalize;
 }
 
 .arrordion-header .accicon {
@@ -1837,9 +1838,10 @@ a.call-text-box img {
 .check-box p {
     margin: 0;
     margin-left: 8px;
-    font-size: 16px;
+    font-size: 17px;
     font-family: 'Futura Lt BT';
     color: #827D7D;
+    text-transform: capitalize;
 }
 
 .drop-btn {
@@ -1876,6 +1878,7 @@ a.call-text-box img {
     color: #222222E5;
     font-size: 18px;
     font-family: 'Futura Lt BT';
+    text-transform: uppercase;
 }
 
 .our-product-text:hover {

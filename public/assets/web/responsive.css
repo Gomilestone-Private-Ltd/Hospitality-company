@@ -540,7 +540,7 @@
     }
 
     .Custom-Project {
-        height: 790px;
+        height: 840px;
     }
 
     .Requirement-heading {
@@ -936,7 +936,10 @@
         height: 40px;
     }
     .no-data-found-box{
-        width: 80%;
+        width: 90%;
+    }
+    .customisation-image{
+        height: 200px;
     }
 
 }
@@ -944,7 +947,7 @@
 @media (max-width: 425px) {
 
     .Custom-Project {
-        height: 760px;
+        height: 870px;
     }
 
     .slick-track {
@@ -1080,6 +1083,16 @@
 
     .who-we-text {
         font-size: 13px !important;
+    }
+
+    .Request-heading-mob {
+        width: 330px;
+    }
+    .Request-heading-mob::before {
+        width: 36px;
+    }
+    .Request-heading-mob::after {
+        width: 36px;
     }
 }
 

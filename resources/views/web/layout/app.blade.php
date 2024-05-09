@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="{{ asset('assets/web/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/web/responsive.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/web/image/logo.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/web/image/logo2.png') }}">
     <link
         href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&display=swap"
         rel="stylesheet">
