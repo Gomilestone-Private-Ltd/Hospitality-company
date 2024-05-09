@@ -1921,6 +1921,7 @@ img.desk-small-img {
     width: 85px;
     height: auto;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .deskRoomItems-section {
@@ -2164,8 +2165,14 @@ a:focus {
 
 .product-name-box {
     display: flex;
-    align-items: center;
+    align-items: self-start;
     margin-bottom: 10px;
+}
+
+.Material-text-box {
+    display: flex;
+    align-items: self-start;
+    flex-wrap: wrap;
 }
 
 .productTitle {
@@ -2177,6 +2184,7 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-transform: capitalize;
 }
 
 .productTitle span {
@@ -2188,6 +2196,7 @@ a:focus {
     font-family: 'Futura Lt BT';
     font-size: 20px;
     margin: 0;
+    text-transform: capitalize;
 }
 
 .email-box {
@@ -2231,7 +2240,7 @@ a:focus {
     left: -47px;
 }
 
-.value-add-btn-box{
+.value-add-btn-box {
     display: flex;
     align-items: center;
 }
@@ -2249,6 +2258,7 @@ a:focus {
     align-items: center;
     justify-content: center;
 }
+
 .value-add-btn-box .value-add-btn {
     width: 28px;
     height: 28px;
@@ -2261,7 +2271,7 @@ a:focus {
     line-height: 1px;
 }
 
-.value-btn p{
+.value-btn p {
     margin: 0;
     border: none;
     width: 100%;
@@ -2281,29 +2291,31 @@ a:focus {
     text-align: center;
     margin-left: 11%;
 }
-.data-found-center{
+
+.data-found-center {
     margin: auto;
 }
-.no-data-found-box img{
+
+.no-data-found-box img {
     width: 70px;
     height: auto;
 }
 
-.no-data-found-box h3{
+.no-data-found-box h3 {
     font-family: 'Futura Md BT';
     font-size: 30px;
     color: #333;
     margin-top: 10px;
 }
 
-.no-data-found-box p{
+.no-data-found-box p {
     font-family: 'Futura Lt BT';
     font-size: 18px;
     color: #2e2e2e;
     margin-bottom: 25px;
 }
 
-.no-data-found-box a{
+.no-data-found-box a {
     background-color: #cbcbcb;
     color: #000000;
     padding: 12px 25px;
@@ -2311,7 +2323,7 @@ a:focus {
     font-size: 18px;
 }
 
-.no-data-found-box a:hover{
+.no-data-found-box a:hover {
     color: #000000;
     text-decoration: none;
 }

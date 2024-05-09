@@ -43,12 +43,18 @@
             right: 36px !important;
             top: 88.8%;
         }
+
+        @media (max-width:600px) {
+            .multi-slider-img img {
+                height: 225px !important;
+            }
+        }
     </style>
     <div class="main-philosophy-section">
         <div class="desk-detail-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-12 col-12">
                         <div class="gallery js-gallery">
                             <div class="gallery__hero desk-left-img-box">
                                 <img class="desk-img"
@@ -57,13 +63,13 @@
                             </div>
                             <div class="gallery__thumbs material-btn-box">
                                 @if (count($getProducts->gen_image))
-                                    
-                                    <?php 
-                                     if(count($getProducts->color_varient_images)){
-                                        $productImages = array_merge($getProducts->gen_image,$getProducts->color_varient_images);
-                                     }else{
+
+                                    <?php
+                                    if (count($getProducts->color_varient_images)) {
+                                        $productImages = array_merge($getProducts->gen_image, $getProducts->color_varient_images);
+                                    } else {
                                         $productImages = $getProducts->gen_image;
-                                     }
+                                    }
                                     ?>
                                     @foreach ($productImages as $image)
                                         <a href="{{ asset($image ?? 'assets/web/image/guest-room/desk-img1.png') }}"
@@ -78,9 +84,9 @@
 
                             </div>
                         </div>
-                        
+
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-12 col-12">
                         <div class="desk-right-text-box">
                             <h3 class="guest-heading">{{ $getProducts->name ?? '' }}</h3>
                             <p class="guest-text">{{ $getProducts->description ?? '' }}</p>
@@ -100,7 +106,8 @@
                                     <h4>COLOUR</h4>
                                     <div class="material-btn-box">
                                         @foreach ($getProducts->color_varient as $key => $color)
-                                            <button class="color-btn" onclick="changeColorImage('{{$color->colorImage[0]}}')">{{ $color->color_name ?? '' }}</button>
+                                            <button class="color-btn"
+                                                onclick="changeColorImage('{{ $color->colorImage[0] }}')">{{ $color->color_name ?? '' }}</button>
                                         @endforeach
                                     </div>
                                 </div>
@@ -122,13 +129,15 @@
                                 <h4>MINIMUM QUANTITY</h4>
                                 <div class="material-btn-box select-box">
                                     <div class="value-add-btn-box">
-                                        <button class="value-add-btn productMoqSub" onclick="updateProductMoq('sub')"> – </button>
+                                        <button class="value-add-btn productMoqSub" onclick="updateProductMoq('sub')"> –
+                                        </button>
                                         <div class="value-btn">
                                             <p class="productMoq">{{ $getProducts->moq ?? '' }}</p>
                                         </div>
-                                        <button class="value-add-btn productMoqAdd" onclick="updateProductMoq('add')"> + </button>
+                                        <button class="value-add-btn productMoqAdd" onclick="updateProductMoq('add')"> +
+                                        </button>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="material-box">
@@ -205,8 +214,7 @@
 
                                 <li class="nav-item tab-mE" role="presentation">
                                     <button class="nav-link " id="profile-tab" data-toggle="tab" data-target="#profile"
-                                        type="button" role="tab" aria-controls="profile"
-                                        aria-selected="false">PRODUCT
+                                        type="button" role="tab" aria-controls="profile" aria-selected="false">PRODUCT
                                         SPECIFICATIONS</button>
                                 </li>
 
@@ -291,7 +299,8 @@
                                                         <div class="product-name-box">
                                                             <p class="productTitle">Dimensions <span>:</span></p>
                                                             @foreach ($getProducts->size as $key => $sizes)
-                                                                <p class="productName">{{ $sizes->size ?? '3.5" x 3.5"' }},
+                                                                <p class="productName">
+                                                                    {{ $sizes->size ?? '3.5" x 3.5"' }},
                                                                 </p>
                                                             @endforeach
                                                         </div>
@@ -300,10 +309,13 @@
                                                     @if (count($getProducts->material))
                                                         <div class="product-name-box">
                                                             <p class="productTitle">Material <span>:</span></p>
-                                                            @foreach ($getProducts->material as $key => $materials)
-                                                                <p class="productName">{{ $materials->material ?? '' }},
-                                                                </p>
-                                                            @endforeach
+                                                            <div class="Material-text-box">
+                                                                @foreach ($getProducts->material as $key => $materials)
+                                                                    <p class="productName">
+                                                                        {{ $materials->material ?? '' }},
+                                                                    </p>
+                                                                @endforeach
+                                                            </div>
                                                         </div>
                                                     @endif
 
@@ -333,14 +345,15 @@
     <script>
         //Update Moq
         var getProductMoq = Number("{{ $products->moq ?? '' }}");
-        var getFixedProductMoq =  Number("{{ $products->moq ?? '' }}");
-        function updateProductMoq(key){
-            
+        var getFixedProductMoq = Number("{{ $products->moq ?? '' }}");
+
+        function updateProductMoq(key) {
+
             var newMoq = getProductMoq;
-            if(key == 'add'){
+            if (key == 'add') {
                 newMoq++;
-            }else if(key == 'sub'){
-                if(getFixedProductMoq < newMoq){
+            } else if (key == 'sub') {
+                if (getFixedProductMoq < newMoq) {
                     newMoq--;
                 }
             }
@@ -349,8 +362,8 @@
         }
 
         //Change Image according to color
-        function changeColorImage(val){
-            $(".desk-img").attr('src',base_url+'/'+val);
+        function changeColorImage(val) {
+            $(".desk-img").attr('src', base_url + '/' + val);
         }
     </script>
     <script>
@@ -381,7 +394,7 @@
                 {
                     breakpoint: 480,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: 2,
                         slidesToScroll: 1
                     }
                 }
