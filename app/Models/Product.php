@@ -129,13 +129,30 @@ class Product extends Model
       public function getMaterialAttribute($value){
         return json_decode($value);
       }
-
+      
+      /**
+       * @method Get Decode format of material Id
+       * @param
+       * @return 
+       */
+      public function getMaterialIdAttribute($value){
+        return json_decode($value);
+      }
       /**
        * @method Get Decode format of color
        * @param
        * @return 
        */
       public function getColorAttribute($value){
+        return json_decode($value);
+      }
+
+      /**
+       * @method Get Decode format of color Id
+       * @param
+       * @return 
+       */
+      public function getColorIdAttribute($value){
         return json_decode($value);
       }
 
@@ -147,7 +164,15 @@ class Product extends Model
       public function getSizeAttribute($value){
         return json_decode($value);
       }
-
+      
+      /**
+       * @method Get Decode format of size id
+       * @param
+       * @return 
+       */
+      public function getSizeIdAttribute($value){
+        return json_decode($value);
+      }
 
       /**
        * @method Get Meta url

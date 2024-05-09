@@ -106,7 +106,7 @@
                                 <label class="form-label-box">Color Varients</label> 
                                 <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;"  name="color[]">
                                     @foreach($getColors as $getColor)
-                                    <option value="{{$getColor->id ??''}}" varientValueName="{{$getColor->color_name ??''}}">{{$getColor->color_name ??''}}</option>
+                                    <option value="{{$getColor->id ??''}}" varientValueName="{{$getColor->color_name ??''}}"  @if(in_array($getColor->id,$getProduct->color_id)) selected @endif>{{$getColor->color_name ??''}}</option>
                                     @endforeach
                                 </select>
                                 @if($errors->has('color'))
@@ -157,7 +157,7 @@
                                 <select class="select2 " multiple="multiple" data-placeholder="Select a Material" style="width: 100%;"  name="material[]">
                                    
                                     @foreach($materials as $material)
-                                    <option value="{{$material->id ??''}}" @if(in_array($material->id,json_decode($getProduct->material_id))) selected @endif>{{$material->name ??''}}</option>
+                                    <option value="{{$material->id ??''}}" @if(in_array($material->id,$getProduct->material_id)) selected @endif>{{$material->name ??''}}</option>
                                     @endforeach
                                 </select>
                                 @if($errors->has('material'))
@@ -170,7 +170,7 @@
                                 <label class="form-label-box">Size Varients</label> 
                                 <select class="select2 sizevarientValueList" multiple="multiple" data-placeholder="Select Size" style="width: 100%;"  name="size[]">
                                     @foreach($getSizes as $getSize)
-                                    <option value="{{$getSize->id ??''}}" sizevarientValueName="{{$getSize->size ??''}}" >{{$getSize->size ??''}}</option>
+                                    <option value="{{$getSize->id ??''}}" sizevarientValueName="{{$getSize->size ??''}}" @if(in_array($getSize->id,$getProduct->size_id)) selected @endif>{{$getSize->size ??''}}</option>
                                     @endforeach
                                 </select>
                                 @if($errors->has('size'))
