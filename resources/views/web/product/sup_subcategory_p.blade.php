@@ -183,7 +183,7 @@
 
         //Change Image according to color
         function changesuperCatColorImage(imgPath, productId) {
-            $(".productId" + productId).attr('src', base_url + '/' + imgPath);
+            $(".productId" + productId).attr('src',imgPath);
         }
     </script>
 

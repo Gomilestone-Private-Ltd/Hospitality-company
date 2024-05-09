@@ -363,7 +363,7 @@
 
         //Change Image according to color
         function changeColorImage(val) {
-            $(".desk-img").attr('src', base_url + '/' + val);
+            $(".desk-img").attr('src',val);
         }
     </script>
     <script>

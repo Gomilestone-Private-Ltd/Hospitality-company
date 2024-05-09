@@ -130,6 +130,7 @@ class ProductController extends Controller
                               'gen_price'           => $request->general_price ??'',
                               'gen_gst'             => $request->general_gst ??'',
                               'meta_url'            => $request->product_name ??'',
+                              'added_by'            => Masked::getUserId() ??'',
                               ];
             $getProductDetail = $this->product->create($productDetail);
 
@@ -232,6 +233,7 @@ class ProductController extends Controller
                 $specification = Picture::uploadToS3('/product/'.$getProductDetail->id.'/specification',$request->specification);
             }
             
+            
             $updateProductDetail = [
                                      'gen_image'           => json_encode($genImage) ??'',
                                      'color'               => json_encode($colorDetail) ??'',
@@ -245,7 +247,7 @@ class ProductController extends Controller
                                      'size'                => json_encode($sizeDetail) ??'',
                                      'size_varient'        => json_encode($sizeVarientDetail) ??'',
                                     ];
-            $getProductDetail->update($updateProductDetail);
+            $this->product->whereId($getProductDetail->id)->update($updateProductDetail);
             return redirect()->back()->with(['success'=>"Product Added Successfully !!"]);
             
         }catch(\Exception $e){
