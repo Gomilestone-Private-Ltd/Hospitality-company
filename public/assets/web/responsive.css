@@ -88,6 +88,16 @@
         top: 6%;
         right: 0% !important;
     }
+
+    .GuestRoomItems-main-section .container {
+        max-width: auto;
+        width: auto;
+    }
+
+    .desk-detail-section .container{
+        max-width: auto;
+        width: auto;
+    }
 }
 
 @media (max-width:767px) {
@@ -464,7 +474,7 @@
 
     .contactOpine-setion .nav-tabs .nav-item .nav-link {
         padding: 14px 0px;
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .manufacture {
@@ -716,6 +726,7 @@
     .customisation-text {
         font-size: 15px;
     }
+
     .customisation-heading {
         width: 360px;
     }
@@ -731,9 +742,10 @@
         margin-left: 4px;
     }
 
-    .mb-btn{
+    .mb-btn {
         margin-top: 30px;
     }
+
     .Measures-heading {
         width: 385px;
     }
@@ -742,16 +754,186 @@
         bottom: 6px;
         margin-left: 5px;
     }
+
     .Measures-heading::before {
         bottom: 6px;
     }
-    
+
     .measures-img-box {
         margin-bottom: 25px;
         padding: 15px 5px;
     }
-    .borderTop{
+
+    .borderTop {
         display: none;
+    }
+
+    /* Category Page Start *********************************/
+
+    .scroll-box1 {
+        display: none;
+    }
+
+    .GuestRoomItems-image-box {
+        width: 100%;
+    }
+
+    .GuestRoomItems-section {
+        margin-top: -70px;
+    }
+
+    .GuestRoomItems-image {
+        height: 200px;
+    }
+
+    .filter-box {
+        margin-bottom: 20px;
+    }
+
+    .filter {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .drop-btn {
+        height: 40px;
+        width: 170px;
+        margin-top: 30px;
+    }
+
+    .our-products-right-section {
+        margin: 0;
+    }
+
+    .our-product-right-img-box {
+        margin-left: 0px;
+        margin-bottom: 30px;
+    }
+
+    .our-product-img {
+        margin-bottom: 7px;
+    }
+
+    .our-product-text {
+        font-size: 15px;
+    }
+
+    .desk-text {
+        font-size: 18px;
+        padding: 0px 0px;
+        text-align: justify;
+    }
+
+    .deskRoomItems-section {
+        margin-top: -80px;
+    }
+
+    .GuestServiceDirectory {
+        padding-top: 160px;
+        padding-bottom: 30px;
+    }
+
+    .desk-img {
+        height: 300px;
+    }
+
+    .desk-left-img-box {
+        margin-bottom: 20px;
+    }
+
+    img.desk-small-img {
+        width: 65px;
+    }
+
+    .desk-right-text-box {
+        margin-top: 25px;
+    }
+
+    .guest-heading {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .guest-text {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .material-box h4 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .material-btn {
+        font-size: 14px;
+        padding: 8px 18px;
+    }
+
+    .color-btn {
+        font-size: 14px;
+        padding: 7px 18px;
+    }
+
+    .size-btn {
+        font-size: 14px;
+        padding: 7px 18px;
+    }
+    .value-add-btn-box .value-add-btn{
+        padding: 0px !important;
+        font-size: 15px;
+    }
+    .add-project-btn {
+        font-size: 13px;
+        height: 43px;
+        width: 200px;
+        padding-right: 10px;
+    }
+    .add-project-btn::after {
+        width: 40px;
+        bottom: 20px;
+        left: 19%;
+    }
+
+    .contactOpine-setion .nav-tabs>li {
+        width: 45%;
+    }
+
+    .contactOpine-setion .nav-tabs .tab-mE {
+        width: 55%;
+    }
+
+    .terms-condition-box {
+        padding: 0px 10px;
+        padding-bottom: 20px;
+    }
+    .terms-condition-box .guest-text {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .product-specification {
+        width: 90%;
+        padding: 20px 10px;
+    }
+    .productTitle {
+        font-size: 16px;
+        width: 130px;
+    }
+    .productTitle span {
+        width: 20px;
+    }
+    .productName {
+        font-size: 16px;
+    }
+    .email-box {
+        width: 90%;
+    }
+    .send-btn{
+        font-size: 15px;
+        top: 10px;
+    }
+    .email-box input{
+        font-size: 14px;
+        height: 40px;
     }
 
 }
@@ -857,10 +1039,6 @@
         bottom: 6px;
     }
 
-    .contactOpine-setion .nav-tabs .tab-mE {
-        width: 60%;
-    }
-
     .contactOpine-setion .nav-tabs .tab-con {
         width: 40%;
     }
@@ -893,10 +1071,11 @@
         width: 48px;
     }
 
-    .Measures-heading{
+    .Measures-heading {
         width: 330px;
     }
-    .who-we-text{
+
+    .who-we-text {
         font-size: 13px !important;
     }
 }
@@ -932,6 +1111,7 @@
 
 .sidenav a:hover {
     text-decoration: none;
+    color: #474747;
 }
 
 .mo-menu-item {
@@ -961,10 +1141,11 @@ a.closebtn {
 }
 
 @media screen and (max-width: 650px) {
-    .card-link+.card-link{
+    .card-link+.card-link {
         margin: 0px !important;
     }
-    .who-we{
+
+    .who-we {
         padding: 0 !important;
     }
 
@@ -1124,6 +1305,7 @@ a.closebtn {
 
     .productByMaterial_subMenu {
         padding: 10px 15px;
+        padding-top: 0px;
     }
 
     .productByMaterial_subMenu p {
