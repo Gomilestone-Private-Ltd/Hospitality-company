@@ -453,6 +453,9 @@
     .customisation-heading {
         width: 675px;
     }
+    .no-data-found-box{
+        width: 70%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -618,6 +621,12 @@
     /* .call-box img {
         height: 30px;
     } */
+
+    .header-left img {
+        width: 129px;
+        height: auto;
+        width: auto;
+    }
 
     .input-box input {
         font-size: 13px;
@@ -845,7 +854,7 @@
     }
 
     .call-text-box img {
-        height: auto;
+        height: 20px;
     }
 
     .call-box1 div a {
@@ -1267,11 +1276,22 @@
 
     .no-data-found-box {
         width: 90%;
+        margin: auto;
     }
 
     .customisation-image {
         height: 200px;
         object-fit: cover;
+    }
+
+    .whatsapp-icon{
+        width: 45px;
+    }
+    img.mess-icon {
+        width: 45px;
+    }
+    .call-box img{
+        height: 40px;
     }
 
 }
@@ -1511,7 +1531,7 @@ a.closebtn {
     }
 
     .header-center {
-        margin-top: 0;
+        margin-top: 3px;
     }
 
     .Web-view {
