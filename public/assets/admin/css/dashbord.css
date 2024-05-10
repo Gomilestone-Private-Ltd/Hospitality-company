@@ -34,6 +34,15 @@ img.header-left-img {
     height: auto;
 }
 
+.Recommended-check{
+    display: flex;
+    align-items: center;
+}
+.Recommended-check label{
+    margin: 0;
+    margin-left: 8px;
+}
+
 img.header-img {
     height: 40px;
     border-radius: 50px;
