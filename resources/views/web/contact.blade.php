@@ -124,7 +124,7 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                                     <div class="call-box1">
                                                         <img src="{{ asset('assets/web/image/call-icon.png') }}"
                                                             alt="">
@@ -139,7 +139,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                                     <div class="call-box1">
                                                         <img src="{{ asset('assets/web/image/message-icon.png') }}"
                                                             alt="">
@@ -149,7 +149,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                                     <div class="call-box1">
                                                         <img class="whatsapp-icon"
                                                             src="{{ asset('assets/web/image/whatsApp-icon.png') }}"

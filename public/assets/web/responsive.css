@@ -1,4 +1,4 @@
-@media (max-width:1200px) {
+@media (max-width:1250px) {
     .call-main-box {
         display: flex;
         align-items: center;
@@ -41,9 +41,19 @@
     .borderS {
         right: 330px;
     }
+
+    .GuestRoomItems-main-section .container{
+        width: auto;
+    }
+    .desk-detail-section .container{
+        width: auto;
+    }
+    .borderLeft{
+        right: 315px;
+    }
 }
 
-@media (max-width:800px) {
+@media (max-width:991px) {
 
     .slick-track {
         left: -170px;
@@ -66,7 +76,10 @@
     }
 
     .product-heading {
-        width: 570px;
+        width: 560px;
+    }
+    .customisation-heading {
+        width: 700px;
     }
 
     .product-heading::after {
@@ -94,13 +107,135 @@
         width: auto;
     }
 
-    .desk-detail-section .container{
+    .desk-detail-section .container {
         max-width: auto;
         width: auto;
     }
+
+    .main-sliser .slick-track{
+        position: initial !important;
+    }
+
+    .borderLeft{
+        right: 250px;
+        height: 170px;
+    }
+    .philosophy-section{
+        padding-top: 150px;
+    }
+    .philosophy-text{
+        padding: 0px 50px;
+    }
+
+    .video-box iframe{
+        height: 350px;
+    }
+    .manufacture {
+        margin: 0px 0px;
+    }
+    p.who-we-text {
+        font-size: 14px;
+    }
+    .who-we-are {
+        padding: 16px 10px;
+    }
+    .video-section {
+        height: 840px;
+    }
+    .our-product {
+        padding-top: 40px;
+    }
+    .customisation-img-box {
+        padding: 30px 8px;
+    }
+    .Measures-heading {
+        width: 610px;
+    }
+    .touch-heading::before{
+        width: 60px;
+    }
+    .touch-heading::after{
+        width: 60px;
+    }
+    .header-center{
+        margin-top: 9px;
+    }
+    .Queries-heading {
+        width: 680px;
+    }
+    .CustomerService-heading {
+        width: 625px;
+    }
+    .call-box1{
+        margin-left: 20px;
+    }
+    .Custom-Project{
+        height: 880px;
+    }
+    .Requirement-heading {
+        width: 720px;
+    }
+    .Requirement-heading::after {
+        width: 120px;
+    }
+    .Requirement-heading::before {
+        width: 120px;
+    }
+    .Request-heading {
+        width: 720px;
+    }
+    .location-heading {
+        width: 500px;
+    }
+    .india-name{
+        font-size: 22px;
+    }
+    .location-text{
+        font-size: 16px;
+    }
+    .india-location-box{
+        margin: 0;
+    }
+    .work-with-us-left img {
+        height: 296px;
+        object-fit: cover;
+    }
+
+    .our-product-right-img-box .our-product-img{
+        height: 180px;
+    }
+    .contact-section{
+        padding-top: 150px;
+    }
+    .GuestServiceDirectory{
+        padding-top: 160px;
+    }
+    .guest-text{
+        font-size: 18px;
+    }
+    .desk-img{
+        height: 500px;
+    }
+    .product-specification{
+        width: 80%;
+    }
+    .email-box{
+        width: 55%;
+    }
+    
 }
 
 @media (max-width:767px) {
+    /* .main-philosophy-section .container{
+        width: auto !important;
+        max-width: min-content; 
+    } */
+    .philosophy-right-box{
+        display: none;
+    }
+    .scroll-box1{
+        display: none;
+    }
     .product-img-center {
         margin: 10px 0px;
 
@@ -123,6 +258,7 @@
 
     .borderB {
         width: 70%;
+        bottom: -16px;
     }
 
     .borderS {
@@ -130,7 +266,7 @@
     }
 
     .touch-heading {
-        width: 78%;
+        width: 61%;
     }
 
     .sub-heading::after {
@@ -147,6 +283,175 @@
 
     .our-product {
         width: 100%;
+    }
+
+    .ruby-menu-mega-shop {
+        padding: 0;
+    }
+
+    .header-menu {
+        width: 100% !important;
+    }
+
+    .borderLeft {
+        right: 220px;
+    }
+
+    .philosophy-text {
+        font-size: 20px;
+        padding: 0px 80px;
+    }
+
+    .manufacture {
+        margin: 0px 25px;
+    }
+
+    .Queries-heading {
+        width: 488px;
+    }
+
+    .Queries-heading::after {
+        width: 77px;
+    }
+
+    .Queries-heading::before {
+        width: 90px;
+    }
+
+    .contact-section {
+        padding-top: 160px;
+    }
+
+    .our-product {
+        padding-top: 30px;
+    }
+
+    .CustomerService-heading {
+        width: 488px;
+    }
+
+    .CustomerService-heading::after {
+        width: 100px;
+    }
+
+    .CustomerService-heading::before {
+        width: 112px;
+    }
+
+    .call-box1 {
+        margin-bottom: 15px;
+    }
+    .Custom-Project{
+        height: 890px;
+    }
+    .QueriesInIndia-box{
+        padding-bottom: 20px;
+    }
+    .product-heading{
+        font-size: 32px;
+    }
+    .Requirement-heading {
+        width: 540px;
+    }
+    .Requirement-heading::after{
+        width: 44px;
+    }
+    .Requirement-heading::before{
+        width: 50px;
+    }
+    .customisation-image {
+        height: 250px;
+        object-fit: cover;
+    }
+    .Request-heading {
+        width: 540px;
+    }
+    .Request-heading::after{
+        width: 90px;
+    }
+    .Request-heading::before{
+        width: 100px;
+    }
+    .textPadding {
+        padding: 0px 18px;
+    }
+    .text1{
+        font-size: 17px;
+    }
+    .location-heading {
+        width: 390px;
+    }
+    .location-heading::after{
+        width: 115px;
+    }
+    .location-heading::before{
+        width: 120px;
+    }
+    .india-location-box {
+        margin-bottom: 30px;
+    }
+    .work-with-us-right {
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+    .main-mega-menu-box {
+        left: -55% !important;
+        width: 211% !important;
+    }
+    .ruby-grid.ruby-grid-lined.ProductsBy {
+        overflow-y: scroll;
+        height: 380px;
+    }
+    .ruby-grid.ruby-grid-lined.Collection {
+        overflow-y: scroll;
+        height: 380px;
+    }
+    ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>a{
+        font-size: 14px;
+    }
+    .ruby-list-heading{
+        font-size: 14px;
+    }
+    .menu-right-img img {
+        width: 100%;
+        height: 161px;
+        object-fit: cover;
+    }
+    .philosophy-section{
+        padding-top: 150px;
+    }
+
+    .video-box iframe{
+        height: 310px;
+    }
+    .who-we-are {
+        padding: 16px 58px;
+        margin-bottom: 20px;
+    }
+    .video-section {
+        height: 936px;
+    }
+    .client-arro{
+        right: 100px;
+    }
+    .client-arro1{
+        right: 30px;
+    }
+    .get-in-touch .get-in-touch-section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .Measures-heading {
+        width: 600px;
+    }
+    .customisation-img-box {
+        margin-bottom: 20px;
+    }
+    .measures-img-box {
+        margin-bottom: 20px;
+    }
+    .customisation-heading {
+        width: 675px;
     }
 }
 
@@ -472,7 +777,7 @@
         margin-top: -130px;
     }
 
-    .terms-condition-main-section{
+    .terms-condition-main-section {
         margin-top: -43px;
     }
 
@@ -481,11 +786,11 @@
         font-size: 15px;
     }
 
-    .related-slider1{
+    .related-slider1 {
         bottom: 29px;
     }
 
-    .related-slider{
+    .related-slider {
         bottom: -20px;
     }
 
@@ -824,6 +1129,7 @@
 
     .our-product-img {
         margin-bottom: 7px;
+        height: 200px;
     }
 
     .our-product-text {
@@ -890,16 +1196,19 @@
         font-size: 14px;
         padding: 7px 18px;
     }
-    .value-add-btn-box .value-add-btn{
+
+    .value-add-btn-box .value-add-btn {
         padding: 0px !important;
         font-size: 15px;
     }
+
     .add-project-btn {
         font-size: 13px;
         height: 43px;
         width: 200px;
         padding-right: 10px;
     }
+
     .add-project-btn::after {
         width: 40px;
         bottom: 20px;
@@ -918,40 +1227,51 @@
         padding: 0px 10px;
         padding-bottom: 20px;
     }
+
     .terms-condition-box .guest-text {
         font-size: 16px;
         margin-bottom: 15px;
     }
+
     .product-specification {
         width: 90%;
         padding: 20px 10px;
     }
+
     .productTitle {
         font-size: 16px;
         width: 130px;
     }
+
     .productTitle span {
         width: 20px;
     }
+
     .productName {
         font-size: 16px;
     }
+
     .email-box {
         width: 90%;
     }
-    .send-btn{
+
+    .send-btn {
         font-size: 15px;
         top: 10px;
     }
-    .email-box input{
+
+    .email-box input {
         font-size: 14px;
         height: 40px;
     }
-    .no-data-found-box{
+
+    .no-data-found-box {
         width: 90%;
     }
-    .customisation-image{
+
+    .customisation-image {
         height: 200px;
+        object-fit: cover;
     }
 
 }
@@ -1100,9 +1420,11 @@
     .Request-heading-mob {
         width: 330px;
     }
+
     .Request-heading-mob::before {
         width: 36px;
     }
+
     .Request-heading-mob::after {
         width: 36px;
     }
@@ -1169,6 +1491,11 @@ a.closebtn {
 }
 
 @media screen and (max-width: 650px) {
+    img.backArro {
+        height: 27px;
+        transform: rotate(180deg);
+        margin-right: 8px;
+    }
     .card-link+.card-link {
         margin: 0px !important;
     }
