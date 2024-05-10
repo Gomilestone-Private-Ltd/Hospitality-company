@@ -267,11 +267,19 @@
 $(document).ready(function(){
     $('.colorTable').hide();
     $('.sizeTable').hide();
-
+    
+    var countSelectedColor = 0;
     $('.varientValueList').on('select2:select',function(){
         $('.colorTable').show();
         //Get Selected options
         var selectedOptions = $(this).find('option:selected');
+        //Update the selected count 
+        countSelectedColor++;
+        if(countSelectedColor>0){
+            $('.colorTable').show();
+        }else{
+            $('.colorTable').hide();
+        }
         //Empty the table
         $('.tableBody').empty('');
         //selected avarient array loop
@@ -289,6 +297,14 @@ $(document).ready(function(){
     $('.varientValueList').on('select2:unselect',function(){
         //get the unselected varienr value list
         var notSelected = $(".varientValueList").find('option').not(':selected');
+
+        //Update the selected count 
+        countSelectedColor--;
+        if(countSelectedColor>0){
+            $('.colorTable').show();
+        }else{
+            $('.colorTable').hide();
+        }
         //array loop
         notSelected.each(function(){
             //get varient value
@@ -304,11 +320,19 @@ $(document).ready(function(){
 <script>
 //Append input box according to size varient in table
 $(document).ready(function(){
-     
+    var countSelectedSize = 0;
     $('.sizevarientValueList').on('select2:select',function(){
         $('.sizeTable').show();
         //Get Selected options
         var selectedOptions = $(this).find('option:selected');
+        //Update the selected count 
+        countSelectedSize++;
+        if(countSelectedSize>0){
+            $('.sizeTable').show();
+        }else{
+            $('.sizeTable').hide();
+        }
+
         //Empty the table
         $('.sizevarientTable').empty('');
         //selected avarient array loop
@@ -326,6 +350,15 @@ $(document).ready(function(){
     $('.sizevarientValueList').on('select2:unselect',function(){
         //get the unselected varienr value list
         var notSelected = $(".sizevarientValueList").find('option').not(':selected');
+
+        //Update the selected count 
+        countSelectedSize--;
+        if(countSelectedSize>0){
+            $('.sizeTable').show();
+        }else{
+            $('.sizeTable').hide();
+        }
+
         //array loop
         notSelected.each(function(){
             //get varient value

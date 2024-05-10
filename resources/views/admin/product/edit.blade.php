@@ -286,7 +286,6 @@ $(document).ready(function(){
     if(countSelectedColor >0){
         $('.colorTable').show();
     }else{
-        console.log(countSelectedColor);
         $('.colorTable').hide();
     }
     $('.varientValueList').on('select2:select',function(){
@@ -342,11 +341,10 @@ $(document).ready(function(){
     if(countSelectedSize > 0){
         $('.sizeTable').show();
     }else{
-        console.log(countSelectedSize);
         $('.sizeTable').hide();
     }
 
-    // console.log(size_varient);
+   
     $(document).ready(function(){
         
         $('.sizevarientValueList').on('select2:select',function(){
@@ -358,7 +356,7 @@ $(document).ready(function(){
             
             //Update size count
             countSelectedSize++;
-            console.log(countSelectedSize);
+            
             //selected avarient array loop
             selectedOptions.each(function(){
 
