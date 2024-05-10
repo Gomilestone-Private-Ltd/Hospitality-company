@@ -72,8 +72,10 @@
             }
 
             .who-we-are-slider .slick-prev {
-              
                 right: 100px !important;
+            }
+            .who-we-are-slider .slick-prev:hover {
+                top: 87.3% !important;
             }
 
             .multi-slider-img img {

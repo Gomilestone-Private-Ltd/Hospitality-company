@@ -623,9 +623,12 @@
     } */
 
     .header-left img {
-        width: 129px;
+        width: 100px;
         height: auto;
-        width: auto;
+    }
+    .footer-logo {
+        width: 110px;
+        height: auto;
     }
 
     .input-box input {
@@ -655,8 +658,11 @@
 
     .facebook-icon {
         font-size: 17px;
-        height: 30px;
-        width: 30px;
+        height: 36px;
+        width: 36px;
+    }
+    .call-main-box {
+        padding-left: 10px !important;
     }
 
     .footer-menu li {
