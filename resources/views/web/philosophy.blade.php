@@ -35,14 +35,29 @@
             height: auto !important;
         }
 
-        .who-we-are-slider .slick-prev {
-            right: 120px !important;
-            left: auto;
-        }
+        /* .who-we-are-slider .slick-prev {
+                right: 120px !important;
+                left: auto;
+            } */
 
         .who-we-are-slider .slick-next {
             right: 36px !important;
             top: 88.8%;
+        }
+
+        .who-we-are-slider .slick-prev {
+            right: 120px !important;
+            left: auto;
+            z-index: 9;
+            background-image: url(http://127.0.0.1:8000/assets/web/image/left-arrow.png);
+            background-repeat: no-repeat;
+            background-position-x: left;
+            width: 36px;
+            height: 6px;
+        }
+        .slick-prev:hover, .slick-prev:focus{
+            transform: none !important;
+            top: 91.3% !important;
         }
 
         @media (max-width: 600px) {
@@ -57,8 +72,7 @@
             }
 
             .who-we-are-slider .slick-prev {
-                width: 41px;
-                height: 25px;
+              
                 right: 100px !important;
             }
 
@@ -87,10 +101,12 @@
             .prev {
                 right: 95px;
             }
-            .client-arro{
+
+            .client-arro {
                 bottom: -14px;
             }
-            .client-arro1{
+
+            .client-arro1 {
                 bottom: -19px;
             }
 

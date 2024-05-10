@@ -19,10 +19,10 @@
                         <h3>OUR PRODUCTS</h3>
                         <ul class="footer-menu">
                             <li>
-                                <a href="#">HOME</a>
+                                <a href="/">HOME</a>
                             </li>
                             <li>
-                                <a href="#">ABOUT</a>
+                                <a href="https://opine.gomilestone.com/philosophy">PHILOSOPHY</a>
                             </li>
                             <li>
                                 <a href="#">PRODUCTS</a>
@@ -31,7 +31,7 @@
                                 <a href="#">CLIENTS</a>
                             </li>
                             <li>
-                                <a href="#">CONTACT</a>
+                                <a href="https://opine.gomilestone.com/contact">CONTACT</a>
                             </li>
                         </ul>
                     </div>

@@ -126,22 +126,22 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                                     <div class="call-box1">
-                                                        <img src="{{ asset('assets/web/image/call-icon.png') }}"
+                                                        <img class="mess-icon" src="{{ asset('assets/web/image/call-icon.svg') }}"
                                                             alt="">
                                                         <div class="call-nu-box">
                                                             <a class="call-text-box" href="tel:+91 124 4222424"><img
-                                                                    src="{{ asset('assets/web/image/india-logo.png') }}"
+                                                                    src="{{ asset('assets/web/image/india-logo.svg') }}"
                                                                     alt="logo">
                                                                 +91 124 4222424 (INDIA)</a>
                                                             <a class="call-text-box" href="tel:+971 55 1532259"><img
-                                                                    src="{{ asset('assets/web/image/UAE-logo.png') }}"
+                                                                    src="{{ asset('assets/web/image/UAE-logo.svg') }}"
                                                                     alt="logo"> +971 55 1532259 (UAE)</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                                     <div class="call-box1">
-                                                        <img src="{{ asset('assets/web/image/message-icon.png') }}"
+                                                        <img class="mess-icon" src="{{ asset('assets/web/image/message-icon.svg') }}"
                                                             alt="">
                                                         <div>
                                                             <a
@@ -152,7 +152,7 @@
                                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                                     <div class="call-box1">
                                                         <img class="whatsapp-icon"
-                                                            src="{{ asset('assets/web/image/whatsApp-icon.png') }}"
+                                                            src="{{ asset('assets/web/image/whatsApp-icon.svg') }}"
                                                             alt="image">
                                                         <div>
                                                             <a href="mailto:opinelifestyles.india@gmail.com">Chat
@@ -361,7 +361,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="india-location-box location-mb">
-                                <img src="{{ asset('assets/web/image/india-img.png') }}" alt="img">
+                                <img src="{{ asset('assets/web/image/india-img.svg') }}" alt="img">
                                 <h4 class="india-name">INDIA NEW DELHI</h4>
                                 <p class="contact-no">+91 124 4222424</p>
                                 <p class="location-text">Plot No. 33 Sector 37 Pace City 1 Gurgaon, 122 001
@@ -376,7 +376,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="india-location-box">
-                                <img src="{{ asset('assets/web/image/UAE-img.png') }}" alt="img">
+                                <img src="{{ asset('assets/web/image/UAE-img.svg') }}" alt="img">
                                 <h4 class="india-name">UNITED ARAB EMIRATES DUBAI</h4>
                                 <p class="contact-no">+971 55 1532259</p>
                                 <p class="location-text">3808 Al Mazaya Tower BB2 Al Mazaya Business Avenue

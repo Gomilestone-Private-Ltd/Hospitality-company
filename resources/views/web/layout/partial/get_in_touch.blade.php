@@ -8,14 +8,14 @@
                         </div>
                         <div class="call-main-box">
                             <div class="call-box">
-                                <img src="{{asset('assets/web/image/call-icon.png')}}" alt="">
+                                <img src="{{asset('assets/web/image/call-icon.svg')}}" alt="">
                                 <div class="call-nu-box">
                                     <a href="tel:+91 124 4222424">+91 124 4222424 (INDIA)</a>
                                     <a href="tel:+971 55 1532259">+971 55 1532259 (UAE)</a>
                                 </div>
                             </div>
                             <div class="call-box">
-                                <img src="{{asset('assets/web/image/message-icon.png')}}" alt="">
+                                <img src="{{asset('assets/web/image/message-icon.svg')}}" alt="">
                                 <div>
                                     <a href="mailto:opinelifestyles.india@gmail.com">Opinelifestyles.India@Gmail.Com</a>
                                 </div>
