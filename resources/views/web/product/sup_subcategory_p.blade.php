@@ -56,7 +56,7 @@
                                         <div class="gallery__thumbs material-btn-box">
                                             @if (count($getProduct->gen_image))
                                                 <?php
-                                                if (count($getProduct->color_varient_images)) {
+                                                if (count($getProduct->color_varient_images) && count($getProduct->color)) {
                                                     $productImages = array_merge($getProduct->gen_image, $getProduct->color_varient_images);
                                                 } else {
                                                     $productImages = $getProduct->gen_image;
@@ -97,7 +97,7 @@
                                         @endif
 
 
-                                        @if (count($getProduct->color_varient))
+                                        @if (count($getProduct->color_varient) && count($getProduct->color))
                                             <div class="material-box">
                                                 <h4>COLOUR</h4>
                                                 <div class="material-btn-box">

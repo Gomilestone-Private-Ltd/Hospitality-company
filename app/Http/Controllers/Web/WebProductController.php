@@ -221,19 +221,31 @@ class WebProductController extends Controller
                     }
                 });
             }
-
+           
             if(isset($request->ideal)){
-
+                $idealId = $request->ideal;
+                // Search for rows where the ideal column contains any of the specified IDs
+                $getProducts = $getProducts->where(function ($query) use ($idealId) {
+                    foreach ($idealId as $id) {
+                        $query->orWhereJsonContains('ideal_for_id',$id);
+                    }
+                });
             }
 
             if(isset($request->area)){
-
+                $areaId = $request->area;
+                // Search for rows where the ideal column contains any of the specified IDs
+                $getProducts = $getProducts->where(function ($query) use ($areaId) {
+                    foreach ($areaId as $id) {
+                        $query->orWhereJsonContains('area_of_use_id',$id);
+                    }
+                });
             }
         
             //Sort the product
             if(isset($request->sort)){
                 if($request->sort == 'RECOMMENDED'){
-                    $getProducts = $getProducts->orderBy('name','asc');
+                    $getProducts = $getProducts->where('is_recommended',1);
                 }else if($request->sort == 'ASC'){
                     $getProducts = $getProducts->orderBy('name','asc');
                 }else if($request->sort == 'DESC'){

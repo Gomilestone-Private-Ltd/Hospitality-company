@@ -99,7 +99,7 @@
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Created At</label>
-                                <input id="text" type="text"  class="form-control form-control-user " value="{{ $contactUs->postal ??''}}" readonly>
+                                <input id="text" type="text"  class="form-control form-control-user " value="{{ $contactUs->created_at ??''}}" readonly>
                             </div>
                         </div>
 

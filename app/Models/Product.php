@@ -40,6 +40,10 @@ class Product extends Model
                           'size',
                           'size_id',
                           'size_varient',
+                          'area_of_use_id',
+                          'area_of_use',
+                          'ideal_for_id',
+                          'ideal_for',
                           'gen_price',
                           'gen_gst',
                           'gen_stock',
@@ -48,6 +52,7 @@ class Product extends Model
                           'tags',
                           'meta_tags',
                           'is_varient_available',
+                          'is_recommended',
                           'meta_url',
                           'added_by',    
                           'updated_by',
@@ -180,6 +185,42 @@ class Product extends Model
        * @return 
        */
       public function getSizeVarientAttribute($value){
+        return json_decode($value);
+      }
+      
+      /**
+       * @method Get Decode ideal User format
+       * @param
+       * @return 
+       */
+      public function getIdealForAttribute($value){
+        return json_decode($value);
+      }
+
+      /**
+       * @method Get Decode Area Of User format
+       * @param
+       * @return 
+       */
+      public function getAreaOfUseAttribute($value){
+        return json_decode($value);
+      }
+
+      /**
+       * @method Get Decode ideal User format
+       * @param
+       * @return 
+       */
+      public function getIdealForIdAttribute($value){
+        return json_decode($value);
+      }
+
+      /**
+       * @method Get Decode Area Of User format
+       * @param
+       * @return 
+       */
+      public function getAreaOfUseIdAttribute($value){
         return json_decode($value);
       }
 

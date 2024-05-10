@@ -228,7 +228,33 @@
                                 @endif
                             </div>
                         </div> -->
-                        
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label class="form-label-box"> Area Of Use</label>*</label>
+                                <select class="select2 " multiple="multiple" data-placeholder="Select a Area Of use" style="width: 100%;"  name="areaOfuse[]">
+                                    @foreach($areaOfUses as $areaOf)
+                                    <option value="{{$areaOf->id ??''}}" {{ (collect(old('areaOfuse'))->contains($areaOf->id)) ? 'selected':'' }}>{{$areaOf->area_of_use ??''}}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('areaOfuse'))
+                                    <p class="text-danger">{{$errors->first('areaOfuse')}}</p>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label class="form-label-box">Ideal For*</label>
+                                <select class="select2 " multiple="multiple" data-placeholder="Select a Ideal for" style="width: 100%;"  name="idealfor[]">
+                                    @foreach($idealFor as $ideal)
+                                    <option value="{{$ideal->id ??''}}" {{ (collect(old('idealfor'))->contains($ideal->id)) ? 'selected':'' }}>{{$ideal->ideal_for ??''}}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('idealfor'))
+                                    <p class="text-danger">{{$errors->first('idealfor')}}</p>
+                                @endif
+                            </div>
+                        </div>
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Description*</label>
@@ -240,7 +266,15 @@
                                 
                             </div>
                         </div>
-                        
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group Recommended-check">
+                                <input id="Unit" type="checkbox" placeholder="Recommended" class="form-control-user checkbox" name="recommended" style="width:20px">
+                                <label class="form-label-box">Recommended</label>
+                                @if($errors->has('recommended'))
+                                    <p class="text-danger">{{$errors->first('recommended')}}</p>
+                                @endif
+                            </div>
+                        </div>
         
 
                         <div class="col-md-12 text-right">

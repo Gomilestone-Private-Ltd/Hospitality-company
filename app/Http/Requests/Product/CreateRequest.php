@@ -34,8 +34,11 @@ class CreateRequest extends FormRequest
                 'moq'              => "required|numeric|gt:0",
                 'product_img'      => "required|array",
                 //'product_img.*'  => "required|array",
-                'material'         => 'required|array'
+                'material'         => 'required|array',
+                'idealfor'         => 'required|array',
+                'areaOfuse'        => 'required|array'
         ];
+        
     }
     
     
@@ -58,7 +61,7 @@ class CreateRequest extends FormRequest
               'specification.max'          => "Size can not be greater then 5 mb",
               'specification.mimes'        => "Specification must be in PDF only",
               'general_price.required'     => "This field is required",
-              //'general_price.max'          => "Size type can not be greater then 10 char",
+              //'general_price.max'        => "Size type can not be greater then 10 char",
               'general_gst.required'       => "This field is required",
               'general_gst.max'            => "Gst can not be greater then 100",
               'moq.required'               => "This field is required",
@@ -66,6 +69,8 @@ class CreateRequest extends FormRequest
               'genImage.required'          => "This field is required",
               'genImage.max'               => "Size type can not be greater then 10 char",
               'material.required'          => "This field is required",
+              'idealfor.required'          => "This field is required",
+              'areaOfuse.required'         => "This field is required",
              // 'product_img.required'     => "This field is required",
               //'product_img.mimes'        => "Size type can not be greater then 10 char",
         ];

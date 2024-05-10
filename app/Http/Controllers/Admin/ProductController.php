@@ -12,6 +12,8 @@ use App\Models\Color;
 use App\Models\Product;
 use App\Models\Material;
 use App\Models\Category;
+use App\Models\AreaOfUse;
+use App\Models\IdealFor;
 use App\Models\VarientType;
 use App\Models\VarientValue;
 use App\Http\Controllers\Controller;
@@ -36,6 +38,12 @@ class ProductController extends Controller
     #Bind Model Material
     protected $material;
 
+    #Bind Model AreaOfUse
+    protected $areaOfUse;
+    
+    #Bind Model IdealFor
+    protected $idealFor;
+
     #Bind Model Category
     protected $category;
 
@@ -44,13 +52,15 @@ class ProductController extends Controller
      * @param
      * @return
      */
-    public function __construct(Product $product,Category $category,Material $material, Color $color,Size $size)
+    public function __construct(Product $product,Category $category,Material $material, Color $color,Size $size,IdealFor $idealFor,AreaOfUse $areaOfUse)
     {
         $this->size          = $size;
         $this->color         = $color;
         $this->product       = $product;
         $this->material      = $material;
         $this->category      = $category;
+        $this->areaOfUse     = $areaOfUse;
+        $this->idealFor      = $idealFor;
     }
 
     /**
@@ -89,15 +99,20 @@ class ProductController extends Controller
     public function create()
     {
         try{
-            $getColors = $this->color->where('status',1)->get();
-            $getSize = $this->size->where('status',1)->get();
+            $getColors  = $this->color->where('status',1)->get();
+            $getSize    = $this->size->where('status',1)->get();
             $categories = $this->category->where('status',1)->get();
-            $materials = $this->material->where('status',1)->get();
+            $materials  = $this->material->where('status',1)->get();
+            $idealFor   = $this->idealFor->where('status',1)->get();
+            $areaOfUse  = $this->areaOfUse->where('status',1)->get();
+            
             return view($this->view.'.create')->with([
                                                       'categories'   => $categories,
                                                       'getColors'    => $getColors,
                                                       'getSizes'     => $getSize,
-                                                      'materials'    => $materials
+                                                      'materials'    => $materials,
+                                                      'areaOfUses'   => $areaOfUse,
+                                                      'idealFor'     => $idealFor
                                                     ]);
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("Create product requested by ".Masked::getUserName());
@@ -115,8 +130,7 @@ class ProductController extends Controller
     public function store(CreateRequest $request)
     {
         try{
-
-            //Create Product First
+            //Create Product First 
             $productDetail = [
                               'slug'                => Slug::largeSlug() ??'',
                               'name'                => $request->product_name ??'',
@@ -130,6 +144,7 @@ class ProductController extends Controller
                               'gen_price'           => $request->general_price ??'',
                               'gen_gst'             => $request->general_gst ??'',
                               'meta_url'            => $request->product_name ??'',
+                              'is_recommended'      =>($request->recommended != null && !empty($request->recommended)) ? 1 : 0,
                               'added_by'            => Masked::getUserId() ??'',
                               ];
             $getProductDetail = $this->product->create($productDetail);
@@ -138,13 +153,41 @@ class ProductController extends Controller
             $materialIdDetail = [];
             $materialDetail   = [];
             if($request->material != null ){
-                $materialDetail = [];
+                //$materialDetail = [];
                 foreach($request->material as $key=>$material){
                     $getMaterial = $this->material->where(['id'=>$material,'status'=>1])->first();
                     $materialIdDetail[] = $material;
                     $materialDetail[] = [
                                           'id'       => $material,
                                           'material' => $getMaterial->name,
+                                        ];
+                }  
+            }
+
+            //Get area Of Use details only in array
+            $areaOfUseIdDetail = [];
+            $areaOfUseDetail   = [];
+            if($request->areaOfuse != null ){
+                foreach($request->areaOfuse as $key=>$areaOfuse){
+                    $getAreaOfuse = $this->areaOfUse->where(['id'=>$areaOfuse,'status'=>1])->first();
+                    $areaOfUseIdDetail[] = $areaOfuse;
+                    $areaOfUseDetail[] = [
+                                          'id'          => $areaOfuse,
+                                          'area_of_use' => $getAreaOfuse->area_of_use,
+                                        ];
+                }  
+            }
+
+            //Get area Of Use details only in array
+            $idealForIdDetail = [];
+            $idealForDetail   = [];
+            if($request->idealfor != null ){
+                foreach($request->idealfor as $key=>$idealfor){
+                    $getIdealFor = $this->idealFor->where(['id'=>$idealfor,'status'=>1])->first();
+                    $idealForIdDetail[] = $idealfor;
+                    $idealForDetail[] = [   
+                                          'id'          => $idealfor,
+                                          'ideal_for'   => $getIdealFor->ideal_for,
                                         ];
                 }  
             }
@@ -233,7 +276,6 @@ class ProductController extends Controller
                 $specification = Picture::uploadToS3('/product/'.$getProductDetail->id.'/specification',$request->specification);
             }
             
-            
             $updateProductDetail = [
                                      'gen_image'           => json_encode($genImage) ??'',
                                      'color'               => json_encode($colorDetail) ??'',
@@ -245,6 +287,10 @@ class ProductController extends Controller
                                      'material_id'         => json_encode($materialIdDetail) ??'',
                                      'size_id'             => json_encode($sizeIdDetail) ??'',
                                      'size'                => json_encode($sizeDetail) ??'',
+                                     'ideal_for_id'        => json_encode($idealForIdDetail) ??'',
+                                     'ideal_for'           => json_encode($idealForDetail) ??'',
+                                     'area_of_use_id'      => json_encode($areaOfUseIdDetail) ??'',
+                                     'area_of_use'         => json_encode($areaOfUseDetail) ??'',
                                      'size_varient'        => json_encode($sizeVarientDetail) ??'',
                                     ];
             $this->product->whereId($getProductDetail->id)->update($updateProductDetail);
@@ -268,13 +314,17 @@ class ProductController extends Controller
             $getSize = $this->size->where('status',1)->get();
             $categories = $this->category->where('status',1)->get();
             $materials = $this->material->where('status',1)->get();
+            $idealFor   = $this->idealFor->where('status',1)->get();
+            $areaOfUse  = $this->areaOfUse->where('status',1)->get();
 
             return view($this->view.'.edit')->with([
-                                                    'getProduct'  => $getProduct,
+                                                    'getProduct'   => $getProduct,
                                                     'categories'   => $categories,
                                                     'getColors'    => $getColors,
                                                     'getSizes'     => $getSize,
-                                                    'materials'    => $materials
+                                                    'materials'    => $materials,
+                                                    'areaOfUses'   => $areaOfUse,
+                                                    'idealFor'     => $idealFor
                                                    ]);
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("Edit product requested by ".Masked::getUserName().' having Error '.$e->getMessage());
@@ -310,6 +360,40 @@ class ProductController extends Controller
                 $materialDetail   = $getProductDetail->material;
             }
             
+            //Get area Of Use details only in array
+            $areaOfUseIdDetail = [];
+            $areaOfUseDetail   = [];
+            if($request->areaOfuse != null ){
+                foreach($request->areaOfuse as $key=>$areaOfuse){
+                    $getAreaOfuse = $this->areaOfUse->where(['id'=>$areaOfuse,'status'=>1])->first();
+                    $areaOfUseIdDetail[] = $areaOfuse;
+                    $areaOfUseDetail[] = [
+                                          'id'          => $areaOfuse,
+                                          'area_of_use' => $getAreaOfuse->area_of_use,
+                                        ];
+                }  
+            }else{
+                $areaOfUseIdDetail = $getProductDetail->area_of_use_id;
+                $areaOfUseDetail   = $getProductDetail->area_of_use;
+            }
+
+            //Get area Of Use details only in array
+            $idealForIdDetail = [];
+            $idealForDetail   = [];
+            if($request->idealfor != null ){
+                foreach($request->idealfor as $key=>$idealfor){
+                    $getIdealFor = $this->idealFor->where(['id'=>$idealfor,'status'=>1])->first();
+                    $idealForIdDetail[] = $idealfor;
+                    $idealForDetail[] = [   
+                                          'id'          => $idealfor,
+                                          'ideal_for'   => $getIdealFor->ideal_for,
+                                        ];
+                }  
+            }else{
+                $idealForIdDetail = $getProductDetail->ideal_for_id;
+                $idealForDetail   = $getProductDetail->ideal_for;
+            }
+
             //Get color details only in array
             $colorIdDetail =[];
             $colorDetail =[];
@@ -435,28 +519,33 @@ class ProductController extends Controller
             }
 
         $updateProductDetail = [
-                                 'name'                => $request->product_name ??'',
-                                 'description'         => $request->description ??'',
-                                 'is_varient_available'=> 1 ??'',
-                                 'category_id'         => $request->category ??'',
-                                 'subCategory_id'      => $request->subcategory ??'',
-                                 'sup_subCategory_id'  => $request->supersubcategory ??'',
-                                 'hsn_code'            => $request->hsn_code ??'',
-                                 'moq'                 => $request->moq ??'',
-                                 'gen_price'           => $request->general_price ??'',
-                                 'gen_gst'             => $request->general_gst ??'',
-                                 'meta_url'            => $request->product_name ??'',
-                                 'gen_image'           => json_encode($genImage) ??'',
-                                 'color'               => json_encode($colorDetail) ??'',
-                                 'color_id'            => json_encode($colorIdDetail) ??'',
-                                 'color_varient'       => json_encode($colorVarientDetail) ??'',
-                                 'color_varient_images'=> json_encode($allImageDetail) ??'',
-                                 'specification'       => $specification ??'',
-                                 'material'            => json_encode($materialDetail) ??'',
-                                 'material_id'         => json_encode($materialIdDetail) ??'',
-                                 'size_id'             => json_encode($sizeIdDetail) ??'',
-                                 'size'                => json_encode($sizeDetail) ??'',
-                                 'size_varient'        => json_encode($sizeVarientDetail) ??'',
+                                'name'                => $request->product_name ??'',
+                                'description'         => $request->description ??'',
+                                'is_varient_available'=> 1 ??'',
+                                'category_id'         => $request->category ??'',
+                                'subCategory_id'      => $request->subcategory ??'',
+                                'sup_subCategory_id'  => $request->supersubcategory ??'',
+                                'hsn_code'            => $request->hsn_code ??'',
+                                'moq'                 => $request->moq ??'',
+                                'gen_price'           => $request->general_price ??'',
+                                'gen_gst'             => $request->general_gst ??'',
+                                'meta_url'            => $request->product_name ??'',
+                                'gen_image'           => json_encode($genImage) ??'',
+                                'color'               => json_encode($colorDetail) ??'',
+                                'color_id'            => json_encode($colorIdDetail) ??'',
+                                'color_varient'       => json_encode($colorVarientDetail) ??'',
+                                'color_varient_images'=> json_encode($allImageDetail) ??'',
+                                'specification'       => $specification ??'',
+                                'material'            => json_encode($materialDetail) ??'',
+                                'material_id'         => json_encode($materialIdDetail) ??'',
+                                'size_id'             => json_encode($sizeIdDetail) ??'',
+                                'size'                => json_encode($sizeDetail) ??'',
+                                'ideal_for_id'        => json_encode($idealForIdDetail) ??'',
+                                'ideal_for'           => json_encode($idealForDetail) ??'',
+                                'area_of_use_id'      => json_encode($areaOfUseIdDetail) ??'',
+                                'area_of_use'         => json_encode($areaOfUseDetail) ??'',
+                                'size_varient'        => json_encode($sizeVarientDetail) ??'',
+                                'is_recommended'      =>($request->recommended != null && !empty($request->recommended)) ? 1 : 0,
                                 ];
         
         $this->product->whereId($getProductDetail->id)->update($updateProductDetail);

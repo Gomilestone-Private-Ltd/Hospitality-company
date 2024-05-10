@@ -34,10 +34,14 @@ return new class extends Migration
             $table->json('size')->nullable()->index();
             $table->json('size_id')->nullable()->index();
             $table->json('size_varient')->nullable()->index();
+            $table->json('area_of_use_id')->nullable()->index();
+            $table->json('area_of_use')->nullable()->index();
+            $table->json('ideal_for_id')->nullable()->index();
+            $table->json('ideal_for')->nullable()->index();
             $table->bigInteger('gen_price')->nullable()->index();
             $table->integer('gen_gst')->nullable()->index();
             $table->integer('gen_stock')->nullable()->index();
-            
+            $table->boolean('is_recommended')->default(0)->comment('1 for yes and 0 for no')->index();
             $table->string('make_in')->nullable()->index();
             $table->boolean('status')->default(1)->comment('1 for Active and 0 for Blocked')->index();
             $table->json('tags')->nullable()->index();

@@ -33,7 +33,9 @@ class EditRequest extends FormRequest
                 'general_gst'      => "required|numeric|gt:0|max:100",
                 'moq'              => "required|numeric|gt:0",
                 //'product_img'      => "required|array",
-                'material'         => 'required|array'
+                'material'         => 'required|array',
+                'idealfor'         => 'required|array',
+                'areaOfuse'        => 'required|array'
                ];
     }
     
@@ -64,6 +66,8 @@ class EditRequest extends FormRequest
               'genImage.required'          => "This field is required",
               'genImage.max'               => "Size type can not be greater then 10 char",
               'material.required'          => "This field is required",
+              'idealfor.required'          => "This field is required",
+              'areaOfuse.required'         => "This field is required",
         ];
     }
 }
