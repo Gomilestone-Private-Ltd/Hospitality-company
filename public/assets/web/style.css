@@ -1875,6 +1875,11 @@ a.call-text-box img {
     margin-bottom: 12px;
 }
 
+.ruby-grid.ruby-grid-lined.Collection {
+    overflow-y: scroll;
+    height: 513px;
+}
+
 .our-product-text {
     color: #222222E5;
     font-size: 18px;

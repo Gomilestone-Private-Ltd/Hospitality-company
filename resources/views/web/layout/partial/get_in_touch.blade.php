@@ -31,13 +31,13 @@
                         <form id="GetIntouchForm" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-sm-6">
                                     <div class="input-box footer-input-form">
                                         <input type="name" name="name" id="name" placeholder="Name" >
                                         <p class="text-danger name"></p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-sm-6">
                                     <div class="input-box footer-input-form">
                                         <input type="email" name="email" id="email" placeholder="Email Address" >
                                         <p class="text-danger email"></p>

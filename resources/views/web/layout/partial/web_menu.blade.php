@@ -16,10 +16,10 @@
                                         <a class="menu-sub-drop"> {{$category->name ??''}}</a>
                                         <div class="ruby-grid ruby-grid-lined ProductsBy">
                                             <div class="row">
-                                                <div class="col-md-9">
+                                                <div class="col-md-9 col-sm-8">
                                                     <div class="row">
                                                     @foreach($category->getSubCategory as $subcategory)
-                                                        <div class="col-md-3">
+                                                        <div class="col-lg-3 col-md-4 col-sm-6">
                                                            <a href="{{url('/category')}}/{{$subcategory->meta_url ??""}}/{{$subcategory->slug ??""}}"> <h3 class="ruby-list-heading">{{$subcategory->name ??""}}
                                                             </h3></a>
                                                             <ul>
@@ -31,7 +31,7 @@
                                                     @endforeach    
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3 col-sm-4">
                                                     <div class="menu-right-img">
                                                         <img src="{{asset($category->image ??'assets/web/image/menu-img.jpg')}}" alt="">
                                                     </div>
@@ -42,10 +42,10 @@
                                         <a class="menu-sub-drop"> {{$category->name ??''}}</a>
                                         <div class="ruby-grid ruby-grid-lined Collection">
                                             <div class="row">
-                                                <div class="col-md-9">
+                                                <div class="col-md-9 col-sm-8">
                                                     <div class="row">
                                                     @foreach($category->getSubCategory as $subcategory)
-                                                        <div class="col-md-3">
+                                                        <div class="col-lg-3 col-md-4 col-sm-6">
                                                             <a href="{{url('/category')}}/{{$subcategory->meta_url ??""}}/{{$subcategory->slug ??""}}"><h3 class="ruby-list-heading">{{$subcategory->name ??''}} </h3></a>
                                                             <ul>
                                                                 @foreach($subcategory->getSuperSubCategory as $superSubCategory)
@@ -56,7 +56,7 @@
                                                     @endforeach    
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3 col-sm-4">
                                                     <div class="menu-right-img">
                                                         <img src="{{asset($category->image ??'assets/web/image/menu-img.jpg')}}" alt="">
                                                     </div>
