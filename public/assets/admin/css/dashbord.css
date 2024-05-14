@@ -620,3 +620,33 @@ a.backBtn-icon {
 a.backBtn-icon img {
     height: 36px;
 }
+
+.multi-color-img-box{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.select_img{
+    position: relative;
+    margin-bottom: 30px;
+    margin-right: 25px;
+}
+
+.select_img img{
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+ .cancle-img{
+    height: 28px !important;
+    width: 28px !important;
+    position: absolute;
+    top: -9px;
+    right: -8px;
+    background-color: #fff;
+    border-radius: 50% !important; 
+    cursor: pointer;
+}

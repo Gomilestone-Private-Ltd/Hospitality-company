@@ -49,7 +49,7 @@
             right: 120px !important;
             left: auto;
             z-index: 9;
-            background-image: url(http://127.0.0.1:8000/assets/web/image/left-arrow.png);
+            background-image: url({{ asset('assets/web/image/left-arrow.png') }});
             background-repeat: no-repeat;
             background-position-x: left;
             width: 36px;

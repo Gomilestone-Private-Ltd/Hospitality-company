@@ -135,7 +135,15 @@
                                     </tbody>
                                 </table>
                         </div>
-                        
+                        <div class="col-md-12">
+                            <div class="multi-color-img-box">
+                                <div class="select_img">
+                                    <img src="{{asset('assets/admin/img/login3.png')}}" alt="image">
+                                    <img class="cancle-img" src="{{asset('assets/admin/img/delete.png')}}" alt="image">
+                                </div>
+                            </div>
+                        </div>
+                       
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Specification*<sub>(Pdf only)</sub></label>
