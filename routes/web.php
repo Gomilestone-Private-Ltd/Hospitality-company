@@ -23,7 +23,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\IdealForController;
 use App\Http\Controllers\Admin\MaterialController;
 use App\Http\Controllers\Admin\SizeController;
-
+use App\Http\Controllers\Admin\OrderController;
 
 
 /*
@@ -96,6 +96,12 @@ Route::group(['middleware'=>'admin'],function(){
     Route::post('/update-product/{slug}',[ProductController::class,'update'])->name('update.product');
     Route::post('/product-status',[ProductController::class,'status'])->name('product.status');
 
+    //Delete product image 
+    Route::post('/delete-product-image',[ProductController::class,'deleteProductImage'])->name('delete.product.image');
+    
+    //Delete product image 
+    Route::post('/delete-product-image',[ProductController::class,'deleteProductImage'])->name('delete.product.image');
+    
     /******************************************Varient Type Routes*********************************** */
     Route::get('/add-varient-type',[VarientController::class,'create'])->name('add.varient.type');
     Route::post('/add-varient-type',[VarientController::class,'create'])->name('add.varient.type');
@@ -200,6 +206,14 @@ Route::group(['middleware'=>'admin'],function(){
     Route::post('/update-size/{slug}',[SizeController::class,'update'])->name('update.size');
     Route::post('/delete-size',[SizeController::class,'delete'])->name('delete.size');
     Route::post('/size-status',[SizeController::class,'status'])->name('size.status');
+
+    /******************************************Order Routes*********************************** */
+    Route::get('/orders',[OrderController::class,'index'])->name('orders');
+    Route::get('/order-detail/{slug}',[OrderController::class,'orderDetail'])->name('order.detail');
+    Route::get('/order-proforma-invoice/{slug}',[OrderController::class,'orderProformaInvoice'])->name('order.proforma.invoice');
+    
+    Route::get('/images',[OrderController::class,'images'])->name('images');
+    Route::post('/images-post',[OrderController::class,'imagesPost'])->name('images.post');
 
     /******************************************Contact Us Routes*********************************** */
     Route::get('/contact-us',[ContactUsController::class,'index'])->name('contact.us');

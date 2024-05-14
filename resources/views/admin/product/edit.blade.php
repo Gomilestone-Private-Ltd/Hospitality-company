@@ -86,8 +86,19 @@
                                        @if($errors->has('product_img'))
                                        <p class="text-danger">{{$errors->first('product_img')}}</p>
                                        @endif
-                                </div>   
+                                </div> 
+                                 
                             </div>
+                            @if(count($getProduct->color_varient_images))
+                               <div class="main_gen_image">
+                                @foreach($getProduct->gen_image as $key=>$varient_images)
+                                <div class="varientImages" imageKey="{{$key}}" >
+                                        <img src="{{$varient_images}}" height="50px" width="50px">
+                                        <img class="cancle_icon" src="{{asset('/assets/admin/img/remove.png')}}" onclick="DeleteVarientImage('{{$getProduct->slug}}',{{$key}},'{{$varient_images}}','delete-product-image')">
+                                </div>
+                                @endforeach
+                                </div>
+                            @endif 
                         </div>
                         
                         <div class="col-md-3 col-sm-6 col-12">
@@ -125,10 +136,11 @@
                                     </thead>
                                     <tbody class="tableBody">
                                         @if(count($getProduct->color_id))
-                                            @foreach($getProduct->color as $color)
+                                            @foreach($getProduct->color as $key=>$color)
                                                 <tr class="{{$color->color_name}}{{$color->id}}">
                                                     <td><input type="text" value="{{$color->color_name}}" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td>
                                                     <td><input type="file" class="form-control form-control-user" name="varient_image[{{$color->color_name}}][]" multiple="multiple" accept=".png, .jpg, .jpeg" ></td>
+                                                    
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -327,6 +339,7 @@
 $(document).ready(function(){
     
     var countSelectedColor = "{{count($getProduct->color_id)}}"; 
+    
     if(countSelectedColor >0){
         $('.colorTable').show();
     }else{
@@ -347,6 +360,7 @@ $(document).ready(function(){
             var getType = $(this).text();
             //Get  the selected option id
             var getTypeId = $(this).val();
+
             var html = '<tr class="'+getType+''+getTypeId+'"><td><input type="text" value="'+getType+'" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td><td><input type="file" class="form-control form-control-user" name="varient_image['+getType+'][]" multiple="multiple" accept=".png, .jpg, .jpeg" required></td></tr>';
             $('.tableBody').append(html); 
         });
@@ -449,8 +463,6 @@ $(document).ready(function(){
         });
     });
 </script>
-
-<!-- <script src="{{asset('assets/admin/js/admin/product_varient_type.js')}}"></script> -->
-<!-- <script src="{{asset('assets/admin/js/admin/product_varient_value.js')}}"></script>  -->
+<script src="{{asset('assets/admin/js/admin/delete_product_images.js')}}"></script>
 
 @endsection

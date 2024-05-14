@@ -93,10 +93,10 @@ class Picture{
      */
     public static function removeFileFromS3($path)
     {
-        return Storage::disk('s3')->delete($path);
+        //Truncate path https://opines3.s3.ap-south-1.amazonaws.com from image path length 43;
+        return Storage::disk('s3')->delete(substr($path,43));
     }
     
-
 }
 
 ?>
