@@ -87,39 +87,44 @@
                                 </div>
                             </div>
 
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="form-group">
-                            <label class="form-label-box">Product Image*</label>
-                                <div class="fallback">
-                                    <input name="product_img[]" type="file"  multiple="multiple" accept=".png, .jpg, .jpeg"/>
-                                       @if($errors->has('product_img'))
-                                       <p class="text-danger">{{$errors->first('product_img')}}</p>
-                                       @endif
-                                </div> 
-                                 
-                            </div>
-                            @if(count($getProduct->color_varient_images))
-                               <div class="main_gen_image">
-                                @foreach($getProduct->gen_image as $key=>$varient_images)
-                                <div class="varientImages" imageKey="{{$key}}" >
-                                        <img src="{{$varient_images}}" height="50px" width="50px">
-                                        <img class="cancle_icon" src="{{asset('/assets/admin/img/remove.png')}}" onclick="DeleteProductImage('{{$getProduct->slug}}',{{$key}},'{{$varient_images}}','delete-product-image')">
+                            <div class="col-md-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label class="form-label-box">Product Image*</label>
+                                    <div class="fallback">
+                                        <input name="product_img[]" type="file" multiple="multiple"
+                                            accept=".png, .jpg, .jpeg" />
+                                        @if ($errors->has('product_img'))
+                                            <p class="text-danger">{{ $errors->first('product_img') }}</p>
+                                        @endif
+                                    </div>
+
                                 </div>
-                                @endforeach
-                                </div>
-                            @endif 
-                        </div>
-                        
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label class="form-label-box">HSN Code*</label>
-                                <input id="Unit" type="text" placeholder="HSN Code" class="form-control form-control-user " name="hsn_code" value="{{$getProduct->hsn_code ??''}}">
-                                @if($errors->has('hsn_code'))
-                                <p class="text-danger">{{$errors->first('hsn_code')}}</p>
+                                @if (count($getProduct->color_varient_images))
+                                    <div class="main_gen_image">
+                                        @foreach ($getProduct->gen_image as $key => $varient_images)
+                                            <div class="varientImages" imageKey="{{ $key }}">
+                                                
+                                                <img class="product-select-img" src="{{ $varient_images }}">
+                                                <img class="cancle_icon" src="{{ asset('/assets/admin/img/remove.png') }}"
+                                                    onclick="DeleteVarientImage('{{ $getProduct->slug }}',{{ $key }},'{{ $varient_images }}','delete-product-image')">
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 @endif
                             </div>
-                        </div>
-                        
+
+                            <div class="col-md-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label class="form-label-box">HSN Code*</label>
+                                    <input id="Unit" type="text" placeholder="HSN Code"
+                                        class="form-control form-control-user " name="hsn_code"
+                                        value="{{ $getProduct->hsn_code ?? '' }}">
+                                    @if ($errors->has('hsn_code'))
+                                        <p class="text-danger">{{ $errors->first('hsn_code') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
 
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="form-group">
