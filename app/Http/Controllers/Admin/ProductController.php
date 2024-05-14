@@ -638,7 +638,7 @@ class ProductController extends Controller
                                             ]);
                 }
                 return response()->json([
-                                        'status'   => 200,
+                                        'status'   => 300,
                                         'error'    => $msg
                                         ]);
             }

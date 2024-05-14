@@ -1,4 +1,4 @@
-function DeleteVarientImage(productSlug,key,path,url){
+function DeleteProductImage(productSlug,key,path,url){
     swal({
             title: 'Are you sure want to Delete ?',
             text: '',
@@ -14,9 +14,9 @@ function DeleteVarientImage(productSlug,key,path,url){
             }).then((e) => {
                 if (e.value === true) {
                     $.ajax({
-                            url: base_url+'/'+url,
-                            method:'post',
-                            dataType:'json',
+                            url      : base_url+'/'+url,
+                            method   :'post',
+                            dataType :'json',
                             data:{
                                     '_token':csrf_token,
                                     'slug'  :productSlug,
@@ -25,10 +25,10 @@ function DeleteVarientImage(productSlug,key,path,url){
                             },
                             success:function(response){
                                 toastr.options = {
-                                    "closeButton": true,
-                                    "progressBar": true,
-                                    "extendedTimeOut": 800
-                                }
+                                                   "closeButton": true,
+                                                   "progressBar": true,
+                                                   "extendedTimeOut": 800
+                                                 }
                                 if(response.status == 200){
                                     toastr.success(response.success);
                                     setTimeout(function(){

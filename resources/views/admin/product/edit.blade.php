@@ -94,7 +94,7 @@
                                 @foreach($getProduct->gen_image as $key=>$varient_images)
                                 <div class="varientImages" imageKey="{{$key}}" >
                                         <img src="{{$varient_images}}" height="50px" width="50px">
-                                        <img class="cancle_icon" src="{{asset('/assets/admin/img/remove.png')}}" onclick="DeleteVarientImage('{{$getProduct->slug}}',{{$key}},'{{$varient_images}}','delete-product-image')">
+                                        <img class="cancle_icon" src="{{asset('/assets/admin/img/remove.png')}}" onclick="DeleteProductImage('{{$getProduct->slug}}',{{$key}},'{{$varient_images}}','delete-product-image')">
                                 </div>
                                 @endforeach
                                 </div>
@@ -151,7 +151,7 @@
                             <div class="multi-color-img-box">
                                 <div class="select_img">
                                     <img src="{{asset('assets/admin/img/login3.png')}}" alt="image">
-                                    <img class="cancle-img" src="{{asset('assets/admin/img/delete.png')}}" alt="image">
+                                    <img class="cancle-img" src="{{asset('assets/admin/img/delete.png')}}" alt="image" onclick="DeleteProductVarientImage()">
                                 </div>
                             </div>
                         </div>
@@ -464,5 +464,5 @@ $(document).ready(function(){
     });
 </script>
 <script src="{{asset('assets/admin/js/admin/delete_product_images.js')}}"></script>
-
+<script src="{{asset('assets/admin/js/admin/delete_product_varient_images.js')}}"></script>
 @endsection
