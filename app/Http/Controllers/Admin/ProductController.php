@@ -310,22 +310,27 @@ class ProductController extends Controller
     {
         try{
             $getProduct = $this->product->whereSlug($slug)->first();
-            $getColors = $this->color->where('status',1)->get();
-            $getSize = $this->size->where('status',1)->get();
-            $categories = $this->category->where('status',1)->get();
-            $materials = $this->material->where('status',1)->get();
-            $idealFor   = $this->idealFor->where('status',1)->get();
-            $areaOfUse  = $this->areaOfUse->where('status',1)->get();
+            if(empty($getProduct)){
+                return redirect()->back()->with(['error' => "Unauthorized Access"]);
+            }else{
+                $getColors = $this->color->where('status',1)->get();
+                $getSize = $this->size->where('status',1)->get();
+                $categories = $this->category->where('status',1)->get();
+                $materials = $this->material->where('status',1)->get();
+                $idealFor   = $this->idealFor->where('status',1)->get();
+                $areaOfUse  = $this->areaOfUse->where('status',1)->get();
 
-            return view($this->view.'.edit')->with([
-                                                    'getProduct'   => $getProduct,
-                                                    'categories'   => $categories,
-                                                    'getColors'    => $getColors,
-                                                    'getSizes'     => $getSize,
-                                                    'materials'    => $materials,
-                                                    'areaOfUses'   => $areaOfUse,
-                                                    'idealFor'     => $idealFor
-                                                   ]);
+                return view($this->view.'.edit')->with([
+                                                        'getProduct'   => $getProduct,
+                                                        'categories'   => $categories,
+                                                        'getColors'    => $getColors,
+                                                        'getSizes'     => $getSize,
+                                                        'materials'    => $materials,
+                                                        'areaOfUses'   => $areaOfUse,
+                                                        'idealFor'     => $idealFor
+                                                    ]);
+            }
+            
         }catch(\Exception $e){
             CreateAppLog::getErrorLog("Edit product requested by ".Masked::getUserName().' having Error '.$e->getMessage());
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -453,7 +458,7 @@ class ProductController extends Controller
                 }
  
                 if(count($allImageDetail)){
-                    $allImageDetail = array_merge($getProductDetail->color_varient_images,$allImageDetail);
+                    $allImageDetail = array_merge($allImageDetail,$getProductDetail->color_varient_images);
                 }else{
                     $allImageDetail = $getProductDetail->color_varient_images;
                 }
@@ -493,7 +498,7 @@ class ProductController extends Controller
                                                 'size'   => $getSize->size,
                                                 'type'   => $getSize->type,
                                                 'price'  => (!empty($request->price[$key])) ? $request->price[$key]: null,
-                                                'gst'    => (!empty($request->price[$key])) ? $request->price[$key]: null,
+                                                'gst'    => (!empty($request->gst[$key])) ? $request->gst[$key]: null,
                                            ];
                 } 
             }else{
@@ -506,7 +511,7 @@ class ProductController extends Controller
                     $genImagePath = Picture::uploadToS3('/product/'.$getProductDetail->id,$product_img);
                     $genImage[] = $genImagePath;
                 }
-                $genImage = array_merge($getProductDetail->gen_image,$genImage);
+                $genImage = array_merge($genImage,$getProductDetail->gen_image);
             }else{
                 $genImage = $getProductDetail->gen_image;
             }
@@ -597,4 +602,102 @@ class ProductController extends Controller
                                     ]);
         }
     }
+
+    
+
+    /**
+     * @method Delete General Image 
+     * @param 
+     * @return delete response
+     */
+    public function deleteProductImage(Request $request)
+    {
+        try{
+
+            $getProduct = $this->product->whereSlug($request->slug)->first();
+            if(empty($getProduct)){
+                return response()->json([
+                                            'status'   => 300,
+                                            'error'  => "No Product Found !!"
+                                        ]);
+            }else{
+                
+                $msg = "Can't delete all images !!";
+                if(in_array($request->path,$getProduct->gen_image) && count($getProduct->gen_image) >1){
+                    $getPosition = array_search($request->path,$getProduct->gen_image);
+                    $arrayDtaa = $getProduct->gen_image;
+                    //Remove element from array
+                    array_splice($arrayDtaa,$getPosition,1);
+                    Picture::removeFileFromS3($request->path);
+                    //Update product Details
+                    $getProduct->update(['gen_image'=>json_encode($arrayDtaa)]);
+                    $msg = "Image Deleted Successfully !!";
+                    return response()->json([
+                                                'status'   => 200,
+                                                'success'  => $msg
+                                            ]);
+                }
+                return response()->json([
+                                        'status'   => 200,
+                                        'error'    => $msg
+                                        ]);
+            }
+
+        }catch(\Exception $e){
+            CreateAppLog::getErrorLog("Delete color requested by ".Masked::getUserName());
+            return response()->json([
+                                     'status' => 300,
+                                     'error'  => $e->getMessage()
+                                    ]);
+        }
+    }
+
+    /**
+     * @method Delete Varient Image 
+     * @param 
+     * @return delete response
+     */
+    public function deleteProductVarientImage(Request $request)
+    {
+        try{
+            $getProduct = $this->product->whereSlug($request->slug)->first();
+            if(empty($getProduct)){
+                return response()->json([
+                                            'status'   => 300,
+                                            'error'  => "No Product Found !!"
+                                        ]);
+            }else{
+                
+                $msg = "Can't delete all images !!";
+                if(in_array($request->path,$getProduct->color_varient_images) && count($getProduct->color_varient_images) >1){
+                    $getPosition = array_search($request->path,$getProduct->color_varient_images);
+                    $arrayDtaa = $getProduct->color_varient_images;
+                    //Remove element from array
+                    array_splice($arrayDtaa,$getPosition,1);
+                    Picture::removeFileFromS3($request->path);
+
+                    //Update product Details
+                    $getProduct->update(['color_varient_images'=>json_encode($arrayDtaa)]);
+                    $msg = "Image Deleted Successfully !!";
+                    return response()->json([
+                                                'status'   => 200,
+                                                'success'  => $msg
+                                            ]);
+                }
+                return response()->json([
+                                        'status'   => 200,
+                                        'error'    => $msg
+                                        ]);
+            }
+            
+
+        }catch(\Exception $e){
+            CreateAppLog::getErrorLog("Delete color requested by ".Masked::getUserName());
+            return response()->json([
+                                     'status' => 300,
+                                     'error'  => $e->getMessage()
+                                    ]);
+        }
+    }
+
 }

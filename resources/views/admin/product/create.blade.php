@@ -31,7 +31,7 @@
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Product Name*</label>
-                                <input type="text" placeholder="Product Name" class="form-control form-control-user" name="product_name" value="{{old('product_name')}}">
+                                <input type="text" placeholder="Product Name" class="form-control form-control-user" name="product_name" value="{{old('product_name')}}" required>
                                 @if($errors->has('product_name'))
                                     <p class="text-danger">{{$errors->first('product_name')}}</p>
                                 @endif
@@ -41,7 +41,7 @@
                             
                             <div class="form-group">
                                 <label class="form-label-box" for="sel1">Category*</label>
-                                <select class="form-control form-control-user select2-search category" id="category" name="category">
+                                <select class="form-control form-control-user select2-search category" id="category" name="category" required>
                                     <option value="">Select Category</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}" {{ (collect(old('category'))->contains($category->id)) ? 'selected':'' }}>{{ $category->name }}</option>
@@ -56,7 +56,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box" for="sel1">SubCategory*</label>
-                                <select class="form-control form-control-user select2-search subcategory" id="subcategory" name="subcategory">
+                                <select class="form-control form-control-user select2-search subcategory" id="subcategory" name="subcategory" required>
                                     <option value="" >Select SubCategory</option>
                                 </select>
                                 @if($errors->has('subcategory'))
@@ -68,7 +68,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box" for="sel1">S. SubCategory*</label>
-                                <select class="form-control form-control-user select2-search supersubcategory" id="category" name="supersubcategory">
+                                <select class="form-control form-control-user select2-search supersubcategory" id="category" name="supersubcategory" required>
                                     <option value="">Select S. SubCategory</option>
                                     
                                 </select>
@@ -83,7 +83,7 @@
                             <div class="form-group">
                             <label class="form-label-box">Product Image*</label>
                                 <div class="fallback">
-                                    <input name="product_img[]" type="file"  multiple="multiple" accept=".png, .jpg, .jpeg"/>
+                                    <input name="product_img[]" type="file"  multiple="multiple" accept=".png, .jpg, .jpeg" required/>
                                        @if($errors->has('product_img'))
                                        <p class="text-danger">{{$errors->first('product_img')}}</p>
                                        @endif
@@ -95,7 +95,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">HSN Code*</label>
-                                <input id="Unit" type="text" placeholder="HSN Code" class="form-control form-control-user " name="hsn_code" value="{{old('hsn_code')}}">
+                                <input id="Unit" type="text" placeholder="HSN Code" class="form-control form-control-user " name="hsn_code" value="{{old('hsn_code')}}" required>
                                 @if($errors->has('hsn_code'))
                                 <p class="text-danger">{{$errors->first('hsn_code')}}</p>
                                 @endif
@@ -135,7 +135,7 @@
                             <div class="form-group">
                                 <label class="form-label-box">Specification*<sub>(Pdf only)</sub></label>
                                     <div class="fallback">
-                                        <input name="specification" type="file" accept=".pdf"/>
+                                        <input name="specification" type="file" accept=".pdf" required />
                                         @if($errors->has('specification'))
                                             <p class="text-danger">{{$errors->first('specification')}}</p>
                                         @endif
@@ -145,7 +145,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">MOQ*</label>
-                                <input id="Unit" type="text" placeholder="Pack" class="form-control form-control-user " name="moq" value="{{old('moq')}}">
+                                <input id="Unit" type="text" placeholder="Pack" class="form-control form-control-user " name="moq" value="{{old('moq')}}" required>
                                 @if($errors->has('moq'))
                                     <p class="text-danger">{{$errors->first('moq')}}</p>
                                 @endif
@@ -155,7 +155,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Material*</label>
-                                <select class="select2 " multiple="multiple" data-placeholder="Select a Material" style="width: 100%;"  name="material[]">
+                                <select class="select2 " multiple="multiple" data-placeholder="Select a Material" style="width: 100%;"  name="material[]" required>
                                     @foreach($materials as $material)
                                     <option value="{{$material->id ??''}}" {{ (collect(old('material'))->contains($material->id)) ? 'selected':'' }}>{{$material->name ??''}}</option>
                                     @endforeach
@@ -202,7 +202,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">General Price*</label>
-                                <input id="Unit" type="text" placeholder="General Price" class="form-control form-control-user " name="general_price" value="{{old('general_price')}}">
+                                <input id="Unit" type="text" placeholder="General Price" class="form-control form-control-user " name="general_price" value="{{old('general_price')}}" required>
                                 @if($errors->has('general_price'))
                                     <p class="text-danger">{{$errors->first('general_price')}}</p>
                                 @endif
@@ -212,7 +212,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">General Gst* %</label>
-                                <input id="Unit" type="text" placeholder="General Gst %" class="form-control form-control-user " name="general_gst" value="{{old('general_gst')}}">
+                                <input id="Unit" type="text" placeholder="General Gst %" class="form-control form-control-user " name="general_gst" value="{{old('general_gst')}}" required>
                                 @if($errors->has('general_gst'))
                                     <p class="text-danger">{{$errors->first('general_gst')}}</p>
                                 @endif
@@ -231,7 +231,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box"> Area Of Use</label>*</label>
-                                <select class="select2 " multiple="multiple" data-placeholder="Select a Area Of use" style="width: 100%;"  name="areaOfuse[]">
+                                <select class="select2 " multiple="multiple" data-placeholder="Select a Area Of use" style="width: 100%;"  name="areaOfuse[]" required>
                                     @foreach($areaOfUses as $areaOf)
                                     <option value="{{$areaOf->id ??''}}" {{ (collect(old('areaOfuse'))->contains($areaOf->id)) ? 'selected':'' }}>{{$areaOf->area_of_use ??''}}</option>
                                     @endforeach
@@ -245,7 +245,7 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Ideal For*</label>
-                                <select class="select2 " multiple="multiple" data-placeholder="Select a Ideal for" style="width: 100%;"  name="idealfor[]">
+                                <select class="select2 " multiple="multiple" data-placeholder="Select a Ideal for" style="width: 100%;"  name="idealfor[]" required>
                                     @foreach($idealFor as $ideal)
                                     <option value="{{$ideal->id ??''}}" {{ (collect(old('idealfor'))->contains($ideal->id)) ? 'selected':'' }}>{{$ideal->ideal_for ??''}}</option>
                                     @endforeach
@@ -258,7 +258,7 @@
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label class="form-label-box">Description*</label>
-                                <textarea class="form-control" rows="3"  name="description">{{old('description')}}</textarea>
+                                <textarea class="form-control" rows="3"  name="description" required>{{old('description')}}</textarea>
                                 
                                 @if ($errors->has('description'))
                                     <p class="text-danger">{{ $errors->first('description') }}</p>

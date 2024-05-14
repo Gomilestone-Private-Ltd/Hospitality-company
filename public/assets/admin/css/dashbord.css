@@ -620,3 +620,19 @@ a.backBtn-icon {
 a.backBtn-icon img {
     height: 36px;
 }
+.main_gen_image{
+    display: flex;
+    align-items: center;
+}
+
+.varientImages{
+    position: relative;
+    width:70px;
+}
+.cancle_icon{
+    position: absolute;
+    right: 11px;
+    top: -5px;
+    height: 20px;
+    cursor: pointer;
+}

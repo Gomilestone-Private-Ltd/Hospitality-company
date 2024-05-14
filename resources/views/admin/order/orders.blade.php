@@ -1,0 +1,75 @@
+@extends('admin.layout.app')
+@section('title',"Orders List")
+@section('content')
+@include('admin.layout.partial.table.css')
+<div class="main-container-box">
+    <div class="container-fluid">
+        <div class="main-section-box">
+            <div class="heading-box">
+                <h1 class="heading">Orders</h1>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class=" table-responsive main-table">
+                        <table id="example" class="display table table table-bordered data-table" style="width:100%">
+                            <thead class="table-thead">
+                                <tr>
+                                    <th class="sn-number">S.No</th>
+                                    <th>User Name</th>
+                                    <th>E-mail</th>
+                                    <th>Contact</th>
+                                    <th>Order No.</th>
+                                    <th>Order Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@include('admin.layout.partial.table.js')
+@endsection
+@section('js')
+<script src="{{url('/assets/admin/js/admin/delete.js')}}"></script>
+<script src="{{url('/assets/admin/js/admin/status.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.data-table').DataTable({
+                                processing:true,
+                                serverSide:true,
+                                stateSave:true,
+                                ordering:false,
+                                oLanguage:{sProcessing: "<div class='loader'><img src='{{url('/assets/admin/img/loader1.gif')}}' height='100px' width='100px'></div>"},
+                                ajax:"{{ route('orders') }}",
+                                columns:[
+                                        {   data: 'id',  name:'id',
+                                            render:function(data,type,row,meta){
+                                                return row.id;
+                                            }
+                                        },
+                                        {   data: 'id',    name: 'id'},
+                                        {   data: 'id',    name: 'id'},
+                                        {   data: 'id',    name: 'id'},
+                                        {   data: 'id',    name: 'id'},
+                                        {   data: 'action',name: 'action', 
+                                            render:function(data,type,row,meta){
+                                                var btn1 = `<a href="{{url('edit-product')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
+                                                return btn1; 
+                                            },
+                                            orderable: false, searchable: true},
+                                        ]
+        });
+    });
+
+    
+  </script>
+
+@endsection
