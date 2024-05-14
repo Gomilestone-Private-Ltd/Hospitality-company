@@ -103,6 +103,7 @@
                                     <div class="main_gen_image">
                                         @foreach ($getProduct->gen_image as $key => $varient_images)
                                             <div class="varientImages" imageKey="{{ $key }}">
+                                                
                                                 <img class="product-select-img" src="{{ $varient_images }}">
                                                 <img class="cancle_icon" src="{{ asset('/assets/admin/img/remove.png') }}"
                                                     onclick="DeleteVarientImage('{{ $getProduct->slug }}',{{ $key }},'{{ $varient_images }}','delete-product-image')">
