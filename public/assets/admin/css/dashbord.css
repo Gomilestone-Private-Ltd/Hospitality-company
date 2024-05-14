@@ -627,26 +627,56 @@ a.backBtn-icon img {
     flex-wrap: wrap;
 }
 
-.select_img{
+.select_img_box{
     position: relative;
     margin-bottom: 30px;
     margin-right: 25px;
 }
 
-.select_img img{
-    width: 120px;
-    height: 100px;
+.select_img{
+    width: 73px;
+    height: 70px;
     object-fit: cover;
     border-radius: 5px;
 }
 
  .cancle-img{
-    height: 28px !important;
-    width: 28px !important;
+    height: 25px !important;
     position: absolute;
     top: -9px;
     right: -8px;
-    background-color: #fff;
-    border-radius: 50% !important; 
     cursor: pointer;
+}
+
+.varientImages {
+    position: relative;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 80px;
+}
+
+.product-select-img{
+    width: 70px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.color_name{
+    font-family: 'Montserrat-Medium';
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.cancle_icon{
+    position: absolute;
+    top: -8px;
+    right: 3px;
+    height: 20px;
+    cursor: pointer;
+}
+.main_gen_image {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
