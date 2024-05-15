@@ -99,8 +99,8 @@ Route::group(['middleware'=>'admin'],function(){
     //Delete product image 
     Route::post('/delete-product-image',[ProductController::class,'deleteProductImage'])->name('delete.product.image');
     
-    //Delete product image 
-    Route::post('/delete-product-image',[ProductController::class,'deleteProductImage'])->name('delete.product.image');
+    //Delete product varient image 
+    Route::post('/delete-product-varient-image',[ProductController::class,'deleteProductVarientImage'])->name('delete.product.varient.image');
     
     /******************************************Varient Type Routes*********************************** */
     Route::get('/add-varient-type',[VarientController::class,'create'])->name('add.varient.type');

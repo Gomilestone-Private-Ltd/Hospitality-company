@@ -30,13 +30,16 @@ function DeleteProductImage(productSlug,key,path,url){
                                                    "extendedTimeOut": 800
                                                  }
                                 if(response.status == 200){
-                                    toastr.success(response.success);
+                                    //toastr.success(response.success);
                                     setTimeout(function(){
                                         location.reload()
-                                    }, 100);
+                                    }, 200);
                                 }else{
-                                    toastr.error(response.error);
+                                   // toastr.error(response.error);
                                     //swal("Error!",response.error, "error"); 
+                                    setTimeout(function(){
+                                                             location.reload()
+                                                         }, 200);
                                 }
                             },
                             error:function(request, status, errorsponse){

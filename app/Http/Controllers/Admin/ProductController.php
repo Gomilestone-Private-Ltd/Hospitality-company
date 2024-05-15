@@ -221,6 +221,7 @@ class ProductController extends Controller
                             $imagePath = Picture::uploadToS3('/product/'.$getProductDetail->id,$varient_image);
                             $allImageDetail[] = $colorImage[] = $imagePath;
                         }
+
                     }
                     $colorVarientDetail[] = [
                                                'id'          => $color,
@@ -430,6 +431,12 @@ class ProductController extends Controller
                         foreach($request->varient_image[$getColor->color_name] as $key=>$varient_image){
                             $imagePath = Picture::uploadToS3('/product/'.$getProductDetail->id,$varient_image);
                             $allImageDetail[] = $colorImage[] = $imagePath;
+                        }
+
+                        foreach($getProductDetail->color_varient as $colorVarientArray){
+                           if($colorVarientArray->color_name == $getColor->color_name){
+                               $colorImage = array_merge($colorVarientArray->colorImage,$colorImage);
+                           }
                         }
                     }
                     
@@ -661,6 +668,7 @@ class ProductController extends Controller
     {
         try{
             $getProduct = $this->product->whereSlug($request->slug)->first();
+            
             if(empty($getProduct)){
                 return response()->json([
                                             'status'   => 300,
@@ -670,24 +678,61 @@ class ProductController extends Controller
                 
                 $msg = "Can't delete all images !!";
                 if(in_array($request->path,$getProduct->color_varient_images) && count($getProduct->color_varient_images) >1){
-                    $getPosition = array_search($request->path,$getProduct->color_varient_images);
-                    $arrayDtaa = $getProduct->color_varient_images;
-                    //Remove element from array
-                    array_splice($arrayDtaa,$getPosition,1);
-                    Picture::removeFileFromS3($request->path);
+                    
+                    //Check color varient is empty or not
+                    if(count($getProduct->color_varient)){
+                        $colorVarientDetail = [];
+                        //loop color varient
+                        foreach($getProduct->color_varient as $colorVaient){
+                           //check color name
+                           if($colorVaient->color_name == $request->color_name && count($colorVaient->colorImage) > 1){
+                            
+                            //Search position of image in array
+                            $getImagePosition = array_search($request->path,$colorVaient->colorImage);
+                            $arrayImage = $colorVaient->colorImage;
+                            //remove image(element) from array
+                            array_splice($arrayImage,$getImagePosition,1);
+                            $colorVarientDetail[] = [
+                                                       'id'          => $colorVaient->id,
+                                                       'color_name'  => $colorVaient->color_name,
+                                                       'colorImage'  => $arrayImage,
+                                                    ];   
+                            
+                            //Remove image from main array(color_varient_images) and s3
+                            //Search position of image in array
+                            $getPosition = array_search($request->path,$getProduct->color_varient_images);
+                            $arrayDtaa = $getProduct->color_varient_images;
+                            // Remove element from array
+                            array_splice($arrayDtaa,$getPosition,1);
+                            Picture::removeFileFromS3($request->path);
+                            
+                            //Update the product detail 
+                            $getProduct->update(['color_varient_images'=>json_encode($arrayDtaa)]);
+                            
+                            $status = 200;
 
-                    //Update product Details
-                    $getProduct->update(['color_varient_images'=>json_encode($arrayDtaa)]);
-                    $msg = "Image Deleted Successfully !!";
+                           }else{
+                                $status = 300;
+                                $colorVarientDetail[] = [
+                                                           'id'          => $colorVaient->id,
+                                                           'color_name'  => $colorVaient->color_name,
+                                                           'colorImage'  => $colorVaient->colorImage,
+                                                        ]; 
+                           }
+
+                           //Update the product color varient detail 
+                           $getProduct->update(['color_varient'=>json_encode($colorVarientDetail)]);
+
+                        }
+                    }
+
+                    
                     return response()->json([
-                                                'status'   => 200,
-                                                'success'  => $msg
+                                                'status'   => $status,
+                                                'success'  => "Image Deleted Successfully !!"
                                             ]);
                 }
-                return response()->json([
-                                        'status'   => 200,
-                                        'error'    => $msg
-                                        ]);
+                
             }
             
 

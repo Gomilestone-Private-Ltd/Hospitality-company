@@ -103,10 +103,8 @@
                                     <div class="main_gen_image">
                                         @foreach ($getProduct->gen_image as $key => $varient_images)
                                             <div class="varientImages" imageKey="{{ $key }}">
-                                                
                                                 <img class="product-select-img" src="{{ $varient_images }}">
-                                                <img class="cancle_icon" src="{{ asset('/assets/admin/img/remove.png') }}"
-                                                    onclick="DeleteVarientImage('{{ $getProduct->slug }}',{{ $key }},'{{ $varient_images }}','delete-product-image')">
+                                                <img class="cancle_icon" src="{{ asset('/assets/admin/img/remove.png') }}" onclick="DeleteProductImage('{{ $getProduct->slug }}',{{ $key }},'{{ $varient_images }}','delete-product-image')">
                                             </div>
                                         @endforeach
                                     </div>
@@ -161,9 +159,7 @@
                                                             placeholder="Product Name"
                                                             class="form-control form-control-user" name="varient_name[]"
                                                             readonly></td>
-                                                    <td><input type="file" class="form-control form-control-user"
-                                                            name="varient_image[{{ $color->color_name }}][]"
-                                                            multiple="multiple" accept=".png, .jpg, .jpeg"></td>
+                                                    <td><input type="file" class="form-control form-control-user" name="varient_image[{{ $color->color_name }}][]" multiple="multiple" accept=".png, .jpg, .jpeg"></td>
 
                                                 </tr>
                                             @endforeach
@@ -173,101 +169,23 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-4">  
-                                        <h4 class="color_name">Red</h4>
-                                        <div class="multi-color-img-box">
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
+                                    @if(count($getProduct->color_varient_images)) 
+                                        @foreach($getProduct->color_varient as $colorVarients)
+                                        <div class="col-md-4">  
+                                            <h4 class="color_name">{{$colorVarients->color_name ??''}}</h4>
+                                            @if(count($colorVarients->colorImage))
+                                            <div class="multi-color-img-box">
+                                                    @foreach($colorVarients->colorImage as $key=>$colorVarientImg)
+                                                    <div class="select_img_box">
+                                                        <img class="select_img" src="{{ asset($colorVarientImg) }}" alt="image" >
+                                                        <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}" alt="image" onclick="DeleteProductVarientImage('{{ $getProduct->slug }}','{{$colorVarients->color_name}}','{{ $colorVarientImg }}','delete-product-varient-image')">
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            @endif
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">  
-                                        <h4 class="color_name">Blue</h4>
-                                        <div class="multi-color-img-box">
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">  
-                                        <h4 class="color_name">Green</h4>
-                                        <div class="multi-color-img-box">
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">  
-                                        <h4 class="color_name">Pink</h4>
-                                        <div class="multi-color-img-box">
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="select_img_box">
-                                                <img class="select_img" src="{{ asset('assets/admin/img/login3.png') }}" alt="image">
-                                                <img class="cancle-img" src="{{ asset('assets/admin/img/remove.png') }}"
-                                                    alt="image">
-                                            </div>
-                                        </div>
-                                    </div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                             
