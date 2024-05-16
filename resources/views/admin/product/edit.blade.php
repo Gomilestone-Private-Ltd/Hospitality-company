@@ -88,7 +88,7 @@
                             </div>
 
                             <div class="col-md-3 col-sm-6 col-12">
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="form-label-box">Product Image*</label>
                                     <div class="fallback">
                                         <input name="product_img[]" type="file" multiple="multiple"
@@ -98,7 +98,29 @@
                                         @endif
                                     </div>
 
+                                </div> -->
+
+                                
+                               <div class="form-group required">
+                                    <label for="">Product Image*</label>
+                                    <input type="file" onchange="return fileValidation()"
+                                        accept="image/png, image/jpg, image/jpeg" class="form-control"
+                                        name="product_img[]" id="caseimage" multiple accept=".png, .jpg, .jpeg" required/>
+                                    <p class="notice-text"> (Max 5 files allowed | Size less than 1 MB)</p>
+                                    <span class="text-danger"></span>
+                                    @if ($errors->has('product_img'))
+                                            <p class="text-danger">{{ $errors->first('product_img') }}</p>
+                                        @endif
+                                    <div>
+                                        <p id="files-area">
+                                            <span id="filesList">
+                                                <span id="files-names"></span>
+                                            </span>
+                                        </p>
+                                    </div>
                                 </div>
+                            
+
                                 @if (count($getProduct->color_varient_images))
                                     <div class="main_gen_image">
                                         @foreach ($getProduct->gen_image as $key => $varient_images)
@@ -125,26 +147,21 @@
 
 
                             <div class="col-md-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label class="form-label-box">Color Varients</label>
-                                    <select class="select2 varientValueList" multiple="multiple"
-                                        data-placeholder="Select a Varient Value" style="width: 100%;" name="color[]">
-                                        @foreach ($getColors as $getColor)
-                                            <option value="{{ $getColor->id ?? '' }}"
-                                                varientValueName="{{ $getColor->color_name ?? '' }}"
-                                                @if (in_array($getColor->id, $getProduct->color_id)) selected @endif>
-                                                {{ $getColor->color_name ?? '' }}</option>
-                                        @endforeach
-                                    </select>
-                                    @if ($errors->has('color'))
-                                        <p class="text-danger">{{ $errors->first('color') }}</p>
-                                    @endif
-                                </div>
+                            <div class="form-group">
+                                <label class="form-label-box">Color Varients</label> 
+                                <select class="select2 varientValueList" multiple="multiple" data-placeholder="Select a Varient Value" style="width: 100%;"  name="color[]">
+                                    @foreach($getColors as $getColor)
+                                    <option value="{{$getColor->id ??''}}" varientValueName="{{$getColor->color_name ??''}}"  @if(in_array($getColor->id,$getProduct->color_id)) selected @endif>{{$getColor->color_name ??''}}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('color'))
+                                <p class="text-danger">{{$errors->first('color')}}</p>
+                                @endif
                             </div>
-
-                            <div class=" table-responsive main-table colorTable">
-                                <table id="example" class="display table table table-bordered data-table"
-                                    style="width:100%">
+                        </div>
+                            
+                        <div class=" table-responsive main-table colorTable">
+                                <table id="example" class="display table table table-bordered data-table" style="width:100%">
                                     <thead class="table-thead">
                                         <tr>
                                             <th>Color</th>
@@ -152,21 +169,17 @@
                                         </tr>
                                     </thead>
                                     <tbody class="tableBody">
-                                        @if (count($getProduct->color_id))
-                                            @foreach ($getProduct->color as $key => $color)
-                                                <tr class="{{ $color->color_name }}{{ $color->id }}">
-                                                    <td><input type="text" value="{{ $color->color_name }}"
-                                                            placeholder="Product Name"
-                                                            class="form-control form-control-user" name="varient_name[]"
-                                                            readonly></td>
-                                                    <td><input type="file" class="form-control form-control-user" name="varient_image[{{ $color->color_name }}][]" multiple="multiple" accept=".png, .jpg, .jpeg"></td>
-
+                                        @if(count($getProduct->color_id))
+                                            @foreach($getProduct->color as $color)
+                                                <tr class="{{$color->color_name}}{{$color->id}}">
+                                                    <td><input type="text" value="{{$color->color_name}}" placeholder="Product Name" class="form-control form-control-user" name="varient_name[]" readonly></td>
+                                                    <td><input type="file" class="form-control form-control-user" name="varient_image[{{$color->color_name}}][]" multiple="multiple" accept=".png, .jpg, .jpeg" ></td>
                                                 </tr>
                                             @endforeach
                                         @endif
                                     </tbody>
                                 </table>
-                            </div>
+                        </div>
                             <div class="col-md-12">
                                 <div class="row">
                                     @if(count($getProduct->color_varient_images)) 
@@ -537,6 +550,7 @@
             });
         });
     </script>
-    <script src="{{ asset('assets/admin/js/admin/delete_product_images.js') }}"></script>
+<script src="{{ asset('assets/admin/js/admin/delete_product_images.js') }}"></script>
 <script src="{{asset('assets/admin/js/admin/delete_product_varient_images.js')}}"></script>
+<script src="{{asset('assets/admin/js/admin/upload_multiple_file.js')}}"></script> 
 @endsection

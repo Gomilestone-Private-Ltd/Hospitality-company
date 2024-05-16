@@ -78,19 +78,26 @@
                             </div>
                         </div>
 
-                        
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="form-group">
-                            <label class="form-label-box">Product Image*</label>
-                                <div class="fallback">
-                                    <input name="product_img[]" type="file"  multiple="multiple" accept=".png, .jpg, .jpeg" required/>
-                                       @if($errors->has('product_img'))
-                                       <p class="text-danger">{{$errors->first('product_img')}}</p>
-                                       @endif
-                                </div>   
+                           <div class="col-md-3 col-sm-6 col-12">
+                               <div class="form-group required">
+                                    <label for="">Product Image*
+                                        {{-- (Image Dimension should be 1366*550) --}}
+                                    </label>
+                                    <input type="file" onchange="return fileValidation()"
+                                        accept="image/png, image/jpg, image/jpeg" class="form-control"
+                                        name="product_img[]" id="caseimage" multiple accept=".png, .jpg, .jpeg" required/>
+                                    <p class="notice-text"> (Max 5 files allowed | Size less than 1 MB)</p>
+                                    <span class="text-danger">
+                                    </span>
+                                    <div>
+                                        <p id="files-area">
+                                            <span id="filesList">
+                                                <span id="files-names"></span>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
                         
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="form-group">
@@ -275,8 +282,8 @@
                                 @endif
                             </div>
                         </div>
-        
-
+                                
+                                
                         <div class="col-md-12 text-right">
                             <button id="success" type="submit" class="submit-btn fplusClass11">
                                 Submit
@@ -406,6 +413,5 @@ $(document).ready(function(){
 </script>
 
 <!-- <script src="{{asset('assets/admin/js/admin/product_varient_type.js')}}"></script> -->
-<!-- <script src="{{asset('assets/admin/js/admin/product_varient_value.js')}}"></script>  -->
-
+<script src="{{asset('assets/admin/js/admin/upload_multiple_file.js')}}"></script> 
 @endsection

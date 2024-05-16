@@ -470,10 +470,11 @@ class ProductController extends Controller
                     $allImageDetail = $getProductDetail->color_varient_images;
                 }
                  
-            }else{
-                $colorVarientDetail = $getProductDetail->color_varient;
-                $allImageDetail = $getProductDetail->color_varient_images;
             }
+            // else{
+            //     $colorVarientDetail = $getProductDetail->color_varient;
+            //     $allImageDetail = $getProductDetail->color_varient_images;
+            // }
 
             //Get size details only in array
             $sizeIdDetail =[];
