@@ -8,7 +8,7 @@
                     class: 'name',
                     text: this.files.item(i).name
                 });
-            fileBloc.append('<span class="file-delete"><span>-</span></span>')
+            fileBloc.append('<span class="file-delete">X</span>')
                 .append(fileName);
             $("#filesList > #files-names").append(fileBloc);
             
