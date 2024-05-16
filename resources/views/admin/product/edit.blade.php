@@ -105,7 +105,7 @@
                                     <label for="">Product Image*</label>
                                     <input type="file" onchange="return fileValidation()"
                                         accept="image/png, image/jpg, image/jpeg" class="form-control"
-                                        name="product_img[]" id="caseimage" multiple accept=".png, .jpg, .jpeg" required/>
+                                        name="product_img[]" id="caseimage" multiple accept=".png, .jpg, .jpeg" />
                                     <p class="notice-text"> (Max 5 files allowed | Size less than 1 MB)</p>
                                     <span class="text-danger"></span>
                                     @if ($errors->has('product_img'))
@@ -121,7 +121,7 @@
                                 </div>
                             
 
-                                @if (count($getProduct->color_varient_images))
+                                @if (count($getProduct->gen_image))
                                     <div class="main_gen_image">
                                         @foreach ($getProduct->gen_image as $key => $varient_images)
                                             <div class="varientImages" imageKey="{{ $key }}">
