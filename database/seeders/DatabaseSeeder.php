@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
 
         //Seed Setting First
         $this->call(Setting::class);
@@ -53,8 +54,14 @@ class DatabaseSeeder extends Seeder
         //Seed SizeSeeder seeder
         $this->call(SizeSeeder::class);
         
-         //Seed MaterialSeeder seeder
-         $this->call(MaterialSeeder::class);
+        //Seed MaterialSeeder seeder
+        $this->call(MaterialSeeder::class);
+
+        //Seed AreaOfUseSeder First
+        $this->call(AreaOfUseSeder::class);
+
+        //Seed IdealForSeeder First
+        $this->call(IdealForSeeder::class);
         
         //Create superadmin
         $data = [
