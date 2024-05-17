@@ -22,7 +22,7 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'name' => "required|max:15",
+                'name' => "required|max:15|unique:materials,name",
         ];
     }
     

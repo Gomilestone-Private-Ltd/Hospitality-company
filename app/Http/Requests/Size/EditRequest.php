@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Size;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use App\Models\Size;
 
 class EditRequest extends FormRequest
 {
@@ -19,12 +21,20 @@ class EditRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
-        return [
-                'size' => "required|max:15",
-                'size_type' => "required|max:10",
-        ];
+        $getSize = Size::whereSlug($request->slug)->first();
+        if(!empty($getSize) && $getSize->size == $request->size){
+            return [
+                    'size' => "required|max:15",
+                    'size_type' => "required|max:10",
+                   ];
+        }else{
+            return [
+                    'size' => "required|max:15|unique:size,size",
+                    'size_type' => "required|max:10|unique:size,size_type",
+                   ];
+        }
     }
     
     

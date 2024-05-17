@@ -3,7 +3,8 @@
 namespace App\Http\Requests\IdealFor;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Request;
+use App\Models\IdealFor;
 class EditRequest extends FormRequest
 {
     /**
@@ -19,11 +20,18 @@ class EditRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
-        return [
-                'ideal_for' => "required|max:15",
-        ];
+        $getIdealFor = IdealFor::whereSlug($request->slug)->first();
+        if(!empty($getIdealFor) && $getIdealFor->ideal_for == $request->ideal_for){
+            return [
+                    'ideal_for' => "required|max:15",
+                   ];
+        }else{
+            return [
+                    'ideal_for' => "required|max:15|unique:ideal_fors,ideal_for",
+                   ];
+        }
     }
     
     

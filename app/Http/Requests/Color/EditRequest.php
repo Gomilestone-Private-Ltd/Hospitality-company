@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Color;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use App\Models\Color;
 
 class EditRequest extends FormRequest
 {
@@ -19,12 +21,20 @@ class EditRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
-        return [
-                'color_name' => "required|max:15",
-                'color_code' => "required|max:10",
-        ];
+        $getColor = Color::whereSlug($request->slug)->first();
+        if(!empty($getColor) && $getColor->color_name == $request->color_name){
+            return [
+                    'color_name' => "required|max:15",
+                    'color_code' => "required|max:10",
+            ];
+        }else{
+            return [
+                    'color_name' => "required|max:15|unique:colors,color_name",
+                    'color_code' => "required|max:10|unique:colors,color_code",
+                   ];
+        }
     }
     
     

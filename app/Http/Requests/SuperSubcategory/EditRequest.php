@@ -3,7 +3,8 @@
 namespace App\Http\Requests\SuperSubcategory;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Request;
+use App\Models\Supersubcategory;
 class EditRequest extends FormRequest
 {
     /**
@@ -19,15 +20,26 @@ class EditRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
-        return [
-                'name'         => "required|max:50",
-                'category'     => "required",
-                'subcategory'  => "required",
-                'image'        => "mimes:png,jpeg,jpg|max:1024",
-                'description'  => "required|max:250",
-        ];
+        $getsuperSubCategory = Supersubcategory::whereSlug($request->slug)->first();
+        if(!empty($getsuperSubCategory) && $getsuperSubCategory->name == $request->name){
+            return [
+                    'name'         => "required|max:50",
+                    'category'     => "required",
+                    'subcategory'  => "required",
+                    'image'        => "mimes:png,jpeg,jpg|max:1024",
+                    'description'  => "required|max:250",
+                   ];
+        }else{
+            return [
+                    'name'         => "required|max:50|unique:supersubcategories,name",
+                    'category'     => "required",
+                    'subcategory'  => "required",
+                    'image'        => "mimes:png,jpeg,jpg|max:1024",
+                    'description'  => "required|max:250",
+                   ];
+        }
     }
 
     public function messages()

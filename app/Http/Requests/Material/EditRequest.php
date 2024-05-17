@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Material;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use App\Models\Material;
 
 class EditRequest extends FormRequest
 {
@@ -19,11 +21,18 @@ class EditRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
-        return [
-                'name' => "required|max:15",
-        ];
+        $getMaterial = Material::whereSlug($request->slug)->first();
+        if(!empty($getMaterial) && $getMaterial->name == $request->name){
+            return [
+                    'name' => "required|max:15",
+                   ];
+        }else{
+            return [
+                    'name' => "required|max:15|unique:materials,name",
+                   ];
+        }
     }
     
     
