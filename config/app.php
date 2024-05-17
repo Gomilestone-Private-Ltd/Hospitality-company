@@ -181,7 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Aws\Laravel\AwsServiceProvider::class,
+         
         /*
          * Package Service Providers...
          */
@@ -215,7 +215,6 @@ return [
                                                     'Slug'            => App\Helper\Slug::class,
                                                     'Token'           => App\Helper\Token::class,
                                                     'CreateAppLog'    => App\Helper\CreateAppLog::class,
-                                                    'AWS'             => Aws\Laravel\AwsFacade::class,
                                                     
                                                  ])->toArray(),
 

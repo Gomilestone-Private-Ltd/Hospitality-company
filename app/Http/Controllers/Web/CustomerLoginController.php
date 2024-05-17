@@ -46,14 +46,7 @@ class CustomerLoginController extends Controller
             $token = Token::generateToken();
 
             //Send otp
-           // Token::sendToken("",$token);
-
-            
-            //get Otp
-            $token = Token::generateToken();
-
-            //Send otp
-            //Token::sendToken($contact,$token);
+            // Token::sendToken("",$token);
 
             Session::put('conatct', "9898765432");
             Session::put('token', $token);
