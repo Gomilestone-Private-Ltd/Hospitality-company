@@ -24,7 +24,7 @@ $(document).ready(function(){
          var formData = new FormData($('#addVarientValueForm')[0]);
          formData.append('getVarientTypeId',getVarientTypeId);
          $.ajax({
-                url: base_url+"/add-varient-value",
+                url: base_url+"admin/add-varient-value",
                 method:"post",
                 dataType:"json",
                 data:formData,      
@@ -77,7 +77,7 @@ $(document).ready(function(){
 
         if(varientTypeId){
             $.ajax({
-                    url: base_url+"/get-varient-value",
+                    url: base_url+"admin/get-varient-value",
                     method:"post",
                     dataType:"json",
                     data:{
@@ -111,7 +111,7 @@ $(document).ready(function(){
     var varientTypeId = $('#varientType').find('option:selected').val();
         if(varientTypeId){
             $.ajax({
-                    url: base_url+"/get-varient-value",
+                    url: base_url+"admin/get-varient-value",
                     method:"post",
                     dataType:"json",
                     data:{

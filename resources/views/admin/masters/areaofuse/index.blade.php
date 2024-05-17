@@ -57,8 +57,8 @@
                                         {   data: 'area_of_use',      name: 'area_of_use'},
                                         {   data: 'status',      name: 'status',
                                             render:function(data,type,row,meta){
-                                                $enableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','area-of-use-status')"><span class="badge badge-success">Enable</span></p>`;
-                                                $disableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','area-of-use-status')"><span class="badge badge-danger">Disable</span></p>`;
+                                                $enableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','admin/area-of-use-status')"><span class="badge badge-success">Enable</span></p>`;
+                                                $disableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','admin/area-of-use-status')"><span class="badge badge-danger">Disable</span></p>`;
 
                                                 return (data)? $enableBtn: $disableBtn;
                                             }
@@ -70,8 +70,8 @@
                                         },
                                         {   data: 'action',    name: 'action', 
                                             render:function(data,type,row,meta){
-                                                var btn1 = `<a href="{{url('edit-area-of-use')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
-                                                var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','delete-area-of-use')"></i>`;
+                                                var btn1 = `<a href="{{url('admin/edit-area-of-use')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
+                                                var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','admin/delete-area-of-use')"></i>`;
                                                 var actionBtn = btn1+btn2;
                                                 return actionBtn; 
                                             },

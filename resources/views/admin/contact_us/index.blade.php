@@ -59,8 +59,8 @@
                         {data:'created_at',name:'created_at'},
                         {data:'action',name:'action',
                         render:function(data,type,row,meta){
-                            var btn1 = `<a href="{{url('view-contact-us')}}/`+row.slug+`"> <i class="fa fa-eye edit-icon"  aria-hidden="true"></i></a>`;
-                            var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','delete-contact-us')"></i>`;
+                            var btn1 = `<a href="{{url('admin/view-contact-us')}}/`+row.slug+`"> <i class="fa fa-eye edit-icon"  aria-hidden="true"></i></a>`;
+                            var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','admin/delete-contact-us')"></i>`;
                                     
                             return btn1+btn2;
                         }

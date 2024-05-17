@@ -18,7 +18,7 @@ $(document).ready(function(){
                             "extendedTimeOut": 800
                          };
         $.ajax({
-                url:base_url+'/add-varient-type',
+                url:base_url+'admin/add-varient-type',
                 method:'post',
                 contentType: false,
                 processData: false,

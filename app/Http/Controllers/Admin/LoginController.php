@@ -59,9 +59,9 @@ class LoginController extends Controller
                 if(Auth::guard('admin')->user()->status == 1){
 
                     CreateAppLog::getInfoLog('Login Requested By - '.Masked::getUserName());
-                    return redirect('/dashboard')->with([
-                                                         'success' => Masked::getUserRole()." Login Successfully !!"
-                                                        ]);
+                    return redirect('/admin/dashboard')->with([
+                                                               'success' => Masked::getUserRole()." Login Successfully !!"
+                                                              ]);
                 }else{   
 
                     CreateAppLog::getWarningLog('Login Requested By-'.Masked::getUserName()." access restricted !!");

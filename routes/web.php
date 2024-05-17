@@ -85,7 +85,7 @@ Route::get('/admin',[LoginController::class,'index'])->name('admin');
 Route::post('/admin-login',[LoginController::class,'login'])->name('admin.login');
 
 
-Route::group(['middleware'=>'admin'],function(){
+Route::group(['middleware'=>'admin','prefix'=>'admin'],function(){
 
     Route::get('/dashboard',[LoginController::class,'dashboard'])->name('dashboard');
 

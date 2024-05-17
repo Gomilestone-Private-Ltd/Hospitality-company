@@ -542,7 +542,7 @@ class ProductController extends Controller
                                 'moq'                 => $request->moq ??'',
                                 'gen_price'           => $request->general_price ??'',
                                 'gen_gst'             => $request->general_gst ??'',
-                                'meta_url'            => $request->product_name ??'',
+                                'meta_url'            => str_replace(' ', '-', strtolower($request->product_name)) ??'',
                                 'gen_image'           => json_encode($genImage) ??'',
                                 'color'               => json_encode($colorDetail) ??'',
                                 'color_id'            => json_encode($colorIdDetail) ??'',

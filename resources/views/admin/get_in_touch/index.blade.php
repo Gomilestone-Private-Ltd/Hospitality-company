@@ -54,8 +54,8 @@
                                          {data:'created_at',name:'created_at'},
                                          {data:'action',name:'action',
                                             render:function(data,type,row,meta){
-                                                var btn1 = `<a href="{{url('view-get-in-touch')}}/`+row.slug+`"> <i class="fa fa-eye edit-icon"  aria-hidden="true"></i></a>`;
-                                                var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','delete-get-in-touch')"></i>`;
+                                                var btn1 = `<a href="{{url('admin/view-get-in-touch')}}/`+row.slug+`"> <i class="fa fa-eye edit-icon"  aria-hidden="true"></i></a>`;
+                                                var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','admin/delete-get-in-touch')"></i>`;
                                                         
                                                 return btn1+btn2;
                                             }

@@ -3,7 +3,7 @@ $(document).ready(function(){
        e.preventDefault();
        var getCategoryId = $(this).val();
        $.ajax({
-                url: base_url+"/get-subcategory",
+                url: base_url+"/admin/get-subcategory",
                 method:'post',
                 dataType:'json',
                 data:{
@@ -31,7 +31,7 @@ $(document).ready(function(){
         e.preventDefault();
         var getSubCategoryId = $(this).val();
         $.ajax({
-                 url: base_url+"/get-supersubcategory",
+                 url: base_url+"/admin/get-supersubcategory",
                  method:'post',
                  dataType:'json',
                  data:{
