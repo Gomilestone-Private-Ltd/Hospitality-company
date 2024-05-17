@@ -6,6 +6,7 @@ use App\Http\Controllers\Web\AppController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\GuestRoomController;
 use App\Http\Controllers\Web\WebProductController;
+use App\Http\Controllers\web\UserLoginController;
 
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProductController;
@@ -49,6 +50,8 @@ Route::post('/get-in-touch',[AppController::class,'GetInTouch'])->name('get.in.t
 Route::post('/contact-us',[AppController::class,'contactUs'])->name('contact.us');
 Route::get('/contact',[ContactController::class,'contact']);
 
+
+
 /**
  *************************************Product route***************************
  */
@@ -67,14 +70,14 @@ Route::post('/work-with-us',[AppController::class,'WorkWithUs'])->name('work.wit
 Route::get('/guest-room',[GuestRoomController::class,'guestRoomItems']);
 Route::get('/desk-accessorie',[GuestRoomController::class,'deskAccessories']);
 Route::get('/desk-accessorie-detail',[GuestRoomController::class,'deskAccessorieDetails']);
+
+
 /**
  * 
  *********************************User Pannel Route*********************************/
 Route::group(['middleware'=>'auth'],function(){
-
+    
     Route::get('/dashboard1',[LoginController::class,'dashboard'])->name('dashboard');
-
-   
 });
 
 
