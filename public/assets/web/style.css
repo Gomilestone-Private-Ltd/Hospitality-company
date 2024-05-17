@@ -1,35 +1,34 @@
 @font-face {
-    font-family: 'Futura Lt BT';
-    src: url('./font/FuturaBT-Light.woff2') format('woff2'),
-        url('./font/FuturaBT-Light.woff') format('woff');
+    font-family: "Futura Lt BT";
+    src: url("./font/FuturaBT-Light.woff2") format("woff2"),
+        url("./font/FuturaBT-Light.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Futura Regular';
-    src: url('./font/Futura+Regular.woff') format('woff'),
-        url('./font/Futura+Regular.woff2') format('woff2');
+    font-family: "Futura Regular";
+    src: url("./font/Futura+Regular.woff") format("woff"),
+        url("./font/Futura+Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
-
 @font-face {
-    font-family: 'Futura Md BT';
-    src: url('./font/FuturaBT-Medium.woff2') format('woff2'),
-        url('./font/FuturaBT-Medium.woff') format('woff');
+    font-family: "Futura Md BT";
+    src: url("./font/FuturaBT-Medium.woff2") format("woff2"),
+        url("./font/FuturaBT-Medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Futura BdCn BT';
-    src: url('./font/FuturaBT-BoldCondensed.woff2') format('woff2'),
-        url('./font/FuturaBT-BoldCondensed.woff') format('woff');
+    font-family: "Futura BdCn BT";
+    src: url("./font/FuturaBT-BoldCondensed.woff2") format("woff2"),
+        url("./font/FuturaBT-BoldCondensed.woff") format("woff");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -85,14 +84,14 @@ header {
 }
 
 .header-menu li a {
-    color: #30302B;
+    color: #30302b;
     text-decoration: none;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 17px;
 }
 
 .header-menu li a {
-    color: #30302B;
+    color: #30302b;
     text-decoration: none;
 }
 
@@ -126,9 +125,9 @@ header {
     width: 22px;
 }
 
-input[type=file]:focus,
-input[type=checkbox]:focus,
-input[type=radio]:focus {
+input[type="file"]:focus,
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
     outline: 0 !important;
 }
 
@@ -179,7 +178,7 @@ input[type=radio]:focus {
 }
 
 #action-box #menu-wrap .menu ul li a:hover {
-    color: #C4383D;
+    color: #c4383d;
 }
 
 #action-box #menu-wrap .menu ul li .link {
@@ -202,7 +201,7 @@ input[type=radio]:focus {
     z-index: 99;
 }
 
-#action-box #menu-wrap .toggler:checked~.menu {
+#action-box #menu-wrap .toggler:checked ~ .menu {
     opacity: 1;
     visibility: visible;
     width: 150px;
@@ -212,7 +211,7 @@ input[type=radio]:focus {
     z-index: 9;
 }
 
-#action-box #menu-wrap .toggler:checked~.menu ul .link {
+#action-box #menu-wrap .toggler:checked ~ .menu ul .link {
     opacity: 1;
     visibility: visible;
     -webkit-transition: 0.5s ease 0.3s;
@@ -225,19 +224,19 @@ input[type=radio]:focus {
 div.ruby-wrapper ul {
     margin: 0;
     padding: 0;
-    list-style: none
+    list-style: none;
 }
 
-ul.ruby-menu>li>a {
+ul.ruby-menu > li > a {
     display: block;
-    color: #30302B;
+    color: #30302b;
     text-decoration: none;
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 
-ul.ruby-menu>li.ruby-menu-mega>div,
-ul.ruby-menu>li.ruby-menu-mega-blog>div,
-ul.ruby-menu>li.ruby-menu-mega-shop>div {
+ul.ruby-menu > li.ruby-menu-mega > div,
+ul.ruby-menu > li.ruby-menu-mega-blog > div,
+ul.ruby-menu > li.ruby-menu-mega-shop > div {
     position: absolute;
     width: 100%;
     height: auto;
@@ -247,24 +246,24 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div {
     box-shadow: 0px 6px 7px 1px #ccc;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop>div {
+ul.ruby-menu > li.ruby-menu-mega-shop > div {
     text-align: center;
-    z-index: 999999
+    z-index: 999999;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul {
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul {
     width: 100%;
     background: #f0efeb;
     margin: 0 auto;
     padding: 0;
     border-bottom: 1px solid #ddd;
     font-size: 0;
-    z-index: 100
+    z-index: 100;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li {
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li {
     display: inline-block;
-    margin: 0
+    margin: 0;
 }
 
 ul.pro-menu {
@@ -273,22 +272,22 @@ ul.pro-menu {
     padding-right: 10px !important;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>a {
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a {
     display: block;
     padding: 15px 20px;
     text-transform: uppercase;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 16px;
     font-stretch: expanded;
-    color: #30302B;
+    color: #30302b;
     margin-right: 10px;
 }
 
 .ruby-list-heading {
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 15px;
     text-transform: uppercase;
-    color: #30302B;
+    color: #30302b;
     letter-spacing: 0.56px;
     margin-bottom: 25px;
     margin-top: 10px;
@@ -299,10 +298,10 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>a {
 }
 
 .ruby-list-heading:hover {
-    color: #C4383D;
+    color: #c4383d;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>div {
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > div {
     position: absolute;
     width: 100%;
     left: 0;
@@ -319,41 +318,46 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>div {
     border-bottom-right-radius: 6px;
 }
 
-ul.ruby-menu>li.ruby-menu-mega>div ul li,
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>div ul>li {
+ul.ruby-menu > li.ruby-menu-mega > div ul li,
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > div ul > li {
     position: relative;
     font-size: 14px;
     line-height: 20px;
     margin-bottom: 15px;
     display: block;
-    width: 100%
+    width: 100%;
 }
 
-ul.ruby-menu>li.ruby-menu-mega>div,
-ul.ruby-menu>li.ruby-menu-mega-blog>div,
-ul.ruby-menu>li.ruby-menu-mega-shop>div {
+ul.ruby-menu > li.ruby-menu-mega > div,
+ul.ruby-menu > li.ruby-menu-mega-blog > div,
+ul.ruby-menu > li.ruby-menu-mega-shop > div {
     visibility: hidden;
-    opacity: 0
+    opacity: 0;
 }
 
-ul.ruby-menu>li.ruby-menu-mega:hover>div,
-ul.ruby-menu>li.ruby-menu-mega-blog:hover>div,
-ul.ruby-menu>li.ruby-menu-mega-shop:hover>div {
+ul.ruby-menu > li.ruby-menu-mega:hover > div,
+ul.ruby-menu > li.ruby-menu-mega-blog:hover > div,
+ul.ruby-menu > li.ruby-menu-mega-shop:hover > div {
     visibility: visible;
-    opacity: 1
+    opacity: 1;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-blog>div>ul.ruby-menu-mega-blog-nav>li>div {
+ul.ruby-menu
+    > li.ruby-menu-mega-blog
+    > div
+    > ul.ruby-menu-mega-blog-nav
+    > li
+    > div {
     visibility: hidden;
-    opacity: 0
+    opacity: 0;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>div {
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > div {
     visibility: hidden;
-    opacity: 0
+    opacity: 0;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li:hover > div {
     visibility: visible;
     opacity: 1;
 }
@@ -363,18 +367,22 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     opacity: 1;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>div {
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > div {
     transform: translateY(-50px);
-    transition: all .5s ease
+    transition: all 0.5s ease;
 }
 
-ul.ruby-menu>li.ruby-menu-mega-shop:hover>div>ul>li.ruby-active-menu-item>div,
-ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
-    transform: translateY(0)
+ul.ruby-menu
+    > li.ruby-menu-mega-shop:hover
+    > div
+    > ul
+    > li.ruby-active-menu-item
+    > div,
+ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li:hover > div {
+    transform: translateY(0);
 }
 
 /* Header section End ***************************/
-
 
 /* Slider Section End *************************/
 
@@ -414,11 +422,11 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     width: 665px;
     margin: auto;
     margin-bottom: 25px;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .sub-heading::after {
-    content: '';
+    content: "";
     height: 0.5px;
     width: 242px;
     background-color: #d6d6d6;
@@ -428,7 +436,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
 }
 
 .sub-heading::before {
-    content: '';
+    content: "";
     height: 0.5px;
     width: 242px;
     background-color: #d6d6d6;
@@ -456,7 +464,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     margin: 0;
     margin-top: 5px;
     color: #fff;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-weight: 400;
 }
 
@@ -487,7 +495,6 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     margin: auto;
 }
 
-
 .product-heading {
     color: #000000;
     font-size: 35px;
@@ -495,11 +502,21 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     width: 715px;
     margin: auto;
     margin-bottom: 25px;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
+}
+.contact-heading {
+    color: #000000;
+    font-size: 35px;
+    position: relative;
+    width: 355px;
+    margin: auto;
+    margin-bottom: 25px;
+    font-family: "Futura Md BT";
+    text-align: center;
 }
 
 .product-heading::after {
-    content: '';
+    content: "";
     height: 0.5px;
     width: 242px;
     background-color: #d6d6d6;
@@ -509,9 +526,28 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
 }
 
 .product-heading::before {
-    content: '';
+    content: "";
     height: 0.5px;
     width: 242px;
+    background-color: #d6d6d6;
+    position: absolute;
+    bottom: 9px;
+    left: 0;
+}
+.contact-heading::after {
+    content: "";
+    height: 0.5px;
+    width: 110px;
+    background-color: #d6d6d6;
+    position: absolute;
+    bottom: 9px;
+    margin-left: 12px;
+}
+
+.contact-heading::before {
+    content: "";
+    height: 0.5px;
+    width: 110px;
     background-color: #d6d6d6;
     position: absolute;
     bottom: 9px;
@@ -523,7 +559,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     font-size: 16px;
     letter-spacing: 0.56px;
     text-align: center;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
 }
 
 .product-img-left img {
@@ -549,7 +585,12 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.17), rgba(0, 0, 0, 0.9));
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.17),
+        rgba(0, 0, 0, 0.9)
+    );
     top: 0;
     left: 0;
 }
@@ -563,7 +604,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     left: 50%;
     transform: translate(-50%, 0%);
     text-align: center;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .restaurant-section {
@@ -604,14 +645,14 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     color: #727376;
     margin-bottom: 20px;
     line-height: 22px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
 }
 
 .hover-text-box h3 {
     font-size: 25px;
     color: #fff;
     margin-bottom: 20px;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .read-more {
@@ -619,7 +660,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     font-size: 14px;
     margin: 0;
     position: relative;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .read-more:hover {
@@ -628,7 +669,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
 }
 
 .read-more::before {
-    content: '';
+    content: "";
     height: 1.5px;
     width: 50px;
     background-color: #ffffff;
@@ -669,14 +710,14 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     color: #727376;
     margin-bottom: 20px;
     line-height: 22px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
 }
 
 .hover-text-box1 h3 {
     font-size: 25px;
     color: #fff;
     margin-bottom: 20px;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .hover-box1:hover .hover-text-box1 {
@@ -707,11 +748,11 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
     margin: auto;
     margin-bottom: 25px;
     text-align: center;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .touch-heading::after {
-    content: '';
+    content: "";
     height: 2px;
     width: 100px;
     background-color: #d6d6d6;
@@ -721,7 +762,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
 }
 
 .touch-heading::before {
-    content: '';
+    content: "";
     height: 2px;
     width: 100px;
     background-color: #d6d6d6;
@@ -736,16 +777,16 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
 }
 
 .input-box h4 {
-    color: #827D7D;
-    font-family: 'Futura Lt BT';
+    color: #827d7d;
+    font-family: "Futura Lt BT";
     font-size: 18px;
     opacity: 70%;
     margin-top: 0;
 }
 
 .textarea-box h4 {
-    color: #827D7D;
-    font-family: 'Futura Lt BT';
+    color: #827d7d;
+    font-family: "Futura Lt BT";
     font-size: 18px;
     opacity: 70%;
     margin-top: 0;
@@ -765,7 +806,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
 
 .input-box .text-danger {
     color: red !important;
-    font-family: 'Futura Lt BT' !important;
+    font-family: "Futura Lt BT" !important;
     margin: 0;
     margin-top: 0px;
     font-size: 15px;
@@ -773,7 +814,7 @@ ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li:hover>div {
 
 .textarea-box .text-danger {
     color: red !important;
-    font-family: 'Futura Lt BT' !important;
+    font-family: "Futura Lt BT" !important;
     margin: 0;
     margin-top: 0px;
     font-size: 15px;
@@ -786,7 +827,7 @@ select {
     border: 1px solid rgb(180, 180, 180);
     font-size: 15px !important;
     padding-left: 10px;
-    font-family: 'Futura Lt BT' !important;
+    font-family: "Futura Lt BT" !important;
 }
 
 .textarea-box {
@@ -798,7 +839,7 @@ select {
     border: 1px solid rgb(180, 180, 180);
     font-size: 15px;
     padding-left: 8px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
 }
 
 input,
@@ -809,7 +850,7 @@ textarea {
 
     &:focus {
         outline: none;
-        border-color: #DB783D;
+        border-color: #db783d;
     }
 }
 
@@ -819,7 +860,7 @@ textarea {
 
     &:focus {
         outline: none;
-        border-color: #DB783D;
+        border-color: #db783d;
     }
 }
 
@@ -839,7 +880,7 @@ textarea {
     font-size: 14px;
     color: #242424;
     margin-left: 12px;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .call-box div a:hover {
@@ -851,21 +892,21 @@ textarea {
     border: none;
     background: none;
     font-size: 15px;
-    color: #DB783D;
+    color: #db783d;
     position: relative;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .submit-btn:hover {
-    color: #DB783D;
+    color: #db783d;
     text-decoration: none;
 }
 
 .submit-btn::before {
-    content: '';
+    content: "";
     height: 1.5px;
     width: 45px;
-    background-color: #DB783D;
+    background-color: #db783d;
     position: absolute;
     bottom: 8px;
     left: -47px;
@@ -877,8 +918,6 @@ textarea {
     position: relative;
 }
 
-
-
 .footer-logo {
     width: 125px;
     height: auto;
@@ -889,7 +928,7 @@ textarea {
     color: #2e2e2e;
     line-height: 21px;
     margin: 20px 0;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
 }
 
 .footer-icon-box {
@@ -912,17 +951,17 @@ textarea {
 }
 
 .facebook-icon:hover {
-    background-color: #DB783D;
+    background-color: #db783d;
     color: #fff;
-    border: 2px solid #DB783D;
+    border: 2px solid #db783d;
 }
 
 .footer-center h3 {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 20px;
-    color: #30302B;
-    font-family: 'Futura Md BT';
+    color: #30302b;
+    font-family: "Futura Md BT";
 }
 
 .footer-menu {
@@ -937,21 +976,21 @@ textarea {
 
 .footer-menu li a {
     font-size: 15px;
-    color: #30302B;
-    font-family: 'Futura Lt BT';
+    color: #30302b;
+    font-family: "Futura Lt BT";
     text-decoration: none;
 }
 
 .footer-menu li a:hover {
-    color: #C4383D;
+    color: #c4383d;
     text-decoration: none;
 }
 
 .footer-right-text {
     font-size: 14px;
-    color: #30302B;
+    color: #30302b;
     margin-bottom: 20px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
 }
 
 .fooetr-scroll-box img {
@@ -962,19 +1001,19 @@ textarea {
 .fooetr-scroll-box {
     position: absolute;
     top: -50px;
-    left: 30px;
+    left: 38px;
 }
 
 .footer-button-section {
-    background-color: #EDEBE5;
+    background-color: #edebe5;
     padding: 20px;
 }
 
 .footer-button-left p {
     font-size: 14px;
     margin: 0;
-    color: #827D7D;
-    font-family: 'Futura Lt BT';
+    color: #827d7d;
+    font-family: "Futura Lt BT";
 }
 
 .slick-center p {
@@ -985,7 +1024,7 @@ textarea {
     font-size: 18px;
     color: #3b3b3b;
     margin: 0;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .fooetr-scroll-box a:hover {
@@ -1002,7 +1041,7 @@ textarea {
     position: absolute;
     top: 14%;
     right: 9%;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 15px;
     color: #474747;
     margin: 0;
@@ -1012,7 +1051,7 @@ textarea {
     position: absolute;
     bottom: 23%;
     left: 9%;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 15px;
     color: #474747;
     margin: 0;
@@ -1026,7 +1065,7 @@ textarea {
 .ruby-grid-lined ul li a {
     font-size: 15px;
     color: #acacac;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
 }
 
 .menu-right-img img {
@@ -1056,11 +1095,11 @@ a {
 }
 
 .philosophy-text {
-    color: #3F3F3F;
+    color: #3f3f3f;
     font-size: 22px;
     text-align: center;
     line-height: 29px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     letter-spacing: -1.2px;
     padding: 0px 135px;
 }
@@ -1069,13 +1108,13 @@ a {
     color: #000000;
     font-size: 50px;
     letter-spacing: 0.56px;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-family: "Bodoni";
     font-weight: 500;
     text-transform: uppercase;
 }
 
-@media (max-width:1400px) {
+@media (max-width: 1400px) {
     .philosophy-right-box {
         position: absolute;
         right: 1% !important;
@@ -1106,11 +1145,9 @@ a {
     bottom: 22px;
 }
 
-
 .philosophy-right-box img {
     width: 100%;
 }
-
 
 .borderTop {
     border-top: 1px solid #dee2e6 !important;
@@ -1133,7 +1170,7 @@ a {
 }
 
 .video-section {
-    background-color: #F0EFEB;
+    background-color: #f0efeb;
     height: 900px;
 }
 
@@ -1150,7 +1187,7 @@ a {
 
 .who-we-are {
     text-align: center;
-    border: 1px solid #D1D1D1;
+    border: 1px solid #d1d1d1;
     padding: 16px;
 }
 
@@ -1161,23 +1198,23 @@ img.who-we-img {
 }
 
 p.who-we-text {
-    color: #222222E5;
+    color: #222222e5;
     font-size: 15px;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     margin: 0;
 }
 
 .text1 {
-    color: #30302B;
+    color: #30302b;
     font-size: 18px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     margin: 0;
     text-transform: capitalize;
     line-height: 26px;
 }
 
 .our-proces-main-section {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
     padding-bottom: 50px;
 }
 
@@ -1194,16 +1231,16 @@ p.who-we-text {
 }
 
 .Manufacturing {
-    font-family: 'Futura Md BT';
-    color: #30302B;
+    font-family: "Futura Md BT";
+    color: #30302b;
     font-size: 22px;
     line-height: 27px;
     margin-top: 10px;
 }
 
 .Aesthetically {
-    font-family: 'Futura Md BT';
-    color: #5B5B5B;
+    font-family: "Futura Md BT";
+    color: #5b5b5b;
     font-size: 22px;
     line-height: 27px;
 }
@@ -1211,7 +1248,7 @@ p.who-we-text {
 .Process-text {
     color: #727376;
     font-size: 16px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     line-height: 25px;
     text-transform: capitalize;
     margin-top: 0px;
@@ -1251,7 +1288,7 @@ p.who-we-text {
 .img-overlay p {
     margin: 0;
     font-size: 16px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     color: #fff;
     text-transform: uppercase;
 }
@@ -1291,7 +1328,7 @@ img.slide-arrow {
 }
 
 .our-client-img-box {
-    border: 1px solid #EFEFEF;
+    border: 1px solid #efefef;
     box-shadow: 0px 3px 14px 0px #ededed;
     background-color: #fff;
     padding: 10px !important;
@@ -1313,7 +1350,7 @@ img.slide-arrow {
 }
 
 .our-presence {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
 }
 
 .map-img-box img {
@@ -1323,11 +1360,11 @@ img.slide-arrow {
 }
 
 .product-customisation {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
 }
 
 .customisation-img-box {
-    border: 1px solid #E0E0E0;
+    border: 1px solid #e0e0e0;
     text-align: center;
     padding: 30px 15px;
     background-color: #fff;
@@ -1339,9 +1376,9 @@ img.slide-arrow {
 }
 
 .customisation-text {
-    color: #5B5B5B;
+    color: #5b5b5b;
     font-size: 16px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     margin: 0;
 }
 
@@ -1375,7 +1412,7 @@ img.slide-arrow {
 }
 
 .measures-img-box {
-    border: 1px solid #E0E0E0;
+    border: 1px solid #e0e0e0;
     text-align: center;
     padding: 15px 15px;
     background-color: #fff;
@@ -1387,16 +1424,15 @@ img.slide-arrow {
 }
 
 .measures-text {
-    color: #222222E5;
+    color: #222222e5;
     font-size: 16px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     margin: 0;
 }
 
 .who-we-are-slider .slick-prev {
     top: 92%;
 }
-
 
 /* Contact Section *****************************/
 
@@ -1405,11 +1441,11 @@ img.slide-arrow {
     margin-top: -70px;
     padding-top: 190px;
     position: relative;
-    background-color: #F0EFEB;
+    background-color: #f0efeb;
 }
 
 .QueriesInIndia-box {
-    border: 1px solid #DBDBDB;
+    border: 1px solid #dbdbdb;
     border-top: none;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -1417,7 +1453,7 @@ img.slide-arrow {
 }
 
 .contactOpine-setion .nav-tabs {
-    border: 1px solid #DBDBDB;
+    border: 1px solid #dbdbdb;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: white;
@@ -1444,23 +1480,23 @@ img.slide-arrow {
 }
 
 .contactOpine-setion .nav-tabs .nav-item .active {
-    border-bottom: 2px solid #DB783D;
+    border-bottom: 2px solid #db783d;
     padding: 20px 0px;
-    color: #DB783D !important;
+    color: #db783d !important;
 }
 
 .contactOpine-setion .nav-tabs .nav-item .nav-link {
     padding: 20px 0px;
-    color: #3F3F3F;
+    color: #3f3f3f;
     font-size: 18px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     margin: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     width: 100%;
 }
 
-.contactOpine-setion .nav-tabs>li {
+.contactOpine-setion .nav-tabs > li {
     margin: 0;
     width: 50%;
 }
@@ -1480,7 +1516,7 @@ img.slide-arrow {
 }
 
 .Queries-heading::after {
-    content: '';
+    content: "";
     height: 0.5px;
     width: 180px;
     background-color: #d6d6d6;
@@ -1490,7 +1526,7 @@ img.slide-arrow {
 }
 
 .Queries-heading::before {
-    content: '';
+    content: "";
     height: 0.5px;
     width: 180px;
     background-color: #d6d6d6;
@@ -1510,30 +1546,30 @@ img.slide-arrow {
 
 .QueriesIndia-img h4 {
     color: #000000;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 24px;
     margin: 0;
     margin-top: 18px;
 }
 
 .QueriesIndia-img p {
-    color: #3F3F3F;
-    font-family: 'Futura Lt BT';
+    color: #3f3f3f;
+    font-family: "Futura Lt BT";
     font-size: 16px;
     margin: 0;
     margin-top: 3px;
 }
 
 .QueriesIndia-img .QueriesIndia-email {
-    color: #3F3F3F;
-    font-family: 'Futura Lt BT';
+    color: #3f3f3f;
+    font-family: "Futura Lt BT";
     font-size: 16px;
     margin: 0;
     margin-top: 10px;
 }
 
 .CustomerService {
-    border-top: 1px solid #DBDBDB;
+    border-top: 1px solid #dbdbdb;
     margin-top: 20px;
 }
 
@@ -1559,7 +1595,7 @@ img.slide-arrow {
 img.mess-icon {
     height: 42px;
 }
-.call-box img{
+.call-box img {
     height: 40px;
 }
 
@@ -1576,7 +1612,7 @@ img.mess-icon {
     font-size: 14px;
     color: #242424;
     margin-left: 12px;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .call-box1 div a:hover {
@@ -1594,7 +1630,7 @@ a.call-text-box img {
 }
 
 .Custom-Project {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
     margin-top: -400px;
     height: 1000px;
     display: flex;
@@ -1634,16 +1670,16 @@ a.call-text-box img {
 
 .india-name {
     /* font-family: 'Futura Md BT'; */
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 25px;
-    color: #5B5B5B;
+    color: #5b5b5b;
     margin: 0;
     margin-top: 8px;
 }
 
 .contact-no {
     color: #000000;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 20px;
     margin: 0;
     margin-top: 8px;
@@ -1651,7 +1687,7 @@ a.call-text-box img {
 
 .location-text {
     color: #000000;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 18px;
     margin: 0;
     margin-top: 8px;
@@ -1663,7 +1699,7 @@ a.call-text-box img {
 }
 
 .india-location iframe {
-    border: 6px solid #F0EFEB !important;
+    border: 6px solid #f0efeb !important;
 }
 
 .textPadding {
@@ -1707,7 +1743,7 @@ a.call-text-box img {
     border: 1px solid rgb(180, 180, 180);
     font-size: 15px;
     padding-left: 10px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     background: none;
     padding-right: 10px;
     text-align: left;
@@ -1720,14 +1756,13 @@ a.call-text-box img {
     width: 17px;
 }
 
-.upload-btn-wrapper input[type=file] {
+.upload-btn-wrapper input[type="file"] {
     font-size: 100px;
     position: absolute;
     left: 0;
     top: 0;
     opacity: 0;
 }
-
 
 /* GUEST ROOM ITEMS Section ********************************************/
 
@@ -1740,7 +1775,7 @@ a.call-text-box img {
     width: 1430px;
 }
 
-@media (max-width:1400px) {
+@media (max-width: 1400px) {
     .GuestRoomItems-main-section .container {
         max-width: 1300px;
         width: 1300px;
@@ -1752,7 +1787,7 @@ a.call-text-box img {
     width: 1430px;
 }
 
-@media (max-width:1400px) {
+@media (max-width: 1400px) {
     .desk-detail-section .container {
         max-width: 1300px;
         width: 1300px;
@@ -1779,15 +1814,15 @@ a.call-text-box img {
 }
 
 .filter {
-    color: #5B5B5B;
-    font-family: 'Futura Md BT';
+    color: #5b5b5b;
+    font-family: "Futura Md BT";
     font-size: 22px;
     position: relative;
 }
 
 .filter::before {
     content: "";
-    background-color: #D3D3D3;
+    background-color: #d3d3d3;
     width: 50px;
     height: 1.5px;
     position: absolute;
@@ -1797,8 +1832,8 @@ a.call-text-box img {
 
 .arrordion-header .accordion-title {
     font-size: 20px;
-    color: #827D7D;
-    font-family: 'Futura Lt BT';
+    color: #827d7d;
+    font-family: "Futura Lt BT";
     text-transform: capitalize;
 }
 
@@ -1845,18 +1880,18 @@ a.call-text-box img {
     margin: 0;
     margin-left: 8px;
     font-size: 17px;
-    font-family: 'Futura Lt BT';
-    color: #827D7D;
+    font-family: "Futura Lt BT";
+    color: #827d7d;
     text-transform: capitalize;
 }
 
 .drop-btn {
-    border: 1px solid #E4E4E4;
+    border: 1px solid #e4e4e4;
     height: 50px;
     background-color: #fff;
     padding: 0px 10px;
     width: 200px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -1887,17 +1922,16 @@ a.call-text-box img {
 }
 
 .our-product-text {
-    color: #222222E5;
+    color: #222222e5;
     font-size: 18px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     text-transform: uppercase;
 }
 
 .our-product-text:hover {
     text-decoration: none;
-    color: #222222E5;
+    color: #222222e5;
 }
-
 
 /* DESK ACCESSORIES Section ******************************************/
 
@@ -1908,15 +1942,14 @@ a.call-text-box img {
     display: none;
 }
 
-
 .column img {
     cursor: pointer;
 }
 
 .desk-text {
     font-size: 20px;
-    font-family: 'Futura Lt BT';
-    color: #3F3F3F;
+    font-family: "Futura Lt BT";
+    color: #3f3f3f;
     line-height: 27px;
     text-align: center;
     padding: 0px 100px;
@@ -1944,7 +1977,7 @@ img.desk-small-img {
 }
 
 .GuestServiceDirectory {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
     margin-bottom: 30px;
     padding-bottom: 50px;
     margin-top: -100px;
@@ -1953,7 +1986,7 @@ img.desk-small-img {
 
 .guest-heading {
     color: #000;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 28px;
     margin: 0;
     margin-bottom: 20px;
@@ -1971,16 +2004,16 @@ img.desk-small-img {
 }
 
 .guest-text {
-    color: #3F3F3F;
+    color: #3f3f3f;
     font-size: 20px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     line-height: 28px;
     text-align: justify;
     margin: 0;
 }
 
 .material-box h4 {
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 20px;
     color: #4b4b4b;
     margin-bottom: 10px;
@@ -1990,10 +2023,10 @@ img.desk-small-img {
 
 .material-btn {
     color: #000;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 15px;
     text-align: center;
-    border: 1px solid #E3E3E3;
+    border: 1px solid #e3e3e3;
     padding: 10px 22px;
     margin-right: 20px;
     margin-bottom: 15px;
@@ -2004,15 +2037,15 @@ img.desk-small-img {
 .material-btn:hover {
     color: #000;
     text-decoration: none;
-    background-color: #E3E3E3;
+    background-color: #e3e3e3;
 }
 
 .color-btn {
     color: #000;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 15px;
     text-align: center;
-    border: 1px solid #E3E3E3;
+    border: 1px solid #e3e3e3;
     padding: 10px 22px;
     margin-right: 20px;
     margin-bottom: 15px;
@@ -2023,15 +2056,15 @@ img.desk-small-img {
 .color-btn:hover {
     color: #000;
     text-decoration: none;
-    background-color: #E3E3E3;
+    background-color: #e3e3e3;
 }
 
 .size-btn {
     color: #000;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 15px;
     text-align: center;
-    border: 1px solid #E3E3E3;
+    border: 1px solid #e3e3e3;
     padding: 10px 22px;
     margin-right: 20px;
     margin-bottom: 15px;
@@ -2042,11 +2075,11 @@ img.desk-small-img {
 .size-btn:hover {
     color: #000;
     text-decoration: none;
-    background-color: #E3E3E3;
+    background-color: #e3e3e3;
 }
 
 .materialActive {
-    background-color: #E3E3E3;
+    background-color: #e3e3e3;
 }
 
 /* .material-btn:focus{
@@ -2069,9 +2102,9 @@ img.desk-small-img {
 }
 
 .add-project-btn {
-    background-color: #E3E3E3;
-    color: #6A6A6A;
-    font-family: 'Futura Md BT';
+    background-color: #e3e3e3;
+    color: #6a6a6a;
+    font-family: "Futura Md BT";
     font-size: 14px;
     height: 50px;
     width: 250px;
@@ -2086,14 +2119,14 @@ img.desk-small-img {
     content: "";
     width: 50px;
     height: 1px;
-    background-color: #6A6A6A;
+    background-color: #6a6a6a;
     position: absolute;
     bottom: 23px;
     left: 20%;
 }
 
 .GuestServiceBlotter {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
     margin-bottom: 30px;
     padding-bottom: 50px;
     padding-top: 50px;
@@ -2103,7 +2136,6 @@ img.desk-small-img {
     margin-bottom: 0;
     padding-bottom: 80px;
 }
-
 
 /* desk-detail-section  ****************************************/
 
@@ -2115,7 +2147,7 @@ img.desk-small-img {
 }
 
 .RelatedProducts-main-section {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
     padding-bottom: 200px;
 }
 
@@ -2124,8 +2156,8 @@ img.desk-small-img {
 }
 
 .desk-slide-img p {
-    font-family: 'Futura Lt BT';
-    color: #222222E5;
+    font-family: "Futura Lt BT";
+    color: #222222e5;
     margin: 0;
     font-size: 16px;
 }
@@ -2143,22 +2175,21 @@ img.desk-small-img {
 .terms-condition-box {
     padding: 0px 50px;
     padding-bottom: 40px;
-
 }
 
 .underline-text {
-    color: #3F3F3F;
+    color: #3f3f3f;
     text-decoration: underline;
 }
 
 .underline-text:hover {
-    color: #3F3F3F;
+    color: #3f3f3f;
 }
 
 .product-specification {
     width: 50%;
     margin: auto;
-    border: 1px solid #ECECEC;
+    border: 1px solid #ececec;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 30px;
@@ -2191,8 +2222,8 @@ a:focus {
 }
 
 .productTitle {
-    color: #3F3F3F;
-    font-family: 'Futura Lt BT';
+    color: #3f3f3f;
+    font-family: "Futura Lt BT";
     font-size: 20px;
     margin: 0;
     width: 250px;
@@ -2207,8 +2238,8 @@ a:focus {
 }
 
 .productName {
-    color: #3F3F3F;
-    font-family: 'Futura Lt BT';
+    color: #3f3f3f;
+    font-family: "Futura Lt BT";
     font-size: 20px;
     margin: 0;
     text-transform: capitalize;
@@ -2219,17 +2250,16 @@ a:focus {
     margin: auto;
     position: relative;
     margin-bottom: 40px;
-
 }
 
 .email-box input {
     width: 100%;
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
     border: none;
     height: 50px;
     padding: 15px;
     padding-right: 120px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 16px;
 }
 
@@ -2237,19 +2267,19 @@ a:focus {
     border: none;
     background: none;
     font-size: 15px;
-    color: #DB783D;
+    color: #db783d;
     position: relative;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     position: absolute;
     top: 14px;
     right: 11px;
 }
 
 .send-btn::before {
-    content: '';
+    content: "";
     height: 1px;
     width: 45px;
-    background-color: #DB783D;
+    background-color: #db783d;
     position: absolute;
     bottom: 10px;
     left: -47px;
@@ -2282,7 +2312,7 @@ a:focus {
     cursor: pointer;
     font-size: 17px;
     border-radius: 50%;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     line-height: 1px;
 }
 
@@ -2294,7 +2324,7 @@ a:focus {
     font-weight: 500;
     vertical-align: middle;
     text-align: center;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
 }
 
 .no-data-found-box {
@@ -2317,14 +2347,14 @@ a:focus {
 }
 
 .no-data-found-box h3 {
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 30px;
     color: #333;
     margin-top: 10px;
 }
 
 .no-data-found-box p {
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 18px;
     color: #2e2e2e;
     margin-bottom: 25px;
@@ -2334,11 +2364,239 @@ a:focus {
     background-color: #cbcbcb;
     color: #000000;
     padding: 12px 25px;
-    font-family: 'Futura Lt BT';
+    font-family: "Futura Lt BT";
     font-size: 18px;
 }
 
 .no-data-found-box a:hover {
     color: #000000;
     text-decoration: none;
+}
+.container-main {
+    background-color: #fff;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background-color: #fff;
+    width: 466px;
+    border: 1px solid #ececec;
+    padding: 40px 50px;
+    border-radius: 10px;
+    margin-top: -230px;
+    z-index: 99;
+    margin-bottom: 80px;
+}
+.login-input {
+    height: 50px !important;
+    border-radius: 0px !important;
+}
+.button-box {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+button.otp-button {
+    border: none;
+    background: none;
+    color: #db783d;
+}
+.line {
+    width: 60px;
+    height: 1px;
+    background-color: #db783d;
+}
+.login-text {
+    color: #3f3f3f;
+    font-size: 22px;
+    text-align: center;
+    line-height: 29px;
+    font-family: "Futura Lt BT";
+    letter-spacing: -1.2px;
+    padding: 0px 230px;
+}
+.signin {
+    color: #000000;
+    font-size: 50px;
+    letter-spacing: 0.56px;
+    font-family: "Futura Md BT";
+    font-family: "Bodoni";
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+.account-setting {
+    border: 1px solid #dbdbdb;
+    border-top: none;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 30px 40px;
+}
+.navigator {
+    height: 46px !important;
+    display: flex !important;
+    align-items: center;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #000 !important;
+    background-color: #f0efeb !important;
+}
+.nav-div {
+    position: relative;
+}
+.nav-div a {
+    color: #827d7d !important;
+    border-radius: 0 !important;
+    border: 1px solid #e4e4e4 !important;
+    font-size: 16px;
+    font-family: "Futura Lt BT";
+    font-weight: 500;
+}
+
+.arrow-img {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+}
+.arrow-img2 {
+    position: absolute;
+    right: 15px;
+    top: 58px;
+}
+#after {
+    display: none;
+}
+#otp-text {
+    margin-bottom: 10px;
+}
+.account-box {
+    /* padding: 20px 40px; */
+    width: 100%;
+    border: 1px solid #ededed;
+}
+.setting-box {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    padding-top: 0px;
+    margin-bottom: 12px !important;
+}
+.setting-heading::before {
+    content: "";
+    height: 0.5px;
+    width: 120px;
+    background-color: #d6d6d6;
+    position: absolute;
+    bottom: 9px;
+    left: 95px;
+}
+.setting-heading::after {
+    content: "";
+    height: 0.5px;
+    width: 120px;
+    background-color: #d6d6d6;
+    position: absolute;
+    bottom: 9px;
+    margin-left: 12px;
+}
+.setting-heading {
+    margin-top: 20px;
+}
+h1.Personal-text {
+    font-size: 20px;
+    font-family: "Futura Md BT";
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.name-color {
+    color: #827d7d;
+    font-size: 16px;
+    font-family: "Futura Lt BT";
+}
+.order-history::before {
+    content: "";
+    height: 0.5px;
+    width: 120px;
+    background-color: #d6d6d6;
+    position: absolute;
+    bottom: 9px;
+    left: 30px;
+}
+.order-history::after {
+    content: "";
+    height: 0.5px;
+    width: 120px;
+    background-color: #d6d6d6;
+    position: absolute;
+    bottom: 9px;
+    margin-left: 12px;
+}
+.order-history {
+    width: 530px !important;
+    margin-top: 20px;
+}
+.order-history-img {
+    height: 95px;
+}
+.history-heding {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #000;
+    font-family: 'Futura Md BT';
+    margin-top: 0px;
+}
+.oredr-date {
+    display: flex;
+    align-items: center;
+}
+.oredr-date p {
+    color: #969696;
+    font-size: 12px;
+}
+.bill-number {
+    padding-right: 5px;
+    border-right: 1px solid #969696;
+}
+.date {
+    padding-left: 5px;
+}
+h1.mt-heading {
+    margin-top: 0px;
+    font-size: 14px;
+    color: #000;
+    font-family: 'Futura Md BT';
+    margin-bottom: 8px;
+}
+p.mt-text {
+    color: #7D7D7D;
+    font-size: 14px;
+    font-family: 'Futura Lt BT';
+    margin-bottom: 30px;
+}
+.material {
+    border-right: 1px solid #E0E0E0;
+}
+.order-history-content {
+    padding: 0px 40px;
+    border-bottom: 1px solid #E0E0E0;
+}
+.order-histroy-box2 {
+    padding: 30px 40px 0px 40px;
+    border: 1px solid #E0E0E0;
+}
+.account-main {
+    padding: 0px 25px;
+    margin-bottom: 30px;
 }

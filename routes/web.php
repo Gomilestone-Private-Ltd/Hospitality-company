@@ -51,6 +51,10 @@ Route::post('/get-subcategory-list',[AppController::class,'getSubCategory'])->na
 Route::post('/get-in-touch',[AppController::class,'GetInTouch'])->name('get.in.touch');
 Route::post('/contact-us',[AppController::class,'contactUs'])->name('contact.us');
 Route::get('/contact',[ContactController::class,'contact']);
+Route::get('/login',[ContactController::class,'login']);
+Route::get('/account-settings',[ContactController::class,'account']);
+
+
 
 
 

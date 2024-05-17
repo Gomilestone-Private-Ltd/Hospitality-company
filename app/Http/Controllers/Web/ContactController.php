@@ -9,4 +9,10 @@ class ContactController extends Controller
     public function contact(){
         return view('web.contact');
     }
+    public function login(){
+        return view('web.login');
+    }
+    public function account(){
+        return view('web.account_setting');
+    }
 }
