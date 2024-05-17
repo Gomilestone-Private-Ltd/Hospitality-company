@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Areaofuse;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use App\Models\AreaOfUse;
 
 class EditRequest extends FormRequest
 {
@@ -19,11 +21,18 @@ class EditRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
-        return [
-                'area_of_use' => "required|max:15",
-        ];
+        $getAreaOfUse = AreaOfUse::whereSlug($request->slug)->first();
+        if(!empty($getAreaOfUse) && $getAreaOfUse->area_of_use == $request->area_of_use){
+            return [
+                    'area_of_use' => "required|max:15",
+                   ];
+        }else{
+            return [
+                    'area_of_use' => "required|max:15|unique:area_of_uses,area_of_use",
+                   ];
+        }
     }
     
     

@@ -22,7 +22,7 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'name'         => "required|max:50",
+                'name'         => "required|max:50|unique:subcategories,name",
                 'category'     => "required",
                 'image'        => "required|mimes:png,jpeg,jpg|max:1024",
                 'description'  => "required|max:250",

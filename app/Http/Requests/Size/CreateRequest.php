@@ -22,8 +22,8 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'size' => "required|max:15",
-                'size_type' => "required|max:10",
+                'size' => "required|max:15|unique:size,size",
+                'size_type' => "required|max:10|unique:size,size_type",
         ];
     }
     

@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use App\Models\Category;
 
 class EditRequest extends FormRequest
 {
@@ -19,13 +21,22 @@ class EditRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
-        return [
-                'name' => "required|max:50",
-                'image' => "mimes:png,jpeg,jpg|max:1024",
-                'category_type' => "required",
-        ];
+        $getCategory = Category::whereSlug($request->slug)->first();
+        if(!empty($getCategory) && $getCategory->name == $request->name){
+            return [
+                    'name' => "required|max:50",
+                    'image' => "mimes:png,jpeg,jpg|max:1024",
+                    'category_type' => "required",
+                   ];
+        }else{
+            return [
+                    'name' => "required|max:50|unique:categories,name",
+                    'image' => "mimes:png,jpeg,jpg|max:1024",
+                    'category_type' => "required",
+            ];
+        }
     }
 
     public function messages()
