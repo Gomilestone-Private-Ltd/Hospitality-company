@@ -38,7 +38,12 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view($this->view.'.login'); 
+        if(Auth::guard('admin')->check()){
+            return redirect('/admin/dashboard');
+        }else{
+            return view($this->view.'.login'); 
+        }
+        
     }
 
     /**
