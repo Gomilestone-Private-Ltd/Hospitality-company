@@ -75,8 +75,8 @@
                                                 },
                                                 {   data: 'status',      name: 'status',
                                                     render:function(data,type,row,meta){
-                                                        $enableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','supersubcategory-status')"><span class="badge badge-success">Enable</span></p>`;
-                                                        $disableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','supersubcategory-status')"><span class="badge badge-danger">Disable</span></p>`;
+                                                        $enableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','admin/supersubcategory-status')"><span class="badge badge-success">Enable</span></p>`;
+                                                        $disableBtn = `<p class="changeStatus`+row.slug+`" onclick="return changeStatus('`+row.slug+`','admin/supersubcategory-status')"><span class="badge badge-danger">Disable</span></p>`;
                                                         return (data)? $enableBtn: $disableBtn;
                                                     }
                                                 },
@@ -87,8 +87,8 @@
                                                 },
                                                 {   data: 'action',    name: 'action', 
                                                     render:function(data,type,row,meta){
-                                                        var btn1 = `<a href="{{url('edit-supersubcategory')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
-                                                        var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','delete-supersubcategory')"></i>`;
+                                                        var btn1 = `<a href="{{url('admin/edit-supersubcategory')}}/`+row.slug+`"> <i class="fa fa-pencil-square edit-icon"  aria-hidden="true"></i></a>`;
+                                                        var btn2 = `<i class="fa fa-trash delete-icon" aria-hidden="true" onclick="return deleteCategory('`+row.slug+`','admin/delete-supersubcategory')"></i>`;
                                                         var actionBtn = btn1+btn2;
                                                         return actionBtn; 
                                                     },
