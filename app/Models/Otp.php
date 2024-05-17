@@ -11,7 +11,8 @@ class Otp extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
                            'slug',
-                           'email',
+                           'contact',
+                           'fullname',
                            'otp',
                            'status',
                           ];

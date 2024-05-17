@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8301527b98a425b264940467a4c4bd8f",
+    "content-hash": "feb8f4abf13575d15eeb42c204a8333d",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.306.2",
+            "version": "3.307.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "0de11adba8f174a76346c9dbb175c2030ff5c8f2"
+                "reference": "2cff93427287ec2bcb1ff6eeddd5ca98feeccdfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0de11adba8f174a76346c9dbb175c2030ff5c8f2",
-                "reference": "0de11adba8f174a76346c9dbb175c2030ff5c8f2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2cff93427287ec2bcb1ff6eeddd5ca98feeccdfc",
+                "reference": "2cff93427287ec2bcb1ff6eeddd5ca98feeccdfc",
                 "shasum": ""
             },
             "require": {
@@ -151,9 +151,86 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.306.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.307.0"
             },
-            "time": "2024-05-08T18:07:54+00:00"
+            "time": "2024-05-16T18:06:49+00:00"
+        },
+        {
+            "name": "aws/aws-sdk-php-laravel",
+            "version": "3.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-sdk-php-laravel.git",
+                "reference": "11cb363873bd77a91b262936936abfa6a2122d53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php-laravel/zipball/11cb363873bd77a91b262936936abfa6a2122d53",
+                "reference": "11cb363873bd77a91b262936936abfa6a2122d53",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.279.0",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0 || ^9.0",
+                "vlucas/phpdotenv": "^1.0 || ^2.0 || ^3.0 || ^4.0 || ^5.0",
+                "yoast/phpunit-polyfills": "^1.0"
+            },
+            "suggest": {
+                "laravel/framework": "To test the Laravel bindings",
+                "laravel/lumen-framework": "To test the Lumen bindings"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aws\\Laravel\\AwsServiceProvider"
+                    ],
+                    "aliases": {
+                        "AWS": "Aws\\Laravel\\AwsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aws\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "A simple Laravel 6/7/8/9/10/11 service provider for including the AWS SDK for PHP.",
+            "homepage": "https://aws.amazon.com/sdk-for-php/",
+            "keywords": [
+                "amazon",
+                "aws",
+                "dynamodb",
+                "ec2",
+                "laravel",
+                "laravel 10",
+                "laravel 11",
+                "laravel 6",
+                "laravel 7",
+                "laravel 8",
+                "laravel 9",
+                "s3",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/aws/aws-sdk-php-laravel/issues",
+                "source": "https://github.com/aws/aws-sdk-php-laravel/tree/3.9.0"
+            },
+            "time": "2024-03-18T17:43:45+00:00"
         },
         {
             "name": "brick/math",
@@ -1193,6 +1270,64 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/aws-sns",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/aws-sns.git",
+                "reference": "84f84960ce2147d0d13ef065c855f81e7358fbff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/aws-sns/zipball/84f84960ce2147d0d13ef065c855f81e7358fbff",
+                "reference": "84f84960ce2147d0d13ef065c855f81e7358fbff",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.69.11",
+                "guzzlehttp/guzzle": "^6.2.1 || ^7.0",
+                "illuminate/notifications": "^9.0|^10.0 || ^11.0",
+                "illuminate/support": "^9.0|^10.0 || ^11.0",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5.1",
+                "phpunit/phpunit": "^9.5.10 || ^10.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\AwsSns\\SnsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\AwsSns\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Claudson Martins",
+                    "email": "claudson@outlook.com",
+                    "homepage": "https://claudsonmartins.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Amazon Simple Notification Service (AWS SNS) notification channel for Laravel.",
+            "homepage": "https://github.com/laravel-notification-channels/aws-sns",
+            "support": {
+                "issues": "https://github.com/laravel-notification-channels/aws-sns/issues",
+                "source": "https://github.com/laravel-notification-channels/aws-sns/tree/1.6.0"
+            },
+            "time": "2024-03-12T22:13:22+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2954,20 +3089,20 @@
         },
         {
             "name": "psr/http-factory",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35"
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/e616d01114759c4c489f93b099585439f795fe35",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0.0",
+                "php": ">=7.1",
                 "psr/http-message": "^1.0 || ^2.0"
             },
             "type": "library",
@@ -2991,7 +3126,7 @@
                     "homepage": "https://www.php-fig.org/"
                 }
             ],
-            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
             "keywords": [
                 "factory",
                 "http",
@@ -3003,9 +3138,9 @@
                 "response"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-factory/tree/1.0.2"
+                "source": "https://github.com/php-fig/http-factory"
             },
-            "time": "2023-04-10T20:10:41+00:00"
+            "time": "2024-04-15T12:06:14+00:00"
         },
         {
             "name": "psr/http-message",
