@@ -78,7 +78,7 @@ Route::get('/desk-accessorie',[GuestRoomController::class,'deskAccessories']);
 Route::get('/desk-accessorie-detail',[GuestRoomController::class,'deskAccessorieDetails']);
 
 
-Route::get('/login1',[CustomerLoginController::class,'login'])->name('customer.login');
+Route::get('/user-login',[CustomerLoginController::class,'login'])->name('customer.login');
 Route::post('/authenticate-customer',[CustomerLoginController::class,'authenticateCustomer'])->name('authenticate.customer');
 Route::post('/verify-otp',[CustomerLoginController::class,'verifyOtp'])->name('verify.otp');
 

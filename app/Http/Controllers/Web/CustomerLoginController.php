@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use Hash;
 use Slug;
 use Token;
 use Masked;
@@ -10,6 +11,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Web\VerifyOtp;
 use App\Http\Requests\Web\LoginRequest;
 use Illuminate\Support\Facades\Session;
 
@@ -41,22 +43,11 @@ class CustomerLoginController extends Controller
     public function login()
     {
         try{
-
-            //get Otp
-            $token = Token::generateToken();
-
-            //Send otp
-            // Token::sendToken("",$token);
-
-            Session::put('conatct', "9898765432");
-            Session::put('token', $token);
-            
-            dd(Session::get('conatct'), Session::get('token'),$token);
-            //if(Auth::check()){
-            //     return view($this->customerView.'.dashboard');
-            //}else{
-            //     return view($this->view.'.login');
-            //}
+            if(Auth::check()){
+                return view($this->customerView.'.dashboard');
+            }else{
+                return view($this->view.'.login');
+            }
         }catch(\Exception $e){
             return redirect()->back([ 'error'  => $e->getMessage() ]);
         } 
@@ -70,27 +61,27 @@ class CustomerLoginController extends Controller
     public function authenticateCustomer(LoginRequest $request)
     {
         try{
-            $contact = $request->mobile ??'';
+            $mobile = $request->mobile ??'';
             $fullname = $request->fullname ??'';
-            if(!empty($mobile)){
-                $getUser = $this->user->where('contact',$contact)->first();
-                if(empty($getUser)){
-                    //Send otp on number
-                    //get Otp
-                    $token = Token::generateToken();
+            
+            $getUser = $this->user->where('contact',$mobile)->first();
+            if(empty($getUser)){
+                //get Otp
+                $token = Token::generateToken();
+                Token::setSessionToken($mobile,$token, $fullname);
 
-                    //Send otp
-                    Token::sendToken($contact,$token);
-                }else{
-                    return redirect()->back([ 'error'  =>"Contact number already registered !!" ]);
-                }
+                return response()->json([
+                                            'status'=> 200,
+                                            'success'   => "Otp Sent successfully".$token,
+                                        ]);
             }else{
-                return redirect()->back([ 'error'  =>"Please Enter Conatct !!" ]);
+                return response()->json(['status'=> 300,'error'  =>"Contact number already registered !!" ]);
             }
+            
 
 
         }catch(\Exception $e){
-            return redirect()->back([ 'error'  => $e->getMessage() ]);
+            return response()->json(['error'  => $e->getMessage() ]);
         } 
     }
 
@@ -100,7 +91,28 @@ class CustomerLoginController extends Controller
      * @param
      * @return
      */
-    public function verifyOtp(Request $request){
-        // dd(Slug::getOtp());
+    public function verifyOtp(VerifyOtp $request){
+        try{
+            if(!empty(Token::getSessionToken()[1]) && Token::getSessionToken()[1] == $request->otp){
+                //update token 
+                Token::updateSessionToken();
+                $getUserDetail = [
+                                  'slug'=> Slug::mediumSlug() ??'',
+                                  'name'=> Token::getSessionToken()[0] ??'',
+                                  'contact'=> Token::getSessionToken()[2] ??'',
+                                  'password'=> Hash::make(Token::getSessionToken()[1]) ??'',
+                                  'c_password'=> Token::getSessionToken()[2]??'',
+                                 ];   
+                                                
+                return response()->json([
+                                            'status'    => 200,
+                                            'success'   => "Otp verified successfully !!",
+                                        ]);
+            }else{
+                return response()->json(['status'=> 300, 'error'  =>"Enter valid otp !!" ]);
+            }
+        }catch(\Exception $e){
+            return response()->json(['error' => $e->getMessage()]);
+        } 
     }
 }

@@ -34,20 +34,35 @@ class Token{
      */
     public static function getSessionToken()
     {
-        $contact = Session::get('contact');
-        $token   = Session::get('token');
-        return [$contact,$token];
-    }
+        $mobile     = Session::get('mobile');
+        $token      = Session::get('token');
+        $fullname   = Session::get('fullname');
+        return [$fullname, $token, $mobile];
+     } 
 
     /**
      * @method Set token in session
      * @param
      * @return response 
      */
-    public static function setSessionToken($contact , $token)
+    public static function setSessionToken($mobile , $token , $fullname)
     {
-        Session::put('conatct', "9898765432");
-        Session::put('token', '2378');
+        Session::put('mobile', $mobile);
+        Session::put('token', $token);
+        Session::put('fullname', $fullname);
+        return true;
+    }
+
+    /**
+     * @method Get token from session
+     * @param
+     * @return response 
+     */
+    public static function updateSessionToken()
+    {
+        Session::put('mobile', "1234567890");
+        Session::put('token', '000000');
+        Session::put('fullname', "Demo user");
         return true;
     }
 }

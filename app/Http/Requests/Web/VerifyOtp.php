@@ -4,7 +4,7 @@ namespace App\Http\Requests\Web;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class VerifyOtp extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,19 +22,16 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'fullname' =>'required|max:30',
-                'mobile'   =>'required|numeric|digits:10',
-               ];
+                'otp'=>'required|numeric|digits:6'
+        ];
     }
 
     public function messages()
     {
         return[
-                'fullname.required'  => "Full Name field is required",
-                'fullname.max'       => "Full Name can't be greater then 30 char",
-                'mobile.required'    => "Mobile number is required",
-                'mobile.numeric'     => "Mobile number must be numeric",
-                'mobile.digits'      => "Mobile number can't be greater then 10 digits",
+                'otp.required'  => "Enter valid Otp",
+                'otp.digits'    => "Otp must be of 6 digits",
+                'otp.numeric'   => "Otp must be in number format",
               ];
     }
 }
