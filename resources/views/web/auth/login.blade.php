@@ -62,12 +62,7 @@
             </div>
         </div>
     </div>
-<script>
-     function toggleForm(){
-        document.getElementById('before').style.display="none";
-        document.getElementById('after').style.display="block";
-     }
-</script>
+
 
 @endsection
 @section('js')
