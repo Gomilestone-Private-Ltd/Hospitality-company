@@ -89,6 +89,8 @@ Route::post('/verify-otp',[CustomerLoginController::class,'verifyOtp'])->name('v
 Route::group(['middleware'=>'auth'],function(){
     
     Route::get('/dashboard1',[LoginController::class,'dashboard'])->name('dashboard');
+    Route::post('/update-profile/{slug}',[CustomerLoginController::class,'updateProfile'])->name('customer.update.profile');
+
 });
 
 

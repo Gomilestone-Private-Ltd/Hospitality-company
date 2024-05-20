@@ -67,5 +67,4 @@
 @endsection
 @section('js')
     <script src="{{ asset('assets/web/js/user_login.js') }}"></script>
-    <script src="{{ asset('assets/web/js/contact_us.js') }}"></script>
 @endsection
