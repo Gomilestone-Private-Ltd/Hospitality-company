@@ -78,12 +78,12 @@ $(document).ready(function(){
             return;
         }else{
             if(getOtp.length !== 6){
-                $('.otp').html('Enter valid OTP ');
+                $('.otp').html('Otp must be 6 digit');
                 return;
             }else{
                 let otpNumberPattern = /^[0-9]{6}$/;
                 if (!otpNumberPattern.test(getOtp)) {
-                    $('.otp').html('Otp must be 6 digits');
+                    $('.otp').html('Otp must be 6 digit');
                     return;
                 }
             }
@@ -104,7 +104,8 @@ $(document).ready(function(){
                         $('.loginformMessage').removeClass('text-danger');
                         $('.loginformMessage').addClass('text-success');
                         $('.loginformMessage').html(response.success);
-                        $('.submitloginOtpForm')
+                        $('.submitloginOtpForm');
+                        window.location.href ='{{ route('/')}}';
                     }else{
                         $('.loginformMessage').removeClass('text-success');
                         $('.loginformMessage').addClass('text-danger');

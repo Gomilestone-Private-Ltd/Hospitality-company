@@ -95,19 +95,30 @@ class CustomerLoginController extends Controller
         try{
             if(!empty(Token::getSessionToken()[1]) && Token::getSessionToken()[1] == $request->otp){
                 //update token 
-                Token::updateSessionToken();
                 $getUserDetail = [
-                                  'slug'=> Slug::mediumSlug() ??'',
-                                  'name'=> Token::getSessionToken()[0] ??'',
-                                  'contact'=> Token::getSessionToken()[2] ??'',
-                                  'password'=> Hash::make(Token::getSessionToken()[1]) ??'',
-                                  'c_password'=> Token::getSessionToken()[2]??'',
+                                    'slug'       => Slug::mediumSlug() ??'',
+                                    'name'       => Token::getSessionToken()[0] ??'',
+                                    'contact'    => Token::getSessionToken()[2] ??'',
+                                    'password'   => Hash::make(Token::getSessionToken()[1]) ??'',
+                                    'c_password' => Token::getSessionToken()[2]??'',
                                  ];   
-                                                
-                return response()->json([
-                                            'status'    => 200,
-                                            'success'   => "Otp verified successfully !!",
-                                        ]);
+                $this->user->create($getUserDetail); 
+               // $credentials = $request->only('contact', 'password');
+                //dd(Token::getSessionToken()[2]);
+                if(Auth::attempt(['contact' => Token::getSessionToken()[2], 'password' => Token::getSessionToken()[2]])){
+                    //Token::updateSessionToken();
+                    return response()->json([
+                                                'status'  => 200,
+                                                'success' => "Otp verified successfully !!",
+                                            ]);
+                }else{
+                    //Token::updateSessionToken();
+                    return response()->json([
+                                                'status'    => 300,
+                                                'success'   => "Enter valid otp !!",
+                                            ]);
+                }                           
+                
             }else{
                 return response()->json(['status'=> 300, 'error'  =>"Enter valid otp !!" ]);
             }
