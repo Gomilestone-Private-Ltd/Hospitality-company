@@ -6,7 +6,8 @@ use App\Http\Controllers\Web\AppController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\GuestRoomController;
 use App\Http\Controllers\Web\WebProductController;
-use App\Http\Controllers\web\UserLoginController;
+use App\Http\Controllers\web\CustomerLoginController;
+use App\Http\Controllers\web\CustomerController;
 
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProductController;
@@ -41,7 +42,8 @@ use App\Http\Controllers\Admin\OrderController;
 /**
  * 
  *
- *********************************Web Application Route*********************************/
+ *********************************Web Application Route*******************************
+ **/
 
 Route::get('/',[AppController::class,'index'])->name('/');
 Route::get('/philosophy',[AppController::class,'philosophy']);
@@ -78,12 +80,19 @@ Route::get('/desk-accessorie',[GuestRoomController::class,'deskAccessories']);
 Route::get('/desk-accessorie-detail',[GuestRoomController::class,'deskAccessorieDetails']);
 
 
+Route::get('/user-login',[CustomerLoginController::class,'login'])->name('customer.login');
+Route::post('/authenticate-customer',[CustomerLoginController::class,'authenticateCustomer'])->name('authenticate.customer');
+Route::post('/verify-otp',[CustomerLoginController::class,'verifyOtp'])->name('verify.otp');
+
 /**
  * 
- *********************************User Pannel Route*********************************/
+ *********************************User Pannel Route**********************************
+ */
 Route::group(['middleware'=>'auth'],function(){
     
     Route::get('/dashboard1',[LoginController::class,'dashboard'])->name('dashboard');
+    Route::post('/update-profile/{slug}',[CustomerLoginController::class,'updateProfile'])->name('customer.update.profile');
+
 });
 
 

@@ -45,15 +45,7 @@ class Slug{
        return "GMS-".Str::random(9);
     }
     
-    /**
-     * @method Get Otp
-     * @param
-     * @return 6 digit Otp 
-     */
-    public static function getOtp()
-    {
-       return random_int(100000, 999999);
-    }
+    
 }
 
 ?>

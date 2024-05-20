@@ -23,7 +23,7 @@ class GetInTouchCreateRequest extends FormRequest
     {
         return [
                 'name'=>"required|max:30",
-                'email'=>"required|email|max:30",
+                'email'=>"required|email|max:30",   
                 'message'=>"required|max:500",
         ];
     }
