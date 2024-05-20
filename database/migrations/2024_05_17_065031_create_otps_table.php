@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->nullable()->index();
-            $table->string('email')->nullable()->index();
+            $table->string('contact')->nullable()->index();
+            $table->string('fullname')->nullable()->index();
             $table->string('otp')->nullable()->index();
             $table->boolean('status')->default('1')->comment('1 for active and 0 for in active')->index();
             $table->softDeletes();

@@ -181,7 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+         
         /*
          * Package Service Providers...
          */
@@ -213,6 +213,7 @@ return [
                                                     'Masked'          => App\Helper\Masked::class,
                                                     'Picture'         => App\Helper\Picture::class,
                                                     'Slug'            => App\Helper\Slug::class,
+                                                    'Token'           => App\Helper\Token::class,
                                                     'CreateAppLog'    => App\Helper\CreateAppLog::class,
                                                     
                                                  ])->toArray(),
