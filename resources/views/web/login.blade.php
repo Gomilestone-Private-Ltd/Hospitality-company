@@ -2,7 +2,7 @@
 @section('title', 'Sign In')
 @section('content')
     <div class="main-philosophy-section">
-        <div class="contact-section">
+        <div class="contact-section contact-responsive">
             {{-- <div class="borderTop"></div> --}}
             <div class="borderLeft" style="background-color: #fff"></div>
             <div class="container">

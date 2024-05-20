@@ -1,4 +1,4 @@
-@media (max-width:1250px) {
+@media (max-width: 1250px) {
     .call-main-box {
         display: flex;
         align-items: center;
@@ -42,19 +42,78 @@
         right: 330px;
     }
 
-    .GuestRoomItems-main-section .container{
+    .GuestRoomItems-main-section .container {
         width: auto;
     }
-    .desk-detail-section .container{
+    .desk-detail-section .container {
         width: auto;
     }
-    .borderLeft{
+    .borderLeft {
         right: 315px;
+    }
+    .login-text  {
+        padding: 0px 135px;
+    }
+    .setting-box {
+        padding-top: 0px !important;
+    }
+    .order-first {
+        padding: 0px 10px;
+    }
+    .order-histroy-box2 {
+        padding: 20px 10px 0px 10px;
+    }
+}
+@media screen and (min-width: 767px )and (max-width: 991px ){
+    .responsive {
+        padding-right: 0px !important;
+    }
+    .setting-box {
+        padding-top: 0px !important;
+    }
+    .setting-heading::before {
+        width: 70px !important;
+        left: 26px;
+    }
+    .setting-heading::after {
+        width: 70px !important;
+    }
+    .order-first {
+        padding: 0px 10px;
+    }
+    .history-heding {
+        padding-left: 35px;
+    }
+    .oredr-date {
+        padding-left: 36px; 
+    }
+    .padding-res  {
+        padding: 0px !important;
+    }
+    .order-histroy-box2 {
+        padding: 20px 10px 0px 15px;
+    }
+    p.mt-text {
+        margin-bottom: 15px;
+    }
+    .button-responsive {
+        padding-left: 50px !important;
+    }
+    .mt-heading-respo {
+        margin-left: 5px !important;
+    }
+    .order-history {
+        width: 480px !important;
+    }
+    .order-history::before {
+        width: 95px !important;
+    }
+    .order-history::after {
+        width: 95px !important;
     }
 }
 
-@media (max-width:991px) {
-
+@media (max-width: 991px) {
     .slick-track {
         left: -170px;
     }
@@ -112,22 +171,22 @@
         width: auto;
     }
 
-    .main-sliser .slick-track{
+    .main-sliser .slick-track {
         position: initial !important;
     }
 
-    .borderLeft{
+    .borderLeft {
         right: 250px;
         height: 170px;
     }
-    .philosophy-section{
+    .philosophy-section {
         padding-top: 150px;
     }
-    .philosophy-text{
+    .philosophy-text {
         padding: 0px 50px;
     }
 
-    .video-box iframe{
+    .video-box iframe {
         height: 350px;
     }
     .manufacture {
@@ -151,13 +210,13 @@
     .Measures-heading {
         width: 610px;
     }
-    .touch-heading::before{
+    .touch-heading::before {
         width: 60px;
     }
-    .touch-heading::after{
+    .touch-heading::after {
         width: 60px;
     }
-    .header-center{
+    .header-center {
         margin-top: 9px;
     }
     .Queries-heading {
@@ -166,10 +225,10 @@
     .CustomerService-heading {
         width: 625px;
     }
-    .call-box1{
+    .call-box1 {
         margin-left: 20px;
     }
-    .Custom-Project{
+    .Custom-Project {
         height: 880px;
     }
     .Requirement-heading {
@@ -187,13 +246,13 @@
     .location-heading {
         width: 500px;
     }
-    .india-name{
+    .india-name {
         font-size: 22px;
     }
-    .location-text{
+    .location-text {
         font-size: 16px;
     }
-    .india-location-box{
+    .india-location-box {
         margin: 0;
     }
     .work-with-us-left img {
@@ -201,44 +260,63 @@
         object-fit: cover;
     }
 
-    .our-product-right-img-box .our-product-img{
+    .our-product-right-img-box .our-product-img {
         height: 180px;
     }
-    .contact-section{
+    .contact-section {
         padding-top: 150px;
     }
-    .GuestServiceDirectory{
+    .GuestServiceDirectory {
         padding-top: 160px;
     }
-    .guest-text{
+    .guest-text {
         font-size: 18px;
     }
-    .desk-img{
+    .desk-img {
         height: 500px;
     }
-    .product-specification{
+    .product-specification {
         width: 80%;
     }
-    .email-box{
+    .email-box {
         width: 55%;
     }
-    
+    .login-text {
+        padding: 0px 50px;
+    }
+    h2.setting-heading {
+        width: 470px !important;
+    }
+    .account-setting {
+        padding: 20px;
+    }
+   
 }
 
-@media (max-width:767px) {
-    /* .main-philosophy-section .container{
-        width: auto !important;
-        max-width: min-content; 
-    } */
-    .philosophy-right-box{
+@media (max-width: 767px) {
+    .order-first {
+        padding: 0px 20px;
+    }
+    .res-material {
+        border-right: 1px solid #E0E0E0;
+    }
+    .history-heding {
+        margin-top: 20px;
+    }
+    .order-history {
+        width: 400px !important;
+    }
+    h2.setting-heading {
+        width: 470px !important;
+    }
+    .philosophy-right-box {
         display: none;
     }
-    .scroll-box1{
+    .scroll-box1 {
         display: none;
     }
     .product-img-center {
         margin: 10px 0px;
-
     }
 
     .main-header {
@@ -341,22 +419,22 @@
     .call-box1 {
         margin-bottom: 15px;
     }
-    .Custom-Project{
+    .Custom-Project {
         height: 890px;
     }
-    .QueriesInIndia-box{
+    .QueriesInIndia-box {
         padding-bottom: 20px;
     }
-    .product-heading{
+    .product-heading {
         font-size: 32px;
     }
     .Requirement-heading {
         width: 540px;
     }
-    .Requirement-heading::after{
+    .Requirement-heading::after {
         width: 44px;
     }
-    .Requirement-heading::before{
+    .Requirement-heading::before {
         width: 50px;
     }
     .customisation-image {
@@ -366,25 +444,25 @@
     .Request-heading {
         width: 540px;
     }
-    .Request-heading::after{
+    .Request-heading::after {
         width: 90px;
     }
-    .Request-heading::before{
+    .Request-heading::before {
         width: 100px;
     }
     .textPadding {
         padding: 0px 18px;
     }
-    .text1{
+    .text1 {
         font-size: 17px;
     }
     .location-heading {
         width: 390px;
     }
-    .location-heading::after{
+    .location-heading::after {
         width: 115px;
     }
-    .location-heading::before{
+    .location-heading::before {
         width: 120px;
     }
     .india-location-box {
@@ -406,10 +484,10 @@
         overflow-y: scroll;
         height: 380px;
     }
-    ul.ruby-menu>li.ruby-menu-mega-shop>div>ul>li>a{
+    ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a {
         font-size: 14px;
     }
-    .ruby-list-heading{
+    .ruby-list-heading {
         font-size: 14px;
     }
     .menu-right-img img {
@@ -417,11 +495,11 @@
         height: 161px;
         object-fit: cover;
     }
-    .philosophy-section{
+    .philosophy-section {
         padding-top: 150px;
     }
 
-    .video-box iframe{
+    .video-box iframe {
         height: 310px;
     }
     .who-we-are {
@@ -431,10 +509,10 @@
     .video-section {
         height: 936px;
     }
-    .client-arro{
+    .client-arro {
         right: 100px;
     }
-    .client-arro1{
+    .client-arro1 {
         right: 30px;
     }
     .get-in-touch .get-in-touch-section {
@@ -453,12 +531,57 @@
     .customisation-heading {
         width: 675px;
     }
-    .no-data-found-box{
+    .no-data-found-box {
         width: 70%;
     }
+    /* *******************Login-page ************************/
+    .login-text{
+        padding: 0px 80px;
+    }
+    /* *******************Login-page End************************/
+
+    .account-setting {
+        padding: 30px;
+    }
+    .setting-heading::before {
+        left: 28px !important;
+        width: 80px;
+    }
+    .setting-heading::after {
+        width: 80px;
+        margin-left: 7px;
+    }
+    .nav-div a {
+        width: 50%;
+    }
+    .responsive .flex-column  {
+        display: flex;
+        flex-direction: inherit !important;
+    
+    }
+    .order-history::before {
+        width: 80px !important;
+        left: 15px !important;
+    }
+    .product-heading::after {
+        width: 80px;
+    }
+      
+    
 }
 
 @media (max-width: 600px) {
+    
+    h1.Personal-text {
+        margin-bottom: 20px;
+        margin-top: 0px;
+    }
+    h2.setting-heading {
+        width: 380px !important;
+    }
+    .order-history {
+        width: 350px !important;
+    }
     .product-img-right {
         margin-top: 10px;
     }
@@ -554,7 +677,7 @@
     }
 
     .product-heading::before {
-        width: 95px;
+        width: 70px;
     }
 
     .product-heading::after {
@@ -765,7 +888,6 @@
         right: -8% !important;
         font-size: 13px !important;
     }
-
 
     /* .Contact Page  *********************************/
 
@@ -1230,7 +1352,7 @@
         left: 19%;
     }
 
-    .contactOpine-setion .nav-tabs>li {
+    .contactOpine-setion .nav-tabs > li {
         width: 45%;
     }
 
@@ -1290,20 +1412,97 @@
         object-fit: cover;
     }
 
-    .whatsapp-icon{
+    .whatsapp-icon {
         width: 45px;
     }
     img.mess-icon {
         width: 45px;
     }
-    .call-box img{
+    .call-box img {
         height: 40px;
+    }
+    
+
+    /* *******************Login-page ************************/
+    .signin {
+        font-size: 36px;
+    }
+    .login-text {
+        padding: 0;
+        font-size: 19px;
+        line-height: 26px;
+    }
+    .login-box {
+        margin-top: 0px;
+        width: 320px;
+        padding: 20px;
+    }
+    .contact-responsive {
+        height: 380px !important;
+    }
+    .contact-heading {
+        font-size: 25px;
+        width: 230px;
+    }
+    .contact-heading::before {
+        width: 66px;
+    }
+    .contact-heading::after {
+        width: 66px;
+        margin-left: 6px;
+    }
+    
+
+    /* *******************Login-page End************************/
+
+    /* *******************Cart-page ************************/
+
+    .cart-box {
+        margin-top: 0px;
+        padding: 20px;
+    }
+    .lines {
+        left: 19%;
+    }
+    .cart-heading {
+        font-size: 22px;
+    }
+    .request-button::before {
+        left: 20%;
+    }
+   
+    /* *******************Cart-page End************************/
+    .account-setting {
+        padding: 20px;
+    }
+    .setting-heading::before {
+        left: 16px !important;
+        width: 70px;
+    }
+    .setting-heading::after {
+        width: 70px;
+        margin-left: 7px;
+    }
+    .order-first {
+        padding: 0px 20px;
+    }
+    .order-history::before {
+        left: 10px !important;
+    }
+    .order-history::after {
+        width: 70px;
+        margin-left: 4px;
+    }
+    .res-material {
+        border-right: 1px solid #E0E0E0;
     }
 
 }
 
 @media (max-width: 425px) {
-
+    h2.setting-heading {
+        width: 350px !important;
+    }
     .Custom-Project {
         height: 870px;
     }
@@ -1454,10 +1653,26 @@
     .Request-heading-mob::after {
         width: 36px;
     }
+    .request-button::before {
+        left: 20%;
+    }
+    .setting-heading::before {
+        left: 26px !important;
+        width: 50px;
+    }
+    .setting-heading::after {
+        width: 50px;
+        margin-left: 7px;
+    }
+    .order-history {
+        width: 298px !important;
+    }
+    .order-history::before {
+        left: 0px !important;
+    }
 }
 
 /* Mobile View Header Responsive Start************************************/
-
 
 .sidenav {
     height: 100%;
@@ -1479,7 +1694,7 @@
     color: #474747;
     display: block;
     transition: 0.3s;
-    font-family: 'Futura Md BT';
+    font-family: "Futura Md BT";
     font-size: 16px !important;
     margin: 6px 0px;
     cursor: pointer;
@@ -1522,7 +1737,7 @@ a.closebtn {
         transform: rotate(180deg);
         margin-right: 8px;
     }
-    .card-link+.card-link {
+    .card-link + .card-link {
         margin: 0px !important;
     }
 
@@ -1578,7 +1793,6 @@ a.closebtn {
         padding: 3px 0px;
         text-align: left;
     }
-
 
     a:-webkit-any-link:focus-visible {
         outline-offset: 0px;
@@ -1646,7 +1860,7 @@ a.closebtn {
     }
 
     .main-section-accordion ul li p {
-        font-family: 'Futura Md BT';
+        font-family: "Futura Md BT";
         font-size: 17px;
         color: #535353;
         margin-left: 8px;
@@ -1691,7 +1905,7 @@ a.closebtn {
 
     .productByMaterial_subMenu p {
         margin: 0;
-        font-family: 'Futura Md BT';
+        font-family: "Futura Md BT";
         font-size: 16px;
         color: #474747;
         letter-spacing: 0.56px;
@@ -1714,7 +1928,7 @@ a.closebtn {
     .back-btn-box {
         background-color: #f2f2f2;
         padding: 10px 10px;
-        font-family: 'Futura Md BT';
+        font-family: "Futura Md BT";
         font-size: 15px;
         display: flex;
         align-items: center;

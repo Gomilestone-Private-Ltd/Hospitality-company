@@ -2434,6 +2434,7 @@ button.otp-button {
     border-radius: 10px;
     background-color: #fff;
     padding: 30px 40px;
+    margin-bottom: 120px;
 }
 .navigator {
     height: 46px !important;
@@ -2445,9 +2446,7 @@ button.otp-button {
     color: #000 !important;
     background-color: #f0efeb !important;
 }
-.nav-div {
-    position: relative;
-}
+
 .nav-div a {
     color: #827d7d !important;
     border-radius: 0 !important;
@@ -2455,17 +2454,18 @@ button.otp-button {
     font-size: 16px;
     font-family: "Futura Lt BT";
     font-weight: 500;
+    position: relative;
 }
 
 .arrow-img {
     position: absolute;
     right: 15px;
-    top: 12px;
+    top: 10px;
 }
 .arrow-img2 {
     position: absolute;
     right: 15px;
-    top: 58px;
+    top: 10px;
 }
 #after {
     display: none;
@@ -2474,9 +2474,7 @@ button.otp-button {
     margin-bottom: 10px;
 }
 .account-box {
-    /* padding: 20px 40px; */
     width: 100%;
-    border: 1px solid #ededed;
 }
 .setting-box {
     padding-left: 0px;
@@ -2589,8 +2587,7 @@ p.mt-text {
     border-right: 1px solid #E0E0E0;
 }
 .order-history-content {
-    padding: 0px 40px;
-    border-bottom: 1px solid #E0E0E0;
+    border-top: none;
 }
 .order-histroy-box2 {
     padding: 30px 40px 0px 40px;
@@ -2599,4 +2596,94 @@ p.mt-text {
 .account-main {
     padding: 0px 25px;
     margin-bottom: 30px;
+}
+.account-heading-main {
+    border: 1px solid #ECECEC;
+}
+.order-first {
+    padding: 0px 40px;
+    border: 1px solid #ECECEC;
+}
+.cart-box {
+    background-color: #fff;
+    width: 764px;
+    border: 1px solid #ececec;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: -230px;
+    z-index: 99;
+    margin-bottom: 80px;
+}
+.cart-history-img {
+    width: 100%;
+    height: 135px;
+}
+.cart-heading {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #000;
+    font-family: 'Futura Md BT';
+    margin-bottom: 18px;
+}
+.cart-para {
+    font-size: 16px;
+    font-family: 'Futura Md BT';
+}
+.cart-content {
+    margin-bottom: 30px;
+}
+.request-btn {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    position: relative;
+}
+.lines {
+    width: 55px;
+    height: 1px;
+    background-color: #6A6A6A;
+    margin-right: 5px;
+    position: absolute;
+    left: 34%;
+}
+button.request-button {
+    border: none;
+    padding: 15px 80px 15px 120px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Futura Md BT';
+    color: #6A6A6A;
+}
+.request-button::before {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #6a6a6a;
+    position: absolute;
+    bottom: 23px;
+    left: 35%;
+}
+.proposal-btn {
+    background-color: #E3E3E3;
+    color: #6A6A6A;
+    font-family: 'Futura Md BT';
+    font-size: 14px;
+    height: 50px;
+    width: 250px;
+    border: none;
+    margin-top: 20px;
+    text-align: end;
+    padding-right: 30px;
+    position: relative;
+}
+.proposal-btn::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #6A6A6A;
+    position: absolute;
+    bottom: 23px;
+    left: 12%;
 }
