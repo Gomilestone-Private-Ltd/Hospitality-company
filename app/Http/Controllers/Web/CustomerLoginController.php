@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Web\VerifyOtp;
 use App\Http\Requests\Web\LoginRequest;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\Web\UpdateProfile;
 
 class CustomerLoginController extends Controller
 {
@@ -86,7 +87,7 @@ class CustomerLoginController extends Controller
     }
 
 
-     /**
+    /**
      * @method 
      * @param
      * @return
@@ -96,12 +97,29 @@ class CustomerLoginController extends Controller
             if(!empty(Token::getSessionToken()[1]) && Token::getSessionToken()[1] == $request->otp){
                 //update token 
                 $getUserDetail = [
-                                    'slug'       => Slug::mediumSlug() ??'',
-                                    'name'       => Token::getSessionToken()[0] ??'',
-                                    'contact'    => Token::getSessionToken()[2] ??'',
-                                    'password'   => Hash::make(Token::getSessionToken()[1]) ??'',
-                                    'c_password' => Token::getSessionToken()[2]??'',
+                                      'slug'              => Slug::mediumSlug() ??'',
+                                      'name'              => Token::getSessionToken()[0] ??'',
+                                      'contact'        => Token::getSessionToken()[2] ??'',
+                                      'password'      => Hash::make(Token::getSessionToken()[1]) ??'',
+                                      'c_password'  => Token::getSessionToken()[2]??'',
                                  ];   
+
+                $this->user->create($getUserDetail); 
+
+               if(Auth::attempt(['contact' => Token::getSessionToken()[2], 'password' => Token::getSessionToken()[1]])){
+                    Token::updateSessionToken();
+                    return response()->json([
+                                                'status'  => 200,
+                                                'success' => "OTP verified successfully",
+                                            ]);
+                }else{
+                    Token::updateSessionToken();
+                    return response()->json([
+                                                'status'    => 300,
+                                                'success'   => "Enter valid otp",
+                                            ]);
+                }                           
+                
                 $this->user->create($getUserDetail); 
                // $credentials = $request->only('contact', 'password');
                 //dd(Token::getSessionToken()[2]);
@@ -120,10 +138,31 @@ class CustomerLoginController extends Controller
                 }                           
                 
             }else{
-                return response()->json(['status'=> 300, 'error'  =>"Enter valid otp !!" ]);
+                return response()->json(['status'=> 300, 'error'  =>"Enter valid otp" ]);
             }
         }catch(\Exception $e){
             return response()->json(['error' => $e->getMessage()]);
         } 
+    }
+
+    /**
+     * @method 
+     * @param
+     * @return
+     */
+    public function updateProfile(UpdateProfile $request)
+    {
+        try{
+            $data = [
+                      'name'    => $request->fullname ??'',
+                      'email'   => $request->email??'',
+                      'contact' => $request->mobile ??'',
+                    ];
+            $this->user->whereSlug($request->slug)->update($data);  
+            return redirect()->back()->with(['success' => "Account Updated"]);       
+                    
+        }catch(\Exception $e){
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 }
