@@ -119,23 +119,7 @@ class CustomerLoginController extends Controller
                                                 'success'   => "Enter valid otp",
                                             ]);
                 }                           
-                
-                $this->user->create($getUserDetail); 
-               // $credentials = $request->only('contact', 'password');
-                //dd(Token::getSessionToken()[2]);
-                if(Auth::attempt(['contact' => Token::getSessionToken()[2], 'password' => Token::getSessionToken()[2]])){
-                    //Token::updateSessionToken();
-                    return response()->json([
-                                                'status'  => 200,
-                                                'success' => "Otp verified successfully !!",
-                                            ]);
-                }else{
-                    //Token::updateSessionToken();
-                    return response()->json([
-                                                'status'    => 300,
-                                                'success'   => "Enter valid otp !!",
-                                            ]);
-                }                           
+                                         
                 
             }else{
                 return response()->json(['status'=> 300, 'error'  =>"Enter valid otp" ]);
