@@ -15,4 +15,7 @@ class ContactController extends Controller
     public function account(){
         return view('web.account_setting');
     }
+    public function cart(){
+        return view('web.cart');
+    }
 }
